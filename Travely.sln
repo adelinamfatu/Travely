@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34616.47
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Travely.Client", "Travely.Client\Travely.Client.csproj", "{BD0A0C78-B959-4C39-93C3-613257B4E99B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Travely.Client", "Travely.Client\Travely.Client.csproj", "{BD0A0C78-B959-4C39-93C3-613257B4E99B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Travely.Server", "Travely.Server\Travely.Server.csproj", "{3A94B9FA-EEED-48D1-B12A-1DBE9151796C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Travely.Server", "Travely.Server\Travely.Server.csproj", "{3A94B9FA-EEED-48D1-B12A-1DBE9151796C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Travely.Api", "Travely.Api\Travely.Api.csproj", "{84CFC61A-532E-4BCE-B65D-1A3A1018222A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +25,10 @@ Global
 		{3A94B9FA-EEED-48D1-B12A-1DBE9151796C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A94B9FA-EEED-48D1-B12A-1DBE9151796C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A94B9FA-EEED-48D1-B12A-1DBE9151796C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84CFC61A-532E-4BCE-B65D-1A3A1018222A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84CFC61A-532E-4BCE-B65D-1A3A1018222A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84CFC61A-532E-4BCE-B65D-1A3A1018222A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84CFC61A-532E-4BCE-B65D-1A3A1018222A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
