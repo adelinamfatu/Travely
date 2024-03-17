@@ -1,4 +1,4 @@
-namespace Travely.Api.Models
+namespace Travely.Api
 {
     public class WeatherForecast
     {

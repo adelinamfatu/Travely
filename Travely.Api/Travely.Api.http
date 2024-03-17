@@ -1,4 +1,4 @@
-@Travely.Api_HostAddress = http://localhost:5267
+@Travely.Api_HostAddress = http://localhost:5293
 
 GET {{Travely.Api_HostAddress}}/weatherforecast/
 Accept: application/json
