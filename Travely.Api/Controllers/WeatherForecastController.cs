@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Travely.Api.Models;
 
 namespace Travely.Api.Controllers
 {
