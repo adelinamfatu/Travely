@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Travely.Domain.Entities
 {
     [Table("TouristSpots")]
-    internal class TouristSpotSqlView
+    public class TouristSpotSqlView
     {
         [Key]
         public Guid SpotId { get; set; } = Guid.NewGuid();

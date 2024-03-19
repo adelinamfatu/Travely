@@ -22,5 +22,7 @@ namespace Travely.Domain.Entities
         [Required]
         public string PasswordHash { get; set; }
 
+        public virtual ICollection<BudgetSqlView> Budgets { get; set; } = new List<BudgetSqlView>();
+
     }
 }
