@@ -13,9 +13,9 @@ namespace Travely.Domain.Entities
         [Required]
         public string Location { get; set; }
 
-        public decimal DistanceFromCenter { get; set; }
+        public decimal? DistanceFromCenter { get; set; }
 
         [Column(TypeName = "decimal(18,2)")]
-        public decimal EntryFee { get; set; } = 0;
+        public decimal? EntryFee { get; set; } = 0;
     }
 }
