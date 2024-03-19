@@ -17,5 +17,7 @@ namespace Travely.Domain.Entities
 
         [Column(TypeName = "decimal(18,2)")]
         public decimal? EntryFee { get; set; } = 0;
+
+        public virtual ICollection<BudgetTouristSpotSqlView> BudgetTouristSpots { get; set; } = new List<BudgetTouristSpotSqlView>();
     }
 }
