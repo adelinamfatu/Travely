@@ -7,10 +7,10 @@ namespace Travely.Domain.Entities
     public class UserSqlView
     {
         [Key]
-        public Guid UserId { get; set; } = Guid.NewGuid();
+        public Guid Id { get; set; } = Guid.NewGuid();
 
         [Required]
-        public string Email { get; set; }
+        public string? Email { get; set; }
 
         public string? FirstName { get; set; }
 
@@ -20,9 +20,8 @@ namespace Travely.Domain.Entities
         public int Age { get; set; }
 
         [Required]
-        public string PasswordHash { get; set; }
+        public string? Password { get; set; }
 
-        public virtual ICollection<BudgetSqlView> Budgets { get; set; } = new List<BudgetSqlView>();
-
+        public virtual ICollection<TripSqlView>? Trips { get; set; }
     }
 }
