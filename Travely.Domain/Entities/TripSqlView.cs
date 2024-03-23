@@ -23,11 +23,6 @@ namespace Travely.Domain.Entities
 
         public decimal Budget { get; set; }
 
-        [ForeignKey("UserSqlView")]
-        public Guid UserId { get; set; }
-
-        public virtual UserSqlView? User { get; set; }
-
         public virtual ICollection<SpotSqlView>? Spots { get; set; }
 
         public virtual ICollection<FlightSqlView>? Flights { get; set; }

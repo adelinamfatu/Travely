@@ -1,21 +1,21 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System.Security.Claims;
 using Travely.Domain.Entities;
 
 namespace Travely.Domain
 {
     public class AppDbContext : DbContext
     {
-        public DbSet<UserSqlView> Users { get; set; }
-
         public DbSet<TripSqlView> Trips { get; set; }
 
         public DbSet<FlightSqlView> Flights { get; set; }
 
         public DbSet<SpotSqlView> Spots { get; set; }
 
+        public AppDbContext() { }
+
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
+            Database.Migrate();
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -25,6 +25,11 @@ namespace Travely.Domain
             modelBuilder.Entity<FlightSqlView>().Property(flight => flight.Price).HasPrecision(18, 2);
 
             base.OnModelCreating(modelBuilder);
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlite();
         }
     }
 }
