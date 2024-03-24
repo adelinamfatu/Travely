@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       x:Class="Travely.Client.Pages.PlanATrip"
+       Title="Plan A Trip">
+    <Grid>
+        <StackLayout Margin="20">
+            <!-- <Label Text="Plan a New Trip" FontSize="Large" />-->
+            <Entry Placeholder="Where to?" />
+            <DatePicker AutomationProperties.Name="Start Date" />
+            <DatePicker AutomationProperties.Name="End Date" />
+            <Button Text="Start Planning" />
+        </StackLayout>
+    </Grid>
+</ContentPage>

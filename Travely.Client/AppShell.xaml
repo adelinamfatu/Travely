@@ -3,16 +3,38 @@
     x:Class="Travely.Client.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:Travely.Client"
-    Shell.FlyoutBehavior="Disabled"
+    xmlns:local="clr-namespace:Travely.Client.Pages"
+    Shell.FlyoutBehavior="Flyout"
     Title="Travely.Client">
-
 
     <ShellContent
         Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="Main Page" />
-
+        ContentTemplate="{DataTemplate local:DashboardPage}"
+        Route="DashboardPage" />
     
+    <ShellContent
+    Title="Profile"
+    ContentTemplate="{DataTemplate local:Profile}"
+    Route="Profile" />
+
+    <ShellContent
+     Title="Book Hotels"
+     ContentTemplate="{DataTemplate local:BookHotels}"
+     Route="BookHotels" />
+
+    <ShellContent
+     Title="My Trips"
+     ContentTemplate="{DataTemplate local:MyTrips}"
+     Route="MyTrips" />
+
+    <ShellContent
+    Title="My Flights"
+    ContentTemplate="{DataTemplate local:MyFlights}"
+     Route="MyFlights" />
+
+    <ShellContent
+    Title="Plan A Trip"
+    ContentTemplate="{DataTemplate local:PlanATrip}"
+     Route="PlanATrip" />
 
 </Shell>
