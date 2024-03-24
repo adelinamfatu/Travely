@@ -7,14 +7,12 @@
     Shell.FlyoutBehavior="Disabled"
     Title="Travely.Client">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:LoginPage}"
-        Route="LoginPage" />
 
     <ShellContent
-    Title="Home"
-    ContentTemplate="{DataTemplate local:SignUpPage}"
-    Route="SignUp" />
+        Title="Home"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="Main Page" />
+
+    
 
 </Shell>
