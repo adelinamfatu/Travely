@@ -1,15 +1,35 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Travely.Domain.Entities;
 
 namespace Travely.Domain
 {
     public class AppDbContext : DbContext
     {
-        public DbSet<UserSqlView> Users { get; set; }
+        public DbSet<TripSqlView> Trips { get; set; }
+
+        public DbSet<FlightSqlView> Flights { get; set; }
+
+        public DbSet<SpotSqlView> Spots { get; set; }
+
+        public AppDbContext() { }
+
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+        {
+            Database.Migrate();
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<TripSqlView>().Property(trip => trip.Budget).HasPrecision(18, 2);
+            modelBuilder.Entity<SpotSqlView>().Property(spot => spot.EntryFee).HasPrecision(18, 2);
+            modelBuilder.Entity<FlightSqlView>().Property(flight => flight.Price).HasPrecision(18, 2);
+
+            base.OnModelCreating(modelBuilder);
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlite();
+        }
     }
 }

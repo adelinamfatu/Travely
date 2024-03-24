@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Travely.Client", "Travely.C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Travely.Domain", "Travely.Domain\Travely.Domain.csproj", "{58C9955B-21AF-41AF-8E2B-B99379BFDD19}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Travely.Api", "Travely.Api\Travely.Api.csproj", "{7902A073-D4E1-4B09-9BF1-FD169AD475A3}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,10 +23,6 @@ Global
 		{58C9955B-21AF-41AF-8E2B-B99379BFDD19}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58C9955B-21AF-41AF-8E2B-B99379BFDD19}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58C9955B-21AF-41AF-8E2B-B99379BFDD19}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7902A073-D4E1-4B09-9BF1-FD169AD475A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7902A073-D4E1-4B09-9BF1-FD169AD475A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7902A073-D4E1-4B09-9BF1-FD169AD475A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7902A073-D4E1-4B09-9BF1-FD169AD475A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
