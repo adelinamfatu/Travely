@@ -21,7 +21,7 @@
             <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="20">
                 <DatePicker AutomationProperties.Name="End Date" />
             </Frame>
-            <Button  Text="Start Planning" BackgroundColor="Black" HeightRequest="60" WidthRequest="300" Margin="20,60,20,40"/>
+            <Button  Text="Start Planning" BackgroundColor="Black" HeightRequest="60" WidthRequest="300" Margin="20,40,20,40"/>
         </StackLayout>
     </Grid>
 </ContentPage>
