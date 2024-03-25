@@ -2,17 +2,44 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Travely.Client.Pages.BookHotels"
-             Title="BookHotels">
+             Title="Book Hotels">
     <Grid>
-        <StackLayout Margin="20">
+        <StackLayout >
             <!--<Label Text="Book A Hotel" FontSize="Large" />-->
-            <Entry Placeholder="Where to?" />
-            <DatePicker AutomationProperties.Name="Start Date" />
-            <DatePicker AutomationProperties.Name="End Date" />
-            <Entry Placeholder="Rooms"/>
-            <Entry Placeholder="Adults"/>
-            <Entry Placeholder="Children"/>
-            <Button Text="Search Hotels" />
+            <Image Source="adventure_logo" WidthRequest="170" HeightRequest="170" />
+
+            <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="10">
+                <Entry Placeholder="Where to?" />
+            </Frame>
+
+
+            <Label Text="Start Date" Margin="20,0,0,0" FontAttributes="Bold" />
+            <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="10">
+                <DatePicker AutomationProperties.Name="Start Date"/>
+            </Frame>
+
+            <Label Text="Start Date" Margin="20,0,0,0" FontAttributes="Bold" />
+            <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="10">
+                <DatePicker AutomationProperties.Name="End Date" />
+            </Frame>
+
+
+            <!-- Rooms Entry -->
+            <Frame Grid.Column="0" BorderColor="Black" CornerRadius="5" Padding="0" Margin="10">
+                <Entry Placeholder="Rooms" FontSize="Small" />
+            </Frame>
+
+            <!-- Adults Entry -->
+            <Frame Grid.Column="1" BorderColor="Black" CornerRadius="5" Padding="0" Margin="10">
+                <Entry Placeholder="Adults" FontSize="Small" />
+            </Frame>
+
+            <!-- Children Entry -->
+            <Frame Grid.Column="2" BorderColor="Black" CornerRadius="5" Padding="0" Margin="10">
+                <Entry Placeholder="Children" FontSize="Small" />
+            </Frame>
+
+            <Button  Text="Search Hotels" BackgroundColor="Black" HeightRequest="50" WidthRequest="300" Margin="15"/>
         </StackLayout>
     </Grid>
 </ContentPage>
