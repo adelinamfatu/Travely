@@ -58,9 +58,13 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\Images\adventures.png" />
+	  <None Remove="Resources\Images\banner.PNG" />
 	  <None Remove="Resources\Images\email.png" />
 	  <None Remove="Resources\Images\flying.png" />
+	  <None Remove="Resources\Images\greece.PNG" />
+	  <None Remove="Resources\Images\india.PNG" />
 	  <None Remove="Resources\Images\mobile.png" />
+	  <None Remove="Resources\Images\paris.PNG" />
 	  <None Remove="Resources\Images\password.png" />
 	  <None Remove="Resources\Images\plan.png" />
 	  <None Remove="Resources\Images\travel.png" />

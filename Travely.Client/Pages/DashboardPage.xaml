@@ -4,10 +4,26 @@
              x:Class="Travely.Client.Pages.DashboardPage"
              Title="TRAVELY">
 
-    <StackLayout Margin="20">
-        <Label Text="Plan Your New Adventures" FontSize="Large" />
-        <SearchBar Placeholder="Search..." />
-        <Image Source="adventures" WidthRequest="300" HeightRequest="300" Aspect="AspectFit" />
+    <StackLayout>
+
+        <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="20">
+            <SearchBar Placeholder="Search..." />
+        </Frame>
+        
+        <Image Source="adventures" WidthRequest="500" HeightRequest="200" Aspect="AspectFit" Margin="140,0,0,0" />
+        <Button Margin="10" Text="Start Planning" BackgroundColor="Black" />
+
+        <Label Margin="20,50,0,0" Text="Popular Destinations" FontSize="Medium" />
+        <ScrollView Margin="20,10,10,10" Orientation="Horizontal">
+            
+            <StackLayout Margin="5" Orientation="Horizontal">
+                <Image Margin="10,10,10,10" Source="paris" WidthRequest="200" HeightRequest="200" />
+                <Image Margin="10,10,10,10" Source="greece" WidthRequest="200" HeightRequest="200" />
+                <Image Margin="10,10,10,10" Source="india" WidthRequest="200" HeightRequest="200"/>
+            </StackLayout>
+        </ScrollView>
     </StackLayout>
+
+
 
 </ContentPage>
