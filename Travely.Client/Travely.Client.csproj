@@ -59,8 +59,14 @@
 	<ItemGroup>
 	  <None Remove="Resources\Images\adventures.png" />
 	  <None Remove="Resources\Images\adventure_Logo.png" />
+	  <None Remove="Resources\Images\africa.jpg" />
+	  <None Remove="Resources\Images\america.jpg" />
+	  <None Remove="Resources\Images\asia.jpg" />
+	  <None Remove="Resources\Images\australia.jpg" />
 	  <None Remove="Resources\Images\banner.PNG" />
+	  <None Remove="Resources\Images\dashboard_pic.jpg" />
 	  <None Remove="Resources\Images\email.png" />
+	  <None Remove="Resources\Images\europe.jpg" />
 	  <None Remove="Resources\Images\flying.png" />
 	  <None Remove="Resources\Images\greece.PNG" />
 	  <None Remove="Resources\Images\india.PNG" />
@@ -68,6 +74,7 @@
 	  <None Remove="Resources\Images\paris.PNG" />
 	  <None Remove="Resources\Images\password.png" />
 	  <None Remove="Resources\Images\plan.png" />
+	  <None Remove="Resources\Images\south_america.jpg" />
 	  <None Remove="Resources\Images\travel.png" />
 	  <None Remove="Resources\Images\user.png" />
 	  <None Remove="Resources\Raw\animation.json" />

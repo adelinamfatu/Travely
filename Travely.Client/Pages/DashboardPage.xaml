@@ -4,25 +4,69 @@
              x:Class="Travely.Client.Pages.DashboardPage"
              Title="TRAVELY">
 
-    <StackLayout>
+    <ScrollView>
+        <StackLayout>
 
-        <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="20">
-            <SearchBar Placeholder="Search..." />
-        </Frame>
-        
-        <Image Source="adventures" WidthRequest="500" HeightRequest="200" Aspect="AspectFit" Margin="140,0,0,0" />
-        <Button Margin="10" Text="Start Planning" BackgroundColor="Black" />
+            <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="20">
+                <SearchBar Placeholder="Search..." />
+            </Frame>
 
-        <Label Margin="20,50,0,0" Text="Popular Destinations" FontSize="Medium" />
-        <ScrollView Margin="20,10,10,10" Orientation="Horizontal">
-            
-            <StackLayout Margin="5" Orientation="Horizontal">
-                <Image Margin="10,10,10,10" Source="paris" WidthRequest="200" HeightRequest="200" />
-                <Image Margin="10,10,10,10" Source="greece" WidthRequest="200" HeightRequest="200" />
-                <Image Margin="10,10,10,10" Source="india" WidthRequest="200" HeightRequest="200"/>
+            <Image Source="dashboard_pic" WidthRequest="500" HeightRequest="200" Aspect="AspectFit" Margin="10" />
+            <Button Margin="10" Text="Start Planning" BackgroundColor="Black" />
+
+            <Label Margin="20,50,0,0" Text="Choose your continent" FontSize="Medium" />
+
+            <StackLayout>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+
+                    <Image Margin="10,10,10,10"  Grid.Row="1" Grid.Column="0" Source="europe.png" />
+                    <Image Margin="10,10,10,10" Grid.Row="1" Grid.Column="1" Source="australia.png" />
+                    <Image Margin="10,10,10,10" Grid.Row="1" Grid.Column="2" Source="america.png" />
+                </Grid>
+
             </StackLayout>
-        </ScrollView>
-    </StackLayout>
+
+            <StackLayout>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+
+                    <Image Margin="10,10,10,10" Grid.Row="1" Grid.Column="0" Source="south_america.png" />
+                    <Image Margin="10,10,10,10" Grid.Row="1" Grid.Column="1" Source="africa.png" />
+                    <Image Margin="10,10,10,10" Grid.Row="1" Grid.Column="2" Source="asia.png" />
+                </Grid>
+
+            </StackLayout>
+
+            <Label Margin="20,50,0,0" Text="Popular Destinations" FontSize="Medium" />
+            <ScrollView Margin="20,10,10,10" Orientation="Horizontal">
+                <StackLayout Margin="5" Orientation="Horizontal">
+                    <Image Margin="10,10,10,10" Source="paris" WidthRequest="200" HeightRequest="200" />
+                    <Image Margin="10,10,10,10" Source="greece" WidthRequest="200" HeightRequest="200" />
+                    <Image Margin="10,10,10,10" Source="india" WidthRequest="200" HeightRequest="200"/>
+                </StackLayout>
+            </ScrollView>
+
+        </StackLayout>
+    </ScrollView>
 
 
 
