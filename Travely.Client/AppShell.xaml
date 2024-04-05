@@ -26,9 +26,6 @@
 
     
 
-    <ShellContent
-    Title="Plan A Trip"
-    ContentTemplate="{DataTemplate local:PlanATrip}"
-     Route="PlanATrip" />
+    
 
 </Shell>
