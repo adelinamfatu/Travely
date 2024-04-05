@@ -17,20 +17,14 @@
     ContentTemplate="{DataTemplate local:Profile}"
     Route="Profile" />
 
-    <ShellContent
-     Title="Book Hotels"
-     ContentTemplate="{DataTemplate local:BookHotels}"
-     Route="BookHotels" />
+   
 
     <ShellContent
      Title="My Trips"
      ContentTemplate="{DataTemplate local:MyTrips}"
      Route="MyTrips" />
 
-    <ShellContent
-    Title="My Flights"
-    ContentTemplate="{DataTemplate local:MyFlights}"
-     Route="MyFlights" />
+    
 
     <ShellContent
     Title="Plan A Trip"
