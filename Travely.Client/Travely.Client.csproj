@@ -69,14 +69,17 @@
 	  <None Remove="Resources\Images\europe.jpg" />
 	  <None Remove="Resources\Images\flying.png" />
 	  <None Remove="Resources\Images\greece.PNG" />
+	  <None Remove="Resources\Images\home.svg" />
 	  <None Remove="Resources\Images\india.PNG" />
+	  <None Remove="Resources\Images\logo.png" />
 	  <None Remove="Resources\Images\mobile.png" />
 	  <None Remove="Resources\Images\paris.PNG" />
 	  <None Remove="Resources\Images\password.png" />
 	  <None Remove="Resources\Images\plan.png" />
+	  <None Remove="Resources\Images\plane.svg" />
 	  <None Remove="Resources\Images\south_america.jpg" />
 	  <None Remove="Resources\Images\travel.png" />
-	  <None Remove="Resources\Images\user.png" />
+	  <None Remove="Resources\Images\user.svg" />
 	  <None Remove="Resources\Raw\animation.json" />
 	</ItemGroup>
 
@@ -98,6 +101,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\Profile.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\SplashScreen.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="SignUpPage - Copy.xaml">

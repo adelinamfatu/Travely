@@ -4,7 +4,7 @@
     {
 
 
-        public MainPage(string constructorParameter)
+        public MainPage()
         {
             InitializeComponent();
         }

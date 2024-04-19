@@ -7,22 +7,29 @@
     Shell.FlyoutBehavior="Flyout"
     Title="Travely.Client">
 
-    <ShellContent
-        Title="Home"
+    <Shell.FlyoutHeader>
+        <Image Source="logo.png" WidthRequest="100"></Image>
+    </Shell.FlyoutHeader>
+
+    <FlyoutItem Title="Home" FlyoutDisplayOptions="AsMultipleItems" >
+        <ShellContent
+        Title="Dashboard"
         ContentTemplate="{DataTemplate local:DashboardPage}"
-        Route="DashboardPage" />
-    
-    <ShellContent
-    Title="Profile"
-    ContentTemplate="{DataTemplate local:Profile}"
-    Route="Profile" />
+        Route="DashboardPage"
+        Icon="home.svg"/>
 
-   
+        <ShellContent
+        Title="Profile"
+        ContentTemplate="{DataTemplate local:Profile}"
+        Route="Profile"
+        Icon="user.svg"/>
 
-    <ShellContent
-     Title="My Trips"
-     ContentTemplate="{DataTemplate local:MyTrips}"
-     Route="MyTrips" />
+        <ShellContent
+        Title="My Trips"
+        ContentTemplate="{DataTemplate local:MyTrips}"
+        Route="MyTrips" 
+        Icon="plane.svg"/>
+    </FlyoutItem>
 
     
 
