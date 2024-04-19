@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Travely.Client.Models
 {
-    internal class Trips
+    public class Trips
     {
         public string CountryName { get; set; }
         public DateTime StartDate { get; set; }
