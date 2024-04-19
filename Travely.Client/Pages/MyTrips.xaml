@@ -3,8 +3,36 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Travely.Client.Pages.MyTrips"
              Title="My Trips">
+    
     <VerticalStackLayout>
         <Button  Text="Start Planning" BackgroundColor="Black" HeightRequest="40" WidthRequest="150" Margin="0,0,20,0"
              Grid.Row="0" Grid.Column="1" HorizontalOptions="End" VerticalOptions="Start"  Clicked="StartPlanningClicked"/>
+        
+        <CollectionView x:Name="tripsCollection" SelectionMode="Single">
+           
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Margin="10">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width=".2*"/>
+                                <ColumnDefinition Width=".8*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding CountryURL}" Grid.Column="0" Grid.Row="0"/>
+                            <VerticalStackLayout Grid.Column="1" Grid.Row="0" Padding="5" VerticalOptions="Center">
+                                <Label Text="{Binding CountryName}" FontSize="20" FontAttributes="Bold"/>
+                                <Label Text="{Binding StartDate, StringFormat='Start: {0:yyyy-MM-dd}'}" FontSize="16"/>
+                                <Label Text="{Binding EndDate, StringFormat='End: {0:yyyy-MM-dd}'}" FontSize="16"/>
+                            </VerticalStackLayout>
+                        </Grid>
+                    </Frame> 
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+
     </VerticalStackLayout>
+
+    
 </ContentPage>
