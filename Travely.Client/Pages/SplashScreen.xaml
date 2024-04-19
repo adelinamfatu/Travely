@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:skia="clr-namespace:SkiaSharp.Extended.UI.Controls;assembly=SkiaSharp.Extended.UI"
              x:Class="Travely.Client.Pages.SplashScreen"
-              Shell.NavBarIsVisible="False"
+             Shell.NavBarIsVisible="False"
              >
     <ScrollView>
         <VerticalStackLayout
@@ -13,12 +13,7 @@
             <skia:SKLottieView Source="animation.json"
                              HeightRequest="250"
                              RepeatCount="-1"
-                             >
-
-            </skia:SKLottieView>
-
-
-
+                             />
 
         </VerticalStackLayout>
     </ScrollView>

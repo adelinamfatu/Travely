@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Travely.Client.Models
 {
-    public class Trips
+    public class TripViewModel
     {
-        public string CountryName { get; set; }
+        public string? CountryName { get; set; }
+
         public DateTime StartDate { get; set; }
+
         public DateTime EndDate { get; set; }
-        public string CountryURL {  get; set; }
-        
 
-
+        public string? CountryURL {  get; set; }
     }
 }

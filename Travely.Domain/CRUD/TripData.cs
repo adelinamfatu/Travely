@@ -13,6 +13,7 @@ namespace Travely.Domain.CRUD
 
         public void AddTrip(TripSqlView trip)
         {
+            System.Diagnostics.Debug.WriteLine(trip);
             var existingTrip = this.context.Trips.FirstOrDefault(t => t.Id == trip.Id);
 
             if (existingTrip == null)

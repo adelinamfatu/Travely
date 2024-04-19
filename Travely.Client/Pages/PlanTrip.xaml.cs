@@ -2,11 +2,11 @@ using Travely.Client.Models;
 
 namespace Travely.Client.Pages;
 
-public partial class PlanATrip : ContentPage
+public partial class PlanTrip : ContentPage
 {
     private MyTrips myTripsPage;
 
-    public PlanATrip(MyTrips myTripsPage)
+    public PlanTrip(MyTrips myTripsPage)
     {
         InitializeComponent();
         this.myTripsPage = myTripsPage;
@@ -14,18 +14,15 @@ public partial class PlanATrip : ContentPage
 
     private async void StartPlanningClicked_Button(object sender, EventArgs e)
     {
-       
-        Trips newTrip = new Trips
+        TripViewModel newTrip = new TripViewModel
         {
             CountryName = entryCountry.Text,
             StartDate = startDatePicker.Date,
             EndDate = endDatePicker.Date
         };
-
        
         myTripsPage.AddTrip(newTrip);
 
-      
         await Navigation.PopAsync();
     }
 }

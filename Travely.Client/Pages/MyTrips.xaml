@@ -3,14 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Travely.Client.Pages.MyTrips"
              Title="My Trips">
-    
+
     <VerticalStackLayout>
         <Button  Text="Start Planning" BackgroundColor="Black" HeightRequest="40" WidthRequest="150" Margin="0,0,20,0"
              Grid.Row="0" Grid.Column="1" HorizontalOptions="End" VerticalOptions="Start"  Clicked="StartPlanningClicked"/>
-        
         <CollectionView x:Name="tripsCollection" SelectionMode="Single">
-           
-
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Frame Margin="10">
@@ -26,13 +23,9 @@
                                 <Label Text="{Binding EndDate, StringFormat='End: {0:yyyy-MM-dd}'}" FontSize="16"/>
                             </VerticalStackLayout>
                         </Grid>
-                    </Frame> 
+                    </Frame>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-
-
     </VerticalStackLayout>
-
-    
 </ContentPage>

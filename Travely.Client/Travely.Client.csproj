@@ -57,62 +57,32 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Resources\Images\adventures.png" />
-	  <None Remove="Resources\Images\adventure_Logo.png" />
-	  <None Remove="Resources\Images\africa.jpg" />
-	  <None Remove="Resources\Images\america.jpg" />
-	  <None Remove="Resources\Images\asia.jpg" />
-	  <None Remove="Resources\Images\australia.jpg" />
-	  <None Remove="Resources\Images\banner.PNG" />
-	  <None Remove="Resources\Images\dashboard_pic.jpg" />
 	  <None Remove="Resources\Images\email.png" />
-	  <None Remove="Resources\Images\europe.jpg" />
 	  <None Remove="Resources\Images\flying.png" />
-	  <None Remove="Resources\Images\greece.PNG" />
-	  <None Remove="Resources\Images\home.svg" />
-	  <None Remove="Resources\Images\india.PNG" />
-	  <None Remove="Resources\Images\logo.png" />
 	  <None Remove="Resources\Images\mobile.png" />
-	  <None Remove="Resources\Images\paris.PNG" />
 	  <None Remove="Resources\Images\password.png" />
 	  <None Remove="Resources\Images\plan.png" />
-	  <None Remove="Resources\Images\plane.svg" />
-	  <None Remove="Resources\Images\south_america.jpg" />
 	  <None Remove="Resources\Images\travel.png" />
-	  <None Remove="Resources\Images\user.svg" />
-	  <None Remove="Resources\Raw\animation.json" />
+	  <None Remove="Resources\Images\user.png" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
-		<PackageReference Include="SkiaSharp.Extended.UI.Maui" Version="2.0.0-preview.92" />
+		<PackageReference Include="SkiaSharp.Extended.UI.Maui" Version="2.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Pages\DashboardPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Pages\MyTrips.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Pages\PlanATrip.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Pages\Profile.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Pages\SplashScreen.xaml">
+	  <MauiXaml Update="Pages\LoginPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="SignUpPage - Copy.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Models\ViewModels\" />
+	  <MauiXaml Update="Pages\SignUpPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -120,6 +90,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Pages\PlanTrip.xaml.cs">
+	    <DependentUpon>PlanTrip.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Resources\SharedResources.Designer.cs">
 	    <DependentUpon>SharedResources.resx</DependentUpon>
 	    <DesignTime>True</DesignTime>
