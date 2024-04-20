@@ -3,13 +3,12 @@ using Travely.Client.Models;
 
 namespace Travely.Client.Pages;
 
-public partial class MyTrips : ContentPage
+public partial class Trips : ContentPage
 {
-	public MyTrips()
+	public Trips()
 	{
 		InitializeComponent();
         tripsCollection.ItemsSource = GetTrips();
-
 	}
 
     public void AddTrip(TripViewModel trip)
