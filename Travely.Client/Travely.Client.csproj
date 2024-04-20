@@ -67,7 +67,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.3" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.4" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.4">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.3" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
@@ -92,8 +96,14 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Pages\PlanTrip.xaml.cs">
-	    <DependentUpon>PlanTrip.xaml</DependentUpon>
+	  <Compile Update="Pages\PlanTripPage.xaml.cs">
+	    <DependentUpon>PlanTripPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\ProfilePage.xaml.cs">
+	    <DependentUpon>ProfilePage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\TripsPage.xaml.cs">
+	    <DependentUpon>TripsPage.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Resources\SharedResources.Designer.cs">
 	    <DependentUpon>SharedResources.resx</DependentUpon>

@@ -21,8 +21,10 @@ namespace Travely.Client
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
+            string databasePath = $"Data Source={DatabasePath.GetDatabasePath()}";
+
             builder.Services.AddDbContext<AppDbContext>(
-                options => options.UseSqlite($"Filename={DatabasePath.GetDatabasePath()}",
+                options => options.UseSqlite(databasePath,
                 infrastructure => infrastructure.MigrationsAssembly(nameof(Travely.Domain))));
 
             return builder.Build();

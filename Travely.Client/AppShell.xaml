@@ -15,18 +15,18 @@
         <ShellContent
             Title="Dashboard"
             ContentTemplate="{DataTemplate local:DashboardPage}"
-            Route="DashboardPage"
+            Route="Dashboard"
             Icon="home.svg"/>
 
         <ShellContent
             Title="Profile"
-            ContentTemplate="{DataTemplate local:Profile}"
+            ContentTemplate="{DataTemplate local:ProfilePage}"
             Route="Profile"
             Icon="user.svg"/>
 
         <ShellContent
             Title="My Trips"
-            ContentTemplate="{DataTemplate local:Trips}"
+            ContentTemplate="{DataTemplate local:TripsPage}"
             Route="MyTrips" 
             Icon="plane.svg"/>
     </FlyoutItem>

@@ -11,7 +11,7 @@ namespace Travely.Domain
 
         public DbSet<SpotSqlView> Spots { get; set; }
 
-        public AppDbContext() { }
+        //public AppDbContext() { }
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
@@ -29,7 +29,7 @@ namespace Travely.Domain
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite();
+            //optionsBuilder.UseSqlite("Data Source=data/user/0/com.travely.app/files/travely.db");
         }
     }
 }

@@ -3,9 +3,9 @@ using Travely.Client.Models;
 
 namespace Travely.Client.Pages;
 
-public partial class Trips : ContentPage
+public partial class TripsPage : ContentPage
 {
-	public Trips()
+	public TripsPage()
 	{
 		InitializeComponent();
         tripsCollection.ItemsSource = GetTrips();
@@ -21,7 +21,7 @@ public partial class Trips : ContentPage
 
     private async void StartPlanningClicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new PlanTrip(this));
+        await Navigation.PushAsync(new PlanTripPage());
     }
 
     private List<TripViewModel> GetTrips()

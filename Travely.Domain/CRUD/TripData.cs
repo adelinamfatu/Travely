@@ -4,16 +4,15 @@ namespace Travely.Domain.CRUD
 {
     public class TripData
     {
-        private AppDbContext context;
+        private readonly AppDbContext context;
 
-        public TripData()
+        public TripData(AppDbContext context)
         {
-            this.context = new AppDbContext();
+            this.context = context;
         }
 
         public void AddTrip(TripSqlView trip)
         {
-            System.Diagnostics.Debug.WriteLine(trip);
             var existingTrip = this.context.Trips.FirstOrDefault(t => t.Id == trip.Id);
 
             if (existingTrip == null)

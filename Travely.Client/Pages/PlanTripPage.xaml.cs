@@ -1,18 +1,27 @@
 using Travely.Domain.CRUD;
 using Travely.Client.Models;
 using Travely.Domain.Entities;
+using Travely.Domain;
 
 namespace Travely.Client.Pages;
 
-public partial class PlanTrip : ContentPage
+public partial class PlanTripPage : ContentPage
 {
-    private Trips myTripsPage;
-    private TripData tripData = new TripData();
+    //private Trips myTripsPage;
+    private TripData tripData;
+    private AppDbContext context;
 
-    public PlanTrip(Trips myTripsPage)
+    public PlanTripPage()
     {
         InitializeComponent();
-        this.myTripsPage = myTripsPage;
+        //this.myTripsPage = myTripsPage;
+    }
+
+    protected override void OnHandlerChanged()
+    {
+        base.OnHandlerChanged();
+        context = this.Handler.MauiContext.Services.GetService<AppDbContext>();
+        tripData = new TripData(context);
     }
 
     private async void StartPlanningClicked_Button(object sender, EventArgs e)
@@ -24,7 +33,7 @@ public partial class PlanTrip : ContentPage
             EndDate = endDatePicker.Date
         };
        
-        myTripsPage.AddTrip(newTrip);
+        //myTripsPage.AddTrip(newTrip);
         tripData.AddTrip(new TripSqlView
         {
             Country = newTrip.CountryName,
@@ -32,6 +41,6 @@ public partial class PlanTrip : ContentPage
             EndDate = newTrip.EndDate,
         });
 
-        await Navigation.PopAsync();
+        //await Navigation.PopAsync();
     }
 }
