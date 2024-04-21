@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Travely.Client.Resources;
 
 namespace Travely.Client.Utilities
 {
@@ -11,7 +10,7 @@ namespace Travely.Client.Utilities
     {
         public static string GetDatabasePath()
         {
-            var databaseName = SharedResources.DatabaseFileName;
+            var databaseName = Constants.DatabaseFileName;
 
             string databasePath = string.Empty;
 

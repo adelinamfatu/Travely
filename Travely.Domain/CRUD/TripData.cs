@@ -17,9 +17,21 @@ namespace Travely.Domain.CRUD
 
             if (existingTrip == null)
             {
-                this.context.Trips.Add(trip);
-                this.context.SaveChanges();
+                try
+                {
+                    this.context.Trips.Add(trip);
+                    this.context.SaveChanges();
+                }
+                catch(Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine(ex.Message);
+                }
             }
+        }
+
+        public List<TripSqlView> GetTrips()
+        {
+            return this.context.Trips.ToList();
         }
     }
 }

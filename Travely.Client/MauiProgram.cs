@@ -25,7 +25,7 @@ namespace Travely.Client
 
             builder.Services.AddDbContext<AppDbContext>(
                 options => options.UseSqlite(databasePath,
-                infrastructure => infrastructure.MigrationsAssembly(nameof(Travely.Domain))));
+                infrastructure => infrastructure.MigrationsAssembly("Travely.Domain")));
 
             return builder.Build();
         }

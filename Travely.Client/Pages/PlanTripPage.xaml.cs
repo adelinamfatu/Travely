@@ -7,14 +7,12 @@ namespace Travely.Client.Pages;
 
 public partial class PlanTripPage : ContentPage
 {
-    //private Trips myTripsPage;
     private TripData tripData;
     private AppDbContext context;
 
     public PlanTripPage()
     {
         InitializeComponent();
-        //this.myTripsPage = myTripsPage;
     }
 
     protected override void OnHandlerChanged()
@@ -32,15 +30,15 @@ public partial class PlanTripPage : ContentPage
             StartDate = startDatePicker.Date,
             EndDate = endDatePicker.Date
         };
-       
-        //myTripsPage.AddTrip(newTrip);
+
         tripData.AddTrip(new TripSqlView
         {
+            Title = "Aici",
             Country = newTrip.CountryName,
             StartDate = newTrip.StartDate,
             EndDate = newTrip.EndDate,
         });
 
-        //await Navigation.PopAsync();
+        await Navigation.PopAsync();
     }
 }
