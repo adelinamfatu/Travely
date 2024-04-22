@@ -1,7 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using Travely.BusinessLogic.Services;
+using Travely.Client.Models;
 using Travely.Client.Utilities;
 using Travely.Domain;
+using Travely.Domain.CRUD;
 
 namespace Travely.Client
 {
@@ -26,6 +29,12 @@ namespace Travely.Client
             builder.Services.AddDbContext<AppDbContext>(
                 options => options.UseSqlite(databasePath,
                 infrastructure => infrastructure.MigrationsAssembly("Travely.Domain")));
+
+            builder.Services.AddSingleton<TripService>(provider =>
+            {
+                var context = provider.GetRequiredService<AppDbContext>();
+                return new TripService(context);
+            });
 
             return builder.Build();
         }

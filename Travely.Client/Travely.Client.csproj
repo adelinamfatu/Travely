@@ -80,7 +80,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\Travely.Domain\Travely.Domain.csproj" />
+	  <ProjectReference Include="..\Travely.BusinessLogic\Travely.BusinessLogic.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

@@ -1,53 +1,21 @@
-using Microsoft.Maui.Controls;
+using Travely.BusinessLogic.Services;
 using Travely.Client.Models;
-using Travely.Domain.CRUD;
-using Travely.Domain;
-using Travely.Domain.Entities;
-using Travely.Client.Utilities;
 
 namespace Travely.Client.Pages;
 
 public partial class TripsPage : ContentPage
 {
-    private TripData tripData;
+    private TripsViewModel viewModel;
 
     public TripsPage()
-	{
-		InitializeComponent();
-        var context = Application.Current.Handler.MauiContext.Services.GetService<AppDbContext>();
-        this.tripData = new TripData(context);
-        tripsCollection.ItemsSource = GetTrips();
-	}
-
-    public void AddTrip(TripViewModel trip)
     {
-        var trips = (List<TripViewModel>)tripsCollection.ItemsSource;
-        trips.Add(trip);
-        tripsCollection.ItemsSource = null;
-        tripsCollection.ItemsSource = trips;
+        InitializeComponent();
+        var tripService = Application.Current.Handler.MauiContext.Services.GetService<TripService>();
+        viewModel = new TripsViewModel(tripService);
+        BindingContext = viewModel;
     }
 
-    private List<TripViewModel> GetTrips()
-    {
-        var trips = tripData.GetTrips();
-        var tripViewModels = new List<TripViewModel>();
-
-        foreach (var tripSqlView in trips)
-        {
-            var tripViewModel = new TripViewModel
-            {
-                CountryName = tripSqlView.Country,
-                StartDate = tripSqlView.StartDate,
-                EndDate = tripSqlView.EndDate,
-            };
-
-            tripViewModels.Add(tripViewModel);
-        }
-
-        return tripViewModels;
-    }
-
-    private async void StartPlanningClicked(object sender, EventArgs e)
+    private async void StartPlanning(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new PlanTripPage());
     }

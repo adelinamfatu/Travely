@@ -24,12 +24,12 @@ public partial class PlanTripPage : ContentPage
 
     private async void StartPlanningClicked_Button(object sender, EventArgs e)
     {
-        TripViewModel newTrip = new TripViewModel
-        {
-            CountryName = entryCountry.Text,
-            StartDate = startDatePicker.Date,
-            EndDate = endDatePicker.Date
-        };
+        /*TripViewModel newTrip = new TripViewModel
+        (
+            entryCountry.Text,
+            startDatePicker.Date,
+            endDatePicker.Date
+        );
 
         tripData.AddTrip(new TripSqlView
         {
@@ -39,6 +39,6 @@ public partial class PlanTripPage : ContentPage
             EndDate = newTrip.EndDate,
         });
 
-        await Navigation.PopAsync();
+        await Navigation.PopAsync();*/
     }
 }
