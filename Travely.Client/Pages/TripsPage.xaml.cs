@@ -11,7 +11,10 @@ public partial class TripsPage : ContentPage
     {
         InitializeComponent();
         var tripService = Application.Current.Handler.MauiContext.Services.GetService<TripService>();
-        viewModel = new TripsViewModel(tripService);
+        if (tripService != null)
+        {
+            viewModel = new TripsViewModel(tripService);
+        }
         BindingContext = viewModel;
     }
 

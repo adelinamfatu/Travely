@@ -20,6 +20,11 @@ namespace Travely.BusinessLogic.Services
             this.tripData = new TripData(context);
         }
 
+        public void AddTrip(TripDTO trip)
+        {
+            tripData.AddTrip(DTOEntity.DTOtoEntity(trip));
+        }
+
         public List<TripDTO> GetTrips()
         {
             return tripData.GetTrips().Select(trip => EntityDTO.EntityToDTO(trip)).ToList();

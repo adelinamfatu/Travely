@@ -4,25 +4,29 @@
        x:Class="Travely.Client.Pages.PlanTripPage"
        >
     <Grid>
-
         <StackLayout>
             <Label Text="PLAN A TRIP" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" FontSize="Large" Margin="0,10,0,0" />
             <Image  Margin="50,0,50,0" HorizontalOptions="Center" Source="adventure_logo" WidthRequest="200" HeightRequest="200" />
+            
             <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="15">
-                <Entry x:Name="entryCountry" Placeholder="Where to?"  />
+                <Entry Text="{Binding CountryName}" Placeholder="Where to?" />
             </Frame>
 
             <Label Text="Start Date" Margin="20,0,0,0" FontAttributes="Bold" />
             <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="15">
-                <DatePicker x:Name="startDatePicker" AutomationProperties.Name="Start Date"/>
+                <DatePicker Date="{Binding StartDate}" AutomationProperties.Name="Start Date" />
             </Frame>
 
             <Label Text="Start Date" Margin="20,0,0,0" FontAttributes="Bold" />
             <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="15">
-                <DatePicker x:Name="endDatePicker" AutomationProperties.Name="End Date" />
+                <DatePicker Date="{Binding EndDate}" AutomationProperties.Name="End Date" />
             </Frame>
-            <Button Text="Start Planning" BackgroundColor="Black" HeightRequest="60" WidthRequest="300" Margin="20,20,20,40"
-                    Clicked="StartPlanningClicked_Button" />
+            
+            <Button Text="Add trip" 
+                    BackgroundColor="Black" 
+                    HeightRequest="60" WidthRequest="300" 
+                    Margin="20,20,20,40"
+                    Clicked="AddTrip" />
         </StackLayout>
     </Grid>
 </ContentPage>

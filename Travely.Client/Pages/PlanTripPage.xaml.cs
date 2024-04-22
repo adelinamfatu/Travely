@@ -1,44 +1,30 @@
-using Travely.Domain.CRUD;
+using Travely.BusinessLogic.Services;
 using Travely.Client.Models;
-using Travely.Domain.Entities;
-using Travely.Domain;
 
 namespace Travely.Client.Pages;
 
 public partial class PlanTripPage : ContentPage
 {
-    private TripData tripData;
-    private AppDbContext context;
+    private TripViewModel viewModel;
 
     public PlanTripPage()
     {
         InitializeComponent();
-    }
-
-    protected override void OnHandlerChanged()
-    {
-        base.OnHandlerChanged();
-        context = this.Handler.MauiContext.Services.GetService<AppDbContext>();
-        tripData = new TripData(context);
-    }
-
-    private async void StartPlanningClicked_Button(object sender, EventArgs e)
-    {
-        /*TripViewModel newTrip = new TripViewModel
-        (
-            entryCountry.Text,
-            startDatePicker.Date,
-            endDatePicker.Date
-        );
-
-        tripData.AddTrip(new TripSqlView
+        var tripService = Application.Current.Handler.MauiContext.Services.GetService<TripService>();
+        if (tripService != null)
         {
-            Title = "Aici",
-            Country = newTrip.CountryName,
-            StartDate = newTrip.StartDate,
-            EndDate = newTrip.EndDate,
-        });
+            viewModel = new TripViewModel(tripService);
+        }
+        BindingContext = viewModel;
+    }
 
-        await Navigation.PopAsync();*/
+    private async void AddTrip(object sender, EventArgs e)
+    {
+        if (viewModel != null)
+        {
+            viewModel.AddTrip();
+
+            await Navigation.PopAsync();
+        }
     }
 }
