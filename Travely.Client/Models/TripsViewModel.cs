@@ -18,12 +18,11 @@ namespace Travely.Client.Models
         {
             this.tripService = tripService;
             Trips = new ObservableCollection<TripViewModel>();
-            LoadTrips();
         }
 
-        private void LoadTrips()
+        public async Task LoadTrips()
         {
-            var trips = tripService.GetTrips();
+            var trips = await Task.Run(() => tripService.GetTrips());
             Trips.Clear();
             foreach (var trip in trips)
             {

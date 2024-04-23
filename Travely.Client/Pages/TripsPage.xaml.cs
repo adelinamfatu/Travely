@@ -10,12 +10,18 @@ public partial class TripsPage : ContentPage
     public TripsPage()
     {
         InitializeComponent();
+        InitializeViewModel();
+    }
+
+    private async Task InitializeViewModel()
+    {
         var tripService = Application.Current.Handler.MauiContext.Services.GetService<TripService>();
         if (tripService != null)
         {
             viewModel = new TripsViewModel(tripService);
+            await viewModel.LoadTrips();
+            BindingContext = viewModel;
         }
-        BindingContext = viewModel;
     }
 
     private async void StartPlanning(object sender, EventArgs e)

@@ -13,6 +13,7 @@ namespace Travely.Client.Models
         private readonly TripService? tripService;
 
         public string? TripTitle { get; set; }
+
         public string? CountryName { get; set; }
 
         public DateTime StartDate { get; set; }
@@ -20,7 +21,6 @@ namespace Travely.Client.Models
         public DateTime EndDate { get; set; }
 
         public string? CountryURL { get; set; }
-
 
         public TripViewModel(TripDTO trip)
         {
@@ -37,11 +37,15 @@ namespace Travely.Client.Models
 
         public void AddTrip()
         {
-            if (!string.IsNullOrEmpty(TripTitle) && !string.IsNullOrEmpty(CountryName) && StartDate != default && EndDate != default && tripService is not null)
+            if (!string.IsNullOrEmpty(TripTitle) && 
+                !string.IsNullOrEmpty(CountryName) && 
+                StartDate != default && 
+                EndDate != default && 
+                tripService is not null)
             {
                 tripService.AddTrip(new TripDTO
                 {
-                    Title=TripTitle,
+                    Title = TripTitle,
                     Country = CountryName,
                     StartDate = StartDate,
                     EndDate = EndDate

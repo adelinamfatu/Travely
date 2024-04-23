@@ -5,7 +5,7 @@ namespace Travely.Client.Pages;
 
 public partial class PlanTripPage : ContentPage
 {
-    private TripViewModel viewModel;
+    private TripViewModel? viewModel;
 
     public PlanTripPage()
     {
