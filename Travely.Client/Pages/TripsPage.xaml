@@ -22,7 +22,9 @@
                                 <Label Text="{Binding CountryName}" FontSize="20" FontAttributes="Bold"/>
                                 <Label Text="{Binding StartDate, StringFormat='Start: {0:yyyy-MM-dd}'}" FontSize="16"/>
                                 <Label Text="{Binding EndDate, StringFormat='End: {0:yyyy-MM-dd}'}" FontSize="16"/>
+                                <Button Text="Delete"  BackgroundColor="Black" TextColor="White" FontSize="12" Margin="15" Grid.Column="2" VerticalOptions="End" />
                             </VerticalStackLayout>
+                            
                         </Grid>
                     </Frame>
                 </DataTemplate>
