@@ -8,29 +8,29 @@
     <Grid>
         <StackLayout>
             <Label Text="PLAN A TRIP" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" FontSize="Large" Margin="0,10,0,0" />
-            <Image  Margin="30,0,30,0" HorizontalOptions="Center" Source="adventure_logo" WidthRequest="150" HeightRequest="200" />
+            <Image Source="adventure_logo" HorizontalOptions="Center" WidthRequest="150" HeightRequest="130" Margin="0,-10,0,0" />
 
-            <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="10">
+            <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="15">
                 <Entry Text="{Binding TripTitle}" Placeholder="Name Your Trip" />
             </Frame>
 
-            <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="10">
+            <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="15">
                 <Entry Text="{Binding CountryName}" Placeholder="Where to?" />
             </Frame>
 
             <Label Text="Start Date" Margin="20,0,0,0" FontAttributes="Bold" />
-            <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="10">
+            <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="15">
                 <DatePicker Date="{Binding StartDate}" x:Name="StartDate" />
             </Frame>
 
             <Label Text="Start Date" Margin="20,0,0,0" FontAttributes="Bold" />
-            <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="10">
+            <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="15">
                 <DatePicker Date="{Binding EndDate}" x:Name="EndDate" />
             </Frame>
             
             <Button Text="Add trip" 
                     BackgroundColor="Black" 
-                    HeightRequest="40" WidthRequest="300" 
+                    HeightRequest="50" WidthRequest="300" 
                     Margin="10,20,20,10"
                     Clicked="AddTrip" />
         </StackLayout>
