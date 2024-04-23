@@ -10,7 +10,7 @@ public partial class PlanTripPage : ContentPage
     public PlanTripPage()
     {
         InitializeComponent();
-        var tripService = Application.Current.Handler.MauiContext.Services.GetService<TripService>();
+        var tripService = Application.Current?.Handler?.MauiContext?.Services.GetService<TripService>();
         if (tripService != null)
         {
             viewModel = new TripViewModel(tripService);

@@ -5,7 +5,7 @@ namespace Travely.Client.Pages;
 
 public partial class TripsPage : ContentPage
 {
-    private TripsViewModel viewModel;
+    private TripsViewModel? viewModel;
 
     public TripsPage()
     {
@@ -13,9 +13,9 @@ public partial class TripsPage : ContentPage
         InitializeViewModel();
     }
 
-    private async Task InitializeViewModel()
+    private async void InitializeViewModel()
     {
-        var tripService = Application.Current.Handler.MauiContext.Services.GetService<TripService>();
+        var tripService = Application.Current?.Handler?.MauiContext?.Services.GetService<TripService>();
         if (tripService != null)
         {
             viewModel = new TripsViewModel(tripService);
