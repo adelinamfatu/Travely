@@ -8,7 +8,7 @@
     <VerticalStackLayout>
         <Button  Text="Start Planning" BackgroundColor="Black" HeightRequest="40" WidthRequest="150" Margin="0,0,20,0"
              Grid.Row="0" Grid.Column="1" HorizontalOptions="End" VerticalOptions="Start"  Clicked="StartPlanning"/>
-        <CollectionView ItemsSource="{Binding Trips}" SelectionMode="Single">
+        <CollectionView ItemsSource="{Binding Trips}" SelectionMode="Single" SelectionChanged="NavigateToEditTripPage">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Frame Margin="10">

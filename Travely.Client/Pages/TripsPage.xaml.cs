@@ -28,4 +28,13 @@ public partial class TripsPage : ContentPage
     {
         await Navigation.PushAsync(new PlanTripPage());
     }
+
+    private async void NavigateToEditTripPage(object sender, SelectionChangedEventArgs e)
+    {
+        if (e.CurrentSelection.FirstOrDefault() is TripViewModel selectedTrip)
+        {
+            await Shell.Current.GoToAsync("///EditTripPage");
+        }
+    }
+
 }

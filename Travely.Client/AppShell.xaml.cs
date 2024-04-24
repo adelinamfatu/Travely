@@ -6,5 +6,13 @@
         {
             InitializeComponent();
         }
+
+        private async void OpenEditTripPage(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("EditTripPage");
+        }
+
     }
+
+
 }
