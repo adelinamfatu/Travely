@@ -58,9 +58,19 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\Images\back_button.svg" />
+	  <None Remove="Resources\Images\bxs_bed.svg" />
+	  <None Remove="Resources\Images\bxs_bus.svg" />
+	  <None Remove="Resources\Images\bxs_car.svg" />
+	  <None Remove="Resources\Images\bxs_plane.svg" />
+	  <None Remove="Resources\Images\bxs_train.svg" />
+	  <None Remove="Resources\Images\bx_add_to_queue.svg" />
+	  <None Remove="Resources\Images\bx_chevron_down.svg" />
+	  <None Remove="Resources\Images\eat.svg" />
 	  <None Remove="Resources\Images\email.png" />
 	  <None Remove="Resources\Images\flying.png" />
+	  <None Remove="Resources\Images\map.svg" />
 	  <None Remove="Resources\Images\mobile.png" />
+	  <None Remove="Resources\Images\notes.svg" />
 	  <None Remove="Resources\Images\password.png" />
 	  <None Remove="Resources\Images\plan.png" />
 	  <None Remove="Resources\Images\travel.png" />
