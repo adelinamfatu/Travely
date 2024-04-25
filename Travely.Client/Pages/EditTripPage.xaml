@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resources="clr-namespace:Travely.Client.Resources.UIResources"
              x:Class="Travely.Client.Pages.EditTripPage"
-             Title=""
+             Title="View trip"
              >
+    
     <ScrollView>
         <VerticalStackLayout>
             <Button 
-         Clicked="NavigateToPreviousPage"
-         VerticalOptions="Start" 
-         HorizontalOptions="Start" 
-         BackgroundColor="White">
+                 Clicked="NavigateToPreviousPage"
+                 VerticalOptions="Start" 
+                 HorizontalOptions="Start" 
+                 BackgroundColor="White">
                 <Button.ImageSource>
                     <FileImageSource File="back_button.svg" />
                 </Button.ImageSource>
@@ -18,11 +20,11 @@
 
             <Frame Margin="10">
                 <VerticalStackLayout Grid.Column="1" Grid.Row="0" Padding="5" VerticalOptions="Center" HorizontalOptions="Center">
-                    <Label Text="Plan Your Trip" FontSize="20" FontAttributes="Bold"/>
+                    <Label Text="{x:Static resources:TripsResources.PlanTrip}" FontSize="20" FontAttributes="Bold"/>
                 </VerticalStackLayout>
             </Frame>
 
-            <Label Text="Reservations" FontSize="18" FontAttributes="Bold" Margin="20"/>
+            <Label Text="{x:Static resources:TripsResources.Reservations}" FontSize="18" FontAttributes="Bold" Margin="20"/>
             <Frame Margin="10">
                 <HorizontalStackLayout Spacing="65">
                     <ImageButton Source="bxs_bed.svg" WidthRequest="30" HeightRequest="30"/>
@@ -36,12 +38,12 @@
                 <StackLayout>
                     <HorizontalStackLayout Spacing="10">
                         <ImageButton Source="bx_chevron_down.svg" WidthRequest="30" HeightRequest="30"/>
-                        <Label Text="Places to Visit" FontSize="18" FontAttributes="Bold" Margin="20"/>
+                        <Label Text="{x:Static resources:TripsResources.Places}" FontSize="18" FontAttributes="Bold" Margin="20"/>
                     </HorizontalStackLayout>
                     <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="5" >
                         <Grid>
                             <Image Source="map.png" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
-                            <Entry Placeholder="Add A Place To Visit" Margin="30,0,0,0"/>
+                            <Entry Placeholder="{x:Static resources:TripsResources.AddPlace}" Margin="30,0,0,0"/>
                         </Grid>
                     </Frame>
                 </StackLayout>
@@ -51,12 +53,12 @@
                 <StackLayout>
                     <HorizontalStackLayout Spacing="10">
                         <ImageButton Source="bx_chevron_down.svg" WidthRequest="30" HeightRequest="30"/>
-                        <Label Text="Notes" FontSize="18" FontAttributes="Bold" Margin="20"/>
+                        <Label Text="{x:Static resources:TripsResources.Notes}" FontSize="18" FontAttributes="Bold" Margin="20"/>
                     </HorizontalStackLayout>
                     <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="5" >
                         <Grid>
                             <Image Source="notes.svg" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
-                            <Entry Placeholder="Add A Note" Margin="30,0,0,0"/>
+                            <Entry Placeholder="{x:Static resources:TripsResources.AddNote}" Margin="30,0,0,0"/>
                         </Grid>
                     </Frame>
                 </StackLayout>
@@ -66,12 +68,12 @@
                 <StackLayout>
                     <HorizontalStackLayout Spacing="10">
                         <ImageButton Source="bx_chevron_down.svg" WidthRequest="30" HeightRequest="30"/>
-                        <Label Text="Places To Eat" FontSize="18" FontAttributes="Bold" Margin="20"/>
+                        <Label Text="{x:Static resources:TripsResources.Restaurants}" FontSize="18" FontAttributes="Bold" Margin="20"/>
                     </HorizontalStackLayout>
                     <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="5" >
                         <Grid>
                             <Image Source="eat.svg" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
-                            <Entry Placeholder="Add A Restaurant" Margin="30,0,0,0"/>
+                            <Entry Placeholder="{x:Static resources:TripsResources.AddRestaurant}" Margin="30,0,0,0"/>
                         </Grid>
                     </Frame>
                 </StackLayout>

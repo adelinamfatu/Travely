@@ -1,34 +1,41 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:viewModels="clr-namespace:Travely.Client.Models"
+             xmlns:resources="clr-namespace:Travely.Client.Resources.UIResources"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Travely.Client.Pages.PlanTripPage"
              x:DataType="viewModels:TripViewModel"
              >
     <Grid>
         <StackLayout>
-            <Label Text="PLAN A TRIP" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" FontSize="Large" Margin="0,10,0,0" />
+            <Label Text="{x:Static resources:PlanTripResources.PageTitle}" 
+                   TextTransform="Uppercase"
+                   FontAttributes="Bold" HorizontalOptions="Center" 
+                   VerticalOptions="Center" 
+                   FontSize="Large" 
+                   Margin="0,10,0,0" />
             <Image Source="adventure_logo" HorizontalOptions="Center" WidthRequest="150" HeightRequest="130" Margin="0,-10,0,0" />
 
             <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="15">
-                <Entry Text="{Binding TripTitle}" Placeholder="Name Your Trip" />
+                <Entry Text="{Binding TripTitle}" Placeholder="{x:Static resources:PlanTripResources.TripTitle}" />
             </Frame>
 
             <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="15">
-                <Entry Text="{Binding CountryName}" Placeholder="Where to?" />
+                <Entry Text="{Binding CountryName}" Placeholder="{x:Static resources:PlanTripResources.TripDestination}" />
             </Frame>
 
-            <Label Text="Start Date" Margin="20,0,0,0" FontAttributes="Bold" />
+            <Label Text="{x:Static resources:PlanTripResources.StartDate}" Margin="20,0,0,0" FontAttributes="Bold" />
             <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="15">
                 <DatePicker Date="{Binding StartDate}" x:Name="StartDate" />
             </Frame>
 
-            <Label Text="Start Date" Margin="20,0,0,0" FontAttributes="Bold" />
+            <Label Text="{x:Static resources:PlanTripResources.EndDate}" Margin="20,0,0,0" FontAttributes="Bold" />
             <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="15">
                 <DatePicker Date="{Binding EndDate}" x:Name="EndDate" />
             </Frame>
-            
-            <Button Text="Add trip" 
+
+            <Button Text="{x:Static resources:PlanTripResources.AddTripButton}" 
+                    TextTransform="Uppercase"
                     BackgroundColor="Black" 
                     HeightRequest="50" WidthRequest="300" 
                     Margin="10,20,20,10"

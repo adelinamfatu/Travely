@@ -57,20 +57,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Resources\Images\back_button.svg" />
-	  <None Remove="Resources\Images\bxs_bed.svg" />
-	  <None Remove="Resources\Images\bxs_bus.svg" />
-	  <None Remove="Resources\Images\bxs_car.svg" />
-	  <None Remove="Resources\Images\bxs_plane.svg" />
-	  <None Remove="Resources\Images\bxs_train.svg" />
-	  <None Remove="Resources\Images\bx_add_to_queue.svg" />
-	  <None Remove="Resources\Images\bx_chevron_down.svg" />
-	  <None Remove="Resources\Images\eat.svg" />
 	  <None Remove="Resources\Images\email.png" />
 	  <None Remove="Resources\Images\flying.png" />
-	  <None Remove="Resources\Images\map.svg" />
 	  <None Remove="Resources\Images\mobile.png" />
-	  <None Remove="Resources\Images\notes.svg" />
 	  <None Remove="Resources\Images\password.png" />
 	  <None Remove="Resources\Images\plan.png" />
 	  <None Remove="Resources\Images\travel.png" />
@@ -95,9 +84,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Pages\EditTripPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	  <MauiXaml Update="Pages\LoginPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -119,6 +105,27 @@
 	  <Compile Update="Pages\TripsPage.xaml.cs">
 	    <DependentUpon>TripsPage.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Resources\UIResources\PlanTripResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>PlanTripResources.resx</DependentUpon>
+	  </Compile>
+	  <Compile Update="Resources\UIResources\TripsResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>TripsResources.resx</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Update="Resources\UIResources\PlanTripResources.resx">
+	    <Generator>ResXFileCodeGenerator</Generator>
+	    <LastGenOutput>PlanTripResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\UIResources\TripsResources.resx">
+	    <Generator>ResXFileCodeGenerator</Generator>
+	    <LastGenOutput>TripsResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
 	</ItemGroup>
 
 </Project>

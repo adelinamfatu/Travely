@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:viewModels="clr-namespace:Travely.Client.Models"
+             xmlns:resources="clr-namespace:Travely.Client.Resources.UIResources"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Travely.Client.Pages.TripsPage"
              Title="My Trips">
 
     <VerticalStackLayout>
-        <Button  Text="Start Planning" BackgroundColor="Black" HeightRequest="40" WidthRequest="150" Margin="0,0,20,0"
+        <Button Text="{x:Static resources:TripsResources.StartPlanningButton}" BackgroundColor="Black" HeightRequest="40" WidthRequest="150" Margin="0,0,20,0"
              Grid.Row="0" Grid.Column="1" HorizontalOptions="End" VerticalOptions="Start"  Clicked="StartPlanning"/>
         <CollectionView ItemsSource="{Binding Trips}" SelectionMode="Single" SelectionChanged="NavigateToEditTripPage">
             <CollectionView.ItemTemplate>
@@ -17,14 +18,15 @@
                                 <ColumnDefinition Width=".2*"/>
                                 <ColumnDefinition Width=".8*"/>
                             </Grid.ColumnDefinitions>
+                            
                             <Image Source="{Binding CountryURL}" Grid.Column="0" Grid.Row="0"/>
+
                             <VerticalStackLayout Grid.Column="1" Grid.Row="0" Padding="5" VerticalOptions="Center">
                                 <Label Text="{Binding CountryName}" FontSize="20" FontAttributes="Bold"/>
                                 <Label Text="{Binding StartDate, StringFormat='Start: {0:yyyy-MM-dd}'}" FontSize="16"/>
                                 <Label Text="{Binding EndDate, StringFormat='End: {0:yyyy-MM-dd}'}" FontSize="16"/>
-                                <Button Text="Delete"  BackgroundColor="Black" TextColor="White" FontSize="12" Margin="15" Grid.Column="2" VerticalOptions="End" />
+                                <Button Text="{x:Static resources:TripsResources.DeleteButton}" BackgroundColor="Black" TextColor="White" FontSize="12" Margin="15" Grid.Column="2" VerticalOptions="End" />
                             </VerticalStackLayout>
-                            
                         </Grid>
                     </Frame>
                 </DataTemplate>
