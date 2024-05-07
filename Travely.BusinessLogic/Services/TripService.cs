@@ -29,5 +29,10 @@ namespace Travely.BusinessLogic.Services
         {
             return tripData.GetTrips().Select(trip => EntityDTO.EntityToDTO(trip)).ToList();
         }
+
+        public void DeleteTrip(Guid tripId)
+        {
+            tripData.DeleteTrip(tripId);
+        }
     }
 }

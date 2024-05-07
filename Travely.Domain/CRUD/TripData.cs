@@ -26,5 +26,15 @@ namespace Travely.Domain.CRUD
         {
             return this.context.Trips.ToList();
         }
+
+        public void DeleteTrip(Guid tripId)
+        {
+            var existingTrip = this.context.Trips.FirstOrDefault(t => t.Id == tripId);
+            if (existingTrip != null)
+            {
+                this.context.Trips.Remove(existingTrip);
+                this.context.SaveChanges();
+            }
+        }
     }
 }

@@ -36,5 +36,4 @@ public partial class TripsPage : ContentPage
             await Shell.Current.GoToAsync("///EditTripPage");
         }
     }
-
 }

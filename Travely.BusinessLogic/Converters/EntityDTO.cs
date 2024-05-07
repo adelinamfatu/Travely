@@ -14,6 +14,7 @@ namespace Travely.BusinessLogic.Converters
         {
             return new TripDTO
             {
+                Id = trip.Id,
                 Title = trip.Title,
                 Country = trip.Country,
                 StartDate = trip.StartDate,

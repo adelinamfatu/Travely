@@ -25,7 +25,14 @@
                                 <Label Text="{Binding CountryName}" FontSize="20" FontAttributes="Bold"/>
                                 <Label Text="{Binding StartDate, StringFormat='Start: {0:yyyy-MM-dd}'}" FontSize="16"/>
                                 <Label Text="{Binding EndDate, StringFormat='End: {0:yyyy-MM-dd}'}" FontSize="16"/>
-                                <Button Text="{x:Static resources:TripsResources.DeleteButton}" BackgroundColor="Black" TextColor="White" FontSize="12" Margin="15" Grid.Column="2" VerticalOptions="End" />
+                                <Button Text="{x:Static resources:TripsResources.DeleteButton}" 
+                                        BackgroundColor="Black" 
+                                        TextColor="White" 
+                                        FontSize="12" Margin="15" 
+                                        Grid.Column="2" 
+                                        VerticalOptions="End"
+                                        Command="{Binding DeleteCommand}" 
+                                        CommandParameter="{Binding Id}" />
                             </VerticalStackLayout>
                         </Grid>
                     </Frame>

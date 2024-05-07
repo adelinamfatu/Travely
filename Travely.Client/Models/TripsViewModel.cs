@@ -26,7 +26,7 @@ namespace Travely.Client.Models
             Trips.Clear();
             foreach (var trip in trips)
             {
-                Trips.Add(new TripViewModel(trip));
+                Trips.Add(new TripViewModel(trip, tripService));
             }
         }
     }

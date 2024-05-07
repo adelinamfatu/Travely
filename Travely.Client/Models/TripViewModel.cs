@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Travely.BusinessLogic.DTOs;
 using Travely.BusinessLogic.Services;
 
@@ -11,6 +12,10 @@ namespace Travely.Client.Models
     public class TripViewModel
     {
         private readonly TripService? tripService;
+
+        public ICommand DeleteCommand { get; private set; }
+
+        public Guid Id { get; set; }
 
         public string? TripTitle { get; set; }
 
@@ -22,17 +27,21 @@ namespace Travely.Client.Models
 
         public string? CountryURL { get; set; }
 
-        public TripViewModel(TripDTO trip)
+        public TripViewModel(TripDTO trip, TripService tripService)
         {
+            this.Id = trip.Id;
             this.CountryName = trip.Country;
             this.StartDate = trip.StartDate; 
             this.EndDate = trip.EndDate;
             this.TripTitle = trip.Title;
+            this.tripService = tripService;
+            DeleteCommand = new Command<Guid>(ExecuteDeleteCommand);
         }
 
         public TripViewModel(TripService tripService) 
         { 
             this.tripService = tripService;
+            DeleteCommand = new Command<Guid>(ExecuteDeleteCommand);
         }
 
         public void AddTrip()
@@ -54,6 +63,14 @@ namespace Travely.Client.Models
             else
             {
                 
+            }
+        }
+
+        private void ExecuteDeleteCommand(Guid tripId)
+        {
+            if (tripService is not null)
+            {
+                tripService.DeleteTrip(tripId);
             }
         }
     }
