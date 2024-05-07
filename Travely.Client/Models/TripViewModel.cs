@@ -1,6 +1,8 @@
-﻿using System.Windows.Input;
+﻿using CommunityToolkit.Mvvm.Messaging;
+using System.Windows.Input;
 using Travely.BusinessLogic.DTOs;
 using Travely.BusinessLogic.Services;
+using static Travely.Client.Utilities.Messenger;
 
 namespace Travely.Client.Models
 {
@@ -54,6 +56,8 @@ namespace Travely.Client.Models
                     StartDate = StartDate,
                     EndDate = EndDate
                 });
+
+                WeakReferenceMessenger.Default.Send(new ReloadTripsMessage());
             }
             else
             {
@@ -66,6 +70,7 @@ namespace Travely.Client.Models
             if (tripService is not null)
             {
                 tripService.DeleteTrip(tripId);
+                WeakReferenceMessenger.Default.Send(new ReloadTripsMessage());
             }
         }
     }

@@ -19,9 +19,7 @@
                                 <ColumnDefinition Width=".8*"/>
                             </Grid.ColumnDefinitions>
 
-                            <!--
                             <Image Source="{Binding CountryURL}" Grid.Column="0" Grid.Row="0"/>
-                            -->
 
                             <VerticalStackLayout Grid.Column="1" Grid.Row="0" Padding="5" VerticalOptions="Center">
                                 <Label Text="{Binding CountryName}" FontSize="20" FontAttributes="Bold"/>
