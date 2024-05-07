@@ -1,4 +1,5 @@
-﻿using Travely.Domain.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using Travely.Domain.Entities;
 
 namespace Travely.Domain.CRUD
 {
@@ -22,9 +23,9 @@ namespace Travely.Domain.CRUD
             }
         }
 
-        public List<TripSqlView> GetTrips()
+        public async Task<List<TripSqlView>> GetTrips()
         {
-            return this.context.Trips.ToList();
+            return await this.context.Trips.ToListAsync();
         }
 
         public void DeleteTrip(Guid tripId)

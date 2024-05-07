@@ -22,7 +22,7 @@ namespace Travely.Client.Models
 
         public async Task LoadTrips()
         {
-            var trips = await Task.Run(() => tripService.GetTrips());
+            var trips = await tripService.GetTrips();
             Trips.Clear();
             foreach (var trip in trips)
             {

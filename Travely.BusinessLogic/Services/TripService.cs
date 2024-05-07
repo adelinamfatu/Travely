@@ -25,9 +25,10 @@ namespace Travely.BusinessLogic.Services
             tripData.AddTrip(DTOEntity.DTOtoEntity(trip));
         }
 
-        public List<TripDTO> GetTrips()
+        public async Task<List<TripDTO>> GetTrips()
         {
-            return tripData.GetTrips().Select(trip => EntityDTO.EntityToDTO(trip)).ToList();
+            var trips = await tripData.GetTrips();
+            return trips.Select(trip => EntityDTO.EntityToDTO(trip)).ToList();
         }
 
         public void DeleteTrip(Guid tripId)
