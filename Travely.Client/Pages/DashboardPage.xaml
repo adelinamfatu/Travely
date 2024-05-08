@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:viewModels="clr-namespace:Travely.Client.Models"
+             xmlns:resources="clr-namespace:Travely.Client.Resources.UIResources"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Travely.Client.Pages.DashboardPage"
              Title="TRAVELY">
 
     <ScrollView>
-        <StackLayout>
+        <VerticalStackLayout>
 
             <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="20">
                 <SearchBar Placeholder="Search..." />
             </Frame>
 
             <Image Source="dashboard_pic" WidthRequest="500" HeightRequest="200" Aspect="AspectFit" Margin="10" />
-            <Button Margin="10" Text="Start Planning" BackgroundColor="Black" />
+            <Button 
+                Text="{x:Static resources:TripsResources.StartPlanningButton}"
+                Margin="10" 
+                BackgroundColor="Black" 
+                Clicked="StartPlanning" />
 
             <Label Margin="20,50,0,0" Text="Choose your continent" FontSize="Medium" />
 
@@ -65,7 +71,7 @@
                 </StackLayout>
             </ScrollView>
 
-        </StackLayout>
+        </VerticalStackLayout>
     </ScrollView>
 
 
