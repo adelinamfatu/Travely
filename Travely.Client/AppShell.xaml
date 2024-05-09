@@ -8,7 +8,7 @@
     Title="Travely.Client">
 
     <Shell.FlyoutHeader>
-        <Image Source="logo.png" WidthRequest="100"></Image>
+        <Image Source="Resources/Images/logo.png" WidthRequest="100"></Image>
     </Shell.FlyoutHeader>
 
     <FlyoutItem Title="Home" FlyoutDisplayOptions="AsMultipleItems" >

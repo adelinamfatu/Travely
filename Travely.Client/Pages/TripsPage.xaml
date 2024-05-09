@@ -9,9 +9,9 @@
     <VerticalStackLayout>
         <Button Text="{x:Static resources:TripsResources.StartPlanningButton}" BackgroundColor="Black" HeightRequest="40" WidthRequest="150" Margin="0,0,20,0"
              Grid.Row="0" Grid.Column="1" HorizontalOptions="End" VerticalOptions="Start"  Clicked="StartPlanning"/>
-        <CollectionView ItemsSource="{Binding Trips}" SelectionMode="Single" SelectionChanged="NavigateToEditTripPage">
+        <CollectionView x:DataType="viewModels:TripsViewModel" ItemsSource="{Binding Trips}" SelectionMode="Single" SelectionChanged="NavigateToEditTripPage">
             <CollectionView.ItemTemplate>
-                <DataTemplate>
+                <DataTemplate x:DataType="viewModels:TripViewModel">
                     <Frame Margin="10">
                         <Grid>
                             <Grid.ColumnDefinitions>
