@@ -4,8 +4,7 @@
              xmlns:resources="clr-namespace:Travely.Client.Resources.UIResources"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Travely.Client.Pages.PlanTripPage"
-             x:DataType="viewModels:TripViewModel"
-             >
+             x:DataType="viewModels:TripViewModel">
     <Grid>
         <StackLayout>
             <Label Text="{x:Static resources:PlanTripResources.PageTitle}" 
@@ -24,14 +23,12 @@
                 <Entry Text="{Binding CountryName}" Placeholder="{x:Static resources:PlanTripResources.TripDestination}" />
             </Frame>
 
-            <Label Text="{x:Static resources:PlanTripResources.StartDate}" Margin="20,0,0,0" FontAttributes="Bold" />
             <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="15">
-                <DatePicker Date="{Binding StartDate}" x:Name="StartDate" />
+                <DatePicker Date="{Binding StartDate}" />
             </Frame>
 
-            <Label Text="{x:Static resources:PlanTripResources.EndDate}" Margin="20,0,0,0" FontAttributes="Bold" />
             <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="15">
-                <DatePicker Date="{Binding EndDate}" x:Name="EndDate" />
+                <DatePicker Date="{Binding EndDate}" />
             </Frame>
 
             <Button Text="{x:Static resources:PlanTripResources.AddTripButton}" 
@@ -39,7 +36,7 @@
                     BackgroundColor="Black" 
                     HeightRequest="50" WidthRequest="300" 
                     Margin="10,20,20,10"
-                    Clicked="AddTrip" />
+                    Clicked="OnAddTripClicked" />
         </StackLayout>
     </Grid>
 </ContentPage>

@@ -5,7 +5,7 @@ namespace Travely.Client.Pages;
 
 public partial class PlanTripPage : ContentPage
 {
-    private TripViewModel? viewModel;
+    private readonly TripViewModel? viewModel;
 
     public PlanTripPage()
     {
@@ -18,11 +18,12 @@ public partial class PlanTripPage : ContentPage
         BindingContext = viewModel;
     }
 
-    private async void AddTrip(object sender, EventArgs e)
+    private async void OnAddTripClicked(object sender, EventArgs e)
     {
         if (viewModel != null)
         {
             viewModel.AddTrip();
+            await DisplayAlert(viewModel.LastAddTripMessage.Contains("successfully") ? "Success" : "Error", viewModel.LastAddTripMessage, "OK");
 
             await Navigation.PopAsync();
         }
