@@ -7,8 +7,6 @@
     Shell.FlyoutBehavior="Flyout"
     Title="Travely.Client">
 
-    
-
     <FlyoutItem Title="Home" FlyoutDisplayOptions="AsMultipleItems" >
         <ShellContent
             Title="Dashboard"
@@ -32,5 +30,4 @@
     <ShellContent Title="Edit Trip" Route="EditTripPage" ContentTemplate="{DataTemplate local:EditTripPage}" />
 
     <MenuItem Text="Edit Trip" Clicked="OpenEditTripPage"/>
-
 </Shell>

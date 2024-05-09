@@ -1,7 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
-
+using Travely.Client.Resources.UIResources;
 using System.Windows.Input;
 using Travely.BusinessLogic.DTOs;
 using Travely.BusinessLogic.Services;
@@ -13,6 +13,8 @@ namespace Travely.Client.Models
     {
         private readonly TripService? tripService;
 
+        public Guid Id { get; set; }
+
         [ObservableProperty]
         private string? tripTitle;
 
@@ -23,13 +25,12 @@ namespace Travely.Client.Models
         private DateTime startDate = DateTime.Today;
 
         [ObservableProperty]
-        private DateTime endDate = DateTime.Today;
+        private DateTime endDate = DateTime.Today.AddDays(1);
 
-        public Guid Id { get; set; }
         public string? CountryURL { get; set; }
 
         [ObservableProperty]
-        private string lastAddTripMessage = "";
+        private string addTripMessage = "";
 
         public ICommand? DeleteCommand { get; private set; }
         public ICommand? AddTripCommand { get; private set; }
@@ -81,33 +82,29 @@ namespace Travely.Client.Models
                     EndDate = EndDate
                 });
                 WeakReferenceMessenger.Default.Send(new ReloadTripsMessage());
-                LastAddTripMessage = "Trip added successfully.";
+                AddTripMessage = ValidationResources.AddTripSuccess;
             }
             else
             {
                 if (string.IsNullOrEmpty(TripTitle))
                 {
-                    LastAddTripMessage = "Title cannot be empty.";
+                    AddTripMessage = ValidationResources.EmptyTitleError;
                 }
                 else if (!IsTitleValid(TripTitle))
                 {
-                    LastAddTripMessage = "Title must contain only letters, numbers, and spaces.";
+                    AddTripMessage = ValidationResources.InvalidTitleError;
                 }
                 else if (string.IsNullOrEmpty(CountryName))
                 {
-                    LastAddTripMessage = "Destination cannot be empty and must contain only letters.";
+                    AddTripMessage = ValidationResources.InvalidDestinationError;
                 }
                 else if (StartDate < DateTime.Today)
                 {
-                    LastAddTripMessage = "Start date is not valid.";
+                    AddTripMessage = ValidationResources.InvalidStartDate;
                 }
-                else if (EndDate < DateTime.Today)
+                else if (EndDate < DateTime.Today || StartDate > EndDate)
                 {
-                    LastAddTripMessage = "End date is not valid.";
-                }
-                else if (StartDate > EndDate)
-                {
-                    LastAddTripMessage = "End date is not valid.";
+                    AddTripMessage = ValidationResources.InvalidEndDate;
                 }
             }
         }

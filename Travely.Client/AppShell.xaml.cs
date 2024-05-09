@@ -11,8 +11,5 @@
         {
             await Shell.Current.GoToAsync("EditTripPage");
         }
-
     }
-
-
 }

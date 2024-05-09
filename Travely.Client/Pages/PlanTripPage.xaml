@@ -16,7 +16,9 @@
             <Image Source="adventure_logo" HorizontalOptions="Center" WidthRequest="150" HeightRequest="130" Margin="0,-10,0,0" />
 
             <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="15">
-                <Entry Text="{Binding TripTitle}" Placeholder="{x:Static resources:PlanTripResources.TripTitle}" />
+                <Entry Text="{Binding TripTitle}" 
+                       Placeholder="{x:Static resources:PlanTripResources.TripTitle}"
+                       TextChanged="ValidateTripTitle"/>
             </Frame>
 
             <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="15">
