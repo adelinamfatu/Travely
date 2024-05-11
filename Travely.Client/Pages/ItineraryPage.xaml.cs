@@ -7,8 +7,6 @@ public partial class ItineraryPage : ContentPage
 		InitializeComponent();
 	}
 
-
-
     private async void NavigateToPreviousPage(object sender, EventArgs e)
     {
         await Shell.Current.GoToAsync("///EditTripPage");
@@ -23,33 +21,33 @@ public partial class ItineraryPage : ContentPage
             Content = new StackLayout
             {
                 Children =
-            {
-                new Label { Text = "Day ", FontSize = 18, FontAttributes = FontAttributes.Bold, Margin = new Thickness(20) },
-                new StackLayout
                 {
-                    Orientation = StackOrientation.Horizontal,
-                    Spacing = 10,
-                    Children =
+                    new Label { Text = "Day ", FontSize = 18, FontAttributes = FontAttributes.Bold, Margin = new Thickness(20) },
+                    new StackLayout
                     {
-                        new ImageButton { Source = "bx_chevron_down.svg", WidthRequest = 30, HeightRequest = 30 },
-                        new Label { Text = "Places", FontSize = 18, FontAttributes = FontAttributes.Bold, Margin = new Thickness(20) }
-                    }
-                },
-                new Frame
-                {
-                    CornerRadius = 5,
-                    Padding = 0,
-                    Margin = 5,
-                    Content = new Grid
-                    {
+                        Orientation = StackOrientation.Horizontal,
+                        Spacing = 10,
                         Children =
                         {
-                            new Image { Source = "map.png", VerticalOptions = LayoutOptions.Center, WidthRequest = 20, HorizontalOptions = LayoutOptions.Start, Margin = new Thickness(10) },
-                            new Entry { Placeholder = "Add Place", Margin = new Thickness(30, 0, 0, 0) }
+                            new ImageButton { Source = "bx_chevron_down.svg", WidthRequest = 30, HeightRequest = 30 },
+                            new Label { Text = "Places", FontSize = 18, FontAttributes = FontAttributes.Bold, Margin = new Thickness(20) }
+                        }
+                    },
+                    new Frame
+                    {
+                        CornerRadius = 5,
+                        Padding = 0,
+                        Margin = 5,
+                        Content = new Grid
+                        {
+                            Children =
+                            {
+                                new Image { Source = "map.png", VerticalOptions = LayoutOptions.Center, WidthRequest = 20, HorizontalOptions = LayoutOptions.Start, Margin = new Thickness(10) },
+                                new Entry { Placeholder = "Add Place", Margin = new Thickness(30, 0, 0, 0) }
+                            }
                         }
                     }
                 }
-            }
             }
         };
 
@@ -64,9 +62,4 @@ public partial class ItineraryPage : ContentPage
 
         Content = stackLayout;
     }
-
-
-
-
-
 }

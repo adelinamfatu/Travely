@@ -117,34 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AddNote" xml:space="preserve">
-    <value>Add a note</value>
-  </data>
-  <data name="AddPlace" xml:space="preserve">
-    <value>Add a place to visit</value>
-  </data>
-  <data name="AddRestaurant" xml:space="preserve">
-    <value>Add a restaurant</value>
-  </data>
-  <data name="DeleteButton" xml:space="preserve">
-    <value>Delete</value>
-  </data>
-  <data name="Notes" xml:space="preserve">
-    <value>Notes</value>
-  </data>
-  <data name="Places" xml:space="preserve">
-    <value>Places to visit</value>
-  </data>
-  <data name="PlanTrip" xml:space="preserve">
-    <value>Plan your trip</value>
-  </data>
-  <data name="Reservations" xml:space="preserve">
-    <value>Reservations</value>
-  </data>
-  <data name="Restaurants" xml:space="preserve">
-    <value>Places to eat</value>
-  </data>
-  <data name="StartPlanningButton" xml:space="preserve">
-    <value>Start planning</value>
+  <data name="ItineraryPageTitle" xml:space="preserve">
+    <value>Itinerary</value>
   </data>
 </root>

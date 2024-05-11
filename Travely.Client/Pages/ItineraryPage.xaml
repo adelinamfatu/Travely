@@ -7,21 +7,21 @@
         <VerticalStackLayout>
 
             <Button 
-             Clicked="NavigateToPreviousPage"
-             VerticalOptions="Start" 
-             HorizontalOptions="Start" 
-             BackgroundColor="White">
+                Clicked="NavigateToPreviousPage"
+                VerticalOptions="Start" 
+                HorizontalOptions="Start" 
+                BackgroundColor="White">
                 <Button.ImageSource>
                     <FileImageSource File="back_button.svg" />
                 </Button.ImageSource>
             </Button>
+            
             <Frame Margin="10">
                 <VerticalStackLayout Grid.Column="1" Grid.Row="0" Padding="5" VerticalOptions="Center" HorizontalOptions="Center">
                     <Label Text="ITINERARY PAGE" FontSize="20" FontAttributes="Bold"/>
                 </VerticalStackLayout>
             </Frame>
 
-            
             <Label Text="Select Your Trip Day" FontSize="18" FontAttributes="Bold" Margin="10"/>
               <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="15">
                 <DatePicker Date="{Binding StartDate}" />
@@ -35,35 +35,33 @@
                 <Entry Placeholder="Add Your Day" />
             </Frame>-->
 
-
             <Frame x:Name="newDayFrame" Margin="10" IsVisible="False">
                 <StackLayout>
                     <Label Text="Day " FontSize="18" FontAttributes="Bold" Margin="20"/>
+                    
                     <HorizontalStackLayout Spacing="10">
                         <ImageButton Source="bx_chevron_down.svg" WidthRequest="30" HeightRequest="30"/>
                         <Label Text="Places" FontSize="18" FontAttributes="Bold" Margin="20"/>
                     </HorizontalStackLayout>
+                    
                     <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="5">
                         <Grid>
                             <Image Source="map.png" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
                             <Entry Placeholder="Add Place" Margin="30,0,0,0"/>
                         </Grid>
                     </Frame>
+                    
                 </StackLayout>
             </Frame>
 
             <Button Text="Create Your Itinerary"
-    BackgroundColor="Black"
-    TextColor="#ffffff"
-    FontAttributes="Bold"
-    HeightRequest="50"
-    CornerRadius="5"
-    Margin="10"
-    Clicked="OnCreateItineraryClicked" />
-
-
-
-
+                BackgroundColor="Black"
+                TextColor="#ffffff"
+                FontAttributes="Bold"
+                HeightRequest="50"
+                CornerRadius="5"
+                Margin="10"
+                Clicked="OnCreateItineraryClicked" />   
 
         </VerticalStackLayout>
     </ScrollView>

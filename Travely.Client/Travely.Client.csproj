@@ -109,6 +109,11 @@
 	  <Compile Update="Pages\TripsPage.xaml.cs">
 	    <DependentUpon>TripsPage.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Resources\UIResources\ItineraryResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>ItineraryResources.resx</DependentUpon>
+	  </Compile>
 	  <Compile Update="Resources\UIResources\PlanTripResources.Designer.cs">
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
@@ -119,9 +124,18 @@
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>TripsResources.resx</DependentUpon>
 	  </Compile>
+	  <Compile Update="Resources\UIResources\ValidationResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>ValidationResources.resx</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
+	  <EmbeddedResource Update="Resources\UIResources\ItineraryResources.resx">
+	    <Generator>ResXFileCodeGenerator</Generator>
+	    <LastGenOutput>ItineraryResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
 	  <EmbeddedResource Update="Resources\UIResources\PlanTripResources.resx">
 	    <Generator>ResXFileCodeGenerator</Generator>
 	    <LastGenOutput>PlanTripResources.Designer.cs</LastGenOutput>
@@ -129,6 +143,10 @@
 	  <EmbeddedResource Update="Resources\UIResources\TripsResources.resx">
 	    <Generator>ResXFileCodeGenerator</Generator>
 	    <LastGenOutput>TripsResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\UIResources\ValidationResources.resx">
+	    <Generator>ResXFileCodeGenerator</Generator>
+	    <LastGenOutput>ValidationResources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
 	</ItemGroup>
 

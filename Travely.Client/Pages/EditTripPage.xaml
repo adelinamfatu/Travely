@@ -5,7 +5,7 @@
              x:Class="Travely.Client.Pages.EditTripPage"
              Title="View trip"
              >
-    
+
     <ScrollView>
         <VerticalStackLayout>
             <Button 
@@ -89,10 +89,6 @@
                     </Frame>
                 </StackLayout>
             </Frame>
-
-            
-
         </VerticalStackLayout>
     </ScrollView>
-
 </ContentPage>
