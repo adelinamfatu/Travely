@@ -25,9 +25,17 @@
             ContentTemplate="{DataTemplate local:TripsPage}"
             Route="MyTrips" 
             Icon="plane.svg"/>
+
+        
     </FlyoutItem>
 
     <ShellContent Title="Edit Trip" Route="EditTripPage" ContentTemplate="{DataTemplate local:EditTripPage}" />
-
+    <ShellContent
+    Title="Itinerary"
+    ContentTemplate="{DataTemplate local:ItineraryPage}"
+    Route="ItineraryPage" 
+    />
+    
+    
     <MenuItem Text="Edit Trip" Clicked="OpenEditTripPage"/>
 </Shell>

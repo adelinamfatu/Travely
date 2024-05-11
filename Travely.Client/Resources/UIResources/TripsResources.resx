@@ -129,6 +129,9 @@
   <data name="DeleteButton" xml:space="preserve">
     <value>Delete</value>
   </data>
+  <data name="Itinerary" xml:space="preserve">
+    <value>ITINERARY PAGE </value>
+  </data>
   <data name="Notes" xml:space="preserve">
     <value>Notes</value>
   </data>

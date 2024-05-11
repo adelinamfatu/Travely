@@ -97,6 +97,15 @@ namespace Travely.Client.Resources.UIResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ITINERARY PAGE .
+        /// </summary>
+        internal static string Itinerary {
+            get {
+                return ResourceManager.GetString("Itinerary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Notes.
         /// </summary>
         internal static string Notes {

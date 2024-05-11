@@ -24,6 +24,17 @@
                 </VerticalStackLayout>
             </Frame>
 
+            <StackLayout Padding="10">
+                <Button Text="Create Your Itinerary"
+                BackgroundColor="Black"
+                TextColor="#ffffff"
+                FontAttributes="Bold"
+                HeightRequest="50"
+                CornerRadius="5"
+                Clicked="NavigateToItineraryPage"
+                />
+            </StackLayout>
+
             <Label Text="{x:Static resources:TripsResources.Reservations}" FontSize="18" FontAttributes="Bold" Margin="20"/>
             <Frame Margin="10">
                 <HorizontalStackLayout Spacing="65">
@@ -78,6 +89,9 @@
                     </Frame>
                 </StackLayout>
             </Frame>
+
+            
+
         </VerticalStackLayout>
     </ScrollView>
 
