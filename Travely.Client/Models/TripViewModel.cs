@@ -6,12 +6,15 @@ using System.Windows.Input;
 using Travely.BusinessLogic.DTOs;
 using Travely.BusinessLogic.Services;
 using static Travely.Client.Utilities.Messenger;
+using Travely.Client.Utilities;
 
 namespace Travely.Client.Models
 {
     public partial class TripViewModel : ObservableObject
     {
         private readonly TripService? tripService;
+
+        private List<string>? Countries { get; set; }
 
         public Guid Id { get; set; }
 
@@ -44,12 +47,22 @@ namespace Travely.Client.Models
             this.TripTitle = trip.Title;
             this.tripService = tripService;
             InitializeCommands();
+            InitializeCountries();
+        }
+
+        private async void InitializeCountries()
+        {
+            if (tripService is not null)
+            {
+                Countries = await tripService.GetWorldCountries(Constants.Continents);
+            }
         }
 
         public TripViewModel(TripService tripService)
         {
             this.tripService = tripService;
             InitializeCommands();
+            InitializeCountries();
         }
 
         private void InitializeCommands()

@@ -10,6 +10,5 @@ public partial class DashboardPage : ContentPage
     private async void StartPlanning(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new PlanTripPage());
-
     }
 }
