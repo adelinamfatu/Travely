@@ -48,9 +48,9 @@
                                              Source="delete_icon.png" 
                                              WidthRequest="20" HeightRequest="20" 
                                              HorizontalOptions="End" VerticalOptions="Start"
-                                             BackgroundColor="Transparent"
-                                             Command="{Binding DeleteCommand}" 
+                                             BackgroundColor="Transparent" 
                                              CommandParameter="{Binding Id}"
+                                             Clicked="OnDeleteTripClicked"
                                              Margin="10"/>
                             </Grid>
                         </Frame>

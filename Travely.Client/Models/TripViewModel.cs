@@ -8,6 +8,7 @@ using Travely.BusinessLogic.Services;
 using static Travely.Client.Utilities.Messenger;
 using Travely.Client.Utilities;
 using System.Collections.ObjectModel;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace Travely.Client.Models
 {
@@ -36,7 +37,7 @@ namespace Travely.Client.Models
         [ObservableProperty]
         private string addTripMessage = "";
 
-        public ICommand? DeleteCommand { get; private set; }
+        public ICommand? DeleteTripCommand { get; private set; }
         public ICommand? AddTripCommand { get; private set; }
 
         public TripViewModel(TripDTO trip, TripService tripService)
@@ -60,7 +61,7 @@ namespace Travely.Client.Models
 
         private void InitializeCommands()
         {
-            DeleteCommand = new RelayCommand<Guid>(ExecuteDeleteCommand);
+            DeleteTripCommand = new RelayCommand<Guid>(ExecuteDeleteCommand);
             AddTripCommand = new RelayCommand(AddTrip, CanAddTrip);
         }
 
@@ -127,11 +128,11 @@ namespace Travely.Client.Models
             }
         }
 
-        private void ExecuteDeleteCommand(Guid tripId)
+        public void ExecuteDeleteCommand(Guid tripId)
         {
-            if (tripService != null)
+            if (Id != Guid.Empty && tripService != null)
             {
-                tripService.DeleteTrip(tripId);
+                tripService.DeleteTrip(Id);
                 WeakReferenceMessenger.Default.Send(new ReloadTripsMessage());
             }
         }

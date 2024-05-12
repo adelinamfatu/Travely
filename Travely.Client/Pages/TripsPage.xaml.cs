@@ -40,4 +40,17 @@ public partial class TripsPage : ContentPage
     {
         await Navigation.PushAsync(new EditTripPage());
     }
+
+    private async void OnDeleteTripClicked(object sender, EventArgs e)
+    {
+        bool isConfirmed = await DisplayAlert("Confirm Delete", "Are you sure you want to delete this trip?", "Yes", "No");
+        if (isConfirmed)
+        {
+            if (sender is ImageButton button && button.CommandParameter is Guid tripId)
+            {
+                var tripViewModel = (button.BindingContext as TripViewModel);
+                tripViewModel?.ExecuteDeleteCommand(tripId);
+            }
+        }
+    }
 }
