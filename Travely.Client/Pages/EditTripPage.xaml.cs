@@ -14,6 +14,6 @@ public partial class EditTripPage : ContentPage
 
     private async void NavigateToItineraryPage(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("///ItineraryPage");
+        await Navigation.PushAsync(new ItineraryPrototype());
     }
 }

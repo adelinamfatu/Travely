@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resources="clr-namespace:Travely.Client.Resources.UIResources"
+             x:Class="Travely.Client.Pages.ItineraryPrototype"
+             Title="ItineraryPrototype">
+    
+    <VerticalStackLayout>
+        <ScrollView>
+            <StackLayout BindableLayout.ItemsSource="{Binding Itinerary}">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Margin="10">
+                            <StackLayout>
+                                <HorizontalStackLayout Spacing="10">
+                                    <ImageButton Source="bx_chevron_down.svg" WidthRequest="30" HeightRequest="30"/>
+                                    <Label Text="{Binding Key}" FontSize="18" FontAttributes="Bold" Margin="20"/>
+                                </HorizontalStackLayout>
+                                <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="5" >
+                                    <Grid>
+                                        <Image Source="map.png" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
+                                        <Entry Placeholder="{x:Static resources:TripsResources.AddPlace}" Margin="30,0,0,0"/>
+                                    </Grid>
+                                </Frame>
+                                <!-- Here you can bind to the list of places for the day -->
+                                <StackLayout BindableLayout.ItemsSource="{Binding Value}">
+                                    <BindableLayout.ItemTemplate>
+                                        <DataTemplate>
+                                            <Entry Text="{Binding}" Margin="10"/>
+                                        </DataTemplate>
+                                    </BindableLayout.ItemTemplate>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </StackLayout>
+        </ScrollView>
+    </VerticalStackLayout>
+</ContentPage>
