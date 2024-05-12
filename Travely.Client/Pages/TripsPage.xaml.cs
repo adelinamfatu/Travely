@@ -36,11 +36,8 @@ public partial class TripsPage : ContentPage
         await Navigation.PushAsync(new PlanTripPage());
     }
 
-    private async void NavigateToEditTripPage(object sender, SelectionChangedEventArgs e)
+    private async void NavigateToEditTripPage(object sender, EventArgs e)
     {
-        if (e.CurrentSelection.FirstOrDefault() is TripViewModel selectedTrip)
-        {
-            await Shell.Current.GoToAsync("///EditTripPage");
-        }
+        await Navigation.PushAsync(new EditTripPage());
     }
 }

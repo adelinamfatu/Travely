@@ -9,31 +9,48 @@
     <VerticalStackLayout>
         <Button Text="{x:Static resources:TripsResources.StartPlanningButton}" BackgroundColor="Black" HeightRequest="40" WidthRequest="150" Margin="0,0,20,0"
              Grid.Row="0" Grid.Column="1" HorizontalOptions="End" VerticalOptions="Start"  Clicked="StartPlanning"/>
-        <CollectionView x:DataType="viewModels:TripsViewModel" ItemsSource="{Binding Trips}" SelectionMode="Single" SelectionChanged="NavigateToEditTripPage">
+
+        <CollectionView x:DataType="viewModels:TripsViewModel" ItemsSource="{Binding Trips}" SelectionMode="Single" >
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="viewModels:TripViewModel">
-                    <Frame Margin="10">
+                    <Frame Margin="10" Padding="0">
                         <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width=".2*"/>
-                                <ColumnDefinition Width=".8*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="30"/>
                             </Grid.ColumnDefinitions>
 
-                            <Image Source="{Binding CountryURL}" Grid.Column="0" Grid.Row="0"/>
+                            <Grid Grid.Column="0">
+                                <Image Source="{Binding CountryURL}" Aspect="AspectFill"/>
+                                <StackLayout Margin="10">
+                                    <Label Text="{Binding TripTitle}" FontAttributes="Bold" FontSize="18"/>
+                                    <Label Text="{Binding CountryName}" FontAttributes="Bold" FontSize="16"/>
+                                    <Label Text="{Binding StartDate, StringFormat='{0:dd MMM yyyy}'}"/>
+                                    <Label Text="{Binding EndDate, StringFormat='{0:dd MMM yyyy}'}"/>
 
-                            <VerticalStackLayout Grid.Column="1" Grid.Row="0" Padding="5" VerticalOptions="Center">
-                                <Label Text="{Binding CountryName}" FontSize="20" FontAttributes="Bold"/>
-                                <Label Text="{Binding StartDate, StringFormat='Start: {0:yyyy-MM-dd}'}" FontSize="16"/>
-                                <Label Text="{Binding EndDate, StringFormat='End: {0:yyyy-MM-dd}'}" FontSize="16"/>
-                                <Button Text="{x:Static resources:TripsResources.DeleteButton}" 
-                                        BackgroundColor="Black" 
-                                        TextColor="White" 
-                                        FontSize="12" Margin="15" 
-                                        Grid.Column="2" 
-                                        VerticalOptions="End"
-                                        Command="{Binding DeleteCommand}" 
-                                        CommandParameter="{Binding Id}" />
-                            </VerticalStackLayout>
+                                </StackLayout>
+                            </Grid>
+
+                            <ImageButton Grid.Column="1" 
+                                         Source="edit_icon.png" 
+                                         WidthRequest="20" HeightRequest="20" 
+                                         HorizontalOptions="End" VerticalOptions="Start"
+                                         BackgroundColor="Transparent"
+                                         Clicked="NavigateToEditTripPage"
+                                         Margin="10"/>
+
+                            <ImageButton Grid.Column="4" 
+                                         Source="delete_icon.png" 
+                                         WidthRequest="20" HeightRequest="20" 
+                                         HorizontalOptions="End" VerticalOptions="Start"
+                                         BackgroundColor="Transparent"
+                                         Command="{Binding DeleteCommand}" 
+                                         CommandParameter="{Binding Id}"
+                                         Margin="10"/>
                         </Grid>
                     </Frame>
                 </DataTemplate>
