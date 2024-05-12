@@ -7,6 +7,7 @@ using Travely.BusinessLogic.DTOs;
 using Travely.BusinessLogic.Services;
 using static Travely.Client.Utilities.Messenger;
 using Travely.Client.Utilities;
+using System.Collections.ObjectModel;
 
 namespace Travely.Client.Models
 {
@@ -14,7 +15,7 @@ namespace Travely.Client.Models
     {
         private readonly TripService? tripService;
 
-        private List<string>? Countries { get; set; }
+        public ObservableCollection<string> Countries { get; } = new ObservableCollection<string>();
 
         public Guid Id { get; set; }
 
@@ -50,14 +51,6 @@ namespace Travely.Client.Models
             InitializeCountries();
         }
 
-        private async void InitializeCountries()
-        {
-            if (tripService is not null)
-            {
-                Countries = await tripService.GetWorldCountries(Constants.Continents);
-            }
-        }
-
         public TripViewModel(TripService tripService)
         {
             this.tripService = tripService;
@@ -69,6 +62,18 @@ namespace Travely.Client.Models
         {
             DeleteCommand = new RelayCommand<Guid>(ExecuteDeleteCommand);
             AddTripCommand = new RelayCommand(AddTrip, CanAddTrip);
+        }
+
+        private async void InitializeCountries()
+        {
+            if (tripService is not null)
+            {
+                var countryNames = await tripService.GetWorldCountries(Constants.Continents);
+                foreach (var name in countryNames)
+                {
+                    Countries.Add(name);
+                }
+            }
         }
 
         private bool CanAddTrip() => !string.IsNullOrEmpty(TripTitle) &&

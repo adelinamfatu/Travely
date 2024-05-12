@@ -22,7 +22,7 @@
             </Frame>
 
             <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="15">
-                <Entry Text="{Binding CountryName}" Placeholder="{x:Static resources:PlanTripResources.TripDestination}" />
+                <Picker Title="Select Country" ItemsSource="{Binding Countries}" SelectedItem="{Binding CountryName}" />
             </Frame>
 
             <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="15">
