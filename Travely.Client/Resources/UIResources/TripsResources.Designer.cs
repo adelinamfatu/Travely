@@ -88,11 +88,29 @@ namespace Travely.Client.Resources.UIResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to delete this tip?.
+        /// </summary>
+        internal static string ConfirmDeleteTrip {
+            get {
+                return ResourceManager.GetString("ConfirmDeleteTrip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete.
         /// </summary>
         internal static string DeleteButton {
             get {
                 return ResourceManager.GetString("DeleteButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirm delete trip.
+        /// </summary>
+        internal static string MessageDeleteTrip {
+            get {
+                return ResourceManager.GetString("MessageDeleteTrip", resourceCulture);
             }
         }
         

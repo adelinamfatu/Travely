@@ -1,6 +1,7 @@
 using CommunityToolkit.Mvvm.Messaging;
 using Travely.BusinessLogic.Services;
 using Travely.Client.Models;
+using Travely.Client.Resources.UIResources;
 using static Travely.Client.Utilities.Messenger;
 
 namespace Travely.Client.Pages;
@@ -43,7 +44,7 @@ public partial class TripsPage : ContentPage
 
     private async void OnDeleteTripClicked(object sender, EventArgs e)
     {
-        bool isConfirmed = await DisplayAlert("Confirm Delete", "Are you sure you want to delete this trip?", "Yes", "No");
+        bool isConfirmed = await DisplayAlert(TripsResources.MessageDeleteTrip, TripsResources.ConfirmDeleteTrip, "Yes", "No");
         if (isConfirmed)
         {
             if (sender is ImageButton button && button.CommandParameter is Guid tripId)
