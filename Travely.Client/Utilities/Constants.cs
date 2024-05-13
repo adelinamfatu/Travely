@@ -11,11 +11,11 @@ namespace Travely.Client.Utilities
         public static readonly List<string> Continents = new List<string>
         {
             "Africa",
-            "Antarctica",
+            "Antarctic",
             "Asia",
             "Europe",
-            "North America",
             "Oceania",
+            "North America",
             "South America"
         };
 

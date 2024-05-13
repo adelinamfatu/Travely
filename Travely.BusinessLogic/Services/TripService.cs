@@ -34,11 +34,12 @@ namespace Travely.BusinessLogic.Services
 
         public async Task<List<string>> GetWorldCountries(List<string> continents)
         {
+            var countries = new List<string>();
             using var httpClient = new HttpClient();
 
             foreach (var continent in continents)
             {
-                var response = await httpClient.GetAsync(APICallResources.CountriesAPI + continent);
+                var response = await httpClient.GetAsync(APICallResources.CountriesAPI + continent.Replace(" ", "%20"));
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -51,8 +52,6 @@ namespace Travely.BusinessLogic.Services
 
                         if (data is not null)
                         {
-                            var countries = new List<string>();
-
                             foreach (var kvp in data)
                             {
                                 if (kvp.Value.Country is not null)
@@ -60,14 +59,12 @@ namespace Travely.BusinessLogic.Services
                                     countries.Add(kvp.Value.Country);
                                 }
                             }
-
-                            return countries;
                         }
                     }
                 }
             }
 
-            return new List<string>();
+            return countries;
         }
 
         public class CountryInfo
