@@ -9,6 +9,9 @@ using static Travely.Client.Utilities.Messenger;
 using Travely.Client.Utilities;
 using System.Collections.ObjectModel;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.Extensions.Caching.Memory;
+using AndroidX.ConstraintLayout.Core;
+using System.Text.Json;
 
 namespace Travely.Client.Models
 {
@@ -40,6 +43,8 @@ namespace Travely.Client.Models
         public ICommand? DeleteTripCommand { get; private set; }
         public ICommand? AddTripCommand { get; private set; }
 
+        private MemoryCache cache;
+
         public TripViewModel(TripDTO trip, TripService tripService)
         {
             this.Id = trip.Id;
@@ -48,6 +53,7 @@ namespace Travely.Client.Models
             this.EndDate = trip.EndDate;
             this.TripTitle = trip.Title;
             this.tripService = tripService;
+            this.cache = new MemoryCache(new MemoryCacheOptions());
             InitializeCommands();
             InitializeCountries();
         }
@@ -55,6 +61,7 @@ namespace Travely.Client.Models
         public TripViewModel(TripService tripService)
         {
             this.tripService = tripService;
+            this.cache = new MemoryCache(new MemoryCacheOptions());
             InitializeCommands();
             InitializeCountries();
         }
@@ -67,9 +74,28 @@ namespace Travely.Client.Models
 
         private async void InitializeCountries()
         {
-            if (tripService is not null)
+            List<string>? countryNames = new List<string>();
+
+            var cacheDirectory = FileSystem.CacheDirectory;
+            var cacheFilePath = Path.Combine(cacheDirectory, Constants.CountriesCacheFileName);
+
+            if (File.Exists(cacheFilePath))
             {
-                var countryNames = await tripService.GetWorldCountries(Constants.Continents);
+                string json = await File.ReadAllTextAsync(cacheFilePath);
+                countryNames = JsonSerializer.Deserialize<List<string>>(json);
+            }
+            else
+            {
+                if (tripService is not null)
+                {
+                    countryNames = await tripService.GetWorldCountries(Constants.Continents);
+                    string json = JsonSerializer.Serialize(countryNames);
+                    await File.WriteAllTextAsync(cacheFilePath, json);
+                }
+            }
+
+            if (countryNames is not null)
+            {
                 foreach (var name in countryNames)
                 {
                     Countries.Add(name);

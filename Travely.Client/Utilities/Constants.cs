@@ -20,5 +20,7 @@ namespace Travely.Client.Utilities
         };
 
         public static string DatabaseFileName = "travely.db";
+
+        public static string CountriesCacheFileName = "countries.json";
     }
 }
