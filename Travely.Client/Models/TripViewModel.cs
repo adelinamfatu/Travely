@@ -8,9 +8,7 @@ using Travely.BusinessLogic.Services;
 using static Travely.Client.Utilities.Messenger;
 using Travely.Client.Utilities;
 using System.Collections.ObjectModel;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.Caching.Memory;
-using AndroidX.ConstraintLayout.Core;
 using System.Text.Json;
 
 namespace Travely.Client.Models
@@ -43,8 +41,6 @@ namespace Travely.Client.Models
         public ICommand? DeleteTripCommand { get; private set; }
         public ICommand? AddTripCommand { get; private set; }
 
-        private MemoryCache cache;
-
         public TripViewModel(TripDTO trip, TripService tripService)
         {
             this.Id = trip.Id;
@@ -53,7 +49,6 @@ namespace Travely.Client.Models
             this.EndDate = trip.EndDate;
             this.TripTitle = trip.Title;
             this.tripService = tripService;
-            this.cache = new MemoryCache(new MemoryCacheOptions());
             InitializeCommands();
             InitializeCountries();
         }
@@ -61,7 +56,6 @@ namespace Travely.Client.Models
         public TripViewModel(TripService tripService)
         {
             this.tripService = tripService;
-            this.cache = new MemoryCache(new MemoryCacheOptions());
             InitializeCommands();
             InitializeCountries();
         }
