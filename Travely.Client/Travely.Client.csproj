@@ -59,7 +59,6 @@
 	<ItemGroup>
 	  <None Remove="Resources\Images\email.png" />
 	  <None Remove="Resources\Images\flying.png" />
-	  <None Remove="Resources\Images\map_color.png" />
 	  <None Remove="Resources\Images\mobile.png" />
 	  <None Remove="Resources\Images\password.png" />
 	  <None Remove="Resources\Images\plan.png" />
@@ -84,6 +83,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Pages\ItineraryPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\ItineraryPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\LoginPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -100,6 +105,9 @@
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>APICallResources.resx</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\ItineraryPage.xaml.cs">
+	    <DependentUpon>ItineraryPage.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Pages\PlanTripPage.xaml.cs">
 	    <DependentUpon>PlanTripPage.xaml</DependentUpon>

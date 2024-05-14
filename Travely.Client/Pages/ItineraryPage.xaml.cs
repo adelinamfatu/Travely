@@ -1,13 +1,12 @@
-using System.Collections.ObjectModel;
 using Travely.Client.Models;
 
 namespace Travely.Client.Pages;
 
-public partial class ItineraryPrototype : ContentPage
+public partial class ItineraryPage : ContentPage
 {
     public ItineraryViewModel? viewModel { get; set; }
 
-    public ItineraryPrototype()
+    public ItineraryPage()
 	{
 		InitializeComponent();
         viewModel = new ItineraryViewModel();
