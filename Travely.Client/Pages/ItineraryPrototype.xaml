@@ -26,7 +26,12 @@
                                 <StackLayout BindableLayout.ItemsSource="{Binding Value}">
                                     <BindableLayout.ItemTemplate>
                                         <DataTemplate>
-                                            <Entry Text="{Binding}" Margin="10"/>
+                                            <Frame BorderColor="Gray" CornerRadius="5" Padding="0" Margin="5" >
+                                                <Grid>
+                                                    <Image Source="map_color.png" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
+                                                    <Entry Text="{Binding}" Margin="28,0,28,0"/>
+                                                </Grid>
+                                            </Frame>
                                         </DataTemplate>
                                     </BindableLayout.ItemTemplate>
                                 </StackLayout>
