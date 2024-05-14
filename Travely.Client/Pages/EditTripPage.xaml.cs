@@ -74,30 +74,6 @@ public partial class EditTripPage : ContentPage
         }
     }
 
-
-
-
-    /*  private void HandleChevronDownClicked(object sender, EventArgs e)
-      {
-          foreach (var child in Content.FindByName<VerticalStackLayout>("mainLayout").Children)
-          {
-              if (child is Frame frame)
-              {
-                  if (isCollapsed)
-                  {
-                      frame.HeightRequest = double.NaN;
-                  }
-                  else
-                  {
-                      frame.HeightRequest = 100;
-                  }
-              }
-          }
-          isCollapsed = !isCollapsed;
-      }*/
-
-
-
     public EditTripPage()
 	{
 		InitializeComponent();
@@ -105,7 +81,7 @@ public partial class EditTripPage : ContentPage
 
     private async void NavigateToPreviousPage(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("///MyTrips");
+        await Navigation.PushAsync(new TripsPage());
     }
 
     private async void NavigateToItineraryPage(object sender, EventArgs e)
