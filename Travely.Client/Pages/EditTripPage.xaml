@@ -7,7 +7,7 @@
              >
 
     <ScrollView>
-        <VerticalStackLayout>
+        <VerticalStackLayout x:Name="mainLayout">
             <Button 
                  Clicked="NavigateToPreviousPage"
                  VerticalOptions="Start" 
@@ -45,10 +45,10 @@
                 </HorizontalStackLayout>
             </Frame>
 
-            <Frame Margin="10">
+            <Frame Margin="10" x:Name="placesFrame" IsVisible="{Binding IsExpanded}">
                 <StackLayout>
                     <HorizontalStackLayout Spacing="10">
-                        <ImageButton Source="bx_chevron_down.svg" WidthRequest="30" HeightRequest="30"/>
+                        <ImageButton Source="bx_chevron_down.svg" WidthRequest="30" HeightRequest="30" Clicked="HandleChevronPlacesDownClicked" />
                         <Label Text="{x:Static resources:TripsResources.Places}" FontSize="18" FontAttributes="Bold" Margin="20"/>
                     </HorizontalStackLayout>
                     <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="5" >
@@ -60,10 +60,10 @@
                 </StackLayout>
             </Frame>
 
-            <Frame Margin="10">
+            <Frame Margin="10" x:Name="notesFrame" IsVisible="{Binding IsExpanded}">
                 <StackLayout>
                     <HorizontalStackLayout Spacing="10">
-                        <ImageButton Source="bx_chevron_down.svg" WidthRequest="30" HeightRequest="30"/>
+                        <ImageButton Source="bx_chevron_down.svg" WidthRequest="30" HeightRequest="30" Clicked="HandleChevronNotesClicked" />
                         <Label Text="{x:Static resources:TripsResources.Notes}" FontSize="18" FontAttributes="Bold" Margin="20"/>
                     </HorizontalStackLayout>
                     <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="5" >
@@ -75,10 +75,10 @@
                 </StackLayout>
             </Frame>
 
-            <Frame Margin="10">
+            <Frame Margin="10" x:Name="restaurantsFrame" IsVisible="{Binding IsExpanded}">
                 <StackLayout>
                     <HorizontalStackLayout Spacing="10">
-                        <ImageButton Source="bx_chevron_down.svg" WidthRequest="30" HeightRequest="30"/>
+                        <ImageButton Source="bx_chevron_down.svg" WidthRequest="30" HeightRequest="30" Clicked="HandleChevronRestaurantsClicked"/>
                         <Label Text="{x:Static resources:TripsResources.Restaurants}" FontSize="18" FontAttributes="Bold" Margin="20"/>
                     </HorizontalStackLayout>
                     <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="5" >

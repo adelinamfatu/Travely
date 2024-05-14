@@ -86,9 +86,6 @@
 	  <MauiXaml Update="Pages\ItineraryPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\ItineraryPrototype.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	  <MauiXaml Update="Pages\LoginPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -105,6 +102,9 @@
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>APICallResources.resx</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\ItineraryPage.xaml.cs">
+	    <DependentUpon>ItineraryPage.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Pages\PlanTripPage.xaml.cs">
 	    <DependentUpon>PlanTripPage.xaml</DependentUpon>
