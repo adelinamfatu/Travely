@@ -2,8 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:resources="clr-namespace:Travely.Client.Resources.UIResources"
-             x:Class="Travely.Client.Pages.ItineraryPrototype"
-             Title="ItineraryPrototype">
+             x:Class="Travely.Client.Pages.ItineraryPage"
+             Title="ItineraryPage">
     
     <VerticalStackLayout>
         <ScrollView>

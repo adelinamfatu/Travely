@@ -110,6 +110,6 @@ public partial class EditTripPage : ContentPage
 
     private async void NavigateToItineraryPage(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new ItineraryPrototype());
+        await Navigation.PushAsync(new ItineraryPage());
     }
 }
