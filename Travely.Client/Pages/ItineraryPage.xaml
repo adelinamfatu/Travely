@@ -22,7 +22,7 @@
                                         <Entry Placeholder="{x:Static resources:TripsResources.AddPlace}" Margin="30,0,0,0"/>
                                     </Grid>
                                 </Frame>
-                                <!-- Here you can bind to the list of places for the day -->
+                                
                                 <StackLayout BindableLayout.ItemsSource="{Binding Value}">
                                     <BindableLayout.ItemTemplate>
                                         <DataTemplate>

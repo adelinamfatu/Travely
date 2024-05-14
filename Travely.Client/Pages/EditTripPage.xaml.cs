@@ -21,6 +21,11 @@ public partial class EditTripPage : ContentPage
 
     public event PropertyChangedEventHandler PropertyChanged;
 
+    public EditTripPage()
+    {
+        InitializeComponent();
+    }
+
     protected virtual void OnPropertyChanged(string propertyName)
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
@@ -28,21 +33,19 @@ public partial class EditTripPage : ContentPage
 
     private bool isCollapsed = false;
 
-     private void HandleChevronPlacesDownClicked(object sender, EventArgs e)
-     {
-         if (isCollapsed)
-         {
-             placesFrame.HeightRequest = double.NaN;
-             isCollapsed = false;
-         }
-         else
-         {
-
-            placesFrame.HeightRequest = 100; 
-             isCollapsed = true;
-         }
-     }
-
+    private void HandleChevronPlacesDownClicked(object sender, EventArgs e)
+    {
+        if (isCollapsed)
+        {
+            placesFrame.HeightRequest = double.NaN;
+            isCollapsed = false;
+        }
+        else
+        {
+            placesFrame.HeightRequest = 100;
+            isCollapsed = true;
+        }
+    }
 
     private void HandleChevronNotesClicked(object sender, EventArgs e)
     {
@@ -68,14 +71,10 @@ public partial class EditTripPage : ContentPage
         }
         else
         {
-
             restaurantsFrame.HeightRequest = 100;
             isCollapsed = true;
         }
     }
-
-
-
 
     /*  private void HandleChevronDownClicked(object sender, EventArgs e)
       {
@@ -96,16 +95,9 @@ public partial class EditTripPage : ContentPage
           isCollapsed = !isCollapsed;
       }*/
 
-
-
-    public EditTripPage()
-	{
-		InitializeComponent();
-	}
-
     private async void NavigateToPreviousPage(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("///MyTrips");
+        await Navigation.PopAsync();
     }
 
     private async void NavigateToItineraryPage(object sender, EventArgs e)

@@ -28,6 +28,16 @@ namespace Travely.Domain.CRUD
             return await this.context.Trips.ToListAsync();
         }
 
+        public async Task<List<DateTime>> GetTripDays(Guid tripId)
+        {
+            var tripDates = await this.context.Trips
+                .Where(trip => trip.Id == tripId)
+                .Select(trip => new { trip.StartDate, trip.EndDate })
+                .ToListAsync();
+
+            return tripDates.SelectMany(trip => new[] { trip.StartDate, trip.EndDate }).ToList();
+        }
+
         public void DeleteTrip(Guid tripId)
         {
             var existingTrip = this.context.Trips.FirstOrDefault(t => t.Id == tripId);
