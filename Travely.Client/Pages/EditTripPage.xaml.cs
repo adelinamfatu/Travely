@@ -19,14 +19,17 @@ public partial class EditTripPage : ContentPage
         }
     }
 
-    public event PropertyChangedEventHandler PropertyChanged;
+    public new event PropertyChangedEventHandler? PropertyChanged;
+
+
+
 
     public EditTripPage()
     {
         InitializeComponent();
     }
 
-    protected virtual void OnPropertyChanged(string propertyName)
+    protected override void OnPropertyChanged(string propertyName)
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }

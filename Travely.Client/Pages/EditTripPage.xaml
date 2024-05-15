@@ -18,11 +18,11 @@
                 </Button.ImageSource>
             </Button>
 
-            <Frame Margin="10">
+       <Frame Margin="10">
                 <VerticalStackLayout Grid.Column="1" Grid.Row="0" Padding="5" VerticalOptions="Center" HorizontalOptions="Center">
                     <Label Text="{x:Static resources:TripsResources.PlanTrip}" FontSize="20" FontAttributes="Bold"/>
                 </VerticalStackLayout>
-            </Frame>
+            </Frame> 
 
             <StackLayout Padding="10">
                 <Button Text="Create Your Itinerary"

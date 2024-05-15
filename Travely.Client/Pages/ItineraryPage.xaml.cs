@@ -13,7 +13,7 @@ public partial class ItineraryPage : ContentPage
         InitializeViewModel();
     }
 
-    private async void InitializeViewModel()
+    private void InitializeViewModel()
     {
         var tripService = Application.Current?.Handler?.MauiContext?.Services.GetService<TripService>();
         if (tripService != null)
