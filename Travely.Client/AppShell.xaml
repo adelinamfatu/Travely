@@ -18,10 +18,10 @@
             />
 
         <ShellContent
-            Title="Profile"
-            ContentTemplate="{DataTemplate local:ProfilePage}"
-            Route="Profile"
-            Icon="user.svg"
+            Title="Pack"
+            ContentTemplate="{DataTemplate local:TripPackingPage}"
+            Route="Pack"
+            Icon="baggage.svg"
             />
 
         <ShellContent
@@ -30,6 +30,14 @@
             Route="MyTrips" 
             Icon="plane.svg"
             />
+
+        <ShellContent
+            Title="Profile"
+            ContentTemplate="{DataTemplate local:ProfilePage}"
+            Route="Profile"
+            Icon="user.svg"
+            />
+        
     </TabBar>
 
     <ShellContent Title="Edit Trip" Route="EditTripPage" ContentTemplate="{DataTemplate local:EditTripPage}" />
