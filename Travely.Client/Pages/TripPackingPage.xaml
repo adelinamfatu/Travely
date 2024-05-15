@@ -1,13 +1,27 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:Travely.Client.Models"
+             xmlns:resources="clr-namespace:Travely.Client.Resources.UIResources"
              x:Class="Travely.Client.Pages.TripPackingPage"
-             Title="Pack for your trip">
-    
-    <VerticalStackLayout>
-        <Label 
-            Text=""
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             x:DataType="viewModels:PackingListViewModel"
+             Title="Pack for Your Trip">
+
+    <ScrollView>
+        <VerticalStackLayout>
+            <Entry Placeholder="{x:Static resources:PackingListResources.EnterNewItem}" Text="{Binding ItemInput}"/>
+            <Button Text="{x:Static resources:PackingListResources.AddButton}" Command="{Binding AddItemCommand}" />
+            <CollectionView ItemsSource="{Binding Items}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <HorizontalStackLayout>
+                            <CheckBox />
+                            <Label Text="{Binding .}" VerticalOptions="Center" />
+                        </HorizontalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+
 </ContentPage>
