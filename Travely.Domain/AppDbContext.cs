@@ -11,6 +11,8 @@ namespace Travely.Domain
 
         public DbSet<SpotSqlView> Spots { get; set; }
 
+        //public DbSet<PackingItemSqlView> PackingItems { get; set; }
+
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
             Database.EnsureCreated();
