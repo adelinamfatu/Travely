@@ -8,7 +8,7 @@
 
     <ScrollView>
         <VerticalStackLayout x:Name="mainLayout">
-            <Button 
+           <!-- <Button 
                  Clicked="NavigateToPreviousPage"
                  VerticalOptions="Start" 
                  HorizontalOptions="Start" 
@@ -16,7 +16,7 @@
                 <Button.ImageSource>
                     <FileImageSource File="back_button.svg" />
                 </Button.ImageSource>
-            </Button>
+            </Button>-->
 
        <Frame Margin="10">
                 <VerticalStackLayout Grid.Column="1" Grid.Row="0" Padding="5" VerticalOptions="Center" HorizontalOptions="Center">

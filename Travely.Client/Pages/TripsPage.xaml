@@ -8,8 +8,7 @@
 
     <ScrollView>
         <VerticalStackLayout>
-            <Button Text="{x:Static resources:TripsResources.StartPlanningButton}" BackgroundColor="Black" HeightRequest="40" WidthRequest="150" Margin="0,0,20,0"
-                 Grid.Row="0" Grid.Column="1" HorizontalOptions="End" VerticalOptions="Start"  Clicked="StartPlanning"/>
+            
 
             <CollectionView x:DataType="viewModels:TripsViewModel" ItemsSource="{Binding Trips}" SelectionMode="Single" >
                 <CollectionView.ItemTemplate>
@@ -57,6 +56,9 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
+
+            <Button Text="{x:Static resources:TripsResources.StartPlanningButton}" BackgroundColor="Black" HeightRequest="45" WidthRequest="340" Margin="20,20,20,0"
+     Grid.Row="0" Grid.Column="1" HorizontalOptions="End" VerticalOptions="Start"  Clicked="StartPlanning"/>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

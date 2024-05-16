@@ -6,7 +6,7 @@
     xmlns:local="clr-namespace:Travely.Client.Pages"
     Shell.FlyoutBehavior="Disabled"
     Title="Travely.Client"
-    Shell.TitleColor="Black"
+    Shell.TitleColor="White"
    >
    
     <TabBar >

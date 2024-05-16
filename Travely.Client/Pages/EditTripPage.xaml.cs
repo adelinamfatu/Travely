@@ -98,10 +98,10 @@ public partial class EditTripPage : ContentPage
           isCollapsed = !isCollapsed;
       }*/
 
-    private async void NavigateToPreviousPage(object sender, EventArgs e)
+   /* private async void NavigateToPreviousPage(object sender, EventArgs e)
     {
         await Navigation.PopAsync();
-    }
+    }*/
 
     private async void NavigateToItineraryPage(object sender, EventArgs e)
     {
