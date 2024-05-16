@@ -21,9 +21,6 @@ public partial class EditTripPage : ContentPage
 
     public new event PropertyChangedEventHandler? PropertyChanged;
 
-
-
-
     public EditTripPage()
     {
         InitializeComponent();
@@ -78,30 +75,6 @@ public partial class EditTripPage : ContentPage
             isCollapsed = true;
         }
     }
-
-    /*  private void HandleChevronDownClicked(object sender, EventArgs e)
-      {
-          foreach (var child in Content.FindByName<VerticalStackLayout>("mainLayout").Children)
-          {
-              if (child is Frame frame)
-              {
-                  if (isCollapsed)
-                  {
-                      frame.HeightRequest = double.NaN;
-                  }
-                  else
-                  {
-                      frame.HeightRequest = 100;
-                  }
-              }
-          }
-          isCollapsed = !isCollapsed;
-      }*/
-
-   /* private async void NavigateToPreviousPage(object sender, EventArgs e)
-    {
-        await Navigation.PopAsync();
-    }*/
 
     private async void NavigateToItineraryPage(object sender, EventArgs e)
     {

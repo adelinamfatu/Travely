@@ -8,16 +8,7 @@
 
     <ScrollView>
         <VerticalStackLayout x:Name="mainLayout">
-           <!-- <Button 
-                 Clicked="NavigateToPreviousPage"
-                 VerticalOptions="Start" 
-                 HorizontalOptions="Start" 
-                 BackgroundColor="White">
-                <Button.ImageSource>
-                    <FileImageSource File="back_button.svg" />
-                </Button.ImageSource>
-            </Button>-->
-
+          
        <Frame Margin="10">
                 <VerticalStackLayout Grid.Column="1" Grid.Row="0" Padding="5" VerticalOptions="Center" HorizontalOptions="Center">
                     <Label Text="{x:Static resources:TripsResources.PlanTrip}" FontSize="20" FontAttributes="Bold"/>
