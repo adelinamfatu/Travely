@@ -16,7 +16,7 @@ public partial class ItineraryPage : ContentPage
     private void InitializeViewModel()
     {
         var tripService = Application.Current?.Handler?.MauiContext?.Services.GetService<TripService>();
-        if (tripService != null)
+        if (tripService is not null)
         {
             viewModel = new ItineraryViewModel(tripService);
             

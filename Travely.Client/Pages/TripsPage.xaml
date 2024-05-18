@@ -9,7 +9,6 @@
     <ScrollView>
         <VerticalStackLayout>
             
-
             <CollectionView x:DataType="viewModels:TripsViewModel" ItemsSource="{Binding Trips}" SelectionMode="Single" >
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="viewModels:TripViewModel">

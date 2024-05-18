@@ -2,9 +2,10 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:Travely.Client.Models"
+             xmlns:dtos="clr-namespace:Travely.BusinessLogic.DTOs;assembly=Travely.BusinessLogic"
              xmlns:resources="clr-namespace:Travely.Client.Resources.UIResources"
              x:Class="Travely.Client.Pages.TripPackingPage"
-             x:DataType="viewModels:PackingListViewModel"
+             x:DataType="viewModels:TripPackingViewModel"
              Title="Pack for Your Trip">
 
     <ScrollView>
@@ -14,15 +15,17 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
+
                 <Entry 
                     Grid.Column="0"
-                    Placeholder="{x:Static resources:PackingListResources.EnterNewItem}" 
+                    Placeholder="{x:Static resources:TripPackingResources.EnterNewItem}" 
                     Text="{Binding ItemInput}"
                     Margin="0,10"
                     BackgroundColor="#F0F0F0"
                     TextColor="#333"
                     FontSize="18"
                     />
+
                 <ImageButton 
                     Grid.Column="1"
                     Source="add.png"
@@ -31,28 +34,29 @@
                     Margin="0,10,0,10"
                     />
             </Grid>
-            <CollectionView ItemsSource="{Binding Items}">
+
+            <CollectionView ItemsSource="{Binding PackingItems}">
                 <CollectionView.ItemTemplate>
-                    <DataTemplate>
+                    <DataTemplate x:DataType="dtos:PackingItemDTO">
                         <HorizontalStackLayout 
                             BackgroundColor="#F0F0F0"
-                            Margin="20,0,20,10"
-                            >
+                            Margin="20,0,20,10">
+
                             <CheckBox 
                                 Color="Green"
                                 Margin="10,0,0,0"
-                                />
+                                IsChecked="{Binding IsPacked}" />
+
                             <Label 
-                                Text="{Binding .}"
+                                Text="{Binding Title}"
                                 TextColor="#555"
                                 FontSize="16"
-                                VerticalOptions="Center" 
-                                />
+                                VerticalOptions="Center" />
+
                         </HorizontalStackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
         </VerticalStackLayout>
     </ScrollView>
-
 </ContentPage>

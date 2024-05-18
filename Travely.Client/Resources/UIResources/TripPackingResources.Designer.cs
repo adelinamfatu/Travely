@@ -59,5 +59,23 @@ namespace Travely.Client.Resources.UIResources {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add item to pack.
+        /// </summary>
+        internal static string AddItemsToPackButton {
+            get {
+                return ResourceManager.GetString("AddItemsToPackButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter new item to pack.
+        /// </summary>
+        internal static string EnterNewItem {
+            get {
+                return ResourceManager.GetString("EnterNewItem", resourceCulture);
+            }
+        }
     }
 }

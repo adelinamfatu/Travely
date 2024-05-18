@@ -126,11 +126,6 @@
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>ItineraryResources.resx</DependentUpon>
 	  </Compile>
-	  <Compile Update="Resources\UIResources\PackingListResources.Designer.cs">
-	    <DesignTime>True</DesignTime>
-	    <AutoGen>True</AutoGen>
-	    <DependentUpon>PackingListResources.resx</DependentUpon>
-	  </Compile>
 	  <Compile Update="Resources\UIResources\PlanTripResources.Designer.cs">
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
@@ -161,10 +156,6 @@
 	  <EmbeddedResource Update="Resources\UIResources\ItineraryResources.resx">
 	    <Generator>ResXFileCodeGenerator</Generator>
 	    <LastGenOutput>ItineraryResources.Designer.cs</LastGenOutput>
-	  </EmbeddedResource>
-	  <EmbeddedResource Update="Resources\UIResources\PackingListResources.resx">
-	    <Generator>ResXFileCodeGenerator</Generator>
-	    <LastGenOutput>PackingListResources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
 	  <EmbeddedResource Update="Resources\UIResources\PlanTripResources.resx">
 	    <Generator>ResXFileCodeGenerator</Generator>

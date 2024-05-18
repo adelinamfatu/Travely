@@ -20,5 +20,14 @@ namespace Travely.BusinessLogic.Converters
                 EndDate = trip.EndDate,
             };
         }
+
+        public static PackingItemSqlView DTOtoEntity(PackingItemDTO packingItem)
+        {
+            return new PackingItemSqlView
+            {
+                Title = packingItem.Title,
+                IsPacked = packingItem.IsPacked,
+            };
+        }
     }
 }
