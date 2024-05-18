@@ -19,6 +19,11 @@ namespace Travely.BusinessLogic.Services
             this.packingData = new PackingData(context);
         }
 
+        public void AddPackingItem(PackingItemDTO packingItem)
+        {
+            packingData.AddPackingItem(DTOEntity.DTOtoEntity(packingItem));
+        }
+
         public async Task<List<PackingItemDTO>> GetPackingItems()
         {
             var packingItems = await packingData.GetPackingItems();

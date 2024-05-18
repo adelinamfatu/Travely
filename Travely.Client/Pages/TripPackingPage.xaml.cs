@@ -1,6 +1,9 @@
 namespace Travely.Client.Pages;
+
+using CommunityToolkit.Mvvm.Messaging;
 using Travely.BusinessLogic.Services;
 using Travely.Client.Models;
+using static Travely.Client.Utilities.Messenger;
 
 public partial class TripPackingPage : ContentPage
 {
@@ -20,6 +23,11 @@ public partial class TripPackingPage : ContentPage
             viewModel = new TripPackingViewModel(packingService);
             await viewModel.LoadPackingItems();
             BindingContext = viewModel;
+
+            WeakReferenceMessenger.Default.Register<ReloadPackingItemsMessage>(this, async (sender, message) =>
+            {
+                await viewModel.LoadPackingItems();
+            });
         }
     }
 }

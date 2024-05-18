@@ -1,9 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Travely.Domain.Entities;
 
 namespace Travely.Domain.CRUD
@@ -15,6 +10,17 @@ namespace Travely.Domain.CRUD
         public PackingData(AppDbContext context)
         {
             this.context = context;
+        }
+
+        public void AddPackingItem(PackingItemSqlView packingItem)
+        {
+            var existingItem = this.context.PackingItems.FirstOrDefault(t => t.Id == packingItem.Id);
+
+            if (existingItem == null)
+            {
+                this.context.PackingItems.Add(packingItem);
+                this.context.SaveChanges();
+            }
         }
 
         public async Task<List<PackingItemSqlView>> GetPackingItems()

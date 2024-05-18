@@ -19,7 +19,7 @@
                 <Entry 
                     Grid.Column="0"
                     Placeholder="{x:Static resources:TripPackingResources.EnterNewItem}" 
-                    Text="{Binding ItemInput}"
+                    Text="{Binding PackingItem}"
                     Margin="0,10"
                     BackgroundColor="#F0F0F0"
                     TextColor="#333"

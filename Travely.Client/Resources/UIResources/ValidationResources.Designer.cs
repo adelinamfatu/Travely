@@ -61,6 +61,15 @@ namespace Travely.Client.Resources.UIResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Packing item added successfully..
+        /// </summary>
+        internal static string AddPackingItemSuccess {
+            get {
+                return ResourceManager.GetString("AddPackingItemSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Trip added successfully..
         /// </summary>
         internal static string AddTripSuccess {

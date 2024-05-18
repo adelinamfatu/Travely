@@ -17,8 +17,13 @@ namespace Travely.Client.Models
 
         public async Task LoadTrips()
         {
+            if (Trips.Any())
+            {
+                Trips.Clear();
+            }
+
             var trips = await tripService.GetTrips();
-            Trips.Clear();
+            
             foreach (var trip in trips)
             {
                 Trips.Add(new TripViewModel(trip, tripService));

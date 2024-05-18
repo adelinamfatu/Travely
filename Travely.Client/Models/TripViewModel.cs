@@ -8,7 +8,6 @@ using Travely.BusinessLogic.Services;
 using static Travely.Client.Utilities.Messenger;
 using Travely.Client.Utilities;
 using System.Collections.ObjectModel;
-using Microsoft.Extensions.Caching.Memory;
 using System.Text.Json;
 
 namespace Travely.Client.Models
