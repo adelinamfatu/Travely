@@ -1,10 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Travely.BusinessLogic.Services;
-using Travely.Client.Models;
 using Travely.Client.Utilities;
 using Travely.Domain;
-using Travely.Domain.CRUD;
 
 namespace Travely.Client
 {

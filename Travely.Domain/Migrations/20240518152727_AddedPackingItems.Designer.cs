@@ -2,20 +2,24 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using MigrationManager;
 using Travely.Domain;
 
 #nullable disable
 
-namespace Travely.Domain.Migrations
+namespace MigrationManager.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240518152727_AddedPackingItems")]
+    partial class AddedPackingItems
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "8.0.3");
+            modelBuilder.HasAnnotation("ProductVersion", "8.0.5");
 
             modelBuilder.Entity("Travely.Domain.Entities.FlightSqlView", b =>
                 {
@@ -96,12 +100,7 @@ namespace Travely.Domain.Migrations
                     b.Property<DateTime>("Time")
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid?>("TripSqlViewId")
-                        .HasColumnType("TEXT");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("TripSqlViewId");
 
                     b.ToTable("Spots");
                 });
@@ -138,26 +137,12 @@ namespace Travely.Domain.Migrations
             modelBuilder.Entity("Travely.Domain.Entities.FlightSqlView", b =>
                 {
                     b.HasOne("Travely.Domain.Entities.TripSqlView", "Trip")
-                        .WithMany("Flights")
+                        .WithMany()
                         .HasForeignKey("TripId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Trip");
-                });
-
-            modelBuilder.Entity("Travely.Domain.Entities.SpotSqlView", b =>
-                {
-                    b.HasOne("Travely.Domain.Entities.TripSqlView", null)
-                        .WithMany("Spots")
-                        .HasForeignKey("TripSqlViewId");
-                });
-
-            modelBuilder.Entity("Travely.Domain.Entities.TripSqlView", b =>
-                {
-                    b.Navigation("Flights");
-
-                    b.Navigation("Spots");
                 });
 #pragma warning restore 612, 618
         }

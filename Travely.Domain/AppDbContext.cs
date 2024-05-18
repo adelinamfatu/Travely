@@ -11,11 +11,12 @@ namespace Travely.Domain
 
         public DbSet<SpotSqlView> Spots { get; set; }
 
-        //public DbSet<PackingItemSqlView> PackingItems { get; set; }
+        public DbSet<PackingItemSqlView> PackingItems { get; set; }
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
             Database.EnsureCreated();
+            //Database.Migrate();
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
