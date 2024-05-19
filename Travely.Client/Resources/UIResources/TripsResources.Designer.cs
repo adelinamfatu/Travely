@@ -167,5 +167,14 @@ namespace Travely.Client.Resources.UIResources {
                 return ResourceManager.GetString("StartPlanningButton", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View itinerary.
+        /// </summary>
+        internal static string ViewItineraryButton {
+            get {
+                return ResourceManager.GetString("ViewItineraryButton", resourceCulture);
+            }
+        }
     }
 }

@@ -153,4 +153,7 @@
   <data name="StartPlanningButton" xml:space="preserve">
     <value>Start planning</value>
   </data>
+  <data name="ViewItineraryButton" xml:space="preserve">
+    <value>View itinerary</value>
+  </data>
 </root>

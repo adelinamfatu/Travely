@@ -16,7 +16,7 @@
             </Frame> 
 
             <StackLayout Padding="10">
-                <Button Text="Create Your Itinerary"
+                <Button Text="{x:Static resources:TripsResources.ViewItineraryButton}"
                 BackgroundColor="Black"
                 TextColor="#ffffff"
                 FontAttributes="Bold"
@@ -72,6 +72,7 @@
                         <ImageButton Source="bx_chevron_down.svg" WidthRequest="30" HeightRequest="30" Clicked="HandleChevronRestaurantsClicked"/>
                         <Label Text="{x:Static resources:TripsResources.Restaurants}" FontSize="18" FontAttributes="Bold" Margin="20"/>
                     </HorizontalStackLayout>
+
                     <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="5" >
                         <Grid>
                             <Image Source="eat.svg" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>

@@ -1,9 +1,14 @@
+using AndroidX.Lifecycle.ViewModels;
 using System.ComponentModel;
+using Travely.BusinessLogic.Services;
+using Travely.Client.Models;
 
 namespace Travely.Client.Pages;
 
 public partial class EditTripPage : ContentPage
 {
+    public EditTripViewModel? viewModel { get; set; }
+
     private bool isExpanded;
 
     public bool IsExpanded
@@ -24,6 +29,16 @@ public partial class EditTripPage : ContentPage
     public EditTripPage()
     {
         InitializeComponent();
+        InitializeViewModel();
+    }
+
+    private void InitializeViewModel()
+    {
+        var tripService = Application.Current?.Handler?.MauiContext?.Services.GetService<TripService>();
+        if (tripService is not null)
+        {
+            BindingContext = viewModel;
+        }
     }
 
     protected override void OnPropertyChanged(string propertyName)
@@ -56,7 +71,6 @@ public partial class EditTripPage : ContentPage
         }
         else
         {
-
             notesFrame.HeightRequest = 100;
             isCollapsed = true;
         }
