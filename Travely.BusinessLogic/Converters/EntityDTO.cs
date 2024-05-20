@@ -26,6 +26,7 @@ namespace Travely.BusinessLogic.Converters
         {
             return new PackingItemDTO
             {
+                Id = packingItem.Id,
                 Title = packingItem.Title,
                 IsPacked = packingItem.IsPacked,
             };

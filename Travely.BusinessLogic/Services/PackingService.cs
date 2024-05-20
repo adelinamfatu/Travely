@@ -24,6 +24,16 @@ namespace Travely.BusinessLogic.Services
             packingData.AddPackingItem(DTOEntity.DTOtoEntity(packingItem));
         }
 
+        public void DeletePackingItem(Guid packingItemId)
+        {
+            packingData.DeletePackingItem(packingItemId);
+        }
+
+        public void UpdatePackingItem(Guid packingItemId, string newPackingItemTitle, bool newIsPacked)
+        {
+            packingData.UpdatePackingItem(packingItemId, newPackingItemTitle, newIsPacked);
+        }
+
         public async Task<List<PackingItemDTO>> GetPackingItems()
         {
             var packingItems = await packingData.GetPackingItems();
