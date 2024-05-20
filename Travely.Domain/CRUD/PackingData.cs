@@ -23,12 +23,23 @@ namespace Travely.Domain.CRUD
             }
         }
 
-        public void DeletePackingItem(string packingItemTitle)
+        public void DeletePackingItem(Guid packingItemId)
         {
-            var existingItem = this.context.PackingItems.FirstOrDefault(t => t.Title == packingItemTitle);
+            var existingItem = this.context.PackingItems.FirstOrDefault(t => t.Id == packingItemId);
             if (existingItem != null)
             {
                 this.context.PackingItems.Remove(existingItem);
+                this.context.SaveChanges();
+            }
+        }
+
+        public void UpdatePackingItem(Guid packingItemId, string newPackingItemTitle, bool newIsPacked)
+        {
+            var existingItem = this.context.PackingItems.FirstOrDefault(t => t.Id == packingItemId);
+            if (existingItem != null)
+            {
+                existingItem.Title = newPackingItemTitle;
+                existingItem.IsPacked = newIsPacked;
                 this.context.SaveChanges();
             }
         }

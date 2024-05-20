@@ -19,8 +19,6 @@ namespace Travely.Client.Models
         [ObservableProperty]
         private ObservableCollection<PackingItemDTO> packingItems;
 
-        private string AddPackingItemMessage = "";
-
         public TripPackingViewModel(PackingService packingService)
         {
             this.packingService = packingService;
@@ -55,13 +53,12 @@ namespace Travely.Client.Models
             PackingItem = string.Empty;
 
             WeakReferenceMessenger.Default.Send(new ReloadPackingItemsMessage());
-            AddPackingItemMessage = ValidationResources.AddPackingItemSuccess;
         }
 
         [RelayCommand]
-        private void DeleteItem(string itemTitle)
+        private void DeleteItem(Guid itemId)
         {
-            packingService.DeletePackingItem(itemTitle);
+            packingService.DeletePackingItem(itemId);
             WeakReferenceMessenger.Default.Send(new ReloadPackingItemsMessage());
         }
     }

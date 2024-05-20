@@ -104,11 +104,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="APICallResources.Designer.cs">
-	    <DesignTime>True</DesignTime>
-	    <AutoGen>True</AutoGen>
-	    <DependentUpon>APICallResources.resx</DependentUpon>
-	  </Compile>
 	  <Compile Update="Pages\ItineraryPage.xaml.cs">
 	    <DependentUpon>ItineraryPage.xaml</DependentUpon>
 	  </Compile>
@@ -149,10 +144,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <EmbeddedResource Update="APICallResources.resx">
-	    <Generator>ResXFileCodeGenerator</Generator>
-	    <LastGenOutput>APICallResources.Designer.cs</LastGenOutput>
-	  </EmbeddedResource>
 	  <EmbeddedResource Update="Resources\UIResources\ItineraryResources.resx">
 	    <Generator>ResXFileCodeGenerator</Generator>
 	    <LastGenOutput>ItineraryResources.Designer.cs</LastGenOutput>
