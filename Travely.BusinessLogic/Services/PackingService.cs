@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Travely.Domain.CRUD;
+﻿using Travely.Domain.CRUD;
 using Travely.Domain;
 using Travely.BusinessLogic.Converters;
 using Travely.BusinessLogic.DTOs;

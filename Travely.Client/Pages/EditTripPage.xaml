@@ -11,11 +11,17 @@
           
        <Frame Margin="10">
                 <VerticalStackLayout Grid.Column="1" Grid.Row="0" Padding="5" VerticalOptions="Center" HorizontalOptions="Center">
-                    <Label Text="{Binding TripTitle}" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center" VerticalOptions="Center"/>
-                    <Image Source="adventure_logo"  WidthRequest="150" HeightRequest="130"  Margin="50,-10,0,0" Grid.RowSpan="3" Grid.Column="0" />
+                    <Label 
+                        Text="{Binding TripTitle}" 
+                        FontAttributes="Bold" 
+                        FontSize="20" 
+                        HorizontalOptions="Center" 
+                        VerticalOptions="Center"/>
+                    
+                    <Image Source="adventure_logo" WidthRequest="150" HeightRequest="130" Margin="50,-10,0,0" Grid.RowSpan="3" Grid.Column="0" />
+                    
                     <StackLayout Grid.Column="1" VerticalOptions="Center" Margin="10,0,0,0">
                         <Grid>
-
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
@@ -26,15 +32,44 @@
                                 <ColumnDefinition Width="Auto"/>
                             </Grid.ColumnDefinitions>
 
+                            <Label 
+                                Text="{x:Static resources:TripsResources.Country}" 
+                                FontAttributes="Bold" 
+                                FontSize="16" 
+                                Grid.Row="0" 
+                                Grid.Column="0"/>
+                            
+                            <Label 
+                                Text="{x:Static resources:TripsResources.StartDate}" 
+                                FontAttributes="Bold" 
+                                FontSize="16" 
+                                Grid.Row="0" 
+                                Grid.Column="1"/>
+                            
+                            <Label 
+                                Text="{x:Static resources:TripsResources.EndDate}" 
+                                FontAttributes="Bold" 
+                                FontSize="16" Grid.Row="0" 
+                                Grid.Column="2"/>
 
-                            <Label Text="City " FontAttributes="Bold" FontSize="16" Grid.Row="0" Grid.Column="0"/>
-                            <Label Text="Start Date " FontAttributes="Bold" FontSize="16" Grid.Row="0" Grid.Column="1"/>
-                            <Label Text="End Date " FontAttributes="Bold" FontSize="16" Grid.Row="0" Grid.Column="2"/>
-
-
-                            <Entry Text="{Binding CountryName}" FontSize="16" Grid.Row="1" Grid.Column="0" Margin="0,0,30,0"/>
-                            <Entry Text="{Binding StartDate, StringFormat='{0:dd.MM.yyyy}'}" Grid.Row="1" Grid.Column="1" Margin="0,0,30,0"/>
-                            <Entry Text="{Binding EndDate, StringFormat='{0:dd.MM.yyyy}'}" Grid.Row="1" Grid.Column="2" Margin="0,0,40,0" />
+                            <Entry 
+                                Text="{Binding CountryName}" 
+                                FontSize="16" 
+                                Grid.Row="1" 
+                                Grid.Column="0" 
+                                Margin="0,0,30,0"/>
+                            
+                            <Entry 
+                                Text="{Binding StartDate, StringFormat='{0:dd.MM.yyyy}'}" 
+                                Grid.Row="1" 
+                                Grid.Column="1" 
+                                Margin="0,0,30,0"/>
+                            
+                            <Entry 
+                                Text="{Binding EndDate, StringFormat='{0:dd.MM.yyyy}'}" 
+                                Grid.Row="1" 
+                                Grid.Column="2" 
+                                Margin="0,0,40,0" />
                         </Grid>
                     </StackLayout>
                 </VerticalStackLayout>
@@ -42,12 +77,12 @@
 
             <StackLayout Padding="10">
                 <Button Text="{x:Static resources:TripsResources.ViewItineraryButton}"
-                BackgroundColor="Black"
-                TextColor="#ffffff"
-                FontAttributes="Bold"
-                HeightRequest="50"
-                CornerRadius="5"
-                Clicked="NavigateToItineraryPage"
+                    BackgroundColor="Black"
+                    TextColor="#ffffff"
+                    FontAttributes="Bold"
+                    HeightRequest="50"
+                    CornerRadius="5"
+                    Clicked="NavigateToItineraryPage"
                 />
             </StackLayout>
 

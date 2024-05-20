@@ -8,7 +8,6 @@
 
     <ScrollView>
         <VerticalStackLayout>
-            
             <CollectionView x:DataType="viewModels:TripsViewModel" ItemsSource="{Binding Trips}" SelectionMode="Single" >
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="viewModels:TripViewModel">
@@ -30,7 +29,6 @@
                                         <Image Source="adventure_logo"  WidthRequest="150" HeightRequest="130"  Margin="50,-10,0,0" Grid.RowSpan="3" Grid.Column="0" />
                                         <StackLayout Grid.Column="1" VerticalOptions="Center" Margin="10,0,0,0">
                                             <Grid>
-                                              
                                                 <Grid.RowDefinitions>
                                                     <RowDefinition Height="Auto"/>
                                                     <RowDefinition Height="Auto"/>
@@ -41,12 +39,10 @@
                                                     <ColumnDefinition Width="Auto"/>
                                                 </Grid.ColumnDefinitions>
 
-                                                
-                                                <Label Text="City " FontAttributes="Bold" FontSize="16" Grid.Row="0" Grid.Column="0"/>
-                                                <Label Text="Start Date " FontAttributes="Bold" FontSize="16" Grid.Row="0" Grid.Column="1"/>
-                                                <Label Text="End Date " FontAttributes="Bold" FontSize="16" Grid.Row="0" Grid.Column="2"/>
+                                                <Label Text="{x:Static resources:TripsResources.Country}" FontAttributes="Bold" FontSize="16" Grid.Row="0" Grid.Column="0"/>
+                                                <Label Text="{x:Static resources:TripsResources.StartDate}" FontAttributes="Bold" FontSize="16" Grid.Row="0" Grid.Column="1"/>
+                                                <Label Text="{x:Static resources:TripsResources.EndDate}" FontAttributes="Bold" FontSize="16" Grid.Row="0" Grid.Column="2"/>
 
-                                                
                                                 <Label Text="{Binding CountryName}" FontSize="16" Grid.Row="1" Grid.Column="0" Margin="0,0,50,0"/>
                                                 <Label Text="{Binding StartDate, StringFormat='{0:dd.MM.yyyy}'}" Grid.Row="1" Grid.Column="1" Margin="0,0,50,0"/>
                                                 <Label Text="{Binding EndDate, StringFormat='{0:dd.MM.yyyy}'}" Grid.Row="1" Grid.Column="2" Margin="0,0,40,0" />
@@ -55,20 +51,20 @@
                                     </StackLayout>
                                 </Grid>
 
-                                <ImageButton Grid.Column="1" 
-                                             Source="edit_icon.png" 
-                                             WidthRequest="20" HeightRequest="20" 
+                                <ImageButton Grid.Column="1"
+                                             Source="edit_icon.png"
+                                             WidthRequest="20" HeightRequest="20"
                                              HorizontalOptions="End" VerticalOptions="Start"
                                              BackgroundColor="Transparent"
                                              Clicked="NavigateToEditTripPage"
-                                             CommandParameter="{Binding .}"
+                                             CommandParameter="{Binding Id}"
                                              Margin="10"/>
 
-                                <ImageButton Grid.Column="4" 
-                                             Source="delete_icon.png" 
-                                             WidthRequest="20" HeightRequest="20" 
+                                <ImageButton Grid.Column="4"
+                                             Source="delete_icon.png"
+                                             WidthRequest="20" HeightRequest="20"
                                              HorizontalOptions="End" VerticalOptions="Start"
-                                             BackgroundColor="Transparent" 
+                                             BackgroundColor="Transparent"
                                              CommandParameter="{Binding Id}"
                                              Clicked="OnDeleteTripClicked"
                                              Margin="10"/>
@@ -78,8 +74,16 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
-            <Button Text="{x:Static resources:TripsResources.StartPlanningButton}" BackgroundColor="Black" HeightRequest="45" WidthRequest="340" Margin="20,20,20,0"
-     Grid.Row="0" Grid.Column="1" HorizontalOptions="End" VerticalOptions="Start"  Clicked="StartPlanning"/>
+            <Button 
+                Text="{x:Static resources:TripsResources.StartPlanningButton}" 
+                BackgroundColor="Black" 
+                HeightRequest="45" 
+                WidthRequest="340" Margin="20,20,20,0"
+                Grid.Row="0"
+                Grid.Column="1"
+                HorizontalOptions="End" 
+                VerticalOptions="Start" 
+                Clicked="StartPlanning"/>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

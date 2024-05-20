@@ -26,23 +26,18 @@ public partial class EditTripPage : ContentPage
 
     public new event PropertyChangedEventHandler? PropertyChanged;
 
-    public EditTripPage()
+    public EditTripPage(Guid tripId)
     {
         InitializeComponent();
-        InitializeViewModel();
+        InitializeViewModel(tripId);
     }
 
-    public EditTripPage(TripViewModel tripViewModel)
-    {
-        InitializeComponent();
-        BindingContext = tripViewModel;
-    }
-
-    private void InitializeViewModel()
+    private void InitializeViewModel(Guid tripId)
     {
         var tripService = Application.Current?.Handler?.MauiContext?.Services.GetService<TripService>();
         if (tripService is not null)
         {
+            viewModel = new EditTripViewModel(tripId, tripService);
             BindingContext = viewModel;
         }
     }
