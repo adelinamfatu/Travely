@@ -37,9 +37,19 @@ public partial class TripsPage : ContentPage
         await Navigation.PushAsync(new PlanTripPage());
     }
 
-    private async void NavigateToEditTripPage(object sender, EventArgs e)
+    /*private async void NavigateToEditTripPage(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new EditTripPage());
+    }*/
+
+    private async void NavigateToEditTripPage(object sender, EventArgs e)
+    {
+        if (sender is ImageButton button && button.CommandParameter is TripViewModel trip)
+        {
+            var editTripPage = new EditTripPage();
+            editTripPage.BindingContext = trip;
+            await Navigation.PushAsync(editTripPage);
+        }
     }
 
     private async void OnDeleteTripClicked(object sender, EventArgs e)

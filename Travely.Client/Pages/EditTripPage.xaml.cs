@@ -1,4 +1,4 @@
-using AndroidX.Lifecycle.ViewModels;
+//using AndroidX.Lifecycle.ViewModels;
 using System.ComponentModel;
 using Travely.BusinessLogic.Services;
 using Travely.Client.Models;
@@ -30,6 +30,12 @@ public partial class EditTripPage : ContentPage
     {
         InitializeComponent();
         InitializeViewModel();
+    }
+
+    public EditTripPage(TripViewModel tripViewModel)
+    {
+        InitializeComponent();
+        BindingContext = tripViewModel;
     }
 
     private void InitializeViewModel()

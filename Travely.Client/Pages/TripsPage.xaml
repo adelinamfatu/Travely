@@ -61,6 +61,7 @@
                                              HorizontalOptions="End" VerticalOptions="Start"
                                              BackgroundColor="Transparent"
                                              Clicked="NavigateToEditTripPage"
+                                             CommandParameter="{Binding .}"
                                              Margin="10"/>
 
                                 <ImageButton Grid.Column="4" 
