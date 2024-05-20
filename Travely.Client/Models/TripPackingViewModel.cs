@@ -54,6 +54,9 @@ namespace Travely.Client.Models
 
             WeakReferenceMessenger.Default.Send(new ReloadPackingItemsMessage());
             AddPackingItemMessage = ValidationResources.AddPackingItemSuccess;
+
         }
+
+
     }
 }

@@ -30,4 +30,12 @@ public partial class TripPackingPage : ContentPage
             });
         }
     }
+
+    private async void OnAddItem(object sender, EventArgs e)
+    {
+        if (viewModel != null && !string.IsNullOrWhiteSpace(viewModel.PackingItem))
+        {
+            PackingItemEntry.Text = string.Empty;
+        }
+    }
 }
