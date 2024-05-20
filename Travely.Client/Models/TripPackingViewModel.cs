@@ -52,11 +52,17 @@ namespace Travely.Client.Models
                 IsPacked = false,
             });
 
+            PackingItem = string.Empty;
+
             WeakReferenceMessenger.Default.Send(new ReloadPackingItemsMessage());
             AddPackingItemMessage = ValidationResources.AddPackingItemSuccess;
-
         }
 
-
+        [RelayCommand]
+        private void DeleteItem(string itemTitle)
+        {
+            packingService.DeletePackingItem(itemTitle);
+            WeakReferenceMessenger.Default.Send(new ReloadPackingItemsMessage());
+        }
     }
 }

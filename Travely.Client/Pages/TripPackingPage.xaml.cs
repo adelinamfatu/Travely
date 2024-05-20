@@ -1,9 +1,9 @@
-namespace Travely.Client.Pages;
-
 using CommunityToolkit.Mvvm.Messaging;
 using Travely.BusinessLogic.Services;
 using Travely.Client.Models;
 using static Travely.Client.Utilities.Messenger;
+
+namespace Travely.Client.Pages;
 
 public partial class TripPackingPage : ContentPage
 {
@@ -28,14 +28,6 @@ public partial class TripPackingPage : ContentPage
             {
                 await viewModel.LoadPackingItems();
             });
-        }
-    }
-
-    private async void OnAddItem(object sender, EventArgs e)
-    {
-        if (viewModel != null && !string.IsNullOrWhiteSpace(viewModel.PackingItem))
-        {
-            PackingItemEntry.Text = string.Empty;
         }
     }
 }

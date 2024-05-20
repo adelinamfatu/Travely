@@ -23,6 +23,16 @@ namespace Travely.Domain.CRUD
             }
         }
 
+        public void DeletePackingItem(string packingItemTitle)
+        {
+            var existingItem = this.context.PackingItems.FirstOrDefault(t => t.Title == packingItemTitle);
+            if (existingItem != null)
+            {
+                this.context.PackingItems.Remove(existingItem);
+                this.context.SaveChanges();
+            }
+        }
+
         public async Task<List<PackingItemSqlView>> GetPackingItems()
         {
             return await this.context.PackingItems.ToListAsync();
