@@ -1,4 +1,3 @@
-//using AndroidX.Lifecycle.ViewModels;
 using System.ComponentModel;
 using Travely.BusinessLogic.Services;
 using Travely.Client.Models;
@@ -87,6 +86,20 @@ public partial class EditTripPage : ContentPage
         else
         {
             restaurantsFrame.HeightRequest = 100;
+            isCollapsed = true;
+        }
+    }
+
+    private void HandleChevronArrivalClicked(object sender, EventArgs e)
+    {
+        if (isCollapsed)
+        {
+            arrivalFrame.HeightRequest = double.NaN;
+            isCollapsed = false;
+        }
+        else
+        {
+            arrivalFrame.HeightRequest = 100;
             isCollapsed = true;
         }
     }

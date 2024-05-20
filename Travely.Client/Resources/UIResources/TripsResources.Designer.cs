@@ -70,7 +70,7 @@ namespace Travely.Client.Resources.UIResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add a place to visit.
+        ///   Looks up a localized string similar to Add a hotels to stay.
         /// </summary>
         internal static string AddPlace {
             get {
@@ -79,11 +79,11 @@ namespace Travely.Client.Resources.UIResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add a restaurant.
+        ///   Looks up a localized string similar to Arrival Flight Information.
         /// </summary>
-        internal static string AddRestaurant {
+        internal static string ArrivalFlight {
             get {
-                return ResourceManager.GetString("AddRestaurant", resourceCulture);
+                return ResourceManager.GetString("ArrivalFlight", resourceCulture);
             }
         }
         
@@ -124,6 +124,33 @@ namespace Travely.Client.Resources.UIResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Departure Flight Information.
+        /// </summary>
+        internal static string DepartureFlight {
+            get {
+                return ResourceManager.GetString("DepartureFlight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Flight Number.
+        /// </summary>
+        internal static string FlightNumber {
+            get {
+                return ResourceManager.GetString("FlightNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Flight Information.
+        /// </summary>
+        internal static string Flights {
+            get {
+                return ResourceManager.GetString("Flights", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Confirm delete trip.
         /// </summary>
         internal static string MessageDeleteTrip {
@@ -142,7 +169,7 @@ namespace Travely.Client.Resources.UIResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Places to visit.
+        ///   Looks up a localized string similar to Hotels To Stay.
         /// </summary>
         internal static string Places {
             get {
@@ -169,11 +196,11 @@ namespace Travely.Client.Resources.UIResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Places to eat.
+        ///   Looks up a localized string similar to Search By Airline.
         /// </summary>
-        internal static string Restaurants {
+        internal static string SearchAirline {
             get {
-                return ResourceManager.GetString("Restaurants", resourceCulture);
+                return ResourceManager.GetString("SearchAirline", resourceCulture);
             }
         }
         
