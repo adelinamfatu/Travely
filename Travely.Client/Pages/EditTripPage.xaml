@@ -26,12 +26,9 @@
                                 <ColumnDefinition Width="Auto"/>
                             </Grid.ColumnDefinitions>
 
-
                             <Label Text="City " FontAttributes="Bold" FontSize="16" Grid.Row="0" Grid.Column="0"/>
                             <Label Text="Start Date " FontAttributes="Bold" FontSize="16" Grid.Row="0" Grid.Column="1"/>
                             <Label Text="End Date " FontAttributes="Bold" FontSize="16" Grid.Row="0" Grid.Column="2"/>
-
-
                             <Entry Text="{Binding CountryName}" FontSize="16" Grid.Row="1" Grid.Column="0" Margin="0,0,30,0"/>
                             <Entry Text="{Binding StartDate, StringFormat='{0:dd.MM.yyyy}'}" Grid.Row="1" Grid.Column="1" Margin="0,0,30,0"/>
                             <Entry Text="{Binding EndDate, StringFormat='{0:dd.MM.yyyy}'}" Grid.Row="1" Grid.Column="2" Margin="0,0,40,0" />
@@ -71,7 +68,10 @@
                         <Grid>
                             <Image Source="map.png" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
                             <Entry Placeholder="{x:Static resources:TripsResources.AddPlace}" Margin="30,0,0,0"/>
+                            <Image Source="map.png" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
+                            <Entry Placeholder="{x:Static resources:TripsResources.AddPlace}" Margin="30,0,0,0"/>
                         </Grid>
+                        
                     </Frame>
                 </StackLayout>
             </Frame>
@@ -95,15 +95,61 @@
                 <StackLayout>
                     <HorizontalStackLayout Spacing="10">
                         <ImageButton Source="bx_chevron_down.svg" WidthRequest="30" HeightRequest="30" Clicked="HandleChevronRestaurantsClicked"/>
-                        <Label Text="{x:Static resources:TripsResources.Restaurants}" FontSize="18" FontAttributes="Bold" Margin="20"/>
+                        <Label Text="{x:Static resources:TripsResources.DepartureFlight}" FontSize="18" FontAttributes="Bold" Margin="20"/>
                     </HorizontalStackLayout>
 
                     <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="5" >
                         <Grid>
-                            <Image Source="eat.svg" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
-                            <Entry Placeholder="{x:Static resources:TripsResources.AddRestaurant}" Margin="30,0,0,0"/>
+                            <Image Source="bxs_plane.svg" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
+                            <Entry Placeholder="{x:Static resources:TripsResources.SearchAirline}" Margin="30,0,0,0"/>
                         </Grid>
                     </Frame>
+                    <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="5" >
+                        <Grid>
+                            <Image Source="flight_number.svg" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
+                            <Entry Placeholder="{x:Static resources:TripsResources.FlightNumber}" Margin="30,0,0,0"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin=" 5">
+                        <Grid>
+                            <Image Source="calendar.svg" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
+                            <DatePicker Format="dd.MM.yyyy" Margin="30,0,0,0" />
+                        </Grid>
+                    </Frame>
+
+                </StackLayout>
+            </Frame>
+
+            <Frame Margin="10" x:Name="arrivalFrame" IsVisible="{Binding IsExpanded}">
+                <StackLayout>
+                    <HorizontalStackLayout Spacing="10">
+                        <ImageButton Source="bx_chevron_down.svg" WidthRequest="30" HeightRequest="30" Clicked="HandleChevronArrivalClicked"/>
+                        <Label Text="{x:Static resources:TripsResources.ArrivalFlight}" FontSize="18" FontAttributes="Bold" Margin="20"/>
+                    </HorizontalStackLayout>
+
+                    <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="5" >
+                        <Grid>
+                            <Image Source="bxs_plane.svg" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
+                            <Entry Placeholder="{x:Static resources:TripsResources.SearchAirline}" Margin="30,0,0,0"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="5" >
+                        <Grid>
+                            <Image Source="flight_number.svg" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
+                            <Entry Placeholder="{x:Static resources:TripsResources.FlightNumber}" Margin="30,0,0,0"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="5">
+                        <Grid>
+                            <Image Source="calendar.svg" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
+                            <DatePicker Format="dd.MM.yyyy" Margin="30,0,0,0"/>
+                        </Grid>
+                    </Frame>
+
+
                 </StackLayout>
             </Frame>
         </VerticalStackLayout>
