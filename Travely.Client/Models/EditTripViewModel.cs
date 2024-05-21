@@ -21,6 +21,18 @@ namespace Travely.Client.Models
         [ObservableProperty]
         private DateTime endDate;
 
+        [ObservableProperty]
+        private bool isHotelsExpanded = true;
+
+        [ObservableProperty]
+        private bool isNotesExpanded = true;
+
+        [ObservableProperty]
+        private bool isDepartureExpanded = true;
+
+        [ObservableProperty]
+        private bool isArrivalExpanded = true;
+
         public EditTripViewModel(Guid tripId, TripService tripService)
         {
             this.tripService = tripService;
@@ -35,5 +47,10 @@ namespace Travely.Client.Models
             this.StartDate = trip.StartDate;
             this.EndDate = trip.EndDate;
         }
+
+        public void ToggleHotelsExpanded() => IsHotelsExpanded = !IsHotelsExpanded;
+        public void ToggleNotesExpanded() => IsNotesExpanded = !IsNotesExpanded;
+        public void ToggleDepartureExpanded() => IsDepartureExpanded = !IsDepartureExpanded;
+        public void ToggleArrivalExpanded() => IsArrivalExpanded = !IsArrivalExpanded;
     }
 }

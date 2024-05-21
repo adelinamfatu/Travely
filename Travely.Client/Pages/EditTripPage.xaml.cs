@@ -1,4 +1,3 @@
-using System.ComponentModel;
 using Travely.BusinessLogic.Services;
 using Travely.Client.Models;
 
@@ -7,23 +6,6 @@ namespace Travely.Client.Pages;
 public partial class EditTripPage : ContentPage
 {
     public EditTripViewModel? viewModel { get; set; }
-
-    private bool isExpanded;
-
-    public bool IsExpanded
-    {
-        get { return isExpanded; }
-        set
-        {
-            if (isExpanded != value)
-            {
-                isExpanded = value;
-                OnPropertyChanged(nameof(IsExpanded));
-            }
-        }
-    }
-
-    public new event PropertyChangedEventHandler? PropertyChanged;
 
     public EditTripPage(Guid tripId)
     {
@@ -42,67 +24,24 @@ public partial class EditTripPage : ContentPage
         }
     }
 
-    protected override void OnPropertyChanged(string propertyName)
+    private void HandleChevronHotelsDownClicked(object sender, EventArgs e)
     {
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-    }
-
-    private bool isCollapsed = false;
-
-    private void HandleChevronPlacesDownClicked(object sender, EventArgs e)
-    {
-        if (isCollapsed)
-        {
-            placesFrame.HeightRequest = double.NaN;
-            isCollapsed = false;
-        }
-        else
-        {
-            placesFrame.HeightRequest = 100;
-            isCollapsed = true;
-        }
+        viewModel?.ToggleHotelsExpanded();
     }
 
     private void HandleChevronNotesClicked(object sender, EventArgs e)
     {
-        if (isCollapsed)
-        {
-            notesFrame.HeightRequest = double.NaN;
-            isCollapsed = false;
-        }
-        else
-        {
-            notesFrame.HeightRequest = 100;
-            isCollapsed = true;
-        }
+        viewModel?.ToggleNotesExpanded();
     }
 
-    private void HandleChevronRestaurantsClicked(object sender, EventArgs e)
+    private void HandleChevronDepartureClicked(object sender, EventArgs e)
     {
-        if (isCollapsed)
-        {
-            restaurantsFrame.HeightRequest = double.NaN;
-            isCollapsed = false;
-        }
-        else
-        {
-            restaurantsFrame.HeightRequest = 100;
-            isCollapsed = true;
-        }
+        viewModel?.ToggleDepartureExpanded();
     }
 
     private void HandleChevronArrivalClicked(object sender, EventArgs e)
     {
-        if (isCollapsed)
-        {
-            arrivalFrame.HeightRequest = double.NaN;
-            isCollapsed = false;
-        }
-        else
-        {
-            arrivalFrame.HeightRequest = 100;
-            isCollapsed = true;
-        }
+        viewModel?.ToggleArrivalExpanded();
     }
 
     private async void NavigateToItineraryPage(object sender, EventArgs e)

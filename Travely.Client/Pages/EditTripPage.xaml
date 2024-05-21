@@ -2,14 +2,21 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:resources="clr-namespace:Travely.Client.Resources.UIResources"
+             xmlns:converters="clr-namespace:Travely.Client.Utilities"
              x:Class="Travely.Client.Pages.EditTripPage"
              Title="View trip"
              >
 
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ExpandedToHeightConverter x:Key="ExpandedToHeightConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <ScrollView>
         <VerticalStackLayout x:Name="mainLayout">
-          
-       <Frame Margin="10">
+
+            <Frame Margin="10">
                 <VerticalStackLayout Grid.Column="1" Grid.Row="0" Padding="5" VerticalOptions="Center" HorizontalOptions="Center">
                     <Label 
                         Text="{Binding TripTitle}" 
@@ -87,6 +94,7 @@
             </StackLayout>
 
             <Label Text="{x:Static resources:TripsResources.Reservations}" FontSize="18" FontAttributes="Bold" Margin="20"/>
+            
             <Frame Margin="10">
                 <HorizontalStackLayout Spacing="65">
                     <ImageButton Source="bxs_bed.svg" WidthRequest="30" HeightRequest="30"/>
@@ -96,10 +104,10 @@
                 </HorizontalStackLayout>
             </Frame>
 
-            <Frame Margin="10" x:Name="placesFrame" IsVisible="{Binding IsExpanded}">
+            <Frame Margin="10" HeightRequest="{Binding IsHotelsExpanded, Converter={StaticResource ExpandedToHeightConverter}}">
                 <StackLayout>
                     <HorizontalStackLayout Spacing="10">
-                        <ImageButton Source="bx_chevron_down.svg" WidthRequest="30" HeightRequest="30" Clicked="HandleChevronPlacesDownClicked" />
+                        <ImageButton Source="bx_chevron_down.svg" WidthRequest="30" HeightRequest="30" Clicked="HandleChevronHotelsDownClicked" />
                         <Label Text="{x:Static resources:TripsResources.Places}" FontSize="18" FontAttributes="Bold" Margin="20"/>
                     </HorizontalStackLayout>
                     <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="5" >
@@ -114,7 +122,7 @@
                 </StackLayout>
             </Frame>
 
-            <Frame Margin="10" x:Name="notesFrame" IsVisible="{Binding IsExpanded}">
+            <Frame Margin="10" HeightRequest="{Binding IsNotesExpanded, Converter={StaticResource ExpandedToHeightConverter}}">
                 <StackLayout>
                     <HorizontalStackLayout Spacing="10">
                         <ImageButton Source="bx_chevron_down.svg" WidthRequest="30" HeightRequest="30" Clicked="HandleChevronNotesClicked" />
@@ -129,10 +137,10 @@
                 </StackLayout>
             </Frame>
 
-            <Frame Margin="10" x:Name="restaurantsFrame" IsVisible="{Binding IsExpanded}">
+            <Frame Margin="10" HeightRequest="{Binding IsDepartureExpanded, Converter={StaticResource ExpandedToHeightConverter}}">
                 <StackLayout>
                     <HorizontalStackLayout Spacing="10">
-                        <ImageButton Source="bx_chevron_down.svg" WidthRequest="30" HeightRequest="30" Clicked="HandleChevronRestaurantsClicked"/>
+                        <ImageButton Source="bx_chevron_down.svg" WidthRequest="30" HeightRequest="30" Clicked="HandleChevronDepartureClicked"/>
                         <Label Text="{x:Static resources:TripsResources.DepartureFlight}" FontSize="18" FontAttributes="Bold" Margin="20"/>
                     </HorizontalStackLayout>
 
@@ -159,7 +167,7 @@
                 </StackLayout>
             </Frame>
 
-            <Frame Margin="10" x:Name="arrivalFrame" IsVisible="{Binding IsExpanded}">
+            <Frame Margin="10" HeightRequest="{Binding IsArrivalExpanded, Converter={StaticResource ExpandedToHeightConverter}}">
                 <StackLayout>
                     <HorizontalStackLayout Spacing="10">
                         <ImageButton Source="bx_chevron_down.svg" WidthRequest="30" HeightRequest="30" Clicked="HandleChevronArrivalClicked"/>
@@ -186,7 +194,6 @@
                             <DatePicker Format="dd.MM.yyyy" Margin="30,0,0,0"/>
                         </Grid>
                     </Frame>
-
 
                 </StackLayout>
             </Frame>
