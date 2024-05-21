@@ -23,9 +23,25 @@ namespace Travely.Domain.CRUD
             }
         }
 
+        public void DeleteTrip(Guid tripId)
+        {
+            var existingTrip = this.context.Trips.FirstOrDefault(t => t.Id == tripId);
+            if (existingTrip != null)
+            {
+                this.context.Trips.Remove(existingTrip);
+                this.context.SaveChanges();
+            }
+        }
+
         public async Task<List<TripSqlView>> GetTrips()
         {
             return await this.context.Trips.ToListAsync();
+        }
+
+        public async Task<TripSqlView?> GetTrip(Guid tripId)
+        {
+            var trip = await this.context.Trips.Where(trip => trip.Id == tripId).FirstOrDefaultAsync();
+            return trip;
         }
 
         public async Task<List<DateTime>> GetTripDays(Guid tripId)
@@ -36,16 +52,6 @@ namespace Travely.Domain.CRUD
                 .ToListAsync();
 
             return tripDates.SelectMany(trip => new[] { trip.StartDate, trip.EndDate }).ToList();
-        }
-
-        public void DeleteTrip(Guid tripId)
-        {
-            var existingTrip = this.context.Trips.FirstOrDefault(t => t.Id == tripId);
-            if (existingTrip != null)
-            {
-                this.context.Trips.Remove(existingTrip);
-                this.context.SaveChanges();
-            }
         }
     }
 }

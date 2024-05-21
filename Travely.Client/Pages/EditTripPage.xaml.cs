@@ -31,12 +31,13 @@ public partial class EditTripPage : ContentPage
         InitializeViewModel(tripId);
     }
 
-    private void InitializeViewModel(Guid tripId)
+    private async void InitializeViewModel(Guid tripId)
     {
         var tripService = Application.Current?.Handler?.MauiContext?.Services.GetService<TripService>();
         if (tripService is not null)
         {
             viewModel = new EditTripViewModel(tripId, tripService);
+            await viewModel.LoadTrip();
             BindingContext = viewModel;
         }
     }

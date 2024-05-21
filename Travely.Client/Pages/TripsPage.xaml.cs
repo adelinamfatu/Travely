@@ -39,7 +39,7 @@ public partial class TripsPage : ContentPage
 
     private async void NavigateToEditTripPage(object sender, EventArgs e)
     {
-        if (sender is ImageButton button && button.CommandParameter is int tripId)
+        if (sender is ImageButton button && button.CommandParameter is Guid tripId)
         {
             await Navigation.PushAsync(new EditTripPage(tripId));
         }

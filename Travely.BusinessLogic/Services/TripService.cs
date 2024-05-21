@@ -5,6 +5,7 @@ using Travely.Domain;
 using Travely.Domain.CRUD;
 using Travely.BusinessLogic.Resources;
 using static Travely.BusinessLogic.Utilities.UtilitaryClasses;
+using Travely.Domain.Entities;
 
 namespace Travely.BusinessLogic.Services
 {
@@ -22,10 +23,21 @@ namespace Travely.BusinessLogic.Services
             tripData.AddTrip(DTOEntity.DTOtoEntity(trip));
         }
 
+        public void DeleteTrip(Guid tripId)
+        {
+            tripData.DeleteTrip(tripId);
+        }
+
         public async Task<List<TripDTO>> GetTrips()
         {
             var trips = await tripData.GetTrips();
             return trips.Select(trip => EntityDTO.EntityToDTO(trip)).ToList();
+        }
+
+        public async Task<TripDTO> GetTrip(Guid tripId)
+        {
+            var trip = await tripData.GetTrip(tripId) ?? new TripSqlView();
+            return EntityDTO.EntityToDTO(trip);
         }
 
         public async Task<List<DateTime>> GetTripDays(Guid tripId)
@@ -45,11 +57,6 @@ namespace Travely.BusinessLogic.Services
                 .ToList();
 
             return tripDays;
-        }
-
-        public void DeleteTrip(Guid tripId)
-        {
-            tripData.DeleteTrip(tripId);
         }
 
         public async Task<List<string>> GetWorldCountries(List<string> continents)
