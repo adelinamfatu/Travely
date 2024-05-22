@@ -57,13 +57,16 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\add_basket.png" />
 	  <None Remove="Resources\Images\add_button.svg" />
 	  <None Remove="Resources\Images\calendar.svg" />
+	  <None Remove="Resources\Images\delete.png" />
 	  <None Remove="Resources\Images\email.png" />
 	  <None Remove="Resources\Images\flight_number.svg" />
 	  <None Remove="Resources\Images\flying.png" />
 	  <None Remove="Resources\Images\humidity.svg" />
 	  <None Remove="Resources\Images\mobile.png" />
+	  <None Remove="Resources\Images\pack_image.png" />
 	  <None Remove="Resources\Images\password.png" />
 	  <None Remove="Resources\Images\plan.png" />
 	  <None Remove="Resources\Images\temperature.svg" />
