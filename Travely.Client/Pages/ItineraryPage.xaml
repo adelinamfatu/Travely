@@ -4,9 +4,9 @@
              xmlns:resources="clr-namespace:Travely.Client.Resources.UIResources"
              x:Class="Travely.Client.Pages.ItineraryPage"
              Title="ItineraryPage">
-    
-    <VerticalStackLayout>
-        <ScrollView>
+
+    <ScrollView>
+        <VerticalStackLayout>
             <StackLayout BindableLayout.ItemsSource="{Binding Itinerary}">
                 <BindableLayout.ItemTemplate>
                     <DataTemplate>
@@ -22,7 +22,7 @@
                                         <Entry Placeholder="{x:Static resources:TripsResources.AddPlace}" Margin="30,0,0,0"/>
                                     </Grid>
                                 </Frame>
-                                
+
                                 <StackLayout BindableLayout.ItemsSource="{Binding Value}">
                                     <BindableLayout.ItemTemplate>
                                         <DataTemplate>
@@ -40,6 +40,6 @@
                     </DataTemplate>
                 </BindableLayout.ItemTemplate>
             </StackLayout>
-        </ScrollView>
-    </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

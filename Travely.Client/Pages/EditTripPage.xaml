@@ -59,7 +59,7 @@
                                 FontSize="16" Grid.Row="0" 
                                 Grid.Column="2"/>
 
-                            <Entry 
+                            <Label 
                                 Text="{Binding CountryName}" 
                                 FontSize="16" 
                                 Grid.Row="1" 
@@ -114,10 +114,8 @@
                         <Grid>
                             <Image Source="map.png" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
                             <Entry Placeholder="{x:Static resources:TripsResources.AddPlace}" Margin="30,0,0,0"/>
-                            <Image Source="map.png" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
-                            <Entry Placeholder="{x:Static resources:TripsResources.AddPlace}" Margin="30,0,0,0"/>
+                            <ImageButton Grid.Column="3" Source="add_button.svg" HorizontalOptions="End"/>
                         </Grid>
-                        
                     </Frame>
                 </StackLayout>
             </Frame>
@@ -132,6 +130,7 @@
                         <Grid>
                             <Image Source="notes.svg" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
                             <Entry Placeholder="{x:Static resources:TripsResources.AddNote}" Margin="30,0,0,0"/>
+                            <ImageButton Grid.Column="3" Source="add_button.svg" HorizontalOptions="End"/>
                         </Grid>
                     </Frame>
                 </StackLayout>
@@ -148,12 +147,14 @@
                         <Grid>
                             <Image Source="bxs_plane.svg" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
                             <Entry Placeholder="{x:Static resources:TripsResources.SearchAirline}" Margin="30,0,0,0"/>
+                            <ImageButton Grid.Column="3" Source="add_button.svg" HorizontalOptions="End"/>
                         </Grid>
                     </Frame>
                     <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="5" >
                         <Grid>
                             <Image Source="flight_number.svg" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
                             <Entry Placeholder="{x:Static resources:TripsResources.FlightNumber}" Margin="30,0,0,0"/>
+                            <ImageButton Grid.Column="3" Source="add_button.svg" HorizontalOptions="End"/>
                         </Grid>
                     </Frame>
 
@@ -161,6 +162,7 @@
                         <Grid>
                             <Image Source="calendar.svg" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
                             <DatePicker Format="dd.MM.yyyy" Margin="30,0,0,0" />
+                            <ImageButton Grid.Column="3" Source="add_button.svg" HorizontalOptions="End"/>
                         </Grid>
                     </Frame>
 
@@ -178,6 +180,7 @@
                         <Grid>
                             <Image Source="bxs_plane.svg" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
                             <Entry Placeholder="{x:Static resources:TripsResources.SearchAirline}" Margin="30,0,0,0"/>
+                            <ImageButton Grid.Column="3" Source="add_button.svg" HorizontalOptions="End"/>
                         </Grid>
                     </Frame>
 
@@ -185,6 +188,7 @@
                         <Grid>
                             <Image Source="flight_number.svg" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
                             <Entry Placeholder="{x:Static resources:TripsResources.FlightNumber}" Margin="30,0,0,0"/>
+                            <ImageButton Grid.Column="3" Source="add_button.svg" HorizontalOptions="End"/>
                         </Grid>
                     </Frame>
 
@@ -192,6 +196,7 @@
                         <Grid>
                             <Image Source="calendar.svg" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
                             <DatePicker Format="dd.MM.yyyy" Margin="30,0,0,0"/>
+                            <ImageButton Grid.Column="3" Source="add_button.svg" HorizontalOptions="End"/>
                         </Grid>
                     </Frame>
 

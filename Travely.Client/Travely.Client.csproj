@@ -57,6 +57,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\add_button.svg" />
 	  <None Remove="Resources\Images\calendar.svg" />
 	  <None Remove="Resources\Images\email.png" />
 	  <None Remove="Resources\Images\flight_number.svg" />
