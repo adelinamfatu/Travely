@@ -4,7 +4,6 @@ using CommunityToolkit.Mvvm.Messaging;
 using System.Collections.ObjectModel;
 using Travely.BusinessLogic.DTOs;
 using Travely.BusinessLogic.Services;
-using Travely.Client.Resources.UIResources;
 using static Travely.Client.Utilities.Messenger;
 
 namespace Travely.Client.Models
@@ -39,6 +38,11 @@ namespace Travely.Client.Models
             {
                 PackingItems.Add(item);
             }
+        }
+
+        public void UpdatePackingItemIsPacked(PackingItemDTO item, bool value)
+        {
+            packingService.UpdatePackingItem(item.Id, item.IsPacked);
         }
 
         [RelayCommand]

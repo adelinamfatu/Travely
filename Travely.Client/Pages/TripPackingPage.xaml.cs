@@ -1,4 +1,5 @@
 using CommunityToolkit.Mvvm.Messaging;
+using Travely.BusinessLogic.DTOs;
 using Travely.BusinessLogic.Services;
 using Travely.Client.Models;
 using static Travely.Client.Utilities.Messenger;
@@ -28,6 +29,14 @@ public partial class TripPackingPage : ContentPage
             {
                 await viewModel.LoadPackingItems();
             });
+        }
+    }
+
+    private void IsPackedChanged(object sender, CheckedChangedEventArgs e)
+    {
+        if (sender is CheckBox checkBox && checkBox.BindingContext is PackingItemDTO item)
+        {
+            viewModel?.UpdatePackingItemIsPacked(item, e.Value);
         }
     }
 }

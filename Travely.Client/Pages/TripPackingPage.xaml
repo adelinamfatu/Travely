@@ -57,6 +57,7 @@
                                 Grid.Column="0"
                                 Color="Black"
                                 Margin="10,0,0,0"
+                                CheckedChanged="IsPackedChanged"
                                 IsChecked="{Binding IsPacked}" />
 
                             <Label

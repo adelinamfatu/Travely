@@ -33,12 +33,11 @@ namespace Travely.Domain.CRUD
             }
         }
 
-        public void UpdatePackingItem(Guid packingItemId, string newPackingItemTitle, bool newIsPacked)
+        public void UpdatePackingItem(Guid packingItemId, bool newIsPacked)
         {
             var existingItem = this.context.PackingItems.FirstOrDefault(t => t.Id == packingItemId);
             if (existingItem != null)
             {
-                existingItem.Title = newPackingItemTitle;
                 existingItem.IsPacked = newIsPacked;
                 this.context.SaveChanges();
             }
