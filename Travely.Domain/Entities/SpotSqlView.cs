@@ -24,5 +24,10 @@ namespace Travely.Domain.Entities
         public DateTime Time { get; set; }
 
         public decimal? EntryFee { get; set; }
+
+        [ForeignKey("TripSqlView")]
+        public Guid TripId { get; set; }
+
+        public virtual TripSqlView? Trip { get; set; }
     }
 }

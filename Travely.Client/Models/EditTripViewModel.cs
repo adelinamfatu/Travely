@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using Travely.BusinessLogic.Services;
 
 namespace Travely.Client.Models
@@ -20,6 +21,9 @@ namespace Travely.Client.Models
 
         [ObservableProperty]
         private DateTime endDate;
+
+        [ObservableProperty]
+        private string? notes;
 
         [ObservableProperty]
         private bool isHotelsExpanded = true;
@@ -46,11 +50,18 @@ namespace Travely.Client.Models
             this.CountryName = trip.Country;
             this.StartDate = trip.StartDate;
             this.EndDate = trip.EndDate;
+            this.Notes = trip.Notes;
         }
 
         public void ToggleHotelsExpanded() => IsHotelsExpanded = !IsHotelsExpanded;
         public void ToggleNotesExpanded() => IsNotesExpanded = !IsNotesExpanded;
         public void ToggleDepartureExpanded() => IsDepartureExpanded = !IsDepartureExpanded;
         public void ToggleArrivalExpanded() => IsArrivalExpanded = !IsArrivalExpanded;
+
+        [RelayCommand]
+        private void AddNotes()
+        {
+            tripService.UpdateTripNotes(tripId, Notes);
+        }
     }
 }

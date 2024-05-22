@@ -33,6 +33,16 @@ namespace Travely.Domain.CRUD
             }
         }
 
+        public void UpdateTripNotes(Guid tripId, string notes)
+        {
+            var existingTrip = this.context.Trips.FirstOrDefault(t => t.Id == tripId);
+            if (existingTrip != null)
+            {
+                existingTrip.Notes = notes;
+                this.context.SaveChanges();
+            }
+        }
+
         public async Task<List<TripSqlView>> GetTrips()
         {
             return await this.context.Trips.ToListAsync();

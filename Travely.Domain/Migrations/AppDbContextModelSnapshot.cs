@@ -96,12 +96,12 @@ namespace Travely.Domain.Migrations
                     b.Property<DateTime>("Time")
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid?>("TripSqlViewId")
+                    b.Property<Guid>("TripId")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("TripSqlViewId");
+                    b.HasIndex("TripId");
 
                     b.ToTable("Spots");
                 });
@@ -121,6 +121,9 @@ namespace Travely.Domain.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("EndDate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Notes")
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("StartDate")
@@ -148,9 +151,13 @@ namespace Travely.Domain.Migrations
 
             modelBuilder.Entity("Travely.Domain.Entities.SpotSqlView", b =>
                 {
-                    b.HasOne("Travely.Domain.Entities.TripSqlView", null)
+                    b.HasOne("Travely.Domain.Entities.TripSqlView", "Trip")
                         .WithMany("Spots")
-                        .HasForeignKey("TripSqlViewId");
+                        .HasForeignKey("TripId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Trip");
                 });
 
             modelBuilder.Entity("Travely.Domain.Entities.TripSqlView", b =>

@@ -28,6 +28,11 @@ namespace Travely.BusinessLogic.Services
             tripData.DeleteTrip(tripId);
         }
 
+        public void UpdateTripNotes(Guid tripId, string notes)
+        {
+            tripData.UpdateTripNotes(tripId, notes);
+        }
+
         public async Task<List<TripDTO>> GetTrips()
         {
             var trips = await tripData.GetTrips();

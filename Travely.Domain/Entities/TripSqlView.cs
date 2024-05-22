@@ -23,6 +23,8 @@ namespace Travely.Domain.Entities
 
         public decimal Budget { get; set; }
 
+        public string? Notes { get; set; }
+
         public virtual ICollection<SpotSqlView>? Spots { get; set; }
 
         public virtual ICollection<FlightSqlView>? Flights { get; set; }

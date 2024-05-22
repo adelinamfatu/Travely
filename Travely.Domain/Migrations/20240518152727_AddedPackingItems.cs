@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace MigrationManager.Migrations
+namespace Travely.Domain.Migrations
 {
     /// <inheritdoc />
     public partial class AddedPackingItems : Migration

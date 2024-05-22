@@ -45,8 +45,7 @@
                                 FontSize="16" 
                                 Grid.Row="0" 
                                 Grid.Column="0"
-                                Margin="0,0,30,0"
-                                />
+                                Margin="0,0,30,0"/>
                             
                             <Label 
                                 Text="{x:Static resources:TripsResources.StartDate}" 
@@ -76,14 +75,13 @@
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"/>
                             
-                            <Entry 
+                            <Entry
                                 Text="{Binding StartDate, StringFormat='{0:dd.MM.yyyy}'}" 
                                 Grid.Row="1" 
-                                Grid.Column="1" 
-                               HorizontalOptions="Center"
-                               VerticalOptions="Center"
-                                Margin="0,0,30,0"
-                             />
+                                Grid.Column="1"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                Margin="0,0,30,0"/>
                             
                             <Entry 
                                 Text="{Binding EndDate, StringFormat='{0:dd.MM.yyyy}'}" 
@@ -107,10 +105,6 @@
                     Clicked="NavigateToItineraryPage"
                 />
             </StackLayout>
-
-           
-
-
 
             <Label Text="{x:Static resources:TripsResources.Reservations}" FontSize="18" FontAttributes="Bold" Margin="20"/>
             <Frame Margin="10" VerticalOptions="Center" HorizontalOptions="Center" >
@@ -147,8 +141,15 @@
                     <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="5" >
                         <Grid>
                             <Image Source="notes.svg" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
-                            <Entry Placeholder="{x:Static resources:TripsResources.AddNote}" Margin="30,0,0,0"/>
-                            <ImageButton Grid.Column="3" Source="add_button.svg" HorizontalOptions="End"/>
+                            <Entry 
+                                Placeholder="{x:Static resources:TripsResources.AddNote}" 
+                                Text="{Binding Notes}" 
+                                Margin="30,0,0,0"/>
+                            <ImageButton 
+                                Grid.Column="3" 
+                                Command="{Binding AddNotesCommand}"
+                                Source="add_button.svg" 
+                                HorizontalOptions="End"/>
                         </Grid>
                     </Frame>
                 </StackLayout>
@@ -217,7 +218,6 @@
                             <ImageButton Grid.Column="3" Source="add_button.svg" HorizontalOptions="End"/>
                         </Grid>
                     </Frame>
-
                 </StackLayout>
             </Frame>
         </VerticalStackLayout>

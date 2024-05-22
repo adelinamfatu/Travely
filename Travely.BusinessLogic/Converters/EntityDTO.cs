@@ -19,6 +19,7 @@ namespace Travely.BusinessLogic.Converters
                 Country = trip.Country,
                 StartDate = trip.StartDate,
                 EndDate = trip.EndDate,
+                Notes = trip.Notes,
             };
         }
 

@@ -11,8 +11,8 @@ using Travely.Domain;
 namespace Travely.Domain.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240518152727_AddedPackingItems")]
-    partial class AddedPackingItems
+    [Migration("20240522151015_AddedNotesAndSpotForeignKey")]
+    partial class AddedNotesAndSpotForeignKey
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -99,7 +99,12 @@ namespace Travely.Domain.Migrations
                     b.Property<DateTime>("Time")
                         .HasColumnType("TEXT");
 
+                    b.Property<Guid>("TripId")
+                        .HasColumnType("TEXT");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("TripId");
 
                     b.ToTable("Spots");
                 });
@@ -121,6 +126,9 @@ namespace Travely.Domain.Migrations
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Notes")
+                        .HasColumnType("TEXT");
+
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("TEXT");
 
@@ -136,12 +144,30 @@ namespace Travely.Domain.Migrations
             modelBuilder.Entity("Travely.Domain.Entities.FlightSqlView", b =>
                 {
                     b.HasOne("Travely.Domain.Entities.TripSqlView", "Trip")
-                        .WithMany()
+                        .WithMany("Flights")
                         .HasForeignKey("TripId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Trip");
+                });
+
+            modelBuilder.Entity("Travely.Domain.Entities.SpotSqlView", b =>
+                {
+                    b.HasOne("Travely.Domain.Entities.TripSqlView", "Trip")
+                        .WithMany("Spots")
+                        .HasForeignKey("TripId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Trip");
+                });
+
+            modelBuilder.Entity("Travely.Domain.Entities.TripSqlView", b =>
+                {
+                    b.Navigation("Flights");
+
+                    b.Navigation("Spots");
                 });
 #pragma warning restore 612, 618
         }
