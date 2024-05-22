@@ -62,11 +62,15 @@
 	  <None Remove="Resources\Images\email.png" />
 	  <None Remove="Resources\Images\flight_number.svg" />
 	  <None Remove="Resources\Images\flying.png" />
+	  <None Remove="Resources\Images\humidity.svg" />
 	  <None Remove="Resources\Images\mobile.png" />
 	  <None Remove="Resources\Images\password.png" />
 	  <None Remove="Resources\Images\plan.png" />
+	  <None Remove="Resources\Images\temperature.svg" />
 	  <None Remove="Resources\Images\travel.png" />
 	  <None Remove="Resources\Images\user.png" />
+	  <None Remove="Resources\Images\weather.svg" />
+	  <None Remove="Resources\Images\wind.svg" />
 	</ItemGroup>
 
 	<ItemGroup>

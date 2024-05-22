@@ -174,4 +174,7 @@
   <data name="ViewItineraryButton" xml:space="preserve">
     <value>View itinerary</value>
   </data>
+  <data name="Weather" xml:space="preserve">
+    <value>Weather</value>
+  </data>
 </root>

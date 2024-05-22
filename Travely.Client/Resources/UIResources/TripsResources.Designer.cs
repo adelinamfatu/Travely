@@ -115,20 +115,20 @@ namespace Travely.Client.Resources.UIResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to To.
-        /// </summary>
-        internal static string EndDate {
-            get {
-                return ResourceManager.GetString("EndDate", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Departure Flight Information.
         /// </summary>
         internal static string DepartureFlight {
             get {
                 return ResourceManager.GetString("DepartureFlight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To.
+        /// </summary>
+        internal static string EndDate {
+            get {
+                return ResourceManager.GetString("EndDate", resourceCulture);
             }
         }
         
@@ -228,6 +228,15 @@ namespace Travely.Client.Resources.UIResources {
         internal static string ViewItineraryButton {
             get {
                 return ResourceManager.GetString("ViewItineraryButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Weather.
+        /// </summary>
+        internal static string Weather {
+            get {
+                return ResourceManager.GetString("Weather", resourceCulture);
             }
         }
     }
