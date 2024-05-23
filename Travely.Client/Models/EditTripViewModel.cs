@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using System.Text.RegularExpressions;
 using Travely.BusinessLogic.Services;
 
 namespace Travely.Client.Models
@@ -40,10 +41,14 @@ namespace Travely.Client.Models
         [ObservableProperty]
         private bool isArrivalExpanded = true;
 
+        [ObservableProperty]
+        private string alertMessage;
+
         public EditTripViewModel(Guid tripId, TripService tripService)
         {
             this.tripService = tripService;
             this.tripId = tripId;
+            this.alertMessage = string.Empty;
         }
 
         public async Task LoadTrip()
@@ -65,7 +70,27 @@ namespace Travely.Client.Models
         [RelayCommand]
         private void AddNotes()
         {
+            AlertMessage = string.Empty;
+            if (string.IsNullOrWhiteSpace(Notes))
+            {
+                AlertMessage = "Item title cannot be empty.";
+                return;
+            }
+
+            if (!Regex.IsMatch(Notes, @"^[a-zA-Z0-9 ]+$"))
+            {
+                AlertMessage = "Item title can only contain letters, digits and spaces.";
+                return;
+            }
+
+            Notes = FormatNoteText(Notes);
             tripService.UpdateTripNotes(tripId, Notes);
+        }
+
+        private string FormatNoteText(string text)
+        {
+            if (string.IsNullOrEmpty(text)) return text;
+            return char.ToUpper(text[0]) + text.Substring(1).ToLower();
         }
 
         private void SetCountryFlagUrl()
