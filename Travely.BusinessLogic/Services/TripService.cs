@@ -36,7 +36,9 @@ namespace Travely.BusinessLogic.Services
         public async Task<List<TripDTO>> GetTrips()
         {
             var trips = await tripData.GetTrips();
-            return trips.Select(trip => EntityDTO.EntityToDTO(trip)).ToList();
+            return trips.Select(trip => EntityDTO.EntityToDTO(trip))
+                        .OrderByDescending(trip => trip.StartDate)
+                        .ToList();
         }
 
         public async Task<TripDTO> GetTrip(Guid tripId)

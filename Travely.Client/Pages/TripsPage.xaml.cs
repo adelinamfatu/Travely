@@ -57,4 +57,9 @@ public partial class TripsPage : ContentPage
             }
         }
     }
+
+    private void LoadPastTripsClicked(object sender, EventArgs e)
+    {
+        viewModel?.TogglePastTrips();
+    }
 }
