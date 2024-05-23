@@ -8,14 +8,14 @@ namespace Travely.Client.Models
         private readonly TripService tripService;
         public ObservableCollection<TripViewModel> Trips { get; }
         private List<TripViewModel> allTrips;
-        private bool isReversed;
+        private bool showPastTrips;
 
         public TripsViewModel(TripService tripService)
         {
             this.tripService = tripService;
             Trips = new ObservableCollection<TripViewModel>();
             allTrips = new List<TripViewModel>();
-            isReversed = false;
+            showPastTrips = false;
         }
 
         public async Task LoadTrips()
@@ -34,13 +34,15 @@ namespace Travely.Client.Models
         private void UpdateTripsList()
         {
             Trips.Clear();
+            var today = DateTime.Today;
 
-            var orderedTrips = allTrips.OrderByDescending(t => t.StartDate).ToList();
+            var filteredTrips = showPastTrips
+                ? allTrips
+                : allTrips.Where(t => t.StartDate >= today).ToList();
 
-            if (isReversed)
-            {
-                orderedTrips.Reverse();
-            }
+            var orderedTrips = showPastTrips
+                ? filteredTrips.OrderBy(t => t.StartDate).ToList()
+                : filteredTrips.OrderByDescending(t => t.StartDate).ToList();
 
             foreach (var trip in orderedTrips)
             {
@@ -50,7 +52,7 @@ namespace Travely.Client.Models
 
         public void TogglePastTrips()
         {
-            isReversed = !isReversed;
+            showPastTrips = !showPastTrips;
             UpdateTripsList();
         }
     }

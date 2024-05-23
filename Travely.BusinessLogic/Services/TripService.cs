@@ -97,7 +97,6 @@ namespace Travely.BusinessLogic.Services
                     }
                 }
             }
-
             return countries;
         }
 
