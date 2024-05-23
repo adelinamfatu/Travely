@@ -61,11 +61,20 @@ namespace Travely.Client.Resources.UIResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Itinerary.
+        ///   Looks up a localized string similar to Add a hotels to stay.
         /// </summary>
-        internal static string ItineraryPageTitle {
+        internal static string AddPlace {
             get {
-                return ResourceManager.GetString("ItineraryPageTitle", resourceCulture);
+                return ResourceManager.GetString("AddPlace", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Weather.
+        /// </summary>
+        internal static string Weather {
+            get {
+                return ResourceManager.GetString("Weather", resourceCulture);
             }
         }
     }

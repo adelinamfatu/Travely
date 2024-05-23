@@ -230,14 +230,5 @@ namespace Travely.Client.Resources.UIResources {
                 return ResourceManager.GetString("ViewItineraryButton", resourceCulture);
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Weather.
-        /// </summary>
-        internal static string Weather {
-            get {
-                return ResourceManager.GetString("Weather", resourceCulture);
-            }
-        }
     }
 }

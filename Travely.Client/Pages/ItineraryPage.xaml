@@ -3,12 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:resources="clr-namespace:Travely.Client.Resources.UIResources"
              x:Class="Travely.Client.Pages.ItineraryPage"
-             Title="ItineraryPage">
+             Title="Itinerary">
 
     <ScrollView>
         <VerticalStackLayout>
 
-            <Label Text="{x:Static resources:TripsResources.Weather}" FontSize="25" FontAttributes="Bold" Margin="0,20,0,0" VerticalOptions="Center" HorizontalOptions="Center" />
+            <Label Text="{x:Static resources:ItineraryResources.Weather}" FontSize="25" FontAttributes="Bold" Margin="0,20,0,0" VerticalOptions="Center" HorizontalOptions="Center" />
           <!--  <Frame Margin="10" VerticalOptions="Center" HorizontalOptions="Center" >
                 <HorizontalStackLayout Spacing="65" VerticalOptions="Center" HorizontalOptions="Center"  >
                     <ImageButton Source="temperature.svg" WidthRequest="30" HeightRequest="30"/>
@@ -39,9 +39,6 @@
                 </HorizontalStackLayout>
             </Frame>
 
-
-
-
             <StackLayout BindableLayout.ItemsSource="{Binding Itinerary}">
                 <BindableLayout.ItemTemplate>
                     <DataTemplate>
@@ -54,7 +51,7 @@
                                 <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="5" >
                                     <Grid>
                                         <Image Source="map.png" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
-                                        <Entry Placeholder="{x:Static resources:TripsResources.AddPlace}" Margin="30,0,0,0"/>
+                                        <Entry Placeholder="{x:Static resources:ItineraryResources.AddPlace}" Margin="30,0,0,0"/>
                                     </Grid>
                                 </Frame>
 
