@@ -120,4 +120,7 @@
   <data name="CountriesAPI" xml:space="preserve">
     <value>https://api.first.org/data/v1/countries?region=</value>
   </data>
+  <data name="FlagAPI" xml:space="preserve">
+    <value>https://flagcdn.com/w320/{0}.png</value>
+  </data>
 </root>

@@ -98,5 +98,10 @@ namespace Travely.BusinessLogic.Services
 
             return countries;
         }
+
+        public string GetFlagUrl(string countryCode)
+        {
+            return string.Format(APICallResources.FlagAPI, countryCode.ToLower());
+        }
     }
 }

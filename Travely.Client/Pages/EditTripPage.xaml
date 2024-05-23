@@ -15,7 +15,6 @@
 
     <ScrollView>
         <VerticalStackLayout x:Name="mainLayout">
-
             <Frame Margin="10">
                 <VerticalStackLayout Grid.Column="1" Grid.Row="0" Padding="5" VerticalOptions="Center" HorizontalOptions="Center">
                     <Label 
@@ -25,7 +24,7 @@
                         HorizontalOptions="Center" 
                         VerticalOptions="Center"/>
 
-                    <Image Source="adventure_logo" WidthRequest="150" HeightRequest="130" VerticalOptions="Center" HorizontalOptions="Center" Grid.RowSpan="3" Grid.Column="0" />
+                    <Image Source="{Binding CountryFlagUrl}" HeightRequest="70" HorizontalOptions="Center" />
 
                     <StackLayout Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center" >
                         <Grid>
@@ -184,7 +183,6 @@
                             <ImageButton Grid.Column="3" Source="add_button.svg" HorizontalOptions="End"/>
                         </Grid>
                     </Frame>
-
                 </StackLayout>
             </Frame>
 

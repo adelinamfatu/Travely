@@ -68,5 +68,14 @@ namespace Travely.BusinessLogic.Resources {
                 return ResourceManager.GetString("CountriesAPI", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://flagcdn.com/w320/{0}.png.
+        /// </summary>
+        internal static string FlagAPI {
+            get {
+                return ResourceManager.GetString("FlagAPI", resourceCulture);
+            }
+        }
     }
 }

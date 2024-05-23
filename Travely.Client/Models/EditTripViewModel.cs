@@ -23,6 +23,9 @@ namespace Travely.Client.Models
         private DateTime endDate;
 
         [ObservableProperty]
+        private string? countryFlagUrl;
+
+        [ObservableProperty]
         private string? notes;
 
         [ObservableProperty]
@@ -51,6 +54,7 @@ namespace Travely.Client.Models
             this.StartDate = trip.StartDate;
             this.EndDate = trip.EndDate;
             this.Notes = trip.Notes;
+            SetCountryFlagUrl();
         }
 
         public void ToggleHotelsExpanded() => IsHotelsExpanded = !IsHotelsExpanded;
@@ -62,6 +66,15 @@ namespace Travely.Client.Models
         private void AddNotes()
         {
             tripService.UpdateTripNotes(tripId, Notes);
+        }
+
+        private void SetCountryFlagUrl()
+        {
+            if (tripService != null && !string.IsNullOrEmpty(CountryName))
+            {
+                var countryCode = CountryName.Substring(0, 2).ToLower(); // Simplistic approach, adjust as needed
+                CountryFlagUrl = tripService.GetFlagUrl(countryCode);
+            }
         }
     }
 }

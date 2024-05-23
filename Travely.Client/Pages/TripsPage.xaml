@@ -23,10 +23,9 @@
                                 </Grid.ColumnDefinitions>
 
                                 <Grid Grid.Column="0" >
-                                    <Image Source="{Binding CountryURL}" Aspect="AspectFill"/>
                                     <StackLayout Margin="10">
                                         <Label Text="{Binding TripTitle}" FontAttributes="Bold" FontSize="18" HorizontalOptions="Center" VerticalOptions="Center"/>
-                                        <Image Source="adventure_logo"  WidthRequest="150" HeightRequest="130"  Margin="50,-10,0,0" Grid.RowSpan="3" Grid.Column="0" />
+                                        <Image Source="{Binding CountryFlagUrl}" HeightRequest="70" HorizontalOptions="Center" />
                                         <StackLayout Grid.Column="1" VerticalOptions="Center" Margin="10,0,0,0">
                                             <Grid>
                                                 <Grid.RowDefinitions>

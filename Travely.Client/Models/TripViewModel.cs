@@ -32,7 +32,8 @@ namespace Travely.Client.Models
         [ObservableProperty]
         private DateTime endDate = DateTime.Today.AddDays(1);
 
-        public string? CountryURL { get; set; }
+        [ObservableProperty]
+        private string? countryFlagUrl;
 
         [ObservableProperty]
         private string addTripMessage = "";
@@ -50,6 +51,7 @@ namespace Travely.Client.Models
             this.tripService = tripService;
             InitializeCommands();
             InitializeCountries();
+            SetCountryFlagUrl();
         }
 
         public TripViewModel(TripService tripService)
@@ -153,6 +155,15 @@ namespace Travely.Client.Models
             {
                 tripService.DeleteTrip(Id);
                 WeakReferenceMessenger.Default.Send(new ReloadTripsMessage());
+            }
+        }
+
+        private void SetCountryFlagUrl()
+        {
+            if (tripService != null && !string.IsNullOrEmpty(CountryName))
+            {
+                var countryCode = CountryName.Substring(0, 2).ToLower();
+                CountryFlagUrl = tripService.GetFlagUrl(countryCode);
             }
         }
     }
