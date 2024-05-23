@@ -45,6 +45,7 @@
             <Label Text="{Binding ErrorMessage}"
                    TextColor="Red"
                    FontSize="14"
+                   Margin="20,0,20,10"
                    IsVisible="{Binding ErrorMessage, Converter={StaticResource StringNotNullOrEmptyConverter}}" />
 
             <CollectionView ItemsSource="{Binding PackingItems}">
@@ -76,8 +77,8 @@
                                 Source="delete.png"
                                 WidthRequest="20" HeightRequest="20" 
                                 BackgroundColor="Transparent" 
-                                Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.DeleteItemCommand}"
                                 CommandParameter="{Binding Id}"
+                                Clicked="OnDeleteItem"
                                 Margin="10"/>
                         </Grid>
                     </DataTemplate>

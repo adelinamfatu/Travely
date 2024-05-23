@@ -34,7 +34,6 @@ namespace Travely.Client.Models
             }
         }
 
-
         public TripPackingViewModel(PackingService packingService)
         {
             this.packingService = packingService;

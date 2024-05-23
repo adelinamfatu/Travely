@@ -39,4 +39,16 @@ public partial class TripPackingPage : ContentPage
             viewModel?.UpdatePackingItemIsPacked(item, e.Value);
         }
     }
+
+    private async void OnDeleteItem(object sender, EventArgs e)
+    {
+        if (sender is ImageButton button && button.BindingContext is PackingItemDTO item)
+        {
+            bool confirm = await DisplayAlert("Confirm Deletion", "Are you sure you want to delete this item?", "Yes", "No");
+            if (confirm)
+            {
+                viewModel?.DeleteItemCommand.Execute(item.Id);
+            }
+        }
+    }
 }
