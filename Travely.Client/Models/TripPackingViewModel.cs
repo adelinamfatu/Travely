@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using System.Collections.ObjectModel;
+using System.Text.RegularExpressions;
 using Travely.BusinessLogic.DTOs;
 using Travely.BusinessLogic.Services;
 using static Travely.Client.Utilities.Messenger;
@@ -13,16 +14,33 @@ namespace Travely.Client.Models
         private readonly PackingService packingService;
 
         [ObservableProperty]
-        private string packingItem;
+        private ObservableCollection<PackingItemDTO> packingItems;
 
         [ObservableProperty]
-        private ObservableCollection<PackingItemDTO> packingItems;
+        private string errorMessage;
+
+        private string packingItem;
+
+        public string PackingItem
+        {
+            get => packingItem;
+            set
+            {
+                SetProperty(ref packingItem, value);
+                if (string.IsNullOrEmpty(value))
+                {
+                    ErrorMessage = string.Empty;
+                }
+            }
+        }
+
 
         public TripPackingViewModel(PackingService packingService)
         {
             this.packingService = packingService;
             this.PackingItems = new ObservableCollection<PackingItemDTO>();
             this.packingItem = string.Empty;
+            this.errorMessage = string.Empty;
         }
 
         public async Task LoadPackingItems()
@@ -48,6 +66,24 @@ namespace Travely.Client.Models
         [RelayCommand]
         private void AddItem()
         {
+            ErrorMessage = string.Empty;
+            if (string.IsNullOrWhiteSpace(PackingItem))
+            {
+                ErrorMessage = "Item title cannot be empty.";
+                return;
+            }
+
+            if (PackingItems.Any(item => item.Title.Equals(PackingItem, StringComparison.OrdinalIgnoreCase)))
+            {
+                ErrorMessage = "An item with the same title already exists.";
+                return;
+            }
+
+            if (!Regex.IsMatch(PackingItem, @"^[a-zA-Z0-9 ]+$"))
+            {
+                ErrorMessage = "Item title can only contain letters, digits and spaces.";
+                return;
+            }
             packingService.AddPackingItem(new PackingItemDTO
             {
                 Title = PackingItem,
