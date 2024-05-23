@@ -45,7 +45,7 @@
                                 FontSize="16" 
                                 Grid.Row="0" 
                                 Grid.Column="0"
-                                Margin="0,0,30,0"/>
+                                Margin="0,0,20,0"/>
                             
                             <Label 
                                 Text="{x:Static resources:TripsResources.StartDate}" 
@@ -55,7 +55,7 @@
                                 Grid.Column="1"
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
-                                Margin="0,0,30,0"/>
+                                Margin="0,0,20,0"/>
                             
                             <Label 
                                 Text="{x:Static resources:TripsResources.EndDate}" 
@@ -64,14 +64,14 @@
                                 Grid.Column="2"
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
-                                Margin="0,0,30,0"/>
+                                Margin="20,0,20,0"/>
 
                             <Label 
                                 Text="{Binding CountryName}" 
                                 FontSize="16" 
                                 Grid.Row="1" 
                                 Grid.Column="0" 
-                                Margin="0,0,30,0"
+                                Margin="0,0,20,0"
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"/>
                             
@@ -81,7 +81,7 @@
                                 Grid.Column="1"
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
-                                Margin="0,0,30,0"/>
+                                Margin="20,0,20,0"/>
                             
                             <Entry 
                                 Text="{Binding EndDate, StringFormat='{0:dd.MM.yyyy}'}" 
@@ -89,7 +89,7 @@
                                 Grid.Column="2" 
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
-                                Margin="0,0,30,0"/>
+                                Margin="20,0,20,0"/>
                         </Grid>
                     </StackLayout>
                 </VerticalStackLayout>
