@@ -8,6 +8,34 @@
 
     <ScrollView>
         <VerticalStackLayout>
+            <Grid Margin="10" Padding="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <Button 
+                    Text="{x:Static resources:TripsResources.StartPlanningButton}" 
+                    BackgroundColor="Black" 
+                    HeightRequest="45" 
+                    Grid.Column="0"
+                    HorizontalOptions="Start" 
+                    VerticalOptions="Center"
+                    Clicked="StartPlanning"/>
+
+                <ImageButton 
+                    Grid.Column="1"
+                    Source="up_down.png"
+                    HeightRequest="45" 
+                    WidthRequest="45" 
+                    HorizontalOptions="End" 
+                    VerticalOptions="Center"
+                    Clicked="LoadPastTripsClicked" />
+            </Grid>
+
             <CollectionView x:DataType="viewModels:TripsViewModel" ItemsSource="{Binding Trips}" SelectionMode="Single" >
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="viewModels:TripViewModel">
@@ -72,16 +100,6 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-
-            <Button 
-                Text="{x:Static resources:TripsResources.StartPlanningButton}" 
-                BackgroundColor="Black" 
-                HeightRequest="45" 
-                WidthRequest="340" 
-                Grid.Row="0"
-                Grid.Column="1"
-                HorizontalOptions="Center" VerticalOptions="Center"
-                Clicked="StartPlanning"/>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
