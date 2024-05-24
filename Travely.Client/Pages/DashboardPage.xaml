@@ -4,7 +4,7 @@
              xmlns:resources="clr-namespace:Travely.Client.Resources.UIResources"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Travely.Client.Pages.DashboardPage"
-             Title="TRAVELY" >
+             Title="{x:Static resources:PageNameResources.DashboardPageName}" >
 
 
     <ScrollView>

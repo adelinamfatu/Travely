@@ -3,37 +3,28 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:resources="clr-namespace:Travely.Client.Resources.UIResources"
              x:Class="Travely.Client.Pages.ItineraryPage"
-             Title="Itinerary">
+             Title="{x:Static resources:PageNameResources.ItineraryPageName}">
 
     <ScrollView>
         <VerticalStackLayout>
 
             <Label Text="{x:Static resources:ItineraryResources.Weather}" FontSize="25" FontAttributes="Bold" Margin="0,20,0,0" VerticalOptions="Center" HorizontalOptions="Center" />
-          <!--  <Frame Margin="10" VerticalOptions="Center" HorizontalOptions="Center" >
-                <HorizontalStackLayout Spacing="65" VerticalOptions="Center" HorizontalOptions="Center"  >
-                    <ImageButton Source="temperature.svg" WidthRequest="30" HeightRequest="30"/>
-                    <ImageButton Source="wind.svg" WidthRequest="30" HeightRequest="30"/>
-                    <ImageButton Source="humidity.svg" WidthRequest="30" HeightRequest="30"/>
-                    <ImageButton Source="weather.svg" WidthRequest="30" HeightRequest="30"/>
-                </HorizontalStackLayout>
-            </Frame>-->
-
             <Frame Margin="10" VerticalOptions="Center" HorizontalOptions="Center">
                 <HorizontalStackLayout Spacing="65" VerticalOptions="Center" HorizontalOptions="Center">
                     <StackLayout>
-                        <ImageButton Source="temperature.svg" WidthRequest="30" HeightRequest="30" />
+                        <ImageButton Source="hot.png" WidthRequest="30" HeightRequest="30" />
                         <Label Text="12" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="Black" />
                     </StackLayout>
                     <StackLayout>
-                        <ImageButton Source="wind.svg" WidthRequest="30" HeightRequest="30" />
+                        <ImageButton Source="wind.png" WidthRequest="30" HeightRequest="30" />
                         <Label Text="12" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"  TextColor="Black"  />
                     </StackLayout>
                     <StackLayout>
-                        <ImageButton Source="humidity.svg" WidthRequest="30" HeightRequest="30" />
+                        <ImageButton Source="humidity.png" WidthRequest="30" HeightRequest="30" />
                         <Label Text="12" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"  TextColor="Black"  />
                     </StackLayout>
                     <StackLayout>
-                        <ImageButton Source="weather.svg" WidthRequest="30" HeightRequest="30" />
+                        <ImageButton Source="cloudy.png" WidthRequest="30" HeightRequest="30" />
                         <Label Text="12" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"  TextColor="Black"  />
                     </StackLayout>
                 </HorizontalStackLayout>
@@ -50,7 +41,7 @@
                                 </HorizontalStackLayout>
                                 <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="5" >
                                     <Grid>
-                                        <Image Source="map.png" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
+                                        <Image Source="location.png" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
                                         <Entry Placeholder="{x:Static resources:ItineraryResources.AddPlace}" Margin="30,0,0,0"/>
                                     </Grid>
                                 </Frame>

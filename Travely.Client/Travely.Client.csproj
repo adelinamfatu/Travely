@@ -58,22 +58,35 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\Images\add_basket.png" />
+	  <None Remove="Resources\Images\add_btn.png" />
 	  <None Remove="Resources\Images\add_button.svg" />
+	  <None Remove="Resources\Images\bed.png" />
+	  <None Remove="Resources\Images\bus.png" />
 	  <None Remove="Resources\Images\calendar.svg" />
+	  <None Remove="Resources\Images\car.png" />
+	  <None Remove="Resources\Images\cloudy.png" />
 	  <None Remove="Resources\Images\delete.png" />
 	  <None Remove="Resources\Images\email.png" />
 	  <None Remove="Resources\Images\flight_number.svg" />
 	  <None Remove="Resources\Images\flying.png" />
-	  <None Remove="Resources\Images\humidity.svg" />
+	  <None Remove="Resources\Images\hot.png" />
+	  <None Remove="Resources\Images\humidity.png" />
+	  <None Remove="Resources\Images\location.png" />
 	  <None Remove="Resources\Images\mobile.png" />
+	  <None Remove="Resources\Images\notepad.png" />
+	  <None Remove="Resources\Images\notes_color.png" />
 	  <None Remove="Resources\Images\pack_image.png" />
 	  <None Remove="Resources\Images\password.png" />
 	  <None Remove="Resources\Images\plan.png" />
+	  <None Remove="Resources\Images\plane_color.png" />
+	  <None Remove="Resources\Images\plane_ticket.png" />
+	  <None Remove="Resources\Images\schedule.png" />
+	  <None Remove="Resources\Images\sort.png" />
 	  <None Remove="Resources\Images\temperature.svg" />
 	  <None Remove="Resources\Images\travel.png" />
 	  <None Remove="Resources\Images\user.png" />
 	  <None Remove="Resources\Images\weather.svg" />
-	  <None Remove="Resources\Images\wind.svg" />
+	  <None Remove="Resources\Images\wind.png" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -139,6 +152,11 @@
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>PlanTripResources.resx</DependentUpon>
 	  </Compile>
+	  <Compile Update="Resources\UIResources\PageNameResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>PageNameResources.resx</DependentUpon>
+	  </Compile>
 	  <Compile Update="Resources\UIResources\TripPackingResources.Designer.cs">
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
@@ -164,6 +182,10 @@
 	  <EmbeddedResource Update="Resources\UIResources\PlanTripResources.resx">
 	    <Generator>ResXFileCodeGenerator</Generator>
 	    <LastGenOutput>PlanTripResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\UIResources\PageNameResources.resx">
+	    <Generator>ResXFileCodeGenerator</Generator>
+	    <LastGenOutput>PageNameResources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
 	  <EmbeddedResource Update="Resources\UIResources\TripPackingResources.resx">
 	    <Generator>ResXFileCodeGenerator</Generator>

@@ -4,7 +4,7 @@
              xmlns:resources="clr-namespace:Travely.Client.Resources.UIResources"
              xmlns:converters="clr-namespace:Travely.Client.Utilities"
              x:Class="Travely.Client.Pages.EditTripPage"
-             Title="View trip"
+             Title="{x:Static resources:PageNameResources.EditTripPageName}"
              >
 
     <ContentPage.Resources>
@@ -24,10 +24,10 @@
                         HorizontalOptions="Center" 
                         VerticalOptions="Center"/>
 
-                    <Image Source="{Binding CountryFlagUrl}" HeightRequest="70" HorizontalOptions="Center" />
+                    <Image Source="{Binding CountryFlagUrl}" HeightRequest="60" HorizontalOptions="Center" />
 
-                    <StackLayout Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center" >
-                        <Grid>
+                    <StackLayout Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center" Spacing="65" Margin="20">
+                        <Grid ColumnSpacing="10">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
@@ -44,7 +44,7 @@
                                 FontSize="16" 
                                 Grid.Row="0" 
                                 Grid.Column="0"
-                                Margin="0,0,20,0"/>
+                              />
                             
                             <Label 
                                 Text="{x:Static resources:TripsResources.StartDate}" 
@@ -54,7 +54,7 @@
                                 Grid.Column="1"
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
-                                Margin="0,0,20,0"/>
+                                />
                             
                             <Label 
                                 Text="{x:Static resources:TripsResources.EndDate}" 
@@ -63,14 +63,13 @@
                                 Grid.Column="2"
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
-                                Margin="20,0,20,0"/>
+                               />
 
                             <Label 
                                 Text="{Binding CountryName}" 
                                 FontSize="16" 
                                 Grid.Row="1" 
                                 Grid.Column="0" 
-                                Margin="0,0,20,0"
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"/>
                             
@@ -80,7 +79,7 @@
                                 Grid.Column="1"
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
-                                Margin="20,0,20,0"/>
+                               />
                             
                             <Entry 
                                 Text="{Binding EndDate, StringFormat='{0:dd.MM.yyyy}'}" 
@@ -88,7 +87,7 @@
                                 Grid.Column="2" 
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
-                                Margin="20,0,20,0"/>
+                                />
                         </Grid>
                     </StackLayout>
                 </VerticalStackLayout>
@@ -108,10 +107,10 @@
             <Label Text="{x:Static resources:TripsResources.Reservations}" FontSize="18" FontAttributes="Bold" Margin="20"/>
             <Frame Margin="10" VerticalOptions="Center" HorizontalOptions="Center" >
                 <HorizontalStackLayout Spacing="65">
-                    <ImageButton Source="bxs_bed.svg" WidthRequest="30" HeightRequest="30"/>
-                    <ImageButton Source="bxs_bus.svg" WidthRequest="30" HeightRequest="30"/>
-                    <ImageButton Source="bxs_car.svg" WidthRequest="30" HeightRequest="30"/>
-                    <ImageButton Source="bxs_plane.svg" WidthRequest="30" HeightRequest="30"/>
+                    <ImageButton Source="bed.png" WidthRequest="30" HeightRequest="30"/>
+                    <ImageButton Source="bus.png" WidthRequest="30" HeightRequest="30"/>
+                    <ImageButton Source="car.png" WidthRequest="30" HeightRequest="30"/>
+                    <ImageButton Source="plane_color.png" WidthRequest="30" HeightRequest="30"/>
                 </HorizontalStackLayout>
             </Frame>
 
@@ -123,9 +122,9 @@
                     </HorizontalStackLayout>
                     <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="5" >
                         <Grid>
-                            <Image Source="map.png" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
+                            <Image Source="location.png" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
                             <Entry Placeholder="{x:Static resources:TripsResources.AddPlace}" Margin="30,0,0,0"/>
-                            <ImageButton Grid.Column="3" Source="add_button.svg" HorizontalOptions="End"/>
+                            <ImageButton Grid.Column="3" Source="add_btn.png" HorizontalOptions="End" WidthRequest="30" HeightRequest="30" Margin="30,0,5,0" />
                         </Grid>
                     </Frame>
                 </StackLayout>
@@ -139,7 +138,7 @@
                     </HorizontalStackLayout>
                     <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="5" >
                         <Grid>
-                            <Image Source="notes.svg" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
+                            <Image Source="notes_color.png" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
                             <Entry 
                                 Placeholder="{x:Static resources:TripsResources.AddNote}" 
                                 Text="{Binding Notes}" 
@@ -147,8 +146,10 @@
                             <ImageButton 
                                 Grid.Column="3" 
                                 Command="{Binding AddNotesCommand}"
-                                Source="add_button.svg" 
-                                HorizontalOptions="End"/>
+                                Source="notepad.png" 
+                                HorizontalOptions="End"
+                                WidthRequest="30" HeightRequest="30"
+                                Margin="30,0,5,0"/>
                         </Grid>
                     </Frame>
                 </StackLayout>
@@ -157,10 +158,10 @@
             <Label Text="{Binding AlertMessage}"
                 TextColor="Red"
                 FontSize="14"
-                Margin="20,0,20,10"
+                Margin="20,0,10,10"
                 IsVisible="{Binding AlertMessage, Converter={StaticResource StringNotNullOrEmptyConverter}}" />
 
-            <Frame Margin="10" HeightRequest="{Binding IsDepartureExpanded, Converter={StaticResource ExpandedToHeightConverter}}">
+            <Frame Margin="5,0,10,0" HeightRequest="{Binding IsDepartureExpanded, Converter={StaticResource ExpandedToHeightConverter}}">
                 <StackLayout>
                     <HorizontalStackLayout Spacing="10">
                         <ImageButton Source="bx_chevron_down.svg" WidthRequest="30" HeightRequest="30" Clicked="HandleChevronDepartureClicked"/>
@@ -169,24 +170,24 @@
 
                     <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="5" >
                         <Grid>
-                            <Image Source="bxs_plane.svg" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
+                            <Image Source="plane_color.png" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
                             <Entry Placeholder="{x:Static resources:TripsResources.SearchAirline}" Margin="30,0,0,0"/>
-                            <ImageButton Grid.Column="3" Source="add_button.svg" HorizontalOptions="End"/>
+                            <ImageButton Grid.Column="3" Source="add_btn.png" HorizontalOptions="End" WidthRequest="30" HeightRequest="30" Margin="30,0,5,0"/>
                         </Grid>
                     </Frame>
                     <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="5" >
                         <Grid>
-                            <Image Source="flight_number.svg" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
+                            <Image Source="plane_ticket.png" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
                             <Entry Placeholder="{x:Static resources:TripsResources.FlightNumber}" Margin="30,0,0,0"/>
-                            <ImageButton Grid.Column="3" Source="add_button.svg" HorizontalOptions="End"/>
+                            <ImageButton Grid.Column="3" Source="add_btn.png" HorizontalOptions="End" WidthRequest="30" HeightRequest="30" Margin="30,0,5,0"/>
                         </Grid>
                     </Frame>
 
                     <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin=" 5">
                         <Grid>
-                            <Image Source="calendar.svg" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
+                            <Image Source="schedule.png" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
                             <DatePicker Format="dd.MM.yyyy" Margin="30,0,0,0" />
-                            <ImageButton Grid.Column="3" Source="add_button.svg" HorizontalOptions="End"/>
+                            <ImageButton Grid.Column="3" Source="add_btn.png" HorizontalOptions="End" WidthRequest="30" HeightRequest="30" Margin="30,0,5,0"/>
                         </Grid>
                     </Frame>
                 </StackLayout>
@@ -201,25 +202,25 @@
 
                     <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="5" >
                         <Grid>
-                            <Image Source="bxs_plane.svg" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
+                            <Image Source="plane_color.png" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
                             <Entry Placeholder="{x:Static resources:TripsResources.SearchAirline}" Margin="30,0,0,0"/>
-                            <ImageButton Grid.Column="3" Source="add_button.svg" HorizontalOptions="End"/>
+                            <ImageButton Grid.Column="3" Source="add_btn.png" HorizontalOptions="End" WidthRequest="30" HeightRequest="30" Margin="30,0,5,0"/>
                         </Grid>
                     </Frame>
 
                     <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="5" >
                         <Grid>
-                            <Image Source="flight_number.svg" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
+                            <Image Source="plane_ticket.png" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
                             <Entry Placeholder="{x:Static resources:TripsResources.FlightNumber}" Margin="30,0,0,0"/>
-                            <ImageButton Grid.Column="3" Source="add_button.svg" HorizontalOptions="End"/>
+                            <ImageButton Grid.Column="3" Source="add_btn.png" HorizontalOptions="End" WidthRequest="30" HeightRequest="30" Margin="30,0,5,0"/>
                         </Grid>
                     </Frame>
 
                     <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="5">
                         <Grid>
-                            <Image Source="calendar.svg" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
+                            <Image Source="schedule.png" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
                             <DatePicker Format="dd.MM.yyyy" Margin="30,0,0,0"/>
-                            <ImageButton Grid.Column="3" Source="add_button.svg" HorizontalOptions="End"/>
+                            <ImageButton Grid.Column="3" Source="add_btn.png" HorizontalOptions="End" WidthRequest="30" HeightRequest="30" Margin="30,0,5,0"/>
                         </Grid>
                     </Frame>
                 </StackLayout>

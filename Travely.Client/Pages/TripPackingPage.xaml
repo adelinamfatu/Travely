@@ -6,7 +6,7 @@
              xmlns:resources="clr-namespace:Travely.Client.Resources.UIResources"
              x:Class="Travely.Client.Pages.TripPackingPage"
              x:DataType="viewModels:TripPackingViewModel"
-             Title="Pack for Your Trip">
+             Title="{x:Static resources:PageNameResources.TripPackingPageName}">
 
     <ScrollView>
         <VerticalStackLayout Spacing="10">
