@@ -44,6 +44,9 @@ namespace Travely.Client.Models
         [ObservableProperty]
         private string alertMessage;
 
+        [ObservableProperty]
+        private string? flightNumber;
+
         public EditTripViewModel(Guid tripId, TripService tripService)
         {
             this.tripService = tripService;
@@ -97,9 +100,15 @@ namespace Travely.Client.Models
         {
             if (tripService != null && !string.IsNullOrEmpty(CountryName))
             {
-                var countryCode = CountryName.Substring(0, 2).ToLower(); // Simplistic approach, adjust as needed
+                var countryCode = CountryName.Substring(0, 2).ToLower();
                 CountryFlagUrl = tripService.GetFlagUrl(countryCode);
             }
+        }
+
+        [RelayCommand]
+        private void SearchFlight()
+        {
+            tripService.GetFlightDetails(flightNumber);
         }
     }
 }

@@ -123,4 +123,7 @@
   <data name="FlagAPI" xml:space="preserve">
     <value>https://flagcdn.com/w320/{0}.png</value>
   </data>
+  <data name="FlightAPI" xml:space="preserve">
+    <value>https://data-live.flightradar24.com/clickhandler/?flight=</value>
+  </data>
 </root>

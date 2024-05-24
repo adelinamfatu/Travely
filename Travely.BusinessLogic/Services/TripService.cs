@@ -6,6 +6,7 @@ using Travely.Domain.CRUD;
 using Travely.BusinessLogic.Resources;
 using static Travely.BusinessLogic.Utilities.UtilitaryClasses;
 using Travely.Domain.Entities;
+using Newtonsoft.Json.Linq;
 
 namespace Travely.BusinessLogic.Services
 {
@@ -47,25 +48,6 @@ namespace Travely.BusinessLogic.Services
             return EntityDTO.EntityToDTO(trip);
         }
 
-        public async Task<List<DateTime>> GetTripDays(Guid tripId)
-        {
-            var tripDates = await tripData.GetTripDays(tripId);
-
-            if (tripDates.Count < 2)
-            {
-                return tripDates;
-            }
-
-            var startDate = tripDates[0];
-            var endDate = tripDates[1];
-
-            var tripDays = Enumerable.Range(0, (endDate - startDate).Days + 1)
-                .Select(offset => startDate.AddDays(offset))
-                .ToList();
-
-            return tripDays;
-        }
-
         public async Task<List<string>> GetWorldCountries(List<string> continents)
         {
             var countries = new List<string>();
@@ -103,6 +85,30 @@ namespace Travely.BusinessLogic.Services
         public string GetFlagUrl(string countryCode)
         {
             return string.Format(APICallResources.FlagAPI, countryCode.ToLower());
+        }
+
+        public async Task<FlightInfo> GetFlightDetails(string flightNumber)
+        {
+            var flightInfo = new FlightInfo();
+
+            using var httpClient = new HttpClient();
+
+            var response = await httpClient.GetAsync(APICallResources.FlightAPI + flightNumber);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var jsonString = await response.Content.ReadAsStringAsync();
+                var flightJson = JObject.Parse(jsonString);
+
+                if (flightJson is not null)
+                {
+                    flightInfo.OriginAirport = flightJson["airport"]?["origin"]?["name"]?.ToString();
+                    flightInfo.DestinationAirport = flightJson["airport"]?["destination"]?["name"]?.ToString();
+                    flightInfo.FlightStatus = flightJson["status"]?["text"]?.ToString();
+                }
+            }
+
+            return flightInfo;
         }
     }
 }

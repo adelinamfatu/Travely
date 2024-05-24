@@ -1,18 +1,19 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using Travely.BusinessLogic.Services;
 
 namespace Travely.Client.Models
 {
     public partial class ItineraryViewModel : ObservableObject
     {
-        private readonly TripService? tripService;
+        private readonly TripDetailService? tripDetailService;
 
         [ObservableProperty]
         public Dictionary<string, List<string>> itinerary;
 
-        public ItineraryViewModel(TripService tripService)
+        public ItineraryViewModel(TripDetailService tripDetailService)
         {
-            this.tripService = tripService;
+            this.tripDetailService = tripDetailService;
             Itinerary = new Dictionary<string, List<string>>();
         }
 

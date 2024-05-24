@@ -77,5 +77,14 @@ namespace Travely.BusinessLogic.Resources {
                 return ResourceManager.GetString("FlagAPI", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://data-live.flightradar24.com/clickhandler/?flight=.
+        /// </summary>
+        internal static string FlightAPI {
+            get {
+                return ResourceManager.GetString("FlightAPI", resourceCulture);
+            }
+        }
     }
 }

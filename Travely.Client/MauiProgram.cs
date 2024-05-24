@@ -40,6 +40,12 @@ namespace Travely.Client
                 return new PackingService(context);
             });
 
+            builder.Services.AddSingleton<TripDetailService>(provider =>
+            {
+                var context = provider.GetRequiredService<AppDbContext>();
+                return new TripDetailService(context);
+            });
+
             return builder.Build();
         }
     }

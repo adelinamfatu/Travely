@@ -15,10 +15,10 @@ public partial class ItineraryPage : ContentPage
 
     private void InitializeViewModel()
     {
-        var tripService = Application.Current?.Handler?.MauiContext?.Services.GetService<TripService>();
-        if (tripService is not null)
+        var tripDetailService = Application.Current?.Handler?.MauiContext?.Services.GetService<TripDetailService>();
+        if (tripDetailService is not null)
         {
-            viewModel = new ItineraryViewModel(tripService);
+            viewModel = new ItineraryViewModel(tripDetailService);
             
             viewModel.AddDay("Day 1");
             viewModel.AddPlace("Day 1", "Place 1");
