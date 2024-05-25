@@ -61,7 +61,7 @@ namespace Travely.Client.Resources.UIResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add a hotels to stay.
+        ///   Looks up a localized string similar to Add a place to stay.
         /// </summary>
         internal static string AddPlace {
             get {

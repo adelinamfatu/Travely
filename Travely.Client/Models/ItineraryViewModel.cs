@@ -8,6 +8,8 @@ namespace Travely.Client.Models
     {
         private readonly TripDetailService? tripDetailService;
 
+        private Guid? tripId;
+
         [ObservableProperty]
         public Dictionary<string, List<string>> itinerary;
 
@@ -15,6 +17,24 @@ namespace Travely.Client.Models
         {
             this.tripDetailService = tripDetailService;
             Itinerary = new Dictionary<string, List<string>>();
+        }
+
+        public async Task InitializeItinerary(Guid tripId)
+        {
+            this.tripId = tripId;
+
+            if (tripDetailService is not null)
+            {
+                var tripDays = await tripDetailService.GetTripDays(tripId);
+                int dayCount = 1;
+
+                foreach (var day in tripDays)
+                {
+                    string dayTitle = $"Day {dayCount} ({day:yyyy-MM-dd})";
+                    AddDay(dayTitle);
+                    dayCount++;
+                }
+            }
         }
 
         public void AddDay(string dayTitle)

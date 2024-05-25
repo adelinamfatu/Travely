@@ -9,6 +9,7 @@ namespace Travely.Client.Models
     {
         private readonly TripService tripService;
 
+        [ObservableProperty]
         private Guid tripId;
 
         [ObservableProperty]
@@ -53,7 +54,7 @@ namespace Travely.Client.Models
         public EditTripViewModel(Guid tripId, TripService tripService)
         {
             this.tripService = tripService;
-            this.tripId = tripId;
+            this.TripId = tripId;
             this.alertMessage = string.Empty;
         }
 

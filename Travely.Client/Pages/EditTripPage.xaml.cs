@@ -46,6 +46,9 @@ public partial class EditTripPage : ContentPage
 
     private async void NavigateToItineraryPage(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new ItineraryPage());
+        if (sender is Button button && button.CommandParameter is Guid tripId)
+        {
+            await Navigation.PushAsync(new ItineraryPage(tripId));
+        }
     }
 }

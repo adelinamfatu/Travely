@@ -7,27 +7,19 @@ public partial class ItineraryPage : ContentPage
 {
     public ItineraryViewModel? viewModel { get; set; }
 
-    public ItineraryPage()
+    public ItineraryPage(Guid tripId)
 	{
 		InitializeComponent();
-        InitializeViewModel();
+        InitializeViewModel(tripId);
     }
 
-    private void InitializeViewModel()
+    private async void InitializeViewModel(Guid tripId)
     {
         var tripDetailService = Application.Current?.Handler?.MauiContext?.Services.GetService<TripDetailService>();
         if (tripDetailService is not null)
         {
             viewModel = new ItineraryViewModel(tripDetailService);
-            
-            viewModel.AddDay("Day 1");
-            viewModel.AddPlace("Day 1", "Place 1");
-            viewModel.AddPlace("Day 1", "Place 2");
-
-            viewModel.AddDay("Day 2");
-            viewModel.AddPlace("Day 2", "Place 3");
-            viewModel.AddPlace("Day 2", "Place 4");
-            
+            await viewModel.InitializeItinerary(tripId);
             BindingContext = viewModel;
         }
     }

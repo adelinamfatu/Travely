@@ -101,6 +101,7 @@
                     HeightRequest="50"
                     CornerRadius="5"
                     Clicked="NavigateToItineraryPage"
+                    CommandParameter="{Binding TripId}"
                 />
             </StackLayout>
 
