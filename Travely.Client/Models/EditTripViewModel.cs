@@ -45,7 +45,10 @@ namespace Travely.Client.Models
         private string alertMessage;
 
         [ObservableProperty]
-        private string? flightNumber;
+        private string? arrivalFlightNumber;
+
+        [ObservableProperty]
+        private string? departureFlightNumber;
 
         public EditTripViewModel(Guid tripId, TripService tripService)
         {
@@ -106,9 +109,15 @@ namespace Travely.Client.Models
         }
 
         [RelayCommand]
-        private void SearchFlight()
+        private void SearchArrivalFlight()
         {
-            tripService.GetFlightDetails(flightNumber);
+            tripService.GetFlightDetails(arrivalFlightNumber);
+        }
+
+        [RelayCommand]
+        private void SearchDepartureFlight()
+        {
+            tripService.GetFlightDetails(departureFlightNumber);
         }
     }
 }

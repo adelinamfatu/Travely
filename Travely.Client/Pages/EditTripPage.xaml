@@ -175,11 +175,22 @@
                             <ImageButton Grid.Column="3" Source="add_btn.png" HorizontalOptions="End" WidthRequest="30" HeightRequest="30" Margin="30,0,5,0"/>
                         </Grid>
                     </Frame>
+                    
                     <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="5" >
                         <Grid>
                             <Image Source="plane_ticket.png" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
-                            <Entry Placeholder="{x:Static resources:TripsResources.FlightNumber}" Margin="30,0,0,0"/>
-                            <ImageButton Grid.Column="3" Source="add_btn.png" HorizontalOptions="End" WidthRequest="30" HeightRequest="30" Margin="30,0,5,0"/>
+                            <Entry 
+                                Placeholder="{x:Static resources:TripsResources.FlightNumber}" 
+                                Text="{Binding DepartureFlightNumber}"
+                                Margin="30,0,0,0"/>
+                            <ImageButton 
+                                Command="{Binding SearchDepartureFlightCommand}"
+                                Grid.Column="3" 
+                                Source="add_btn.png" 
+                                HorizontalOptions="End" 
+                                WidthRequest="30" 
+                                HeightRequest="30" 
+                                Margin="30,0,5,0"/>
                         </Grid>
                     </Frame>
 
@@ -213,10 +224,10 @@
                             <Image Source="plane_ticket.png" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
                             <Entry 
                                 Placeholder="{x:Static resources:TripsResources.FlightNumber}" 
-                                Text="{Binding FlightNumber}"
+                                Text="{Binding ArrivalFlightNumber}"
                                 Margin="30,0,0,0"/>
                             <ImageButton 
-                                Command="{Binding SearchFlightCommand}"
+                                Command="{Binding SearchArrivalFlightCommand}"
                                 Grid.Column="3" 
                                 Source="add_btn.png" 
                                 HorizontalOptions="End" 
