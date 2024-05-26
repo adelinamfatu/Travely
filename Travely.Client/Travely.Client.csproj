@@ -71,6 +71,7 @@
 	  <None Remove="Resources\Images\flying.png" />
 	  <None Remove="Resources\Images\hot.png" />
 	  <None Remove="Resources\Images\humidity.png" />
+	  <None Remove="Resources\Images\loading.png" />
 	  <None Remove="Resources\Images\location.png" />
 	  <None Remove="Resources\Images\mobile.png" />
 	  <None Remove="Resources\Images\notepad.png" />
