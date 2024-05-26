@@ -38,5 +38,38 @@ namespace Travely.BusinessLogic.Services
 
             return tripDays;
         }
+
+        public async Task<string?> GetTripCountry(Guid tripId)
+        {
+            return await tripData.GetTripCountry(tripId);
+        }
+
+        public async Task<List<string>> GetCountryCoordinates(string country)
+        {
+            var coordinates = new List<string>();
+            using var httpClient = new HttpClient();
+
+            var response = await httpClient.GetAsync(string.Format(APICallResources.GeocodeAPI, country));
+            
+            if (response.IsSuccessStatusCode)
+            {
+                var jsonString = await response.Content.ReadAsStringAsync();
+                var apiResponse = JsonConvert.DeserializeAnonymousType(jsonString, new[] {
+                    new {
+                            lat = string.Empty,
+                            lon = string.Empty
+                        }
+                    });
+
+                if (apiResponse is not null && apiResponse.Length > 0)
+                {
+                    var firstResult = apiResponse[0];
+                    coordinates.Add(firstResult.lat);
+                    coordinates.Add(firstResult.lon);
+                }
+            }
+
+            return coordinates;
+        }
     }
 }

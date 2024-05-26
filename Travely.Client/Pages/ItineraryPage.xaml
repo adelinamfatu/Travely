@@ -60,6 +60,7 @@
                                         <ImageButton 
                                             Grid.Column="3" 
                                             Clicked="NavigateToMapsPage"
+                                            CommandParameter="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.TripId}"
                                             Source="bed.png" 
                                             HorizontalOptions="End"
                                             WidthRequest="30" 

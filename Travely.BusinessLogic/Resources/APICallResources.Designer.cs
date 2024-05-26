@@ -86,5 +86,14 @@ namespace Travely.BusinessLogic.Resources {
                 return ResourceManager.GetString("FlightAPI", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://geocode.maps.co/search?q={0}&amp;api_key=665341c45e157375825035nzcf32853.
+        /// </summary>
+        internal static string GeocodeAPI {
+            get {
+                return ResourceManager.GetString("GeocodeAPI", resourceCulture);
+            }
+        }
     }
 }

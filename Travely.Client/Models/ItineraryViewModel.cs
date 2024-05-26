@@ -8,6 +8,7 @@ namespace Travely.Client.Models
     {
         private readonly TripDetailService? tripDetailService;
 
+        [ObservableProperty]
         private Guid? tripId;
 
         [ObservableProperty]
@@ -21,7 +22,7 @@ namespace Travely.Client.Models
 
         public async Task InitializeItinerary(Guid tripId)
         {
-            this.tripId = tripId;
+            this.TripId = tripId;
 
             if (tripDetailService is not null)
             {

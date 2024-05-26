@@ -26,6 +26,9 @@ public partial class ItineraryPage : ContentPage
 
     private async void NavigateToMapsPage(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new MapsPage());
+        if (sender is ImageButton button && button.CommandParameter is Guid tripId)
+        {
+            await Navigation.PushAsync(new MapPage(tripId));
+        }
     }
 }

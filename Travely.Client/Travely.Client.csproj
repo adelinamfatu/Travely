@@ -119,7 +119,7 @@
 	  <MauiXaml Update="Pages\LoginPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\MapsPage.xaml">
+	  <MauiXaml Update="Pages\MapPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\TripPackingPage.xaml">
@@ -136,6 +136,9 @@
 	<ItemGroup>
 	  <Compile Update="Pages\ItineraryPage.xaml.cs">
 	    <DependentUpon>ItineraryPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\MapPage.xaml.cs">
+	    <DependentUpon>MapPage.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Pages\PlanTripPage.xaml.cs">
 	    <DependentUpon>PlanTripPage.xaml</DependentUpon>
