@@ -2,6 +2,7 @@ using Microsoft.Maui.Controls.Maps;
 using Microsoft.Maui.Maps;
 using Travely.BusinessLogic.Services;
 using Travely.Client.Models;
+using Travely.Client.Resources.UIResources;
 
 namespace Travely.Client.Pages;
 
@@ -33,9 +34,31 @@ public partial class MapPage : ContentPage
         if (viewModel != null && map != null)
         {
             map.MoveToRegion(MapSpan.FromCenterAndRadius(
-                new Location(viewModel.Latitude, viewModel.Longitude),
+                new Location(viewModel.CountryLatitude, viewModel.CountryLongitude),
                 Distance.FromMiles(50))
             );
+        }
+    }
+
+    private async void PinLocationOnMap(object sender, MapClickedEventArgs e)
+    {
+        var tappedLocation = e.Location;
+        await DisplayConfirmation(tappedLocation.Latitude, tappedLocation.Longitude);
+    }
+
+    private async Task DisplayConfirmation(double latitude, double longitude)
+    {
+        var confirmation = await DisplayAlert(ValidationResources.ConfirmLocationTitle, 
+            ValidationResources.ConfirmLocation, 
+            ValidationResources.Yes, 
+            ValidationResources.No);
+        if (confirmation)
+        {
+            //await SaveLocation(latitude, longitude);
+        }
+        else
+        {
+            
         }
     }
 }

@@ -5,5 +5,7 @@
              x:Class="Travely.Client.Pages.MapPage"
              Title="MapPage">
 
-    <maps:Map x:Name="map" />
+    <maps:Map 
+        x:Name="map" 
+        MapClicked="PinLocationOnMap"/>
 </ContentPage>
