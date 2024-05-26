@@ -123,6 +123,12 @@
   <data name="AddTripSuccess" xml:space="preserve">
     <value>Trip added successfully.</value>
   </data>
+  <data name="ConfirmLocation" xml:space="preserve">
+    <value>Do you want to save this location?</value>
+  </data>
+  <data name="ConfirmLocationTitle" xml:space="preserve">
+    <value>Confirm location</value>
+  </data>
   <data name="EmptyTitleError" xml:space="preserve">
     <value>Title cannot be empty.</value>
   </data>
@@ -141,7 +147,13 @@
   <data name="InvalidTitleError" xml:space="preserve">
     <value>Title must contain only letters, numbers, and spaces.</value>
   </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
   <data name="SuccessMessage" xml:space="preserve">
     <value>Success</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
   </data>
 </root>
