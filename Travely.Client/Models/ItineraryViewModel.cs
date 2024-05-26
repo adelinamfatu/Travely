@@ -48,5 +48,11 @@ namespace Travely.Client.Models
             if (Itinerary.ContainsKey(dayTitle))
                 Itinerary[dayTitle].Add(place);
         }
+
+        [RelayCommand]
+        private void AddSpot()
+        {
+
+        }
     }
 }

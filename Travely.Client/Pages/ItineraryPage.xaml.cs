@@ -23,4 +23,9 @@ public partial class ItineraryPage : ContentPage
             BindingContext = viewModel;
         }
     }
+
+    private async void NavigateToMapsPage(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new MapsPage());
+    }
 }
