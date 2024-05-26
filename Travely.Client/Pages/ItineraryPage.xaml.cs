@@ -28,7 +28,19 @@ public partial class ItineraryPage : ContentPage
     {
         if (sender is ImageButton button && button.CommandParameter is Guid tripId)
         {
-            await Navigation.PushAsync(new MapPage(tripId));
+            var mapPage = new MapPage(tripId);
+            mapPage.LocationPinned += MapPage_LocationPinned;
+            await Navigation.PushAsync(mapPage);
+        }
+    }
+
+    private void MapPage_LocationPinned(object? sender, Tuple<double, double> coordinates)
+    {
+        double spotLatitude = coordinates.Item1;
+        double spotLongitude = coordinates.Item2;
+        if (viewModel is not null)
+        {
+            viewModel.GetSpotData(spotLatitude, spotLongitude);
         }
     }
 }

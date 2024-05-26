@@ -11,6 +11,8 @@ namespace Travely.Client.Models
         [ObservableProperty]
         private Guid? tripId;
 
+        private string? spotName;
+
         [ObservableProperty]
         public Dictionary<string, List<string>> itinerary;
 
@@ -32,28 +34,29 @@ namespace Travely.Client.Models
                 foreach (var day in tripDays)
                 {
                     string dayTitle = $"Day {dayCount} ({day:yyyy-MM-dd})";
-                    AddDay(dayTitle);
+
+                    if (!Itinerary.ContainsKey(dayTitle))
+                    {
+                        Itinerary.Add(dayTitle, new List<string>());
+                    }
+                        
                     dayCount++;
                 }
             }
-        }
-
-        public void AddDay(string dayTitle)
-        {
-            if (!Itinerary.ContainsKey(dayTitle))
-                Itinerary.Add(dayTitle, new List<string>());
-        }
-
-        public void AddPlace(string dayTitle, string place)
-        {
-            if (Itinerary.ContainsKey(dayTitle))
-                Itinerary[dayTitle].Add(place);
         }
 
         [RelayCommand]
         private void AddSpot()
         {
 
+        }
+
+        public async void GetSpotData(double latitude, double longitude)
+        {
+            if (tripDetailService is not null)
+            {
+                this.spotName = await tripDetailService.GetSpotName(latitude, longitude);
+            }
         }
     }
 }

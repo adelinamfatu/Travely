@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Maui.Controls.Maps;
 using Microsoft.Maui.Maps;
 using Travely.BusinessLogic.Services;
@@ -9,6 +10,8 @@ namespace Travely.Client.Pages;
 public partial class MapPage : ContentPage
 {
     public MapViewModel? viewModel { get; set; }
+
+    public event EventHandler<Tuple<double, double>>? LocationPinned;
 
     public MapPage(Guid tripId)
 	{
@@ -24,7 +27,7 @@ public partial class MapPage : ContentPage
             viewModel = new MapViewModel(tripDetailService);
             await viewModel.InitializeCountry(tripId);
             BindingContext = viewModel;
-
+            await Task.Delay(100);
             UpdateMapPosition();
         }
     }
@@ -54,11 +57,8 @@ public partial class MapPage : ContentPage
             ValidationResources.No);
         if (confirmation)
         {
-            //await SaveLocation(latitude, longitude);
-        }
-        else
-        {
-            
+            LocationPinned?.Invoke(this, new Tuple<double, double>(latitude, longitude));
+            await Navigation.PopAsync();
         }
     }
 }

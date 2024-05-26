@@ -126,7 +126,10 @@
   <data name="FlightAPI" xml:space="preserve">
     <value>https://data-live.flightradar24.com/clickhandler/?flight=</value>
   </data>
-  <data name="GeocodeAPI" xml:space="preserve">
+  <data name="GeocodeCoordinatesAPI" xml:space="preserve">
+    <value>https://geocode.maps.co/reverse?lat={0}&amp;lon={1}&amp;api_key=665341c45e157375825035nzcf32853</value>
+  </data>
+  <data name="GeocodeCountryAPI" xml:space="preserve">
     <value>https://geocode.maps.co/search?q={0}&amp;api_key=665341c45e157375825035nzcf32853</value>
   </data>
 </root>

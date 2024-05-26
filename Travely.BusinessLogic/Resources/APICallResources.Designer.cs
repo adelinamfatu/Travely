@@ -88,11 +88,20 @@ namespace Travely.BusinessLogic.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to https://geocode.maps.co/reverse?lat={0}&amp;lon={1}&amp;api_key=665341c45e157375825035nzcf32853.
+        /// </summary>
+        internal static string GeocodeCoordinatesAPI {
+            get {
+                return ResourceManager.GetString("GeocodeCoordinatesAPI", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to https://geocode.maps.co/search?q={0}&amp;api_key=665341c45e157375825035nzcf32853.
         /// </summary>
-        internal static string GeocodeAPI {
+        internal static string GeocodeCountryAPI {
             get {
-                return ResourceManager.GetString("GeocodeAPI", resourceCulture);
+                return ResourceManager.GetString("GeocodeCountryAPI", resourceCulture);
             }
         }
     }

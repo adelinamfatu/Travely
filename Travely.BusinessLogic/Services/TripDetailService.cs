@@ -49,7 +49,7 @@ namespace Travely.BusinessLogic.Services
             var coordinates = new List<string>();
             using var httpClient = new HttpClient();
 
-            var response = await httpClient.GetAsync(string.Format(APICallResources.GeocodeAPI, country));
+            var response = await httpClient.GetAsync(string.Format(APICallResources.GeocodeCountryAPI, country));
             
             if (response.IsSuccessStatusCode)
             {
@@ -70,6 +70,32 @@ namespace Travely.BusinessLogic.Services
             }
 
             return coordinates;
+        }
+
+        public async Task<string> GetSpotName(double latitude, double longitude)
+        {
+            var spotName = string.Empty;
+            using var httpClient = new HttpClient();
+
+            var response = await httpClient.GetAsync(string.Format(APICallResources.GeocodeCoordinatesAPI, latitude, longitude));
+
+            if (response.IsSuccessStatusCode)
+            {
+                var jsonString = await response.Content.ReadAsStringAsync();
+                var apiResponse = JsonConvert.DeserializeAnonymousType(jsonString, new[] {
+                    new {
+                            lat = string.Empty,
+                            lon = string.Empty
+                        }
+                    });
+
+                if (apiResponse is not null && apiResponse.Length > 0)
+                {
+                    
+                }
+            }
+
+            return spotName;
         }
     }
 }
