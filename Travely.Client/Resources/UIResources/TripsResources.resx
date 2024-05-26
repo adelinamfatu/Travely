@@ -159,8 +159,8 @@
   <data name="Reservations" xml:space="preserve">
     <value>Reservations</value>
   </data>
-  <data name="SearchAirline" xml:space="preserve">
-    <value>Search By Airline</value>
+  <data name="AirPortOrigin" xml:space="preserve">
+    <value>Origin Airport </value>
   </data>
   <data name="StartDate" xml:space="preserve">
     <value>From</value>
@@ -173,5 +173,11 @@
   </data>
   <data name="AddPlace" xml:space="preserve">
     <value>Add a hotels to stay</value>
+  </data>
+  <data name="AirPortDestination" xml:space="preserve">
+    <value>Destination Airport</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
   </data>
 </root>
