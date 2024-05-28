@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using System.Text.RegularExpressions;
 using Travely.BusinessLogic.Services;
+using Travely.Client.Resources.UIResources;
 
 namespace Travely.Client.Models
 {
@@ -80,13 +81,13 @@ namespace Travely.Client.Models
             AlertMessage = string.Empty;
             if (string.IsNullOrWhiteSpace(Notes))
             {
-                AlertMessage = "Item title cannot be empty.";
+                AlertMessage = ValidationResources.EmptyNoteError;
                 return;
             }
 
             if (!Regex.IsMatch(Notes, @"^[a-zA-Z0-9 ]+$"))
             {
-                AlertMessage = "Item title can only contain letters, digits and spaces.";
+                AlertMessage = ValidationResources.InvalidNoteError;
                 return;
             }
 

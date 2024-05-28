@@ -97,6 +97,24 @@ namespace Travely.Client.Resources.UIResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Item title cannot be empty..
+        /// </summary>
+        internal static string EmptyItemError {
+            get {
+                return ResourceManager.GetString("EmptyItemError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Note cannot be empty..
+        /// </summary>
+        internal static string EmptyNoteError {
+            get {
+                return ResourceManager.GetString("EmptyNoteError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Title cannot be empty..
         /// </summary>
         internal static string EmptyTitleError {
@@ -115,6 +133,15 @@ namespace Travely.Client.Resources.UIResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to An item with the same title already exists..
+        /// </summary>
+        internal static string ExistItemError {
+            get {
+                return ResourceManager.GetString("ExistItemError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Destination cannot be empty and must contain only letters..
         /// </summary>
         internal static string InvalidDestinationError {
@@ -129,6 +156,24 @@ namespace Travely.Client.Resources.UIResources {
         internal static string InvalidEndDate {
             get {
                 return ResourceManager.GetString("InvalidEndDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Item title can only contain letters, digits and spaces..
+        /// </summary>
+        internal static string InvalidItemError {
+            get {
+                return ResourceManager.GetString("InvalidItemError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Note must contain only letters, numbers, and spaces..
+        /// </summary>
+        internal static string InvalidNoteError {
+            get {
+                return ResourceManager.GetString("InvalidNoteError", resourceCulture);
             }
         }
         

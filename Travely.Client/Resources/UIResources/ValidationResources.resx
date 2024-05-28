@@ -129,17 +129,32 @@
   <data name="ConfirmLocationTitle" xml:space="preserve">
     <value>Confirm location</value>
   </data>
+  <data name="EmptyItemError" xml:space="preserve">
+    <value>Item title cannot be empty.</value>
+  </data>
+  <data name="EmptyNoteError" xml:space="preserve">
+    <value>Note cannot be empty.</value>
+  </data>
   <data name="EmptyTitleError" xml:space="preserve">
     <value>Title cannot be empty.</value>
   </data>
   <data name="ErrorMessage" xml:space="preserve">
     <value>Error</value>
   </data>
+  <data name="ExistItemError" xml:space="preserve">
+    <value>An item with the same title already exists.</value>
+  </data>
   <data name="InvalidDestinationError" xml:space="preserve">
     <value>Destination cannot be empty and must contain only letters.</value>
   </data>
   <data name="InvalidEndDate" xml:space="preserve">
     <value>End date is not valid.</value>
+  </data>
+  <data name="InvalidItemError" xml:space="preserve">
+    <value>Item title can only contain letters, digits and spaces.</value>
+  </data>
+  <data name="InvalidNoteError" xml:space="preserve">
+    <value>Note must contain only letters, numbers, and spaces.</value>
   </data>
   <data name="InvalidStartDate" xml:space="preserve">
     <value>Start date is not valid.</value>
