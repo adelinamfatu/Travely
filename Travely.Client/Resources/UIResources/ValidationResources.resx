@@ -129,6 +129,12 @@
   <data name="ConfirmLocationTitle" xml:space="preserve">
     <value>Confirm location</value>
   </data>
+  <data name="EmptyArrivalFlightError" xml:space="preserve">
+    <value>Flight number cannot be empty.</value>
+  </data>
+  <data name="EmptyDepartureFlightError" xml:space="preserve">
+    <value>Flight number cannot be empty.</value>
+  </data>
   <data name="EmptyItemError" xml:space="preserve">
     <value>Item title cannot be empty.</value>
   </data>
@@ -143,6 +149,12 @@
   </data>
   <data name="ExistItemError" xml:space="preserve">
     <value>An item with the same title already exists.</value>
+  </data>
+  <data name="InvalidArrivalFlightError" xml:space="preserve">
+    <value>Flight number must be exactly 8 digits.</value>
+  </data>
+  <data name="InvalidDepartureFlightError" xml:space="preserve">
+    <value>Flight number must be exactly 8 digits.</value>
   </data>
   <data name="InvalidDestinationError" xml:space="preserve">
     <value>Destination cannot be empty and must contain only letters.</value>

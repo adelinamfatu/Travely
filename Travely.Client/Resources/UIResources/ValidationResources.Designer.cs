@@ -97,6 +97,24 @@ namespace Travely.Client.Resources.UIResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Flight number cannot be empty..
+        /// </summary>
+        internal static string EmptyArrivalFlightError {
+            get {
+                return ResourceManager.GetString("EmptyArrivalFlightError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Flight number cannot be empty..
+        /// </summary>
+        internal static string EmptyDepartureFlightError {
+            get {
+                return ResourceManager.GetString("EmptyDepartureFlightError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Item title cannot be empty..
         /// </summary>
         internal static string EmptyItemError {
@@ -138,6 +156,24 @@ namespace Travely.Client.Resources.UIResources {
         internal static string ExistItemError {
             get {
                 return ResourceManager.GetString("ExistItemError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Flight number must be exactly 8 digits..
+        /// </summary>
+        internal static string InvalidArrivalFlightError {
+            get {
+                return ResourceManager.GetString("InvalidArrivalFlightError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Flight number must be exactly 8 digits..
+        /// </summary>
+        internal static string InvalidDepartureFlightError {
+            get {
+                return ResourceManager.GetString("InvalidDepartureFlightError", resourceCulture);
             }
         }
         

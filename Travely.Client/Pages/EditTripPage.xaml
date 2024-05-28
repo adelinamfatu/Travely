@@ -154,15 +154,12 @@
                                 Margin="30,0,5,0"/>
                         </Grid>
                     </Frame>
+                    <Label Text="{Binding AlertMessage}"
+                        TextColor="Red"
+                        FontSize="14"
+                        Margin="20,0,10,10" />
                 </StackLayout>
             </Frame>
-
-            <Label Text="{Binding AlertMessage}"
-                TextColor="Red"
-                FontSize="14"
-                Margin="20,0,10,10" />
-            <!--="{Binding AlertMessage, Converter={StaticResource StringNotNullOrEmptyConverter}}" />
-                -->
 
             <Frame Margin="5,0,10,0" HeightRequest="{Binding IsDepartureExpanded, Converter={StaticResource ExpandedToHeightConverter}}">
                 <StackLayout>
@@ -170,7 +167,6 @@
                         <ImageButton Source="bx_chevron_down.svg" WidthRequest="30" HeightRequest="30" Clicked="HandleChevronDepartureClicked"/>
                         <Label Text="{x:Static resources:TripsResources.DepartureFlight}" FontSize="18" FontAttributes="Bold" Margin="20"/>
                     </HorizontalStackLayout>
-
 
                     <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="5" >
                         <Grid>
@@ -189,6 +185,11 @@
                                 Margin="30,0,5,0"/>
                         </Grid>
                     </Frame>
+
+                    <Label Text="{Binding AlertDepartureFlight}"
+                        TextColor="Red"
+                        FontSize="14"
+                        Margin="20,0,10,10" />
 
                     <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="5" >
                         <Grid>
@@ -226,11 +227,11 @@
                         <Grid>
                             <Image Source="plane_ticket.png" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
                             <Entry 
-                              Placeholder="{x:Static resources:TripsResources.FlightNumber}" 
-                              Text="{Binding DepartureFlightNumber}"
+                               Placeholder="{x:Static resources:TripsResources.FlightNumber}" 
+                               Text="{Binding ArrivalFlightNumber}"
                                Margin="30,0,0,0"/>
                             <ImageButton 
-                                Command="{Binding SearchDepartureFlightCommand}"
+                                Command="{Binding SearchArrivalFlightCommand}"
                                 Grid.Column="3" 
                                 Source="add_btn.png" 
                                 HorizontalOptions="End" 
@@ -239,6 +240,11 @@
                                 Margin="30,0,5,0"/>
                         </Grid>
                     </Frame>
+
+                    <Label Text="{Binding AlertArrivalFlight}"
+                        TextColor="Red"
+                        FontSize="14"
+                        Margin="20,0,10,10" />
 
                     <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="5" >
                         <Grid>

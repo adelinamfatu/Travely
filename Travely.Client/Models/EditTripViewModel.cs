@@ -9,6 +9,14 @@ namespace Travely.Client.Models
     public partial class EditTripViewModel : ObservableObject
     {
         private readonly TripService tripService;
+        public EditTripViewModel(Guid tripId, TripService tripService)
+        {
+            this.tripService = tripService;
+            this.TripId = tripId;
+            this.alertMessage = string.Empty;
+            this.alertDepartureFlight = string.Empty;
+            this.alertArrivalFlight = string.Empty;
+        }
 
         [ObservableProperty]
         private Guid tripId;
@@ -44,7 +52,13 @@ namespace Travely.Client.Models
         private bool isArrivalExpanded = true;
 
         [ObservableProperty]
-        private string alertMessage;
+        private string alertMessage = "";
+
+        [ObservableProperty]
+        private string alertDepartureFlight = "";
+
+        [ObservableProperty]
+        private string alertArrivalFlight = "";
 
         [ObservableProperty]
         private string? arrivalFlightNumber;
@@ -52,16 +66,9 @@ namespace Travely.Client.Models
         [ObservableProperty]
         private string? departureFlightNumber;
 
-        public EditTripViewModel(Guid tripId, TripService tripService)
-        {
-            this.tripService = tripService;
-            this.TripId = tripId;
-            this.alertMessage = string.Empty;
-        }
-
         public async Task LoadTrip()
         {
-            var trip = await tripService.GetTrip(tripId);
+            var trip = await tripService.GetTrip(TripId);
             this.TripTitle = trip.Title;
             this.CountryName = trip.Country;
             this.StartDate = trip.StartDate;
@@ -92,7 +99,7 @@ namespace Travely.Client.Models
             }
 
             Notes = FormatNoteText(Notes);
-            tripService.UpdateTripNotes(tripId, Notes);
+            tripService.UpdateTripNotes(TripId, Notes);
         }
 
         private string FormatNoteText(string text)
@@ -111,15 +118,41 @@ namespace Travely.Client.Models
         }
 
         [RelayCommand]
-        private void SearchArrivalFlight()
+        private async Task SearchArrivalFlight()
         {
-            tripService.GetFlightDetails(arrivalFlightNumber);
+            AlertArrivalFlight = string.Empty;
+            if (string.IsNullOrWhiteSpace(ArrivalFlightNumber))
+            {
+                AlertArrivalFlight = ValidationResources.EmptyArrivalFlightError;
+                return;
+            }
+
+            if (!Regex.IsMatch(ArrivalFlightNumber, @"^\d{8}$"))
+            {
+                AlertArrivalFlight = ValidationResources.InvalidArrivalFlightError;
+                return;
+            }
+
+            await tripService.GetFlightDetails(ArrivalFlightNumber);
         }
 
         [RelayCommand]
-        private void SearchDepartureFlight()
+        private async Task SearchDepartureFlight()
         {
-            tripService.GetFlightDetails(departureFlightNumber);
+            AlertDepartureFlight = string.Empty;
+            if (string.IsNullOrWhiteSpace(DepartureFlightNumber))
+            {
+                AlertDepartureFlight = ValidationResources.EmptyDepartureFlightError;
+                return;
+            }
+
+            if (!Regex.IsMatch(DepartureFlightNumber, @"^\d{8}$"))
+            {
+                AlertDepartureFlight = ValidationResources.InvalidDepartureFlightError;
+                return;
+            }
+
+            await tripService.GetFlightDetails(DepartureFlightNumber);
         }
     }
 }
