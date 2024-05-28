@@ -33,7 +33,7 @@ namespace Travely.Client.Models
 
                 foreach (var day in tripDays)
                 {
-                    string dayTitle = $"Day {dayCount} ({day:yyyy-MM-dd})";
+                    string dayTitle = $"Day {dayCount} ({day:dd.MM.yyyy})";
 
                     if (!Itinerary.ContainsKey(dayTitle))
                     {
