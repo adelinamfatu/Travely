@@ -94,6 +94,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
+		<PackageReference Include="Microcharts.Maui" Version="1.0.0" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.5" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.5">
 		  <PrivateAssets>all</PrivateAssets>
@@ -167,6 +168,11 @@
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>PageNameResources.resx</DependentUpon>
 	  </Compile>
+	  <Compile Update="Resources\UIResources\ProfileResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>ProfileResources.resx</DependentUpon>
+	  </Compile>
 	  <Compile Update="Resources\UIResources\TripPackingResources.Designer.cs">
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
@@ -196,6 +202,10 @@
 	  <EmbeddedResource Update="Resources\UIResources\PageNameResources.resx">
 	    <Generator>ResXFileCodeGenerator</Generator>
 	    <LastGenOutput>PageNameResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\UIResources\ProfileResources.resx">
+	    <Generator>ResXFileCodeGenerator</Generator>
+	    <LastGenOutput>ProfileResources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
 	  <EmbeddedResource Update="Resources\UIResources\TripPackingResources.resx">
 	    <Generator>ResXFileCodeGenerator</Generator>

@@ -2,12 +2,36 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:resources="clr-namespace:Travely.Client.Resources.UIResources"
+             xmlns:charts="clr-namespace:Microcharts.Maui;assembly=Microcharts.Maui"
              x:Class="Travely.Client.Pages.ProfilePage"
              Title="{x:Static resources:PageNameResources.ProfilePageName}">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+           >
+            <HorizontalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="5" Margin="0,20,0,10">
+                <Label Text="{x:Static resources:ProfileResources.Name}" VerticalTextAlignment="Center" TextColor="Black"/>
+                <Entry Text="Love" WidthRequest="80" HorizontalOptions="Center" VerticalOptions="Center"/>
+                <Button Text="{x:Static resources:ProfileResources.Save}" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="80" HeightRequest="40" BackgroundColor="#415a77"/>
+            </HorizontalStackLayout>
+
+            <Frame Margin="10">
+                <VerticalStackLayout Grid.Column="1" Grid.Row="0" Padding="5" VerticalOptions="Center" HorizontalOptions="Center">
+                    <StackLayout Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center" Spacing="65" Margin="10">
+                        <Grid ColumnSpacing="20">
+                            <Label Text="{x:Static resources:ProfileResources.Statistics}" Margin="0,0,0,0" FontAttributes="Bold" FontSize="25" VerticalOptions="Center" HorizontalOptions="Center"/>
+                        </Grid>
+                    </StackLayout>
+                </VerticalStackLayout>
+            </Frame>
+
+            <Label Text="{x:Static resources:ProfileResources.Continents}" Margin="0,20,0,0" FontAttributes="Bold" />
+            <charts:ChartView x:Name="continentChart" HeightRequest="150"/>
+            <Label Text="{x:Static resources:ProfileResources.EuropeanCountries}" Margin="0,50,0,0" FontAttributes="Bold"/>
+            <charts:ChartView x:Name="countriesChart" HeightRequest="150"/>
+            <Label Text="{x:Static resources:ProfileResources.TravelFrequency}" Margin="0,50,0,0" FontAttributes="Bold"/>
+            <charts:ChartView x:Name="seasonsFrequencyChart" HeightRequest="150" />
+        </VerticalStackLayout>
+    </ScrollView>
+    
 </ContentPage>
