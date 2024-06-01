@@ -1,9 +1,12 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 using System.Text.RegularExpressions;
 using Travely.BusinessLogic.DTOs;
 using Travely.BusinessLogic.Services;
 using Travely.Client.Resources.UIResources;
+using Travely.Domain.Entities;
+using static Travely.Client.Utilities.Messenger;
 
 namespace Travely.Client.Models
 {
@@ -146,32 +149,6 @@ namespace Travely.Client.Models
         }
 
         [RelayCommand]
-        private async Task SearchArrivalFlight()
-        {
-            AlertArrivalFlight = string.Empty;
-            if (string.IsNullOrWhiteSpace(ArrivalFlightNumber))
-            {
-                AlertArrivalFlight = ValidationResources.EmptyArrivalFlightError;
-                return;
-            }
-
-            if (!Regex.IsMatch(ArrivalFlightNumber, @"^\d{8}$"))
-            {
-                AlertArrivalFlight = ValidationResources.InvalidArrivalFlightError;
-                return;
-            }
-
-            if (ArrivalFlight is null)
-            {
-                await tripService.AddFlightDetails(ArrivalFlightNumber, TripId);
-            }
-            else
-            {
-                await tripService.UpdateFlightDetails(ArrivalFlightNumber);
-            }
-        }
-
-        [RelayCommand]
         private async Task SearchDepartureFlight()
         {
             AlertDepartureFlight = string.Empty;
@@ -189,12 +166,42 @@ namespace Travely.Client.Models
 
             if (DepartureFlight is null)
             {
-                await tripService.AddFlightDetails(DepartureFlightNumber, TripId);
+                await tripService.AddFlightDetails(DepartureFlightNumber, FlightType.Departure, TripId);
             }
             else
             {
                 await tripService.UpdateFlightDetails(DepartureFlightNumber);
             }
+
+            WeakReferenceMessenger.Default.Send(new ReloadFlightsMessage());
+        }
+
+        [RelayCommand]
+        private async Task SearchArrivalFlight()
+        {
+            AlertArrivalFlight = string.Empty;
+            if (string.IsNullOrWhiteSpace(ArrivalFlightNumber))
+            {
+                AlertArrivalFlight = ValidationResources.EmptyArrivalFlightError;
+                return;
+            }
+
+            if (!Regex.IsMatch(ArrivalFlightNumber, @"^\d{8}$"))
+            {
+                AlertArrivalFlight = ValidationResources.InvalidArrivalFlightError;
+                return;
+            }
+
+            if (ArrivalFlight is null)
+            {
+                await tripService.AddFlightDetails(ArrivalFlightNumber, FlightType.Arrival, TripId);
+            }
+            else
+            {
+                await tripService.UpdateFlightDetails(ArrivalFlightNumber);
+            }
+
+            WeakReferenceMessenger.Default.Send(new ReloadFlightsMessage());
         }
     }
 }

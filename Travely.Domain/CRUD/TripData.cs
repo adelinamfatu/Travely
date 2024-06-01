@@ -53,7 +53,7 @@ namespace Travely.Domain.CRUD
         {
             var existingFlight = this.context.Flights.FirstOrDefault(t => t.Id == flight.Id);
 
-            if (existingFlight != null)
+            if (existingFlight == null)
             {
                 flight.TripId = tripId;
                 this.context.Flights.Add(flight);

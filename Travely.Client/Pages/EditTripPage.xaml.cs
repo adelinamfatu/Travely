@@ -1,5 +1,7 @@
+using CommunityToolkit.Mvvm.Messaging;
 using Travely.BusinessLogic.Services;
 using Travely.Client.Models;
+using static Travely.Client.Utilities.Messenger;
 
 namespace Travely.Client.Pages;
 
@@ -21,6 +23,11 @@ public partial class EditTripPage : ContentPage
             viewModel = new EditTripViewModel(tripId, tripService);
             await viewModel.LoadTrip();
             BindingContext = viewModel;
+
+            WeakReferenceMessenger.Default.Register<ReloadFlightsMessage>(this, async (sender, message) =>
+            {
+                await viewModel.LoadTrip();
+            });
         }
     }
 

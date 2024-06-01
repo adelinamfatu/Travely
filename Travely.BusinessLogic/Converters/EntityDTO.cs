@@ -36,6 +36,7 @@ namespace Travely.BusinessLogic.Converters
                 Origin = flight.Origin,
                 Destination = flight.Destination,
                 FlightType = flight.FlightType,
+                Status = flight.Status,
             };
         }
     }

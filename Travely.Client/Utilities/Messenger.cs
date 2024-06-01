@@ -5,5 +5,7 @@
         public class ReloadTripsMessage { }
 
         public class ReloadPackingItemsMessage { }
+
+        public class ReloadFlightsMessage { }
     }
 }

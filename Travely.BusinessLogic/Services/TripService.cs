@@ -54,11 +54,12 @@ namespace Travely.BusinessLogic.Services
             return EntityDTO.EntityToDTO(trip);
         }
 
-        public async Task AddFlightDetails(string flightNumber, Guid tripId)
+        public async Task AddFlightDetails(string flightNumber, FlightType flightType, Guid tripId)
         {
             var flightInfo = await FetchFlightDetails(flightNumber);
             if (flightInfo is not null)
             {
+                flightInfo.FlightType = flightType;
                 tripData.AddFlight(DTOEntity.DTOtoEntity(flightInfo), tripId);
             }
         }
