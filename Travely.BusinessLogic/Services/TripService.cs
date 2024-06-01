@@ -54,6 +54,24 @@ namespace Travely.BusinessLogic.Services
             return EntityDTO.EntityToDTO(trip);
         }
 
+        public async Task AddFlightDetails(string flightNumber, Guid tripId)
+        {
+            var flightInfo = await FetchFlightDetails(flightNumber);
+            if (flightInfo is not null)
+            {
+                tripData.AddFlight(DTOEntity.DTOtoEntity(flightInfo), tripId);
+            }
+        }
+
+        public async Task UpdateFlightDetails(string flightNumber)
+        {
+            var flightInfo = await FetchFlightDetails(flightNumber);
+            if (flightInfo is not null)
+            {
+                tripData.UpdateFlight(DTOEntity.DTOtoEntity(flightInfo));
+            }
+        }
+
         public async Task<List<string>> GetWorldCountries(List<string> continents)
         {
             var countries = new List<string>();
@@ -93,12 +111,10 @@ namespace Travely.BusinessLogic.Services
             return string.Format(APICallResources.FlagAPI, countryCode.ToLower());
         }
 
-        public async Task<FlightDTO> GetFlightDetails(string flightNumber, Guid tripId)
+        private async Task<FlightDTO?> FetchFlightDetails(string flightNumber)
         {
             var flightInfo = new FlightDTO();
-
             using var httpClient = new HttpClient();
-
             var response = await httpClient.GetAsync(APICallResources.FlightAPI + flightNumber);
 
             if (response.IsSuccessStatusCode)
@@ -111,12 +127,10 @@ namespace Travely.BusinessLogic.Services
                     flightInfo.Origin = flightJson["airport"]?["origin"]?["name"]?.ToString();
                     flightInfo.Destination = flightJson["airport"]?["destination"]?["name"]?.ToString();
                     flightInfo.Status = flightJson["status"]?["text"]?.ToString();
-
-                    tripData.UpdateFlight(DTOEntity.DTOtoEntity(flightInfo), tripId);
+                    return flightInfo;
                 }
             }
-
-            return flightInfo;
+            return null;
         }
     }
 }

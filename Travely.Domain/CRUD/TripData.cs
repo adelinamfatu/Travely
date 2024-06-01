@@ -49,17 +49,23 @@ namespace Travely.Domain.CRUD
             return flights;
         }
 
-        public void UpdateFlight(FlightSqlView flight, Guid tripId)
+        public void AddFlight(FlightSqlView flight, Guid tripId)
         {
             var existingFlight = this.context.Flights.FirstOrDefault(t => t.Id == flight.Id);
 
-            if (existingFlight == null)
+            if (existingFlight != null)
             {
                 flight.TripId = tripId;
                 this.context.Flights.Add(flight);
                 this.context.SaveChanges();
             }
-            else
+        }
+
+        public void UpdateFlight(FlightSqlView flight)
+        {
+            var existingFlight = this.context.Flights.FirstOrDefault(t => t.Id == flight.Id);
+
+            if (existingFlight != null)
             {
                 existingFlight.Origin = flight.Origin;
                 existingFlight.Destination = flight.Destination;

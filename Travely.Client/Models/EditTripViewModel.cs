@@ -10,14 +10,6 @@ namespace Travely.Client.Models
     public partial class EditTripViewModel : ObservableObject
     {
         private readonly TripService tripService;
-        public EditTripViewModel(Guid tripId, TripService tripService)
-        {
-            this.tripService = tripService;
-            this.TripId = tripId;
-            this.alertMessage = string.Empty;
-            this.alertDepartureFlight = string.Empty;
-            this.alertArrivalFlight = string.Empty;
-        }
 
         [ObservableProperty]
         private Guid tripId;
@@ -78,6 +70,8 @@ namespace Travely.Client.Models
             this.tripService = tripService;
             this.TripId = tripId;
             this.alertMessage = string.Empty;
+            this.alertDepartureFlight = string.Empty;
+            this.alertArrivalFlight = string.Empty;
         }
 
         public async Task LoadTrip()
@@ -167,7 +161,14 @@ namespace Travely.Client.Models
                 return;
             }
 
-            await tripService.GetFlightDetails(ArrivalFlightNumber);
+            if (ArrivalFlight is null)
+            {
+                await tripService.AddFlightDetails(ArrivalFlightNumber, TripId);
+            }
+            else
+            {
+                await tripService.UpdateFlightDetails(ArrivalFlightNumber);
+            }
         }
 
         [RelayCommand]
@@ -186,7 +187,14 @@ namespace Travely.Client.Models
                 return;
             }
 
-            await tripService.GetFlightDetails(DepartureFlightNumber);
+            if (DepartureFlight is null)
+            {
+                await tripService.AddFlightDetails(DepartureFlightNumber, TripId);
+            }
+            else
+            {
+                await tripService.UpdateFlightDetails(DepartureFlightNumber);
+            }
         }
     }
 }

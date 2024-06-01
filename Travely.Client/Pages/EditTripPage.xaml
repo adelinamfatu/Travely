@@ -257,6 +257,7 @@
                         <Grid>
                             <Image Source="plane_color.png" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
                             <Label 
+                                Text="{Binding ArrivalFlight.Origin}"
                                 ToolTipProperties.Text="{x:Static resources:TripsResources.AirPortOrigin}" 
                                 Margin="30,10,0,0"/>
                         </Grid>
@@ -266,6 +267,7 @@
                         <Grid>
                             <Image Source="plane_color.png" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
                             <Label 
+                                Text="{Binding ArrivalFlight.Destination}"
                                 ToolTipProperties.Text="{x:Static resources:TripsResources.AirPortDestination}" 
                                 Margin="30,10,0,0"/>
                         </Grid>
@@ -275,6 +277,7 @@
                         <Grid>
                             <Image Source="loading.png" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
                             <Label 
+                                Text="{Binding ArrivalFlight.Status}"
                                 ToolTipProperties.Text="{x:Static resources:TripsResources.Status}" 
                                 Margin="30,10,0,0"/>
                         </Grid>
