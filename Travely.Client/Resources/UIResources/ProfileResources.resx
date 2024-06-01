@@ -117,67 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AddNote" xml:space="preserve">
-    <value>Add a note</value>
+  <data name="Continents" xml:space="preserve">
+    <value>Continental Travel Trends Among Our Users</value>
   </data>
-  <data name="ArrivalFlight" xml:space="preserve">
-    <value>Arrival Flight Information</value>
+  <data name="EuropeanCountries" xml:space="preserve">
+    <value>Most Popular European Countries Among Our Travelers</value>
   </data>
-  <data name="ConfirmDeleteTrip" xml:space="preserve">
-    <value>Are you sure you want to delete this tip?</value>
+  <data name="Name" xml:space="preserve">
+    <value>What is your name?</value>
   </data>
-  <data name="Country" xml:space="preserve">
-    <value>Where?</value>
+  <data name="Save" xml:space="preserve">
+    <value>SAVE</value>
   </data>
-  <data name="DeleteButton" xml:space="preserve">
-    <value>Delete</value>
+  <data name="Statistics" xml:space="preserve">
+    <value>VIEW STATISTICS</value>
   </data>
-  <data name="EndDate" xml:space="preserve">
-    <value>To</value>
-  </data>
-  <data name="DepartureFlight" xml:space="preserve">
-    <value>Departure Flight Information</value>
-  </data>
-  <data name="FlightNumber" xml:space="preserve">
-    <value>Flight Number (e.g., 35690561)</value>
-  </data>
-  <data name="Flights" xml:space="preserve">
-    <value>Flight Information</value>
-  </data>
-  <data name="MessageDeleteTrip" xml:space="preserve">
-    <value>Confirm delete trip</value>
-  </data>
-  <data name="Notes" xml:space="preserve">
-    <value>Notes</value>
-  </data>
-  <data name="Places" xml:space="preserve">
-    <value>Hotels To Stay</value>
-  </data>
-  <data name="PlanTrip" xml:space="preserve">
-    <value>Plan your trip</value>
-  </data>
-  <data name="Reservations" xml:space="preserve">
-    <value>Reservations</value>
-  </data>
-  <data name="AirPortOrigin" xml:space="preserve">
-    <value>Origin Airport </value>
-  </data>
-  <data name="StartDate" xml:space="preserve">
-    <value>From</value>
-  </data>
-  <data name="StartPlanningButton" xml:space="preserve">
-    <value>Start planning</value>
-  </data>
-  <data name="ViewItineraryButton" xml:space="preserve">
-    <value>View itinerary</value>
-  </data>
-  <data name="AddPlace" xml:space="preserve">
-    <value>Add a hotels to stay</value>
-  </data>
-  <data name="AirPortDestination" xml:space="preserve">
-    <value>Destination Airport</value>
-  </data>
-  <data name="Status" xml:space="preserve">
-    <value>Status</value>
+  <data name="TravelFrequency" xml:space="preserve">
+    <value>Travel Frequency by Season</value>
   </data>
 </root>

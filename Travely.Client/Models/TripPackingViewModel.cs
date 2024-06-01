@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using Travely.BusinessLogic.DTOs;
 using Travely.BusinessLogic.Services;
 using static Travely.Client.Utilities.Messenger;
+using Travely.Client.Resources.UIResources;
 
 namespace Travely.Client.Models
 {
@@ -68,19 +69,19 @@ namespace Travely.Client.Models
             ErrorMessage = string.Empty;
             if (string.IsNullOrWhiteSpace(PackingItem))
             {
-                ErrorMessage = "Item title cannot be empty.";
+                ErrorMessage = ValidationResources.EmptyItemError;
                 return;
             }
 
             if (PackingItems.Any(item => item.Title.Equals(PackingItem, StringComparison.OrdinalIgnoreCase)))
             {
-                ErrorMessage = "An item with the same title already exists.";
+                ErrorMessage = ValidationResources.ExistItemError;
                 return;
             }
 
             if (!Regex.IsMatch(PackingItem, @"^[a-zA-Z0-9 ]+$"))
             {
-                ErrorMessage = "Item title can only contain letters, digits and spaces.";
+                ErrorMessage = ValidationResources.InvalidItemError;
                 return;
             }
             packingService.AddPackingItem(new PackingItemDTO

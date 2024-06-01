@@ -46,26 +46,26 @@
                                             Grid.Column="1"
                                             Placeholder="{x:Static resources:ItineraryResources.AddPlace}" 
                                             IsReadOnly="True"
-                                            Margin="30,0,0,0"/>
+                                            Margin="2,0,0,0"/>
 
                                         <ImageButton 
                                             Grid.Column="2" 
                                             Command="{Binding AddSpotCommand}"
-                                            Source="notepad.png" 
+                                            Source="save_location.png" 
                                             HorizontalOptions="End"
                                             WidthRequest="30" 
                                             HeightRequest="30"
-                                            Margin="30,0,5,0"/>
+                                            Margin="30,0,0,0"/>
 
                                         <ImageButton 
                                             Grid.Column="3" 
                                             Clicked="NavigateToMapsPage"
                                             CommandParameter="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.TripId}"
-                                            Source="bed.png" 
+                                            Source="open_maps.png" 
                                             HorizontalOptions="End"
                                             WidthRequest="30" 
                                             HeightRequest="30"
-                                            Margin="30,0,5,0"/>
+                                            Margin="20,0,5,0"/>
                                     </Grid>
                                 </Frame>
 

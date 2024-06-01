@@ -3,6 +3,7 @@ using Microsoft.Extensions.Logging;
 using Travely.BusinessLogic.Services;
 using Travely.Client.Utilities;
 using Travely.Domain;
+using Microcharts.Maui;
 
 namespace Travely.Client
 {
@@ -18,7 +19,8 @@ namespace Travely.Client
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-                });
+                })
+                .UseMicrocharts();
 
 #if DEBUG
     		builder.Logging.AddDebug();

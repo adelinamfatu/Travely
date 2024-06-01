@@ -91,6 +91,7 @@ namespace Travely.Client.Models
 
             if (countryNames is not null)
             {
+                countryNames.Sort();
                 foreach (var name in countryNames)
                 {
                     Countries.Add(name);
