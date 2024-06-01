@@ -171,7 +171,6 @@
                         <Label Text="{x:Static resources:TripsResources.DepartureFlight}" FontSize="18" FontAttributes="Bold" Margin="20"/>
                     </HorizontalStackLayout>
 
-
                     <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="5" >
                         <Grid>
                             <Image Source="plane_ticket.png" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
@@ -193,15 +192,19 @@
                     <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="5" >
                         <Grid>
                             <Image Source="plane_color.png" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
-                            <Label Text="{x:Static resources:TripsResources.AirPortOrigin}" Margin="30,10,0,0"/>
+                            <Label 
+                                Text="{Binding DepartureFlight.Origin}"
+                                ToolTipProperties.Text="{x:Static resources:TripsResources.AirPortOrigin}" 
+                                Margin="30,10,0,0"/>
                         </Grid>
                     </Frame>
 
                     <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="5" >
                         <Grid>
                             <Image Source="plane_color.png" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
-                            <Label 
-                                Text="{x:Static resources:TripsResources.AirPortDestination}" 
+                            <Label
+                                Text="{Binding DepartureFlight.Destination}"
+                                ToolTipProperties.Text="{x:Static resources:TripsResources.AirPortDestination}"
                                 Margin="30,10,0,0"/>
                         </Grid>
                     </Frame>
@@ -209,7 +212,10 @@
                     <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="5" >
                         <Grid>
                             <Image Source="loading.png" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
-                            <Label Text="{x:Static resources:TripsResources.Status}" Margin="30,10,0,0"/>
+                            <Label 
+                                Text="{Binding DepartureFlight.Status}"
+                                ToolTipProperties.Text="{x:Static resources:TripsResources.Status}" 
+                                Margin="30,10,0,0"/>
                         </Grid>
                     </Frame>
                 </StackLayout>
@@ -226,9 +232,9 @@
                         <Grid>
                             <Image Source="plane_ticket.png" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
                             <Entry 
-                              Placeholder="{x:Static resources:TripsResources.FlightNumber}" 
-                              Text="{Binding DepartureFlightNumber}"
-                               Margin="30,0,0,0"/>
+                                Placeholder="{x:Static resources:TripsResources.FlightNumber}"
+                                Text="{Binding DepartureFlightNumber}"
+                                Margin="30,0,0,0"/>
                             <ImageButton 
                                 Command="{Binding SearchDepartureFlightCommand}"
                                 Grid.Column="3" 
@@ -243,14 +249,17 @@
                     <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="5" >
                         <Grid>
                             <Image Source="plane_color.png" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
-                            <Label Text="{x:Static resources:TripsResources.AirPortOrigin}" Margin="30,10,0,0"/>
+                            <Label 
+                                ToolTipProperties.Text="{x:Static resources:TripsResources.AirPortOrigin}" 
+                                Margin="30,10,0,0"/>
                         </Grid>
                     </Frame>
 
                     <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="5" >
                         <Grid>
                             <Image Source="plane_color.png" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
-                            <Label Text="{x:Static resources:TripsResources.AirPortDestination}" 
+                            <Label 
+                                ToolTipProperties.Text="{x:Static resources:TripsResources.AirPortDestination}" 
                                 Margin="30,10,0,0"/>
                         </Grid>
                     </Frame>
@@ -258,7 +267,9 @@
                     <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="5" >
                         <Grid>
                             <Image Source="loading.png" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
-                            <Label Text="{x:Static resources:TripsResources.Status}" Margin="30,10,0,0"/>
+                            <Label 
+                                ToolTipProperties.Text="{x:Static resources:TripsResources.Status}" 
+                                Margin="30,10,0,0"/>
                         </Grid>
                     </Frame>
                 </StackLayout>

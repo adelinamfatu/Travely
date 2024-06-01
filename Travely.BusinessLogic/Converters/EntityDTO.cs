@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Travely.BusinessLogic.DTOs;
+﻿using Travely.BusinessLogic.DTOs;
 using Travely.Domain.Entities;
 
 namespace Travely.BusinessLogic.Converters
@@ -30,6 +25,17 @@ namespace Travely.BusinessLogic.Converters
                 Id = packingItem.Id,
                 Title = packingItem.Title,
                 IsPacked = packingItem.IsPacked,
+            };
+        }
+
+        public static FlightDTO EntityToDTO(FlightSqlView flight)
+        {
+            return new FlightDTO
+            {
+                Id = flight.Id,
+                Origin = flight.Origin,
+                Destination = flight.Destination,
+                FlightType = flight.FlightType,
             };
         }
     }

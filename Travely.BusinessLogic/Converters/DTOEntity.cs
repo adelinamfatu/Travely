@@ -29,5 +29,17 @@ namespace Travely.BusinessLogic.Converters
                 IsPacked = packingItem.IsPacked,
             };
         }
+
+        public static FlightSqlView DTOtoEntity(FlightDTO flight)
+        {
+            return new FlightSqlView
+            {
+                Id = flight.Id,
+                Origin = flight.Origin,
+                Destination = flight.Destination,
+                Status = flight.Status,
+                FlightType = flight.FlightType,
+            };
+        }
     }
 }

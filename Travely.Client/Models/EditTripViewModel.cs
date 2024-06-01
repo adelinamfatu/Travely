@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.Text.RegularExpressions;
+using Travely.BusinessLogic.DTOs;
 using Travely.BusinessLogic.Services;
 
 namespace Travely.Client.Models
@@ -51,6 +52,12 @@ namespace Travely.Client.Models
         [ObservableProperty]
         private string? departureFlightNumber;
 
+        [ObservableProperty]
+        private FlightDTO? arrivalFlight;
+
+        [ObservableProperty]
+        private FlightDTO? departureFlight;
+
         public EditTripViewModel(Guid tripId, TripService tripService)
         {
             this.tripService = tripService;
@@ -60,13 +67,14 @@ namespace Travely.Client.Models
 
         public async Task LoadTrip()
         {
-            var trip = await tripService.GetTrip(tripId);
+            var trip = await tripService.GetTrip(TripId);
             this.TripTitle = trip.Title;
             this.CountryName = trip.Country;
             this.StartDate = trip.StartDate;
             this.EndDate = trip.EndDate;
             this.Notes = trip.Notes;
             SetCountryFlagUrl();
+            SetFlights();
         }
 
         public void ToggleHotelsExpanded() => IsHotelsExpanded = !IsHotelsExpanded;
@@ -109,16 +117,35 @@ namespace Travely.Client.Models
             }
         }
 
+        private async void SetFlights()
+        {
+            var flights = await this.tripService.GetFlights(TripId);
+            if (flights != null)
+            {
+                foreach (var flight in flights)
+                {
+                    if (flight.FlightType == Domain.Entities.FlightType.Departure)
+                    {
+                        this.DepartureFlight = flight;
+                    }
+                    else
+                    {
+                        this.ArrivalFlight = flight;
+                    }
+                }
+            }
+        }
+
         [RelayCommand]
         private void SearchArrivalFlight()
         {
-            tripService.GetFlightDetails(arrivalFlightNumber);
+            tripService.GetFlightDetails(arrivalFlightNumber, TripId);
         }
 
         [RelayCommand]
         private void SearchDepartureFlight()
         {
-            tripService.GetFlightDetails(departureFlightNumber);
+            tripService.GetFlightDetails(departureFlightNumber, TripId);
         }
     }
 }

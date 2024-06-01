@@ -42,6 +42,12 @@ namespace Travely.BusinessLogic.Services
                         .ToList();
         }
 
+        public async Task<List<FlightDTO>> GetFlights(Guid tripId)
+        {
+            var flights = await tripData.GetFlights(tripId);
+            return flights.Select(flight => EntityDTO.EntityToDTO(flight)).ToList();
+        }
+
         public async Task<TripDTO> GetTrip(Guid tripId)
         {
             var trip = await tripData.GetTrip(tripId) ?? new TripSqlView();
@@ -87,9 +93,9 @@ namespace Travely.BusinessLogic.Services
             return string.Format(APICallResources.FlagAPI, countryCode.ToLower());
         }
 
-        public async Task<FlightInfo> GetFlightDetails(string flightNumber)
+        public async Task<FlightDTO> GetFlightDetails(string flightNumber, Guid tripId)
         {
-            var flightInfo = new FlightInfo();
+            var flightInfo = new FlightDTO();
 
             using var httpClient = new HttpClient();
 
@@ -102,9 +108,11 @@ namespace Travely.BusinessLogic.Services
 
                 if (flightJson is not null)
                 {
-                    flightInfo.OriginAirport = flightJson["airport"]?["origin"]?["name"]?.ToString();
-                    flightInfo.DestinationAirport = flightJson["airport"]?["destination"]?["name"]?.ToString();
-                    flightInfo.FlightStatus = flightJson["status"]?["text"]?.ToString();
+                    flightInfo.Origin = flightJson["airport"]?["origin"]?["name"]?.ToString();
+                    flightInfo.Destination = flightJson["airport"]?["destination"]?["name"]?.ToString();
+                    flightInfo.Status = flightJson["status"]?["text"]?.ToString();
+
+                    tripData.UpdateFlight(DTOEntity.DTOtoEntity(flightInfo), tripId);
                 }
             }
 

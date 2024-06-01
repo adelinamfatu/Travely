@@ -16,12 +16,5 @@
             public string? Access { get; set; }
             public Dictionary<string, CountryInfo>? Data { get; set; }
         }
-
-        public class FlightInfo
-        {
-            public string? OriginAirport { get; set; }
-            public string? DestinationAirport { get; set; }
-            public string? FlightStatus { get; set; }
-        }
     }
 }

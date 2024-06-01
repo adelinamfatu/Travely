@@ -16,12 +16,10 @@ namespace Travely.Domain.Entities
         public string? Destination { get; set; }
 
         [Required]
-        public DateTime DepartureTime { get; set; }
+        public string? Status { get; set; }
 
         [Required]
-        public DateTime ArrivalTime { get; set; }
-
-        public decimal Price { get; set; }
+        public FlightType FlightType { get; set; }
 
         [ForeignKey("TripSqlView")]
         public Guid TripId { get; set; }

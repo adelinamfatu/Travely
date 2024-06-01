@@ -43,6 +43,31 @@ namespace Travely.Domain.CRUD
             }
         }
 
+        public async Task<List<FlightSqlView>> GetFlights(Guid tripId)
+        {
+            var flights = await this.context.Flights.Where(flight => flight.TripId == tripId).ToListAsync();
+            return flights;
+        }
+
+        public void UpdateFlight(FlightSqlView flight, Guid tripId)
+        {
+            var existingFlight = this.context.Flights.FirstOrDefault(t => t.Id == flight.Id);
+
+            if (existingFlight == null)
+            {
+                flight.TripId = tripId;
+                this.context.Flights.Add(flight);
+                this.context.SaveChanges();
+            }
+            else
+            {
+                existingFlight.Origin = flight.Origin;
+                existingFlight.Destination = flight.Destination;
+                existingFlight.Status = flight.Status;
+                this.context.SaveChanges();
+            }
+        }
+
         public async Task<List<TripSqlView>> GetTrips()
         {
             return await this.context.Trips.ToListAsync();

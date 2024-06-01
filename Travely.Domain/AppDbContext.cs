@@ -22,7 +22,6 @@ namespace Travely.Domain
         {
             modelBuilder.Entity<TripSqlView>().Property(trip => trip.Budget).HasPrecision(18, 2);
             modelBuilder.Entity<SpotSqlView>().Property(spot => spot.EntryFee).HasPrecision(18, 2);
-            modelBuilder.Entity<FlightSqlView>().Property(flight => flight.Price).HasPrecision(18, 2);
 
             base.OnModelCreating(modelBuilder);
         }
