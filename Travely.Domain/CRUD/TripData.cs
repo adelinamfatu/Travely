@@ -107,6 +107,11 @@ namespace Travely.Domain.CRUD
             return tripDates.SelectMany(trip => new[] { trip.StartDate, trip.EndDate }).ToList();
         }
 
+        public async Task<List<SpotSqlView>> GetTripSpots(Guid tripId)
+        {
+            return await this.context.Spots.Where(spot => spot.TripId == tripId).ToListAsync();
+        }
+
         public async Task<string?> GetTripCountry(Guid tripId)
         {
             return await this.context.Trips.Where(trip => trip.Id == tripId)

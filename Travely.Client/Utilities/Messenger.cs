@@ -7,5 +7,7 @@
         public class ReloadPackingItemsMessage { }
 
         public class ReloadFlightsMessage { }
+
+        public class ReloadSpotsMessage { }
     }
 }

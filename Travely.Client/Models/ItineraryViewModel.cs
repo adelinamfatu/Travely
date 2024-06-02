@@ -1,7 +1,10 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 using Travely.BusinessLogic.DTOs;
 using Travely.BusinessLogic.Services;
+using System.Collections.ObjectModel;
+using static Travely.Client.Utilities.Messenger;
 
 namespace Travely.Client.Models
 {
@@ -16,7 +19,7 @@ namespace Travely.Client.Models
         private string? currentSpotName;
 
         [ObservableProperty]
-        public Dictionary<string, List<string>> itinerary;
+        private ObservableCollection<DayItinerary> itinerary;
 
         private Dictionary<string, DateTime> tripDaysDates;
 
@@ -29,29 +32,43 @@ namespace Travely.Client.Models
         public ItineraryViewModel(TripDetailService tripDetailService)
         {
             this.tripDetailService = tripDetailService;
-            Itinerary = new Dictionary<string, List<string>>();
+            Itinerary = new ObservableCollection<DayItinerary>();
             tripDaysDates = new Dictionary<string, DateTime>();
         }
 
-        public async Task InitializeItinerary(Guid tripId)
+        public async Task LoadItinerary(Guid tripId)
         {
             this.TripId = tripId;
+            Itinerary.Clear();
 
             if (tripDetailService is not null)
             {
+                var tripSpots = await tripDetailService.GetTripSpots(tripId);
+                var spotsByDay = tripSpots.GroupBy(spot => spot.Date.Date).ToDictionary(g => g.Key, g => g.ToList());
+
                 var tripDays = await tripDetailService.GetTripDays(tripId);
                 int dayCount = 1;
 
                 foreach (var day in tripDays)
                 {
-                    string dayTitle = $"Day {dayCount} ({day:dd.MM.yyyy})";
+                    string dayTitle = $"Day {dayCount} - {day:dd.MM.yyyy}";
 
-                    if (!Itinerary.ContainsKey(dayTitle))
-                    {
-                        Itinerary.Add(dayTitle, new List<string>());
-                    }
+                    var dayItinerary = new DayItinerary(dayTitle, new ObservableCollection<string>());
 
                     tripDaysDates[dayTitle] = day;
+
+                    if (spotsByDay.TryGetValue(day.Date, out var spots))
+                    {
+                        foreach (var spot in spots)
+                        {
+                            if (spot.Name is not null)
+                            {
+                                dayItinerary.Spots.Add(spot.Name);
+                            }
+                        }
+                    }
+
+                    Itinerary.Add(dayItinerary);
                     dayCount++;
                 }
             }
@@ -64,9 +81,10 @@ namespace Travely.Client.Models
             {
                 if (tripDaysDates.TryGetValue(dayTitle, out DateTime day))
                 {
-                    if (Itinerary.ContainsKey(dayTitle))
+                    var dayItinerary = Itinerary.FirstOrDefault(it => it.DayTitle == dayTitle);
+                    if (dayItinerary != null)
                     {
-                        Itinerary[dayTitle].Add(CurrentSpotName);
+                        dayItinerary.Spots.Add(CurrentSpotName);
 
                         tripDetailService.AddSpot(new SpotDTO
                         {
@@ -76,6 +94,8 @@ namespace Travely.Client.Models
                             Address = currentAddress,
                             Date = day
                         }, TripId);
+
+                        WeakReferenceMessenger.Default.Send(new ReloadSpotsMessage());
                     }
                 }
             }
@@ -91,5 +111,19 @@ namespace Travely.Client.Models
                 this.CurrentSpotName = currentAddress.Split(',')[0];
             }
         }
+    }
+
+    public partial class DayItinerary : ObservableObject
+    {
+        public DayItinerary(string dayTitle, ObservableCollection<string> spots)
+        {
+            DayTitle = dayTitle;
+            Spots = spots;
+        }
+
+        public string DayTitle { get; }
+
+        [ObservableProperty]
+        private ObservableCollection<string> spots;
     }
 }

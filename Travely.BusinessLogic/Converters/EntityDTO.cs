@@ -39,5 +39,15 @@ namespace Travely.BusinessLogic.Converters
                 Status = flight.Status,
             };
         }
+
+        public static SpotDTO EntityToDTO(SpotSqlView spot)
+        {
+            return new SpotDTO
+            {
+                Id = spot.Id,
+                Name = spot.Name,
+                Date = spot.Date,
+            };
+        }
     }
 }

@@ -1,5 +1,7 @@
+using CommunityToolkit.Mvvm.Messaging;
 using Travely.BusinessLogic.Services;
 using Travely.Client.Models;
+using static Travely.Client.Utilities.Messenger;
 
 namespace Travely.Client.Pages;
 
@@ -19,8 +21,13 @@ public partial class ItineraryPage : ContentPage
         if (tripDetailService is not null)
         {
             viewModel = new ItineraryViewModel(tripDetailService);
-            await viewModel.InitializeItinerary(tripId);
+            await viewModel.LoadItinerary(tripId);
             BindingContext = viewModel;
+
+            WeakReferenceMessenger.Default.Register<ReloadSpotsMessage>(this, async (sender, message) =>
+            {
+                await viewModel.LoadItinerary(tripId);
+            });
         }
     }
 

@@ -4,7 +4,7 @@
              xmlns:resources="clr-namespace:Travely.Client.Resources.UIResources"
              x:Class="Travely.Client.Pages.ItineraryPage"
              Title="{x:Static resources:PageNameResources.ItineraryPageName}">
-    
+
     <ScrollView>
         <VerticalStackLayout>
             <Label Text="{x:Static resources:ItineraryResources.Weather}" FontSize="25" FontAttributes="Bold" Margin="0,20,0,0" VerticalOptions="Center" HorizontalOptions="Center" />
@@ -36,7 +36,7 @@
                             <StackLayout>
                                 <HorizontalStackLayout Spacing="10">
                                     <ImageButton Source="bx_chevron_down.svg" WidthRequest="30" HeightRequest="30"/>
-                                    <Label Text="{Binding Key}" FontSize="18" FontAttributes="Bold" Margin="20"/>
+                                    <Label Text="{Binding DayTitle}" FontSize="18" FontAttributes="Bold" Margin="20"/>
                                 </HorizontalStackLayout>
                                 <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="5" >
                                     <Grid ColumnDefinitions="Auto,*,Auto,Auto,Auto">
@@ -52,7 +52,7 @@
                                         <ImageButton 
                                             Grid.Column="2" 
                                             Command="{Binding Path=BindingContext.AddSpotCommand, Source={RelativeSource AncestorType={x:Type ContentPage}}}"
-                                            CommandParameter="{Binding Key}"
+                                            CommandParameter="{Binding DayTitle}"
                                             Source="save_location.png" 
                                             HorizontalOptions="End"
                                             WidthRequest="30" 
@@ -71,7 +71,7 @@
                                     </Grid>
                                 </Frame>
 
-                                <StackLayout BindableLayout.ItemsSource="{Binding Value}">
+                                <StackLayout BindableLayout.ItemsSource="{Binding Spots}">
                                     <BindableLayout.ItemTemplate>
                                         <DataTemplate>
                                             <Frame BorderColor="Gray" CornerRadius="5" Padding="0" Margin="5" >

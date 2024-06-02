@@ -46,6 +46,12 @@ namespace Travely.BusinessLogic.Services
             return tripDays;
         }
 
+        public async Task<List<SpotDTO>> GetTripSpots(Guid tripId)
+        {
+            var spots = await tripData.GetTripSpots(tripId);
+            return spots.Select(spot => EntityDTO.EntityToDTO(spot)).ToList();
+        }
+
         public async Task<string?> GetTripCountry(Guid tripId)
         {
             return await tripData.GetTripCountry(tripId);
