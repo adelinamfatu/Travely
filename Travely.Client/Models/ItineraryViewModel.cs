@@ -11,6 +11,7 @@ namespace Travely.Client.Models
         [ObservableProperty]
         private Guid? tripId;
 
+        [ObservableProperty]
         private string? spotName;
 
         [ObservableProperty]
@@ -55,7 +56,7 @@ namespace Travely.Client.Models
         {
             if (tripDetailService is not null)
             {
-                this.spotName = await tripDetailService.GetSpotName(latitude, longitude);
+                this.SpotName = await tripDetailService.GetSpotName(latitude, longitude);
             }
         }
     }

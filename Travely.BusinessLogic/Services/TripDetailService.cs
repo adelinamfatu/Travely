@@ -82,16 +82,14 @@ namespace Travely.BusinessLogic.Services
             if (response.IsSuccessStatusCode)
             {
                 var jsonString = await response.Content.ReadAsStringAsync();
-                var apiResponse = JsonConvert.DeserializeAnonymousType(jsonString, new[] {
-                    new {
-                            lat = string.Empty,
-                            lon = string.Empty
-                        }
-                    });
-
-                if (apiResponse is not null && apiResponse.Length > 0)
+                var apiResponse = JsonConvert.DeserializeAnonymousType(jsonString, new
                 {
-                    
+                    display_name = string.Empty
+                });
+
+                if (apiResponse != null && !string.IsNullOrEmpty(apiResponse.display_name))
+                {
+                    spotName = apiResponse.display_name.Split(',')[0];
                 }
             }
 

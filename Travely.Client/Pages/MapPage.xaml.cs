@@ -27,7 +27,7 @@ public partial class MapPage : ContentPage
             viewModel = new MapViewModel(tripDetailService);
             await viewModel.InitializeCountry(tripId);
             BindingContext = viewModel;
-            await Task.Delay(100);
+            await Task.Delay(150);
             UpdateMapPosition();
         }
     }
