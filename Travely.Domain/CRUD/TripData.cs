@@ -74,6 +74,18 @@ namespace Travely.Domain.CRUD
             }
         }
 
+        public void AddSpot(SpotSqlView spot, Guid tripId)
+        {
+            var existingSpot = this.context.Spots.FirstOrDefault(t => t.Id == spot.Id);
+
+            if (existingSpot == null)
+            {
+                spot.TripId = tripId;
+                this.context.Spots.Add(spot);
+                this.context.SaveChanges();
+            }
+        }
+
         public async Task<List<TripSqlView>> GetTrips()
         {
             return await this.context.Trips.ToListAsync();

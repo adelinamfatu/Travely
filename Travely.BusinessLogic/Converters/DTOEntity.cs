@@ -41,5 +41,17 @@ namespace Travely.BusinessLogic.Converters
                 FlightType = flight.FlightType,
             };
         }
+
+        public static SpotSqlView DTOtoEntity(SpotDTO spot)
+        {
+            return new SpotSqlView
+            {
+                Name = spot.Name,
+                Address = spot.Address,
+                Longitude = spot.Longitude,
+                Latitude = spot.Latitude,
+                Date = spot.Date,
+            };
+        }
     }
 }

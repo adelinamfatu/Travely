@@ -8,6 +8,8 @@ using Travely.Domain;
 using Newtonsoft.Json;
 using static Travely.BusinessLogic.Utilities.UtilitaryClasses;
 using Travely.BusinessLogic.Resources;
+using Travely.BusinessLogic.DTOs;
+using Travely.BusinessLogic.Converters;
 
 namespace Travely.BusinessLogic.Services
 {
@@ -18,6 +20,11 @@ namespace Travely.BusinessLogic.Services
         public TripDetailService(AppDbContext context)
         {
             this.tripData = new TripData(context);
+        }
+
+        public void AddSpot(SpotDTO spot, Guid tripId)
+        {
+            tripData.AddSpot(DTOEntity.DTOtoEntity(spot), tripId);
         }
 
         public async Task<List<DateTime>> GetTripDays(Guid tripId)
@@ -72,9 +79,9 @@ namespace Travely.BusinessLogic.Services
             return coordinates;
         }
 
-        public async Task<string> GetSpotName(double latitude, double longitude)
+        public async Task<string> GetSpotDetails(double latitude, double longitude)
         {
-            var spotName = string.Empty;
+            var spotDetails = string.Empty;
             using var httpClient = new HttpClient();
 
             var response = await httpClient.GetAsync(string.Format(APICallResources.GeocodeCoordinatesAPI, latitude, longitude));
@@ -89,11 +96,11 @@ namespace Travely.BusinessLogic.Services
 
                 if (apiResponse != null && !string.IsNullOrEmpty(apiResponse.display_name))
                 {
-                    spotName = apiResponse.display_name.Split(',')[0];
+                    spotDetails = apiResponse.display_name;
                 }
             }
 
-            return spotName;
+            return spotDetails;
         }
     }
 }

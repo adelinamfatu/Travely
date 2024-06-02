@@ -13,9 +13,11 @@ namespace Travely.Domain.Entities
         public string? Name { get; set; }
 
         [Required]
-        public string? Location { get; set; }
+        public string? Address { get; set; }
 
-        public decimal? DistanceFromCenter { get; set; }
+        public double? Latitude { get; set; }
+
+        public double? Longitude { get; set; }
 
         [DataType(DataType.Date)]
         public DateTime Date { get; set; }
