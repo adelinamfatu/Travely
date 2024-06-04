@@ -36,9 +36,6 @@ namespace Travely.Client.Models
         private string? notes;
 
         [ObservableProperty]
-        private bool isHotelsExpanded = true;
-
-        [ObservableProperty]
         private bool isNotesExpanded = true;
 
         [ObservableProperty]
@@ -89,7 +86,6 @@ namespace Travely.Client.Models
             SetFlights();
         }
 
-        public void ToggleHotelsExpanded() => IsHotelsExpanded = !IsHotelsExpanded;
         public void ToggleNotesExpanded() => IsNotesExpanded = !IsNotesExpanded;
         public void ToggleDepartureExpanded() => IsDepartureExpanded = !IsDepartureExpanded;
         public void ToggleArrivalExpanded() => IsArrivalExpanded = !IsArrivalExpanded;

@@ -31,11 +31,6 @@ public partial class EditTripPage : ContentPage
         }
     }
 
-    private void HandleChevronHotelsDownClicked(object sender, EventArgs e)
-    {
-        viewModel?.ToggleHotelsExpanded();
-    }
-
     private void HandleChevronNotesClicked(object sender, EventArgs e)
     {
         viewModel?.ToggleNotesExpanded();
