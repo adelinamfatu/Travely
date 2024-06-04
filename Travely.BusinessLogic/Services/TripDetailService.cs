@@ -10,6 +10,7 @@ using static Travely.BusinessLogic.Utilities.UtilitaryClasses;
 using Travely.BusinessLogic.Resources;
 using Travely.BusinessLogic.DTOs;
 using Travely.BusinessLogic.Converters;
+using System.Globalization;
 
 namespace Travely.BusinessLogic.Services
 {
@@ -90,7 +91,11 @@ namespace Travely.BusinessLogic.Services
             var spotDetails = string.Empty;
             using var httpClient = new HttpClient();
 
-            var response = await httpClient.GetAsync(string.Format(APICallResources.GeocodeCoordinatesAPI, latitude, longitude));
+            var encodedLatitude = Uri.EscapeDataString(latitude.ToString(CultureInfo.InvariantCulture));
+            var encodedLongitude = Uri.EscapeDataString(longitude.ToString(CultureInfo.InvariantCulture));
+
+            var url = string.Format(APICallResources.GeocodeCoordinatesAPI, encodedLatitude, encodedLongitude);
+            var response = await httpClient.GetAsync(url);
 
             if (response.IsSuccessStatusCode)
             {
