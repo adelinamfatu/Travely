@@ -70,15 +70,6 @@ namespace Travely.Client.Resources.UIResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add a hotels to stay.
-        /// </summary>
-        internal static string AddPlace {
-            get {
-                return ResourceManager.GetString("AddPlace", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Destination Airport.
         /// </summary>
         internal static string AirPortDestination {
@@ -183,15 +174,6 @@ namespace Travely.Client.Resources.UIResources {
         internal static string Notes {
             get {
                 return ResourceManager.GetString("Notes", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Hotels To Stay.
-        /// </summary>
-        internal static string Places {
-            get {
-                return ResourceManager.GetString("Places", resourceCulture);
             }
         }
         

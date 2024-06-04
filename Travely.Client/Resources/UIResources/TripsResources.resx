@@ -150,9 +150,6 @@
   <data name="Notes" xml:space="preserve">
     <value>Notes</value>
   </data>
-  <data name="Places" xml:space="preserve">
-    <value>Hotels To Stay</value>
-  </data>
   <data name="PlanTrip" xml:space="preserve">
     <value>Plan your trip</value>
   </data>
@@ -170,9 +167,6 @@
   </data>
   <data name="ViewItineraryButton" xml:space="preserve">
     <value>View itinerary</value>
-  </data>
-  <data name="AddPlace" xml:space="preserve">
-    <value>Add a hotels to stay</value>
   </data>
   <data name="AirPortDestination" xml:space="preserve">
     <value>Destination Airport</value>
