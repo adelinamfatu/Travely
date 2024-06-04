@@ -26,7 +26,7 @@
 
                     <Image Source="{Binding CountryFlagUrl}" HeightRequest="60" HorizontalOptions="Center" />
 
-                    <StackLayout Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center" Spacing="65" Margin="20">
+                    <StackLayout Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center" Spacing="65">
                         <Grid ColumnSpacing="20">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>
