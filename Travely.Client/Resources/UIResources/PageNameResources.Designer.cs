@@ -61,7 +61,7 @@ namespace Travely.Client.Resources.UIResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TRAVERLY.
+        ///   Looks up a localized string similar to TRAVELY.
         /// </summary>
         internal static string DashboardPageName {
             get {

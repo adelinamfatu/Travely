@@ -124,7 +124,7 @@
                     <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="5" >
                         <Grid>
                             <Image Source="location.png" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
-                            <Entry Placeholder="{x:Static resources:TripsResources.AddPlace}" Margin="30,0,0,0"/>
+                            <Entry Placeholder="{x:Static resources:TripsResources.AddPlace}" Margin="40,0,0,0"/>
                             <ImageButton Grid.Column="3" Source="add_btn.png" HorizontalOptions="End" WidthRequest="30" HeightRequest="30" Margin="30,0,5,0" />
                         </Grid>
                     </Frame>
@@ -143,7 +143,7 @@
                             <Entry 
                                 Placeholder="{x:Static resources:TripsResources.AddNote}" 
                                 Text="{Binding Notes}" 
-                                Margin="30,0,0,0"/>
+                                Margin="40,0,0,0"/>
                             <ImageButton 
                                 Grid.Column="3" 
                                 Command="{Binding AddNotesCommand}"
@@ -151,7 +151,7 @@
                                 HorizontalOptions="End"
                                 WidthRequest="30" 
                                 HeightRequest="30"
-                                Margin="30,0,5,0"/>
+                                Margin="0,0,5,0"/>
                         </Grid>
                     </Frame>
                     <Label Text="{Binding AlertMessage}"
@@ -174,7 +174,7 @@
                             <Entry 
                                 Placeholder="{x:Static resources:TripsResources.FlightNumber}" 
                                 Text="{Binding DepartureFlightNumber}"
-                                Margin="30,0,0,0"/>
+                                Margin="40,0,0,0"/>
                             <ImageButton 
                                 Command="{Binding SearchDepartureFlightCommand}"
                                 Grid.Column="3" 
@@ -203,7 +203,7 @@
 
                     <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="5" >
                         <Grid>
-                            <Image Source="plane_color.png" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
+                            <Image Source="plane_to.png" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
                             <Label
                                 Text="{Binding DepartureFlight.Destination}"
                                 ToolTipProperties.Text="{x:Static resources:TripsResources.AirPortDestination}"
@@ -236,7 +236,7 @@
                             <Entry 
                                Placeholder="{x:Static resources:TripsResources.FlightNumber}" 
                                Text="{Binding ArrivalFlightNumber}"
-                               Margin="30,0,0,0"/>
+                               Margin="40,0,0,0"/>
                             <ImageButton 
                                 Command="{Binding SearchArrivalFlightCommand}"
                                 Grid.Column="3" 
@@ -265,7 +265,7 @@
 
                     <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="5" >
                         <Grid>
-                            <Image Source="plane_color.png" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
+                            <Image Source="plane_tor.png" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
                             <Label 
                                 Text="{Binding ArrivalFlight.Destination}"
                                 ToolTipProperties.Text="{x:Static resources:TripsResources.AirPortDestination}" 
