@@ -1,4 +1,5 @@
 using CommunityToolkit.Mvvm.Messaging;
+using Travely.BusinessLogic.DTOs;
 using Travely.BusinessLogic.Services;
 using Travely.Client.Models;
 using Travely.Client.Resources.UIResources;
@@ -66,6 +67,18 @@ public partial class ItineraryPage : ContentPage
             if (isConfirmed && viewModel != null)
             {
                 viewModel.AddSpot(dayTitle);
+            }
+        }
+    }
+
+    private async void ConfirmDeleteSpot(object sender, EventArgs e)
+    {
+        if (sender is ImageButton button && button.CommandParameter is SpotDTO spot)
+        {
+            bool isConfirmed = await DisplayAlert(TripsResources.MessageDeleteSpot, TripsResources.ConfirmDeleteSpot, TripsResources.Yes, TripsResources.No);
+            if (isConfirmed && viewModel != null)
+            {
+                viewModel.DeleteSpot(spot);
             }
         }
     }

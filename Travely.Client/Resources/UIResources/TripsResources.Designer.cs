@@ -97,6 +97,15 @@ namespace Travely.Client.Resources.UIResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to delete this location?.
+        /// </summary>
+        internal static string ConfirmDeleteSpot {
+            get {
+                return ResourceManager.GetString("ConfirmDeleteSpot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Are you sure you want to delete this tip?.
         /// </summary>
         internal static string ConfirmDeleteTrip {
@@ -160,11 +169,29 @@ namespace Travely.Client.Resources.UIResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Confirm delete location.
+        /// </summary>
+        internal static string MessageDeleteSpot {
+            get {
+                return ResourceManager.GetString("MessageDeleteSpot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Confirm delete trip.
         /// </summary>
         internal static string MessageDeleteTrip {
             get {
                 return ResourceManager.GetString("MessageDeleteTrip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No.
+        /// </summary>
+        internal static string No {
+            get {
+                return ResourceManager.GetString("No", resourceCulture);
             }
         }
         
@@ -228,6 +255,15 @@ namespace Travely.Client.Resources.UIResources {
         internal static string ViewItineraryButton {
             get {
                 return ResourceManager.GetString("ViewItineraryButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes.
+        /// </summary>
+        internal static string Yes {
+            get {
+                return ResourceManager.GetString("Yes", resourceCulture);
             }
         }
     }
