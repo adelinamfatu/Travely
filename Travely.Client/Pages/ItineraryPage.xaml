@@ -91,12 +91,12 @@
                                                     </Grid>
                                                     <Grid ColumnDefinitions="Auto,*,Auto,Auto,Auto">
                                                         <Image Grid.Column="1" Source="time.png" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
-                                                        <Entry  Grid.Column="2" Text="Gojo" Margin="28,0,160,0"/>
+                                                        <TimePicker Grid.Column="2" Margin="28,0,160,0" />
                                                         <ImageButton  Grid.Column="3" Source="save_btn.png" HorizontalOptions="End" WidthRequest="30"  HeightRequest="30" Margin="20,0,5,0"/>
                                                     </Grid>
                                                     <Grid ColumnDefinitions="Auto,*,Auto,Auto,Auto">
                                                         <Image  Grid.Column="1" Source="money.png" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
-                                                        <Entry  Grid.Column="2" Text="Satoru" Margin="28,0,150,0"/>
+                                                        <Entry  Grid.Column="2" Text="Gojo Satoru" Margin="20,0,120,0"/>
                                                         <ImageButton  Grid.Column="3" Source="save_btn.png" HorizontalOptions="End" WidthRequest="30"  HeightRequest="30" Margin="20,0,5,0"/>
                                                     </Grid>
                                                 </StackLayout>
