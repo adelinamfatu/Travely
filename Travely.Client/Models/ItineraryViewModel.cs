@@ -75,7 +75,7 @@ namespace Travely.Client.Models
         }
 
         [RelayCommand]
-        private void AddSpot(string dayTitle)
+        public void AddSpot(string dayTitle)
         {
             if (tripDetailService is not null && CurrentSpotName is not null)
             {

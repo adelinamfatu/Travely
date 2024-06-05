@@ -124,6 +124,15 @@ namespace Travely.Client.Resources.UIResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Location name cannot be empty..
+        /// </summary>
+        internal static string EmptyLocationTitle {
+            get {
+                return ResourceManager.GetString("EmptyLocationTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Note cannot be empty..
         /// </summary>
         internal static string EmptyNoteError {
@@ -237,6 +246,15 @@ namespace Travely.Client.Resources.UIResources {
         internal static string No {
             get {
                 return ResourceManager.GetString("No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OK.
+        /// </summary>
+        internal static string OK {
+            get {
+                return ResourceManager.GetString("OK", resourceCulture);
             }
         }
         
