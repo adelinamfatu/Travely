@@ -89,7 +89,7 @@
                                                         <ImageButton 
                                                             Grid.Column="3" 
                                                             Source="delete.png" 
-                                                            Command="{Binding Path=BindingContext.DeleteSpotCommand, Source={x:Reference parentStackLayout}}" 
+                                                            Command="{Binding Path=BindingContext.DeleteSpotCommand, Source={RelativeSource AncestorType={x:Type ContentPage}}}"
                                                             CommandParameter="{Binding .}"
                                                             HorizontalOptions="End" 
                                                             WidthRequest="30" 
@@ -99,7 +99,7 @@
                                                     
                                                     <Grid ColumnDefinitions="Auto,*,Auto,Auto,Auto">
                                                         <Image Grid.Column="1" Source="time.png" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
-                                                        <TimePicker Grid.Column="2" Margin="28,0,160,0" />
+                                                        <TimePicker Time="{Binding Time}" Grid.Column="2" Margin="28,0,160,0" />
                                                         <ImageButton 
                                                             Grid.Column="3" 
                                                             Source="save_btn.png" 

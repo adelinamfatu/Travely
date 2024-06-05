@@ -48,6 +48,7 @@ namespace Travely.BusinessLogic.Converters
                 Name = spot.Name,
                 Date = spot.Date,
                 EntryFee = spot.EntryFee,
+                Time = new TimeSpan(spot.Time.Hour, spot.Time.Minute, spot.Time.Second),
             };
         }
     }

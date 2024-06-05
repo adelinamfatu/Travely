@@ -113,7 +113,8 @@ namespace Travely.Client.Models
         {
             if (tripDetailService != null)
             {
-                tripDetailService.UpdateSpotTime(spot.Id, spot.Time);
+                var time = new DateTime(DateTime.MinValue.Year, DateTime.MinValue.Month, DateTime.MinValue.Day, spot.Time.Hours, spot.Time.Minutes, spot.Time.Seconds);
+                tripDetailService.UpdateSpotTime(spot.Id, time);
             }
         }
 
