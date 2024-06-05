@@ -58,7 +58,7 @@
 
                                         <ImageButton 
                                             Grid.Column="2" 
-                                            Command="{Binding Path=BindingContext.AddSpotCommand, Source={RelativeSource AncestorType={x:Type ContentPage}}}"
+                                            Clicked="ConfirmAddSpot"
                                             CommandParameter="{Binding DayTitle}"
                                             Source="save_location.png" 
                                             HorizontalOptions="End"

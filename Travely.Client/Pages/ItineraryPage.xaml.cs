@@ -1,6 +1,7 @@
 using CommunityToolkit.Mvvm.Messaging;
 using Travely.BusinessLogic.Services;
 using Travely.Client.Models;
+using Travely.Client.Resources.UIResources;
 using static Travely.Client.Utilities.Messenger;
 
 namespace Travely.Client.Pages;
@@ -48,6 +49,24 @@ public partial class ItineraryPage : ContentPage
         if (viewModel is not null)
         {
             viewModel.GetSpotData(spotLatitude, spotLongitude);
+        }
+    }
+
+    private async void ConfirmAddSpot(object sender, EventArgs e)
+    {
+        if (sender is ImageButton button && button.CommandParameter is string dayTitle)
+        {
+            if (string.IsNullOrEmpty(viewModel?.CurrentSpotName))
+            {
+                await DisplayAlert(ValidationResources.ErrorMessage, ValidationResources.EmptyLocationTitle, ValidationResources.OK);
+                return;
+            }
+
+            bool isConfirmed = await DisplayAlert(ValidationResources.ConfirmLocationTitle, ValidationResources.ConfirmLocation, ValidationResources.Yes, ValidationResources.No);
+            if (isConfirmed && viewModel != null)
+            {
+                viewModel.AddSpot(dayTitle);
+            }
         }
     }
 }

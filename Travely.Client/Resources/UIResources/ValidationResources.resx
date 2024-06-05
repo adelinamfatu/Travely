@@ -138,6 +138,9 @@
   <data name="EmptyItemError" xml:space="preserve">
     <value>Item title cannot be empty.</value>
   </data>
+  <data name="EmptyLocationTitle" xml:space="preserve">
+    <value>Location name cannot be empty.</value>
+  </data>
   <data name="EmptyNoteError" xml:space="preserve">
     <value>Note cannot be empty.</value>
   </data>
@@ -176,6 +179,9 @@
   </data>
   <data name="No" xml:space="preserve">
     <value>No</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>OK</value>
   </data>
   <data name="SuccessMessage" xml:space="preserve">
     <value>Success</value>
