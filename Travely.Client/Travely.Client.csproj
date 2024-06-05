@@ -74,6 +74,7 @@
 	  <None Remove="Resources\Images\loading.png" />
 	  <None Remove="Resources\Images\location.png" />
 	  <None Remove="Resources\Images\mobile.png" />
+	  <None Remove="Resources\Images\money.png" />
 	  <None Remove="Resources\Images\notepad.png" />
 	  <None Remove="Resources\Images\notes_color.png" />
 	  <None Remove="Resources\Images\open_maps.png" />
@@ -83,10 +84,12 @@
 	  <None Remove="Resources\Images\plane_color.png" />
 	  <None Remove="Resources\Images\plane_ticket.png" />
 	  <None Remove="Resources\Images\plane_to.png" />
+	  <None Remove="Resources\Images\save_btn.png" />
 	  <None Remove="Resources\Images\save_location.png" />
 	  <None Remove="Resources\Images\schedule.png" />
 	  <None Remove="Resources\Images\sort.png" />
 	  <None Remove="Resources\Images\temperature.svg" />
+	  <None Remove="Resources\Images\time.png" />
 	  <None Remove="Resources\Images\travel.png" />
 	  <None Remove="Resources\Images\user.png" />
 	  <None Remove="Resources\Images\weather.svg" />

@@ -120,6 +120,9 @@
   <data name="AddPlace" xml:space="preserve">
     <value>Add a place to stay</value>
   </data>
+  <data name="Budget" xml:space="preserve">
+    <value>Budget for this  trip</value>
+  </data>
   <data name="Weather" xml:space="preserve">
     <value>Weather</value>
   </data>
