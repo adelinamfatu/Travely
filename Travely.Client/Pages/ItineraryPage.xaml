@@ -32,7 +32,7 @@
             <Frame Margin="10" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="360">
                 <VerticalStackLayout >
                     <Label Text="{x:Static resources:ItineraryResources.Budget}" FontSize="20" FontAttributes="Bold" Margin="0,20,0,0" VerticalOptions="Center" HorizontalOptions="Center" />
-                    <Label Text="500$" FontSize="20" FontAttributes="Bold" Margin="0,20,0,0" VerticalOptions="Center" HorizontalOptions="Center" />
+                    <Label Text="{Binding TotalFee}" FontSize="20" FontAttributes="Bold" Margin="0,20,0,0" VerticalOptions="Center" HorizontalOptions="Center" />
                 </VerticalStackLayout>
             </Frame>
 

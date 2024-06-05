@@ -19,6 +19,9 @@ namespace Travely.Client.Models
         private string? currentSpotName;
 
         [ObservableProperty]
+        private decimal totalFee;
+
+        [ObservableProperty]
         private ObservableCollection<DayItinerary> itinerary;
 
         private Dictionary<string, DateTime> tripDaysDates;
@@ -34,6 +37,7 @@ namespace Travely.Client.Models
             this.tripDetailService = tripDetailService;
             Itinerary = new ObservableCollection<DayItinerary>();
             tripDaysDates = new Dictionary<string, DateTime>();
+            TotalFee = 0m;
         }
 
         public async Task LoadItinerary(Guid tripId)
@@ -71,6 +75,8 @@ namespace Travely.Client.Models
                     Itinerary.Add(dayItinerary);
                     dayCount++;
                 }
+
+                TotalFee = Itinerary.SelectMany(day => day.Spots).Sum(spot => spot.EntryFee ?? 0m);
             }
         }
 
@@ -125,6 +131,7 @@ namespace Travely.Client.Models
             {
                 decimal entryFee = spot.EntryFee ?? 0m;
                 tripDetailService.UpdateSpotFee(spot.Id, entryFee);
+                TotalFee = Itinerary.SelectMany(day => day.Spots).Sum(spot => spot.EntryFee ?? 0m);
             }
         }
 
