@@ -73,6 +73,7 @@
 	  <None Remove="Resources\Images\humidity.png" />
 	  <None Remove="Resources\Images\loading.png" />
 	  <None Remove="Resources\Images\location.png" />
+	  <None Remove="Resources\Images\loop.png" />
 	  <None Remove="Resources\Images\mobile.png" />
 	  <None Remove="Resources\Images\money.png" />
 	  <None Remove="Resources\Images\notepad.png" />

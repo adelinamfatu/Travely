@@ -4,8 +4,13 @@
              xmlns:maps="http://schemas.microsoft.com/dotnet/2021/maui/maps"
              x:Class="Travely.Client.Pages.MapPage"
              Title="MapPage">
-
-    <maps:Map 
+    <StackLayout>
+        <StackLayout Orientation="Horizontal" Padding="10">
+            <Entry x:Name="searchEntry" Placeholder="Search location" HorizontalOptions="FillAndExpand"/>
+            <ImageButton Source="loop.png" WidthRequest="30" HeightRequest="30" Margin="0,0,10,0"/>
+        </StackLayout>
+        <maps:Map 
         x:Name="map" 
         MapClicked="PinLocationOnMap"/>
+    </StackLayout>
 </ContentPage>
