@@ -53,7 +53,7 @@ namespace Travely.Client.Models
                 {
                     string dayTitle = $"Day {dayCount} - {day:dd.MM.yyyy}";
 
-                    var dayItinerary = new DayItinerary(dayTitle, new ObservableCollection<string>());
+                    var dayItinerary = new DayItinerary(dayTitle, new ObservableCollection<SpotDTO>());
 
                     tripDaysDates[dayTitle] = day;
 
@@ -61,9 +61,9 @@ namespace Travely.Client.Models
                     {
                         foreach (var spot in spots)
                         {
-                            if (spot.Name is not null)
+                            if (spot is not null)
                             {
-                                dayItinerary.Spots.Add(spot.Name);
+                                dayItinerary.Spots.Add(spot);
                             }
                         }
                     }
@@ -74,7 +74,6 @@ namespace Travely.Client.Models
             }
         }
 
-        [RelayCommand]
         public void AddSpot(string dayTitle)
         {
             if (tripDetailService is not null && CurrentSpotName is not null)
@@ -84,8 +83,6 @@ namespace Travely.Client.Models
                     var dayItinerary = Itinerary.FirstOrDefault(it => it.DayTitle == dayTitle);
                     if (dayItinerary != null)
                     {
-                        dayItinerary.Spots.Add(CurrentSpotName);
-
                         tripDetailService.AddSpot(new SpotDTO
                         {
                             Name = CurrentSpotName,
@@ -98,6 +95,35 @@ namespace Travely.Client.Models
                         WeakReferenceMessenger.Default.Send(new ReloadSpotsMessage());
                     }
                 }
+            }
+        }
+
+        [RelayCommand]
+        public void DeleteSpot(SpotDTO spot)
+        {
+            if (tripDetailService != null)
+            {
+                tripDetailService.DeleteSpot(spot.Id);
+                WeakReferenceMessenger.Default.Send(new ReloadSpotsMessage());
+            }
+        }
+
+        [RelayCommand]
+        public void UpdateSpotTime(SpotDTO spot)
+        {
+            if (tripDetailService != null)
+            {
+                tripDetailService.UpdateSpotTime(spot.Id, spot.Time);
+            }
+        }
+
+        [RelayCommand]
+        public void UpdateSpotFee(SpotDTO spot)
+        {
+            if (tripDetailService != null && spot.EntryFee != null)
+            {
+                decimal entryFee = spot.EntryFee ?? 0m;
+                tripDetailService.UpdateSpotFee(spot.Id, entryFee);
             }
         }
 
@@ -115,7 +141,7 @@ namespace Travely.Client.Models
 
     public partial class DayItinerary : ObservableObject
     {
-        public DayItinerary(string dayTitle, ObservableCollection<string> spots)
+        public DayItinerary(string dayTitle, ObservableCollection<SpotDTO> spots)
         {
             DayTitle = dayTitle;
             Spots = spots;
@@ -124,6 +150,6 @@ namespace Travely.Client.Models
         public string DayTitle { get; }
 
         [ObservableProperty]
-        private ObservableCollection<string> spots;
+        private ObservableCollection<SpotDTO> spots;
     }
 }

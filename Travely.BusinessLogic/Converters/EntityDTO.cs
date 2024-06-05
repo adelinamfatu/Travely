@@ -47,6 +47,7 @@ namespace Travely.BusinessLogic.Converters
                 Id = spot.Id,
                 Name = spot.Name,
                 Date = spot.Date,
+                EntryFee = spot.EntryFee,
             };
         }
     }

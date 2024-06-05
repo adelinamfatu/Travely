@@ -86,6 +86,38 @@ namespace Travely.Domain.CRUD
             }
         }
 
+        public void UpdateSpot(Guid spotId, decimal entryFee)
+        {
+            var existingSpot = this.context.Spots.FirstOrDefault(t => t.Id == spotId);
+
+            if (existingSpot != null)
+            {
+                existingSpot.EntryFee = entryFee;
+                this.context.SaveChanges();
+            }
+        }
+
+        public void UpdateSpot(Guid spotId, DateTime time)
+        {
+            var existingSpot = this.context.Spots.FirstOrDefault(t => t.Id == spotId);
+
+            if (existingSpot != null)
+            {
+                existingSpot.Time = time;
+                this.context.SaveChanges();
+            }
+        }
+
+        public void DeleteSpot(Guid spotId)
+        {
+            var existingSpot = this.context.Spots.FirstOrDefault(t => t.Id == spotId);
+            if (existingSpot != null)
+            {
+                this.context.Spots.Remove(existingSpot);
+                this.context.SaveChanges();
+            }
+        }
+
         public async Task<List<TripSqlView>> GetTrips()
         {
             return await this.context.Trips.ToListAsync();

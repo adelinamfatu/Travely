@@ -53,6 +53,21 @@ namespace Travely.BusinessLogic.Services
             return spots.Select(spot => EntityDTO.EntityToDTO(spot)).ToList();
         }
 
+        public void UpdateSpotFee(Guid spotId, decimal fee)
+        {
+            tripData.UpdateSpot(spotId, fee);
+        }
+
+        public void UpdateSpotTime(Guid spotId, DateTime time)
+        {
+            tripData.UpdateSpot(spotId, time);
+        }
+
+        public void DeleteSpot(Guid spotId)
+        {
+            tripData.DeleteSpot(spotId);
+        }
+
         public async Task<string?> GetTripCountry(Guid tripId)
         {
             return await tripData.GetTripCountry(tripId);
