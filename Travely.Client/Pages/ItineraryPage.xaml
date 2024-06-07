@@ -84,46 +84,48 @@
                                             <Frame BorderColor="Gray" CornerRadius="5" Padding="0" Margin="5">
                                                 <StackLayout>
                                                     <Grid ColumnDefinitions="Auto,*,Auto,Auto,Auto">
-                                                        <Image Grid.Column="1" Source="map_color.png" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
-                                                        <Entry Grid.Column="2" Text="{Binding Name}" Margin="28,0,150,0"/>
+                                                        <Image Grid.Column="0" Source="map_color.png" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
+                                                        <Entry Grid.Column="1" Text="{Binding Name}" Margin="10,0,10,0" HorizontalOptions="FillAndExpand"/>
                                                         <ImageButton 
-                                                            Grid.Column="3" 
-                                                            Source="delete.png" 
-                                                            Clicked="ConfirmDeleteSpot"
-                                                            CommandParameter="{Binding .}"
-                                                            HorizontalOptions="End" 
-                                                            WidthRequest="30" 
-                                                            HeightRequest="20" 
-                                                            Margin="20,0,5,0"/>
+                                                          Grid.Column="2" 
+                                                          Source="delete.png" 
+                                                          Clicked="ConfirmDeleteSpot"
+                                                          CommandParameter="{Binding .}"
+                                                          HorizontalOptions="End" 
+                                                          WidthRequest="30" 
+                                                          HeightRequest="20" 
+                                                          Margin="20,0,5,0"/> 
                                                     </Grid>
-                                                    
+
                                                     <Grid ColumnDefinitions="Auto,*,Auto,Auto,Auto">
-                                                        <Image Grid.Column="1" Source="time.png" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
-                                                        <TimePicker Time="{Binding Time}" Grid.Column="2" Margin="28,0,160,0" />
+                                                        <Image Grid.Column="0" Source="time.png" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
+                                                        <TimePicker Time="{Binding Time}" Grid.Column="1" Margin="10,0,10,0" HorizontalOptions="FillAndExpand"/>
                                                         <ImageButton 
-                                                            Grid.Column="3" 
-                                                            Source="save_btn.png" 
-                                                            Command="{Binding Path=BindingContext.UpdateSpotTimeCommand, Source={RelativeSource AncestorType={x:Type ContentPage}}}"
-                                                            CommandParameter="{Binding .}"
-                                                            HorizontalOptions="End" 
-                                                            WidthRequest="30" 
-                                                            HeightRequest="30" 
-                                                            Margin="20,0,5,0"/>
+                                                    Grid.Column="2" 
+                                                    Source="save_btn.png" 
+                                                    Command="{Binding Path=BindingContext.UpdateSpotTimeCommand, Source={RelativeSource AncestorType={x:Type ContentPage}}}"
+                                                    CommandParameter="{Binding .}"
+                                                    HorizontalOptions="End" 
+                                                    WidthRequest="30" 
+                                                    HeightRequest="30" 
+                                                    Margin="20,0,5,0"/>
                                                     </Grid>
-                                                    
+
+
                                                     <Grid ColumnDefinitions="Auto,*,Auto,Auto,Auto">
-                                                        <Image Grid.Column="1" Source="money.png" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
-                                                        <Entry Grid.Column="2" Text="{Binding EntryFee}" Margin="20,0,120,0"/>
+                                                        <Image Grid.Column="0" Source="money.png" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
+                                                        <Entry Grid.Column="1" Text="{Binding EntryFee}" Margin="10,0,10,0" HorizontalOptions="FillAndExpand"/>
                                                         <ImageButton 
-                                                            Grid.Column="3" 
-                                                            Source="save_btn.png" 
-                                                            Command="{Binding Path=BindingContext.UpdateSpotFeeCommand, Source={RelativeSource AncestorType={x:Type ContentPage}}}"
-                                                            CommandParameter="{Binding .}"
-                                                            HorizontalOptions="End"
-                                                            WidthRequest="30"
-                                                            HeightRequest="30"
-                                                            Margin="20,0,5,0"/>
+                                                        Grid.Column="2" 
+                                                        Source="save_btn.png" 
+                                                        Command="{Binding Path=BindingContext.UpdateSpotFeeCommand, Source={RelativeSource AncestorType={x:Type ContentPage}}}"
+                                                        CommandParameter="{Binding .}"
+                                                        HorizontalOptions="End"
+                                                        WidthRequest="30"
+                                                        HeightRequest="30"
+                                                        Margin="20,0,5,0"/> 
                                                     </Grid>
+
                                                 </StackLayout>
                                             </Frame>
                                         </DataTemplate>

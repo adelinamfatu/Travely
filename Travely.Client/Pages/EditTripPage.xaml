@@ -181,7 +181,7 @@
                             <Label 
                                 Text="{Binding DepartureFlight.Origin}"
                                 ToolTipProperties.Text="{x:Static resources:TripsResources.AirPortOrigin}" 
-                                Margin="30,10,0,0"/>
+                                Margin="40,10,0,0"/>
                         </Grid>
                     </Frame>
 
@@ -191,7 +191,7 @@
                             <Label
                                 Text="{Binding DepartureFlight.Destination}"
                                 ToolTipProperties.Text="{x:Static resources:TripsResources.AirPortDestination}"
-                                Margin="30,10,0,0"/>
+                                Margin="40,10,0,0"/>
                         </Grid>
                     </Frame>
 
@@ -201,7 +201,7 @@
                             <Label 
                                 Text="{Binding DepartureFlight.Status}"
                                 ToolTipProperties.Text="{x:Static resources:TripsResources.Status}" 
-                                Margin="30,10,0,0"/>
+                                Margin="40,10,0,0"/>
                         </Grid>
                     </Frame>
                 </StackLayout>
@@ -243,17 +243,17 @@
                             <Label 
                                 Text="{Binding ArrivalFlight.Origin}"
                                 ToolTipProperties.Text="{x:Static resources:TripsResources.AirPortOrigin}" 
-                                Margin="30,10,0,0"/>
+                                Margin="40,10,0,0"/>
                         </Grid>
                     </Frame>
 
                     <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="5" >
                         <Grid>
-                            <Image Source="plane_tor.png" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
+                            <Image Source="plane_to.png" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
                             <Label 
                                 Text="{Binding ArrivalFlight.Destination}"
                                 ToolTipProperties.Text="{x:Static resources:TripsResources.AirPortDestination}" 
-                                Margin="30,10,0,0"/>
+                                Margin="40,10,0,0"/>
                         </Grid>
                     </Frame>
 
@@ -263,7 +263,7 @@
                             <Label 
                                 Text="{Binding ArrivalFlight.Status}"
                                 ToolTipProperties.Text="{x:Static resources:TripsResources.Status}" 
-                                Margin="30,10,0,0"/>
+                                Margin="40,10,0,0"/>
                         </Grid>
                     </Frame>
                 </StackLayout>
