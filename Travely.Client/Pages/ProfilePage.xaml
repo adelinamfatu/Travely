@@ -4,14 +4,17 @@
              xmlns:resources="clr-namespace:Travely.Client.Resources.UIResources"
              xmlns:charts="clr-namespace:Microcharts.Maui;assembly=Microcharts.Maui"
              x:Class="Travely.Client.Pages.ProfilePage"
+             xmlns:vm="clr-namespace:Travely.Client.Models"
              Title="{x:Static resources:PageNameResources.ProfilePageName}">
+    <ContentPage.BindingContext>
+        <vm:ProfileViewModel />
+    </ContentPage.BindingContext>
+
     <ScrollView>
-        <VerticalStackLayout
-            Padding="30,0"
-           >
+        <VerticalStackLayout Padding="30,0">
             <HorizontalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="5" Margin="0,20,0,10">
                 <Label Text="{x:Static resources:ProfileResources.Name}" VerticalTextAlignment="Center" TextColor="Black"/>
-                <Entry Text="Love" WidthRequest="80" HorizontalOptions="Center" VerticalOptions="Center"/>
+                <Entry Text="{Binding Name}" Placeholder="Name" WidthRequest="80" HorizontalOptions="Center" VerticalOptions="Center"/>
                 <Button Text="{x:Static resources:ProfileResources.Save}" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="80" HeightRequest="40" BackgroundColor="#415a77"/>
             </HorizontalStackLayout>
 
@@ -26,12 +29,12 @@
             </Frame>
 
             <Label Text="{x:Static resources:ProfileResources.Continents}" Margin="0,20,0,0" FontAttributes="Bold" />
-            <charts:ChartView x:Name="continentChart" HeightRequest="150"/>
+            <charts:ChartView Chart="{Binding ContinentChart}" HeightRequest="150"/>
             <Label Text="{x:Static resources:ProfileResources.EuropeanCountries}" Margin="0,50,0,0" FontAttributes="Bold"/>
-            <charts:ChartView x:Name="countriesChart" HeightRequest="150"/>
+            <charts:ChartView Chart="{Binding EuropeanCountriesChart}" HeightRequest="150"/>
             <Label Text="{x:Static resources:ProfileResources.TravelFrequency}" Margin="0,50,0,0" FontAttributes="Bold"/>
-            <charts:ChartView x:Name="seasonsFrequencyChart" HeightRequest="150" />
+            <charts:ChartView Chart="{Binding SeasonsFrequencyChart}" HeightRequest="150" />
         </VerticalStackLayout>
     </ScrollView>
-    
+
 </ContentPage>
