@@ -13,6 +13,8 @@ public partial class MapPage : ContentPage
 
     public event EventHandler<Tuple<double, double>>? LocationPinned;
 
+    private bool isMapPositionUpdated = false;
+
     public MapPage(Guid tripId)
 	{
 		InitializeComponent();
@@ -27,19 +29,6 @@ public partial class MapPage : ContentPage
             viewModel = new MapViewModel(tripDetailService);
             await viewModel.InitializeCountry(tripId);
             BindingContext = viewModel;
-            await Task.Delay(150);
-            UpdateMapPosition();
-        }
-    }
-
-    private void UpdateMapPosition()
-    {
-        if (viewModel != null && map != null)
-        {
-            map.MoveToRegion(MapSpan.FromCenterAndRadius(
-                new Location(viewModel.CountryLatitude, viewModel.CountryLongitude),
-                Distance.FromMiles(50))
-            );
         }
     }
 
@@ -59,6 +48,21 @@ public partial class MapPage : ContentPage
         {
             LocationPinned?.Invoke(this, new Tuple<double, double>(latitude, longitude));
             await Navigation.PopAsync();
+        }
+    }
+
+    private void OnSearchEntryFocused(object sender, FocusEventArgs e)
+    {
+        if (!isMapPositionUpdated)
+        {
+            if (viewModel != null && map != null)
+            {
+                map.MoveToRegion(MapSpan.FromCenterAndRadius(
+                    new Location(viewModel.CountryLatitude, viewModel.CountryLongitude),
+                    Distance.FromMiles(50))
+                );
+            }
+            isMapPositionUpdated = true;
         }
     }
 }

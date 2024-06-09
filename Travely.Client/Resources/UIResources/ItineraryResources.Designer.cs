@@ -70,7 +70,7 @@ namespace Travely.Client.Resources.UIResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Budget for this  trip.
+        ///   Looks up a localized string similar to Budget for this trip.
         /// </summary>
         internal static string Budget {
             get {
