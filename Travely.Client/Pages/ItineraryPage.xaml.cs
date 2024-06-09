@@ -24,6 +24,7 @@ public partial class ItineraryPage : ContentPage
         {
             viewModel = new ItineraryViewModel(tripDetailService);
             await viewModel.LoadItinerary(tripId);
+            await viewModel.InitializeCountry(tripId);
             BindingContext = viewModel;
 
             WeakReferenceMessenger.Default.Register<ReloadSpotsMessage>(this, async (sender, message) =>

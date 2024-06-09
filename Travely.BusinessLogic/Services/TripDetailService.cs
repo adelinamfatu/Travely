@@ -11,6 +11,8 @@ using Travely.BusinessLogic.Resources;
 using Travely.BusinessLogic.DTOs;
 using Travely.BusinessLogic.Converters;
 using System.Globalization;
+using Newtonsoft.Json.Linq;
+using System.Text.Json.Nodes;
 
 namespace Travely.BusinessLogic.Services
 {
@@ -127,6 +129,35 @@ namespace Travely.BusinessLogic.Services
             }
 
             return spotDetails;
+        }
+
+        public async Task<WeatherDTO> GetCountryWeather(double latitude, double longitude)
+        {
+            var weatherInfo = new WeatherDTO();
+
+            using var httpClient = new HttpClient();
+
+            var encodedLatitude = Uri.EscapeDataString(latitude.ToString(CultureInfo.InvariantCulture));
+            var encodedLongitude = Uri.EscapeDataString(longitude.ToString(CultureInfo.InvariantCulture));
+
+            var url = string.Format(APICallResources.WeatherAPI, encodedLatitude, encodedLongitude);
+            var response = await httpClient.GetAsync(url);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var jsonString = await response.Content.ReadAsStringAsync();
+                var weatherJson = JObject.Parse(jsonString);
+
+                weatherInfo = new WeatherDTO
+                {
+                    Temperature = weatherJson["main"]?["temp"]?.Value<double>(),
+                    WindSpeed = weatherJson["wind"]?["speed"]?.Value<double>(),
+                    Humidity = weatherJson["main"]?["humidity"]?.Value<double>(),
+                    Pressure = weatherJson["main"]?["pressure"]?.Value<double>()
+                };
+            }
+
+            return weatherInfo;
         }
     }
 }

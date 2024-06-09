@@ -12,19 +12,19 @@
                 <HorizontalStackLayout Spacing="65" VerticalOptions="Center" HorizontalOptions="Center">
                     <StackLayout>
                         <ImageButton Source="hot.png" WidthRequest="30" HeightRequest="30" />
-                        <Label Text="12" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="Black" />
+                        <Label Text="{Binding Weather.Temperature}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="Black" />
                     </StackLayout>
                     <StackLayout>
                         <ImageButton Source="wind.png" WidthRequest="30" HeightRequest="30" />
-                        <Label Text="12" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="Black"  />
+                        <Label Text="{Binding Weather.WindSpeed}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="Black"  />
                     </StackLayout>
                     <StackLayout>
                         <ImageButton Source="humidity.png" WidthRequest="30" HeightRequest="30" />
-                        <Label Text="12" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="Black"  />
+                        <Label Text="{Binding Weather.Humidity}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="Black"  />
                     </StackLayout>
                     <StackLayout>
                         <ImageButton Source="cloudy.png" WidthRequest="30" HeightRequest="30" />
-                        <Label Text="12" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="Black"  />
+                        <Label Text="{Binding Weather.Pressure}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="Black"  />
                     </StackLayout>
                 </HorizontalStackLayout>
             </Frame>

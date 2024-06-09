@@ -5,12 +5,14 @@ using Travely.BusinessLogic.DTOs;
 using Travely.BusinessLogic.Services;
 using System.Collections.ObjectModel;
 using static Travely.Client.Utilities.Messenger;
+using Travely.Client.Utilities;
 
 namespace Travely.Client.Models
 {
     public partial class ItineraryViewModel : ObservableObject
     {
         private readonly TripDetailService? tripDetailService;
+        private readonly CoordinatesCacheService coordinatesCacheService;
 
         [ObservableProperty]
         private Guid tripId;
@@ -20,6 +22,9 @@ namespace Travely.Client.Models
 
         [ObservableProperty]
         private decimal totalFee;
+
+        [ObservableProperty]
+        private WeatherDTO? weather;
 
         [ObservableProperty]
         private ObservableCollection<DayItinerary> itinerary;
@@ -32,12 +37,43 @@ namespace Travely.Client.Models
 
         private string? currentAddress;
 
+        private string? country;
+
         public ItineraryViewModel(TripDetailService tripDetailService)
         {
             this.tripDetailService = tripDetailService;
+            this.coordinatesCacheService = new CoordinatesCacheService();
             Itinerary = new ObservableCollection<DayItinerary>();
             tripDaysDates = new Dictionary<string, DateTime>();
             TotalFee = 0m;
+        }
+
+        public async Task InitializeCountry(Guid tripId)
+        {
+            this.TripId = tripId;
+
+            if (tripDetailService is not null)
+            {
+                this.country = await tripDetailService.GetTripCountry(tripId);
+                await InitializeCoordinates();
+            }
+        }
+
+        private async Task InitializeCoordinates()
+        {
+            if (!string.IsNullOrEmpty(country) && tripDetailService is not null)
+            {
+                var (latitude, longitude) = await coordinatesCacheService.GetOrFetchCoordinatesAsync(country, () => tripDetailService.GetPlaceCoordinates(country));
+                await LoadWeather(latitude, longitude);
+            }
+        }
+
+        private async Task LoadWeather(double latitude, double longitude)
+        {
+            if (tripDetailService is not null)
+            {
+                this.Weather = await tripDetailService.GetCountryWeather(latitude, longitude);
+            }
         }
 
         public async Task LoadItinerary(Guid tripId)

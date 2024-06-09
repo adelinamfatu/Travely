@@ -132,4 +132,7 @@
   <data name="GeocodeCountryAPI" xml:space="preserve">
     <value>https://geocode.maps.co/search?q={0}&amp;api_key=665341c45e157375825035nzcf32853</value>
   </data>
+  <data name="WeatherAPI" xml:space="preserve">
+    <value>https://api.openweathermap.org/data/2.5/weather?lat={0}&amp;lon={1}&amp;appid=1da046937a4768b13d3e725e2d4a1b4a&amp;units=metric</value>
+  </data>
 </root>

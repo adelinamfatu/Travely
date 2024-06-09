@@ -104,5 +104,14 @@ namespace Travely.BusinessLogic.Resources {
                 return ResourceManager.GetString("GeocodeCountryAPI", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://api.openweathermap.org/data/2.5/weather?lat={0}&amp;lon={1}&amp;appid=1da046937a4768b13d3e725e2d4a1b4a&amp;units=metric.
+        /// </summary>
+        internal static string WeatherAPI {
+            get {
+                return ResourceManager.GetString("WeatherAPI", resourceCulture);
+            }
+        }
     }
 }
