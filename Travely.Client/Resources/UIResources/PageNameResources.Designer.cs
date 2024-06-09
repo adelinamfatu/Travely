@@ -88,6 +88,15 @@ namespace Travely.Client.Resources.UIResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to View Map.
+        /// </summary>
+        internal static string MapPageName {
+            get {
+                return ResourceManager.GetString("MapPageName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Plan a trip.
         /// </summary>
         internal static string PlanTripPageName {

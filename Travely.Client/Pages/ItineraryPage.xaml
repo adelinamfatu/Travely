@@ -9,25 +9,26 @@
         <VerticalStackLayout>
             <Label Text="{x:Static resources:ItineraryResources.Weather}" FontSize="25" FontAttributes="Bold" Margin="0,20,0,0" VerticalOptions="Center" HorizontalOptions="Center" />
             <Frame Margin="10" VerticalOptions="Center" HorizontalOptions="Center">
-                <HorizontalStackLayout Spacing="65" VerticalOptions="Center" HorizontalOptions="Center">
+                <HorizontalStackLayout Spacing="30" VerticalOptions="Center" HorizontalOptions="Center">
                     <StackLayout>
                         <ImageButton Source="hot.png" WidthRequest="30" HeightRequest="30" />
-                        <Label Text="{Binding Weather.Temperature}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="Black" />
+                        <Label Text="{Binding Weather.Temperature, StringFormat='{}{0} °C'}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="Black" />
                     </StackLayout>
                     <StackLayout>
                         <ImageButton Source="wind.png" WidthRequest="30" HeightRequest="30" />
-                        <Label Text="{Binding Weather.WindSpeed}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="Black"  />
+                        <Label Text="{Binding Weather.WindSpeed, StringFormat='{}{0} km/h'}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="Black" />
                     </StackLayout>
                     <StackLayout>
                         <ImageButton Source="humidity.png" WidthRequest="30" HeightRequest="30" />
-                        <Label Text="{Binding Weather.Humidity}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="Black"  />
+                        <Label Text="{Binding Weather.Humidity, StringFormat='{}{0} %'}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="Black" />
                     </StackLayout>
                     <StackLayout>
-                        <ImageButton Source="cloudy.png" WidthRequest="30" HeightRequest="30" />
-                        <Label Text="{Binding Weather.Pressure}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="Black"  />
+                        <ImageButton Source="pressure.png" WidthRequest="30" HeightRequest="30" />
+                        <Label Text="{Binding Weather.Pressure, StringFormat='{}{0} hPa'}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="Black" />
                     </StackLayout>
                 </HorizontalStackLayout>
             </Frame>
+
 
             <Frame Margin="10" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="360">
                 <VerticalStackLayout >

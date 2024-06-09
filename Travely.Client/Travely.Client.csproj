@@ -85,6 +85,7 @@
 	  <None Remove="Resources\Images\plane_color.png" />
 	  <None Remove="Resources\Images\plane_ticket.png" />
 	  <None Remove="Resources\Images\plane_to.png" />
+	  <None Remove="Resources\Images\pressure.png" />
 	  <None Remove="Resources\Images\save_btn.png" />
 	  <None Remove="Resources\Images\save_location.png" />
 	  <None Remove="Resources\Images\schedule.png" />

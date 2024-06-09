@@ -24,10 +24,10 @@
                     WidthRequest="80" 
                     HorizontalOptions="Center" 
                     VerticalOptions="Center"/>
-                
+
+                <!-- Am sters aceasta comanda => dadea eroare  Command="SaveNameCommand" -->
                 <Button 
                     Text="{x:Static resources:ProfileResources.Save}"
-                    Command="SaveNameCommand"
                     HorizontalOptions="Center" 
                     VerticalOptions="Center" 
                     WidthRequest="80" 

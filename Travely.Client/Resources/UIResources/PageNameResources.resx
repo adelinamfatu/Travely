@@ -126,6 +126,9 @@
   <data name="ItineraryPageName" xml:space="preserve">
     <value>Itinerary</value>
   </data>
+  <data name="MapPageName" xml:space="preserve">
+    <value>View Map</value>
+  </data>
   <data name="PlanTripPageName" xml:space="preserve">
     <value>Plan a trip</value>
   </data>
