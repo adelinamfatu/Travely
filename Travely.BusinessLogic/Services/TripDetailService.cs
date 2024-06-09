@@ -73,12 +73,12 @@ namespace Travely.BusinessLogic.Services
             return await tripData.GetTripCountry(tripId);
         }
 
-        public async Task<List<string>> GetCountryCoordinates(string country)
+        public async Task<List<string>> GetPlaceCoordinates(string place)
         {
             var coordinates = new List<string>();
             using var httpClient = new HttpClient();
 
-            var response = await httpClient.GetAsync(string.Format(APICallResources.GeocodeCountryAPI, country));
+            var response = await httpClient.GetAsync(string.Format(APICallResources.GeocodeCountryAPI, place));
             
             if (response.IsSuccessStatusCode)
             {

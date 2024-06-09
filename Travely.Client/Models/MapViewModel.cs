@@ -3,6 +3,7 @@ using System.Text.Json;
 using System.Globalization;
 using Travely.BusinessLogic.Services;
 using Travely.Client.Utilities;
+using CommunityToolkit.Mvvm.Input;
 
 namespace Travely.Client.Models
 {
@@ -14,6 +15,11 @@ namespace Travely.Client.Models
 
         [ObservableProperty]
         private string? country;
+
+        [ObservableProperty]
+        private string? location;
+
+        public event EventHandler<Tuple<double, double>>? MoveMapToRegion;
 
         public double CountryLatitude { get; private set; }
         public double CountryLongitude { get; private set; }
@@ -67,7 +73,7 @@ namespace Travely.Client.Models
         {
             if (tripDetailService is not null && Country is not null)
             {
-                var coordinates = await tripDetailService.GetCountryCoordinates(Country);
+                var coordinates = await tripDetailService.GetPlaceCoordinates(Country);
                 if (coordinates.Count == 2)
                 {
                     if (double.TryParse(coordinates[0], NumberStyles.Float, CultureInfo.InvariantCulture, out double latitude) &&
@@ -79,6 +85,23 @@ namespace Travely.Client.Models
                         var cachedCoordinates = new Dictionary<string, List<double>> { { Country, new List<double> { latitude, longitude } } };
                         string json = JsonSerializer.Serialize(cachedCoordinates);
                         await File.WriteAllTextAsync(cacheFilePath, json);
+                    }
+                }
+            }
+        }
+
+        [RelayCommand]
+        private async Task SearchPlace()
+        {
+            if (this.Location is not null && tripDetailService is not null)
+            {
+                var coordinates = await tripDetailService.GetPlaceCoordinates(Location);
+                if (coordinates.Count == 2)
+                {
+                    if (double.TryParse(coordinates[0], NumberStyles.Float, CultureInfo.InvariantCulture, out double latitude) &&
+                        double.TryParse(coordinates[1], NumberStyles.Float, CultureInfo.InvariantCulture, out double longitude))
+                    {
+                        MoveMapToRegion?.Invoke(this, new Tuple<double, double>(latitude, longitude));
                     }
                 }
             }

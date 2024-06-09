@@ -1,4 +1,3 @@
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Maui.Controls.Maps;
 using Microsoft.Maui.Maps;
 using Travely.BusinessLogic.Services;
@@ -27,8 +26,20 @@ public partial class MapPage : ContentPage
         if (tripDetailService is not null)
         {
             viewModel = new MapViewModel(tripDetailService);
+            viewModel.MoveMapToRegion += OnMoveMapToRegion;
             await viewModel.InitializeCountry(tripId);
             BindingContext = viewModel;
+        }
+    }
+
+    private void OnMoveMapToRegion(object sender, Tuple<double, double> coordinates)
+    {
+        if (map != null)
+        {
+            map.MoveToRegion(MapSpan.FromCenterAndRadius(
+                new Location(coordinates.Item1, coordinates.Item2),
+                Distance.FromMiles(0))
+            );
         }
     }
 
