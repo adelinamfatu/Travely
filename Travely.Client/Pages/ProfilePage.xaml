@@ -13,9 +13,26 @@
     <ScrollView>
         <VerticalStackLayout Padding="30,0">
             <HorizontalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="5" Margin="0,20,0,10">
-                <Label Text="{x:Static resources:ProfileResources.Name}" VerticalTextAlignment="Center" TextColor="Black"/>
-                <Entry Text="{Binding Name}" Placeholder="Name" WidthRequest="80" HorizontalOptions="Center" VerticalOptions="Center"/>
-                <Button Text="{x:Static resources:ProfileResources.Save}" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="80" HeightRequest="40" BackgroundColor="#415a77"/>
+                <Label 
+                    Text="{x:Static resources:ProfileResources.Name}" 
+                    VerticalTextAlignment="Center" 
+                    TextColor="Black"/>
+                
+                <Entry 
+                    Text="{Binding Name}" 
+                    Placeholder="Name" 
+                    WidthRequest="80" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center"/>
+                
+                <Button 
+                    Text="{x:Static resources:ProfileResources.Save}"
+                    Command="SaveNameCommand"
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center" 
+                    WidthRequest="80" 
+                    HeightRequest="40" 
+                    BackgroundColor="#415a77"/>
             </HorizontalStackLayout>
 
             <Frame Margin="10">

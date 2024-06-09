@@ -1,34 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using Microcharts;
 using SkiaSharp;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
 
 namespace Travely.Client.Models
 {
-    public class ProfileViewModel : INotifyPropertyChanged
+    public partial class ProfileViewModel : ObservableObject
     {
-        private string _name = string.Empty; // Inițializează câmpul pentru a evita null
+        [ObservableProperty]
+        private string? name;
 
-        public string Name
-        {
-            get => _name;
-            set
-            {
-                _name = value;
-                OnPropertyChanged();
-            }
-        }
+        [ObservableProperty]
+        private Chart? continentChart;
 
-        public Chart ContinentChart { get; }
-        public Chart EuropeanCountriesChart { get; }
-        public Chart SeasonsFrequencyChart { get; }
+        [ObservableProperty]
+        private Chart? europeanCountriesChart;
+
+        [ObservableProperty]
+        private Chart? seasonsFrequencyChart;
 
         public ProfileViewModel()
+        {
+            InitializeCharts();
+        }
+
+        private void InitializeCharts()
         {
             var continentEntries = new[]
             {
@@ -63,11 +59,10 @@ namespace Travely.Client.Models
             SeasonsFrequencyChart = new BarChart { Entries = seasonEntries, ValueLabelOrientation = Orientation.Horizontal };
         }
 
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
+        [RelayCommand]
+        private void SaveName()
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
         }
     }
 }
