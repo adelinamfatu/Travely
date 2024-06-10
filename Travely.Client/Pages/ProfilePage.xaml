@@ -6,6 +6,7 @@
              x:Class="Travely.Client.Pages.ProfilePage"
              xmlns:vm="clr-namespace:Travely.Client.Models"
              Title="{x:Static resources:PageNameResources.ProfilePageName}">
+    
     <ContentPage.BindingContext>
         <vm:ProfileViewModel />
     </ContentPage.BindingContext>
@@ -25,9 +26,9 @@
                     HorizontalOptions="Center" 
                     VerticalOptions="Center"/>
 
-                <!-- Am sters aceasta comanda => dadea eroare  Command="SaveNameCommand" -->
                 <Button 
                     Text="{x:Static resources:ProfileResources.Save}"
+                    Command="{Binding SaveNameCommand}"
                     HorizontalOptions="Center" 
                     VerticalOptions="Center" 
                     WidthRequest="80" 

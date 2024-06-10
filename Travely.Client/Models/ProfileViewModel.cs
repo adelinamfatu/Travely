@@ -2,6 +2,9 @@
 using CommunityToolkit.Mvvm.Input;
 using Microcharts;
 using SkiaSharp;
+using System.Text.Json;
+using Travely.Client.Utilities;
+using FileSystem = Microsoft.Maui.Storage.FileSystem;
 
 namespace Travely.Client.Models
 {
@@ -22,6 +25,7 @@ namespace Travely.Client.Models
         public ProfileViewModel()
         {
             InitializeCharts();
+            LoadName();
         }
 
         private void InitializeCharts()
@@ -59,10 +63,29 @@ namespace Travely.Client.Models
             SeasonsFrequencyChart = new BarChart { Entries = seasonEntries, ValueLabelOrientation = Orientation.Horizontal };
         }
 
-        [RelayCommand]
-        private void SaveName()
+        private async void LoadName()
         {
+            var cacheDirectory = FileSystem.CacheDirectory;
+            var userNameFilePath = Path.Combine(cacheDirectory, Utilities.Constants.UserNameCacheFileName);
 
+            if (File.Exists(userNameFilePath))
+            {
+                string json = await File.ReadAllTextAsync(userNameFilePath);
+                Name = JsonSerializer.Deserialize<string>(json);
+            }
+        }
+
+        [RelayCommand]
+        private async Task SaveNameAsync()
+        {
+            if (!string.IsNullOrEmpty(Name))
+            {
+                var cacheDirectory = FileSystem.CacheDirectory;
+                var userNameFilePath = Path.Combine(cacheDirectory, Constants.UserNameCacheFileName);
+
+                string json = JsonSerializer.Serialize(Name);
+                await File.WriteAllTextAsync(userNameFilePath, json);
+            }
         }
     }
 }

@@ -23,6 +23,6 @@ namespace Travely.Client.Utilities
 
         public static string CountriesCacheFileName = "countries.json";
 
-        public static string CoordinatesCacheFileName = "coordinates.json";
+        public static string UserNameCacheFileName = "username.json";
     }
 }
