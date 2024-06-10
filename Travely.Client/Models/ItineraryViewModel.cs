@@ -6,6 +6,7 @@ using Travely.BusinessLogic.Services;
 using System.Collections.ObjectModel;
 using static Travely.Client.Utilities.Messenger;
 using Travely.Client.Utilities;
+using Travely.Client.Resources.UIResources;
 
 namespace Travely.Client.Models
 {
@@ -25,6 +26,9 @@ namespace Travely.Client.Models
 
         [ObservableProperty]
         private WeatherDTO? weather;
+
+        [ObservableProperty]
+        private string entryFeeErrorMessage = "";
 
         [ObservableProperty]
         private ObservableCollection<DayItinerary> itinerary;
@@ -165,10 +169,32 @@ namespace Travely.Client.Models
         {
             if (tripDetailService != null && spot.EntryFee != null)
             {
+                string? feeInput = spot.EntryFee.ToString();
+                if (!IsValidFee(feeInput))
+                {
+                    EntryFeeErrorMessage = ValidationResources.EntryFeeError;
+                    return;
+                }
+
                 decimal entryFee = spot.EntryFee ?? 0m;
                 tripDetailService.UpdateSpotFee(spot.Id, entryFee);
                 TotalFee = Itinerary.SelectMany(day => day.Spots).Sum(spot => spot.EntryFee ?? 0m);
+                EntryFeeErrorMessage = ""; 
             }
+        }
+
+        private bool IsValidFee(string? feeInput)
+        {
+            if (decimal.TryParse(feeInput, out decimal result))
+            {
+                var parts = feeInput.Split('.');
+                if (parts.Length > 1 && parts[1].Length > 2)
+                {
+                    return false;
+                }
+                return true;
+            }
+            return false;
         }
 
         public async void GetSpotData(double latitude, double longitude)

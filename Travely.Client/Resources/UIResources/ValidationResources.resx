@@ -147,6 +147,9 @@
   <data name="EmptyTitleError" xml:space="preserve">
     <value>Title cannot be empty.</value>
   </data>
+  <data name="EntryFeeError" xml:space="preserve">
+    <value>Only numbers with a maximum of 2 decimal places are accepted.</value>
+  </data>
   <data name="ErrorMessage" xml:space="preserve">
     <value>Error</value>
   </data>

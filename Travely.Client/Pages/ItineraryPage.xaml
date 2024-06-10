@@ -115,7 +115,7 @@
 
                                                     <Grid ColumnDefinitions="Auto,*,Auto,Auto,Auto">
                                                         <Image Grid.Column="0" Source="money.png" VerticalOptions="Center" WidthRequest="20" HorizontalOptions="Start" Margin="10"/>
-                                                        <Entry Grid.Column="1" Text="{Binding EntryFee}" Margin="10,0,10,0" HorizontalOptions="FillAndExpand"/>
+                                                        <Entry Grid.Column="1" Text="{Binding EntryFee}" Keyboard="Numeric" Margin="10,0,10,0" HorizontalOptions="FillAndExpand"/>
                                                         <ImageButton 
                                                         Grid.Column="2" 
                                                         Source="save_btn.png" 
@@ -124,9 +124,14 @@
                                                         HorizontalOptions="End"
                                                         WidthRequest="30"
                                                         HeightRequest="30"
-                                                        Margin="20,0,5,0"/> 
+                                                        Margin="20,0,5,0"/>
                                                     </Grid>
-
+                                                    <Label Text="{Binding Path=BindingContext.EntryFeeErrorMessage, Source={RelativeSource AncestorType={x:Type ContentPage}}}" 
+                                                       TextColor="Red" 
+                                                       FontSize="Small" 
+                                                       HorizontalOptions="Center"
+                                                       IsVisible="{Binding Path=BindingContext.EntryFeeErrorMessage.Length, Source={RelativeSource AncestorType={x:Type ContentPage}}, Converter={StaticResource NonEmptyStringToBoolConverter}}">
+                                                    </Label>
                                                 </StackLayout>
                                             </Frame>
                                         </DataTemplate>

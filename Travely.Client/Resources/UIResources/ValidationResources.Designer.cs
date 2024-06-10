@@ -151,6 +151,15 @@ namespace Travely.Client.Resources.UIResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Only numbers with a maximum of 2 decimal places are accepted..
+        /// </summary>
+        internal static string EntryFeeError {
+            get {
+                return ResourceManager.GetString("EntryFeeError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error.
         /// </summary>
         internal static string ErrorMessage {
