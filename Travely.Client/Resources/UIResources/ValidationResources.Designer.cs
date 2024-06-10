@@ -160,6 +160,24 @@ namespace Travely.Client.Resources.UIResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The specified location could not be found. Please try another query..
+        /// </summary>
+        internal static string ErrorLocation {
+            get {
+                return ResourceManager.GetString("ErrorLocation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Location Not Found.
+        /// </summary>
+        internal static string ErrorLocationTitle {
+            get {
+                return ResourceManager.GetString("ErrorLocationTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error.
         /// </summary>
         internal static string ErrorMessage {

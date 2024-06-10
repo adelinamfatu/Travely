@@ -150,6 +150,12 @@
   <data name="EntryFeeError" xml:space="preserve">
     <value>Only numbers with a maximum of 2 decimal places are accepted.</value>
   </data>
+  <data name="ErrorLocation" xml:space="preserve">
+    <value>The specified location could not be found. Please try another query.</value>
+  </data>
+  <data name="ErrorLocationTitle" xml:space="preserve">
+    <value>Location Not Found</value>
+  </data>
   <data name="ErrorMessage" xml:space="preserve">
     <value>Error</value>
   </data>

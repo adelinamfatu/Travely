@@ -4,6 +4,7 @@ using System.Globalization;
 using Travely.BusinessLogic.Services;
 using Travely.Client.Utilities;
 using CommunityToolkit.Mvvm.Input;
+using Travely.Client.Resources.UIResources;
 
 namespace Travely.Client.Models
 {
@@ -66,7 +67,17 @@ namespace Travely.Client.Models
                         MoveMapToRegion?.Invoke(this, new Tuple<double, double>(latitude, longitude));
                     }
                 }
+                else
+                {
+                    await ShowAlert(ValidationResources.ErrorLocationTitle, ValidationResources.ErrorLocation, ValidationResources.OK);
+                }
             }
+        }
+
+        public Task ShowAlert(string title, string message, string cancel)
+        {
+            return MainThread.InvokeOnMainThreadAsync(() =>
+                Application.Current?.MainPage?.DisplayAlert(title, message, cancel));
         }
     }
 }
