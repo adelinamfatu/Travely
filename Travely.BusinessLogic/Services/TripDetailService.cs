@@ -1,18 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Travely.Domain.CRUD;
+﻿using Travely.Domain.CRUD;
 using Travely.Domain;
 using Newtonsoft.Json;
-using static Travely.BusinessLogic.Utilities.UtilitaryClasses;
 using Travely.BusinessLogic.Resources;
 using Travely.BusinessLogic.DTOs;
 using Travely.BusinessLogic.Converters;
 using System.Globalization;
 using Newtonsoft.Json.Linq;
-using System.Text.Json.Nodes;
 
 namespace Travely.BusinessLogic.Services
 {

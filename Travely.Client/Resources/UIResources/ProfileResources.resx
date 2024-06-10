@@ -117,8 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Continents" xml:space="preserve">
-    <value>Continental Travel Trends Among Our Users</value>
+  <data name="Countries" xml:space="preserve">
+    <value>Countries visits or planning to visit</value>
   </data>
   <data name="EuropeanCountries" xml:space="preserve">
     <value>Most Popular European Countries Among Our Travelers</value>

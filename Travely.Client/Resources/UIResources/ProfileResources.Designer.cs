@@ -61,11 +61,11 @@ namespace Travely.Client.Resources.UIResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Continental Travel Trends Among Our Users.
+        ///   Looks up a localized string similar to Countries visits or planning to visit.
         /// </summary>
-        internal static string Continents {
+        internal static string Countries {
             get {
-                return ResourceManager.GetString("Continents", resourceCulture);
+                return ResourceManager.GetString("Countries", resourceCulture);
             }
         }
         

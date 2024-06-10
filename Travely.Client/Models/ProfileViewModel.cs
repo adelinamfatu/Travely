@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using Microcharts;
 using SkiaSharp;
 using System.Text.Json;
+using Travely.BusinessLogic.Services;
 using Travely.Client.Utilities;
 using FileSystem = Microsoft.Maui.Storage.FileSystem;
 
@@ -10,11 +11,13 @@ namespace Travely.Client.Models
 {
     public partial class ProfileViewModel : ObservableObject
     {
+        private readonly StatisticService statisticService;
+
         [ObservableProperty]
         private string? name;
 
         [ObservableProperty]
-        private Chart? continentChart;
+        private Chart? countriesChart;
 
         [ObservableProperty]
         private Chart? europeanCountriesChart;
@@ -22,24 +25,22 @@ namespace Travely.Client.Models
         [ObservableProperty]
         private Chart? seasonsFrequencyChart;
 
-        public ProfileViewModel()
+        public ProfileViewModel(StatisticService statisticService)
         {
-            InitializeCharts();
+            this.statisticService = statisticService;
             LoadName();
         }
 
-        private void InitializeCharts()
+        public void InitializeCharts()
         {
-            var continentEntries = new[]
+            var countries = statisticService.GetTripCountries();
+            var countryEntries = countries.Select(kvp => new ChartEntry(kvp.Value)
             {
-                new ChartEntry(25) { Label = "Asia", ValueLabel = "25%", Color = SKColor.Parse("#ff6347") },
-                new ChartEntry(30) { Label = "Europe", ValueLabel = "30%", Color = SKColor.Parse("#6495ed") },
-                new ChartEntry(20) { Label = "Africa", ValueLabel = "10%", Color = SKColor.Parse("#dda0dd") },
-                new ChartEntry(15) { Label = "North America", ValueLabel = "20%", Color = SKColor.Parse("#ff4500") },
-                new ChartEntry(10) { Label = "South America", ValueLabel = "15%", Color = SKColor.Parse("#228b22") },
-                new ChartEntry(5) { Label = "Australia", ValueLabel = "5%", Color = SKColor.Parse("#deb887") },
-                new ChartEntry(1) { Label = "Antarctica", ValueLabel = "1%", Color = SKColor.Parse("#b0e0e6") }
-            };
+                Label = kvp.Key,
+                ValueLabel = kvp.Value.ToString(),
+                Color = GenerateRandomColor()
+            }).ToArray();
+            CountriesChart = new PieChart { Entries = countryEntries };
 
             var europeCountryEntries = new[]
             {
@@ -57,10 +58,17 @@ namespace Travely.Client.Models
                 new ChartEntry(200) { Label = "Autumn", ValueLabel = "200", Color = SKColor.Parse("#deb887") },
                 new ChartEntry(150) { Label = "Winter", ValueLabel = "150", Color = SKColor.Parse("#b0e0e6") }
             };
-
-            ContinentChart = new PieChart { Entries = continentEntries };
+            
             EuropeanCountriesChart = new PieChart { Entries = europeCountryEntries };
             SeasonsFrequencyChart = new BarChart { Entries = seasonEntries, ValueLabelOrientation = Orientation.Horizontal };
+        }
+
+        private SKColor GenerateRandomColor()
+        {
+            Random random = new Random();
+            byte[] colorBytes = new byte[3];
+            random.NextBytes(colorBytes);
+            return new SKColor(colorBytes[0], colorBytes[1], colorBytes[2]);
         }
 
         private async void LoadName()
