@@ -187,6 +187,24 @@ namespace Travely.Client.Resources.UIResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please enter a valid name. Names must start with a capital letter followed by lowercase letters and contain no spaces..
+        /// </summary>
+        internal static string ErrorMessageName {
+            get {
+                return ResourceManager.GetString("ErrorMessageName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid name.
+        /// </summary>
+        internal static string ErrorTitleName {
+            get {
+                return ResourceManager.GetString("ErrorTitleName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to An item with the same title already exists..
         /// </summary>
         internal static string ExistItemError {
@@ -291,6 +309,24 @@ namespace Travely.Client.Resources.UIResources {
         internal static string SuccessMessage {
             get {
                 return ResourceManager.GetString("SuccessMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name has been saved successfully!.
+        /// </summary>
+        internal static string SuccessMessageName {
+            get {
+                return ResourceManager.GetString("SuccessMessageName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Valid name.
+        /// </summary>
+        internal static string SuccesTitleName {
+            get {
+                return ResourceManager.GetString("SuccesTitleName", resourceCulture);
             }
         }
         

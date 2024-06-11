@@ -159,6 +159,12 @@
   <data name="ErrorMessage" xml:space="preserve">
     <value>Error</value>
   </data>
+  <data name="ErrorMessageName" xml:space="preserve">
+    <value>Please enter a valid name. Names must start with a capital letter followed by lowercase letters and contain no spaces.</value>
+  </data>
+  <data name="ErrorTitleName" xml:space="preserve">
+    <value>Invalid name</value>
+  </data>
   <data name="ExistItemError" xml:space="preserve">
     <value>An item with the same title already exists.</value>
   </data>
@@ -194,6 +200,12 @@
   </data>
   <data name="SuccessMessage" xml:space="preserve">
     <value>Success</value>
+  </data>
+  <data name="SuccessMessageName" xml:space="preserve">
+    <value>Name has been saved successfully!</value>
+  </data>
+  <data name="SuccesTitleName" xml:space="preserve">
+    <value>Valid name</value>
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Yes</value>

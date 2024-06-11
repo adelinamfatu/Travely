@@ -7,6 +7,7 @@ using Travely.BusinessLogic.Services;
 using Travely.Client.Utilities;
 using FileSystem = Microsoft.Maui.Storage.FileSystem;
 using System.Text.RegularExpressions;
+using Travely.Client.Resources.UIResources;
 
 namespace Travely.Client.Models
 {
@@ -100,11 +101,11 @@ namespace Travely.Client.Models
                 string json = JsonSerializer.Serialize(Name);
                 await File.WriteAllTextAsync(userNameFilePath, json);
 
-                await ShowAlert("Success", "Name has been saved successfully!", "OK");
+                await ShowAlert(ValidationResources.SuccesTitleName, ValidationResources.SuccessMessageName, ValidationResources.OK);
             }
             else
             {
-                await ShowAlert("Validation Error", "Please enter a valid name. Names must start with a capital letter followed by lowercase letters and contain no spaces.", "OK");
+                await ShowAlert(ValidationResources.ErrorTitleName, ValidationResources.ErrorMessageName, ValidationResources.OK);
             }
         }
 
