@@ -88,7 +88,7 @@ namespace Travely.Client.Models
             if (tripDetailService is not null)
             {
                 var tripSpots = await tripDetailService.GetTripSpots(tripId);
-                var spotsByDay = tripSpots.GroupBy(spot => spot.Date.Date).ToDictionary(g => g.Key, g => g.ToList());
+                var spotsByDay = tripSpots.GroupBy(spot => spot.Date.Date).ToDictionary(g => g.Key, g => g.OrderBy(spot => spot.Time).ToList());
 
                 var tripDays = await tripDetailService.GetTripDays(tripId);
                 int dayCount = 1;
@@ -161,6 +161,15 @@ namespace Travely.Client.Models
             {
                 var time = new DateTime(DateTime.MinValue.Year, DateTime.MinValue.Month, DateTime.MinValue.Day, spot.Time.Hours, spot.Time.Minutes, spot.Time.Seconds);
                 tripDetailService.UpdateSpotTime(spot.Id, time);
+
+                var dayItinerary = Itinerary.FirstOrDefault(it => it.Spots.Contains(spot));
+                if (dayItinerary != null)
+                {
+                    var sortedSpots = new ObservableCollection<SpotDTO>(dayItinerary.Spots.OrderBy(s => s.Time));
+                    dayItinerary.Spots = sortedSpots;
+                }
+
+                WeakReferenceMessenger.Default.Send(new ReloadSpotsMessage());
             }
         }
 

@@ -32,7 +32,7 @@ public partial class MapPage : ContentPage
         }
     }
 
-    private void OnMoveMapToRegion(object sender, Tuple<double, double> coordinates)
+    private void OnMoveMapToRegion(object? sender, Tuple<double, double> coordinates)
     {
         if (map != null)
         {
