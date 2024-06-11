@@ -6,6 +6,7 @@ using System.Text.Json;
 using Travely.BusinessLogic.Services;
 using Travely.Client.Utilities;
 using FileSystem = Microsoft.Maui.Storage.FileSystem;
+using System.Text.RegularExpressions;
 
 namespace Travely.Client.Models
 {
@@ -83,17 +84,34 @@ namespace Travely.Client.Models
             }
         }
 
+        private bool ValidateName(string name)
+        {
+            return Regex.IsMatch(name, "^[A-Z][a-z]+$");
+        }
+
         [RelayCommand]
         private async Task SaveNameAsync()
         {
-            if (!string.IsNullOrEmpty(Name))
+            if (!string.IsNullOrEmpty(Name) && ValidateName(Name))
             {
                 var cacheDirectory = FileSystem.CacheDirectory;
                 var userNameFilePath = Path.Combine(cacheDirectory, Constants.UserNameCacheFileName);
 
                 string json = JsonSerializer.Serialize(Name);
                 await File.WriteAllTextAsync(userNameFilePath, json);
+
+                await ShowAlert("Success", "Name has been saved successfully!", "OK");
             }
+            else
+            {
+                await ShowAlert("Validation Error", "Please enter a valid name. Names must start with a capital letter followed by lowercase letters and contain no spaces.", "OK");
+            }
+        }
+
+        public Task ShowAlert(string title, string message, string cancel)
+        {
+            return MainThread.InvokeOnMainThreadAsync(() =>
+                Application.Current?.MainPage?.DisplayAlert(title, message, cancel));
         }
     }
 }
