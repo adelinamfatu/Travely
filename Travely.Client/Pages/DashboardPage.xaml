@@ -63,14 +63,22 @@
 
             </StackLayout>
 
-            <Label Margin="20,50,0,0" Text="Popular Destinations" FontSize="Medium" />
-            <ScrollView Margin="20,10,10,10" Orientation="Horizontal">
-                <StackLayout Margin="5" Orientation="Horizontal">
-                    <Image Margin="10,10,10,10" Source="paris" WidthRequest="200" HeightRequest="200" />
-                    <Image Margin="10,10,10,10" Source="greece" WidthRequest="200" HeightRequest="200" />
-                    <Image Margin="10,10,10,10" Source="india" WidthRequest="200" HeightRequest="200"/>
-                </StackLayout>
-            </ScrollView>
+            <StackLayout>
+                <Label Margin="20,50,0,0" Text="Countries Using Various Currencies" FontSize="Medium" />
+                <ScrollView Margin="20,10,10,10" Orientation="Horizontal">
+                    <StackLayout Margin="5">
+                        <CollectionView ItemsSource="{Binding Countries}">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding .}" Margin="10" FontSize="Medium"/>
+                                    </StackLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
 
         </VerticalStackLayout>
     </ScrollView>
