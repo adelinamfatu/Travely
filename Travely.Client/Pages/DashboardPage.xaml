@@ -63,22 +63,27 @@
 
             </StackLayout>
 
-            <StackLayout>
-                <Label Margin="20,50,0,0" Text="Countries Using Various Currencies" FontSize="Medium" />
+            <VerticalStackLayout>
+                <Label Margin="20,50,0,0" Text="Popular Destination In Europe" FontSize="Medium" />
                 <ScrollView Margin="20,10,10,10" Orientation="Horizontal">
-                    <StackLayout Margin="5">
-                        <CollectionView ItemsSource="{Binding Countries}">
+                    <HorizontalStackLayout Margin="5" Spacing="10">
+                        <CollectionView ItemsSource="{Binding Countries}" ItemsLayout="HorizontalList">
                             <CollectionView.ItemTemplate>
                                 <DataTemplate>
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="{Binding .}" Margin="10" FontSize="Medium"/>
-                                    </StackLayout>
+                                    <Frame Margin="10" Padding="5" VerticalOptions="Center" HorizontalOptions="Fill" BackgroundColor="White" CornerRadius="10" WidthRequest="300">
+                                        <VerticalStackLayout Spacing="5" VerticalOptions="Center" HorizontalOptions="Center">
+                                            <Image Source="globe.png" WidthRequest="50" HeightRequest="50" VerticalOptions="Center" HorizontalOptions="Center"/>
+                                            <Label Text="{Binding .}" FontSize="Medium" VerticalOptions="Center" HorizontalOptions="Center"/>
+                                        </VerticalStackLayout>
+                                    </Frame>
                                 </DataTemplate>
                             </CollectionView.ItemTemplate>
                         </CollectionView>
-                    </StackLayout>
+                    </HorizontalStackLayout>
                 </ScrollView>
-            </StackLayout>
+            </VerticalStackLayout>
+
+
 
         </VerticalStackLayout>
     </ScrollView>

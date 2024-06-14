@@ -69,6 +69,7 @@
 	  <None Remove="Resources\Images\email.png" />
 	  <None Remove="Resources\Images\flight_number.svg" />
 	  <None Remove="Resources\Images\flying.png" />
+	  <None Remove="Resources\Images\globe.png" />
 	  <None Remove="Resources\Images\hot.png" />
 	  <None Remove="Resources\Images\humidity.png" />
 	  <None Remove="Resources\Images\loading.png" />
