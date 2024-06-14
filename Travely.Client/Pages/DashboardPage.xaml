@@ -82,7 +82,7 @@
                     </HorizontalStackLayout>
                 </ScrollView>
 
-                <Label Margin="20,50,0,0" Text="Popular Mountain Destination" />
+                <Label Margin="20,50,0,0" Text="Popular Mountain Destination" FontSize="Medium" />
                 <ScrollView Margin="20,10,10,10" Orientation="Horizontal">
                     <HorizontalStackLayout Margin="5" Spacing="10">
                         <CollectionView ItemsSource="{Binding FilteredCountries}" ItemsLayout="HorizontalList">
