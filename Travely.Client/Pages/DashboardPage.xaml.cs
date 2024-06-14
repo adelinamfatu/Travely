@@ -13,4 +13,11 @@ public partial class DashboardPage : ContentPage
     {
         await Navigation.PushAsync(new PlanTripPage());
     }
+
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        var viewModel = (CountriesViewModel)BindingContext;
+        viewModel.LoadFilteredCountries();
+    }
 }

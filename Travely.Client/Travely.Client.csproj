@@ -77,6 +77,7 @@
 	  <None Remove="Resources\Images\magnifying_glass.png" />
 	  <None Remove="Resources\Images\mobile.png" />
 	  <None Remove="Resources\Images\money.png" />
+	  <None Remove="Resources\Images\mountain_img.png" />
 	  <None Remove="Resources\Images\notepad.png" />
 	  <None Remove="Resources\Images\notes_color.png" />
 	  <None Remove="Resources\Images\open_maps.png" />

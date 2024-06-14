@@ -8,10 +8,11 @@ using Travely.BusinessLogic.Services;
 
 namespace Travely.Client.Models
 {
-    public class CountriesViewModel: BindableObject
+    public class CountriesViewModel : BindableObject
     {
         private readonly CountryService _countryService;
         private ObservableCollection<string> _countries;
+        private ObservableCollection<string> _filteredCountries;
 
         public ObservableCollection<string> Countries
         {
@@ -23,10 +24,21 @@ namespace Travely.Client.Models
             }
         }
 
+        public ObservableCollection<string> FilteredCountries
+        {
+            get => _filteredCountries;
+            set
+            {
+                _filteredCountries = value;
+                OnPropertyChanged();
+            }
+        }
+
         public CountriesViewModel()
         {
             _countryService = new CountryService();
             Countries = new ObservableCollection<string>();
+            FilteredCountries = new ObservableCollection<string>();
             LoadCountries();
         }
 
@@ -41,5 +53,15 @@ namespace Travely.Client.Models
             Console.WriteLine($"Number of countries added to collection: {Countries.Count}");
         }
 
+        public async void LoadFilteredCountries()
+        {
+            var countries = await _countryService.GetFilteredCountriesByLatLong();
+            foreach (var country in countries)
+            {
+                FilteredCountries.Add(country["name"].ToString());
+            }
+
+            Console.WriteLine($"Number of filtered countries added to collection: {FilteredCountries.Count}");
+        }
     }
 }

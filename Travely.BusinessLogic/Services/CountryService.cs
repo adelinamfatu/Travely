@@ -39,5 +39,31 @@ namespace Travely.BusinessLogic.Services
             return euroCountries;
         }
 
+        public async Task<JArray> GetCountriesWithLatLong()
+        {
+            var url = "https://countriesnow.space/api/v0.1/countries/positions";
+            var response = await _httpClient.GetStringAsync(url);
+            var json = JObject.Parse(response);
+            var countries = json["data"].ToObject<JArray>();
+            return countries;
+        }
+
+        public async Task<JArray> GetFilteredCountriesByLatLong()
+        {
+            var countries = await GetCountriesWithLatLong();
+            var filteredCountries = new JArray();
+
+            foreach (var country in countries)
+            {
+                double lat = (double)country["lat"];
+                if (lat >= 35 && lat <= 60)
+                {
+                    filteredCountries.Add(country);
+                }
+            }
+
+            return filteredCountries;
+        }
+
     }
 }
