@@ -64,8 +64,8 @@
             </StackLayout>
 
             <VerticalStackLayout>
-                <Label Margin="20,50,0,0" Text="Popular Destinations in Europe" FontSize="Medium" />
-                <ScrollView Margin="20,10,10,10" Orientation="Horizontal">
+                <Label Margin="20,50,0,0" Text="Popular Destinations in Europe" FontSize="18" />
+                <ScrollView Margin="10,10,10,0" Orientation="Horizontal">
                     <HorizontalStackLayout Margin="5" Spacing="10">
                         <CollectionView ItemsSource="{Binding Countries}" ItemsLayout="HorizontalList">
                             <CollectionView.ItemTemplate>
@@ -82,8 +82,8 @@
                     </HorizontalStackLayout>
                 </ScrollView>
 
-                <Label Margin="20,50,0,0" Text="Popular Mountain Destination" FontSize="Medium" />
-                <ScrollView Margin="20,10,10,10" Orientation="Horizontal">
+                <Label Margin="20,50,0,0" Text="Popular Mountain Destination" FontSize="18" />
+                <ScrollView Margin="10,10,10,0" Orientation="Horizontal">
                     <HorizontalStackLayout Margin="5" Spacing="10">
                         <CollectionView ItemsSource="{Binding FilteredCountries}" ItemsLayout="HorizontalList">
                             <CollectionView.ItemTemplate>
@@ -101,6 +101,26 @@
                 </ScrollView>
             </VerticalStackLayout>
 
+
+            <VerticalStackLayout>
+                <Label Margin="20,50,0,0" Text="Popular Beach Destinations in Europe" FontSize="18" />
+                <ScrollView Margin="10,10,10,0" Orientation="Horizontal">
+                    <HorizontalStackLayout Margin="5" Spacing="10">
+                        <CollectionView ItemsSource="{Binding BeachDestinations}" ItemsLayout="HorizontalList">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Frame Margin="10" Padding="5" VerticalOptions="Center" HorizontalOptions="Fill" BackgroundColor="White" CornerRadius="10" WidthRequest="300">
+                                        <VerticalStackLayout Spacing="5" VerticalOptions="Center" HorizontalOptions="Center">
+                                            <Image Source="beach.png" WidthRequest="50" HeightRequest="50" VerticalOptions="Center" HorizontalOptions="Center"/>
+                                            <Label Text="{Binding .}" FontSize="Medium" VerticalOptions="Center" HorizontalOptions="Center"/>
+                                        </VerticalStackLayout>
+                                    </Frame>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </HorizontalStackLayout>
+                </ScrollView>
+            </VerticalStackLayout>
 
 
 

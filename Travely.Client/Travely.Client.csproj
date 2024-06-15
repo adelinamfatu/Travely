@@ -60,6 +60,7 @@
 	  <None Remove="Resources\Images\add_basket.png" />
 	  <None Remove="Resources\Images\add_btn.png" />
 	  <None Remove="Resources\Images\add_button.svg" />
+	  <None Remove="Resources\Images\beach.png" />
 	  <None Remove="Resources\Images\bed.png" />
 	  <None Remove="Resources\Images\bus.png" />
 	  <None Remove="Resources\Images\calendar.svg" />

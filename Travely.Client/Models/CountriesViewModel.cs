@@ -13,6 +13,7 @@ namespace Travely.Client.Models
         private readonly CountryService _countryService;
         private ObservableCollection<string> _countries;
         private ObservableCollection<string> _filteredCountries;
+        private ObservableCollection<string> _beachDestinations;
 
         public ObservableCollection<string> Countries
         {
@@ -34,12 +35,24 @@ namespace Travely.Client.Models
             }
         }
 
+        public ObservableCollection<string> BeachDestinations
+        {
+            get => _beachDestinations;
+            set
+            {
+                _beachDestinations = value;
+                OnPropertyChanged();
+            }
+        }
+
         public CountriesViewModel()
         {
             _countryService = new CountryService();
             Countries = new ObservableCollection<string>();
             FilteredCountries = new ObservableCollection<string>();
+            BeachDestinations = new ObservableCollection<string>();
             LoadCountries();
+            LoadBeachDestinations();
         }
 
         private async void LoadCountries()
@@ -62,6 +75,17 @@ namespace Travely.Client.Models
             }
 
             Console.WriteLine($"Number of filtered countries added to collection: {FilteredCountries.Count}");
+        }
+
+        private void LoadBeachDestinations()
+        {
+            var beachDestinations = _countryService.GetPopularBeachDestinations();
+            foreach (var destination in beachDestinations)
+            {
+                BeachDestinations.Add(destination["name"].ToString());
+            }
+
+            Console.WriteLine($"Number of beach destinations added to collection: {BeachDestinations.Count}");
         }
     }
 }

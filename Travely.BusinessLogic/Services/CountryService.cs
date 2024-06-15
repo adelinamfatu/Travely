@@ -1,8 +1,7 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace Travely.BusinessLogic.Services
@@ -33,7 +32,6 @@ namespace Travely.BusinessLogic.Services
                 }
             }
 
-            
             Console.WriteLine($"Number of countries fetched: {countries.Count}");
 
             return euroCountries;
@@ -65,5 +63,28 @@ namespace Travely.BusinessLogic.Services
             return filteredCountries;
         }
 
+        public JArray GetPopularBeachDestinations()
+        {
+            var beachDestinations = new JArray
+            {
+                new JObject { { "name", "Santorini, Greece" } },
+                new JObject { { "name", "Ibiza, Spain" } },
+                new JObject { { "name", "Amalfi Coast, Italy" } },
+                new JObject { { "name", "Nice, France" } },
+                new JObject { { "name", "Mykonos, Greece" } },
+                new JObject { { "name", "Sardinia, Italy" } },
+                new JObject { { "name", "Côte d'Azur, France" } },
+                new JObject { { "name", "Mallorca, Spain" } },
+                new JObject { { "name", "Dubrovnik, Croatia" } },
+                new JObject { { "name", "Malaga, Spain" } },
+                new JObject { { "name", "Madeira, Portugal" } },
+                new JObject { { "name", "Crete, Greece" } },
+                new JObject { { "name", "Lisbon Coast, Portugal" } },
+                new JObject { { "name", "Paphos, Cyprus" } },
+                new JObject { { "name", "Tenerife, Spain" } }
+            };
+
+            return beachDestinations;
+        }
     }
 }
