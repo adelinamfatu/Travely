@@ -120,6 +120,12 @@
   <data name="CountriesAPI" xml:space="preserve">
     <value>https://api.first.org/data/v1/countries?region=</value>
   </data>
+  <data name="CountryCurrencyAPI" xml:space="preserve">
+    <value>https://countriesnow.space/api/v0.1/countries/currency</value>
+  </data>
+  <data name="CountryLatitudeAPI" xml:space="preserve">
+    <value>https://countriesnow.space/api/v0.1/countries/positions</value>
+  </data>
   <data name="FlagAPI" xml:space="preserve">
     <value>https://flagcdn.com/w320/{0}.png</value>
   </data>

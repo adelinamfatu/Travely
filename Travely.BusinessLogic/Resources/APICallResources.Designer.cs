@@ -70,6 +70,24 @@ namespace Travely.BusinessLogic.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to https://countriesnow.space/api/v0.1/countries/currency.
+        /// </summary>
+        internal static string CountryCurrencyAPI {
+            get {
+                return ResourceManager.GetString("CountryCurrencyAPI", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://countriesnow.space/api/v0.1/countries/positions.
+        /// </summary>
+        internal static string CountryLatitudeAPI {
+            get {
+                return ResourceManager.GetString("CountryLatitudeAPI", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to https://flagcdn.com/w320/{0}.png.
         /// </summary>
         internal static string FlagAPI {

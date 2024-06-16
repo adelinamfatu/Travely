@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Travely.BusinessLogic.Resources;
 
 namespace Travely.BusinessLogic.Services
 {
@@ -17,7 +18,7 @@ namespace Travely.BusinessLogic.Services
 
         public async Task<JArray> GetAllCountries()
         {
-            var url = "https://countriesnow.space/api/v0.1/countries/currency";
+            var url = APICallResources.CountryCurrencyAPI;
             var response = await _httpClient.GetStringAsync(url);
             var json = JObject.Parse(response);
             var countries = json["data"].ToObject<JArray>();
@@ -32,14 +33,12 @@ namespace Travely.BusinessLogic.Services
                 }
             }
 
-            Console.WriteLine($"Number of countries fetched: {countries.Count}");
-
             return euroCountries;
         }
 
         public async Task<JArray> GetCountriesWithLatLong()
         {
-            var url = "https://countriesnow.space/api/v0.1/countries/positions";
+            var url = APICallResources.CountryLatitudeAPI;
             var response = await _httpClient.GetStringAsync(url);
             var json = JObject.Parse(response);
             var countries = json["data"].ToObject<JArray>();
