@@ -44,10 +44,8 @@
 
             <Label Text="{x:Static resources:ProfileResources.Countries}" Margin="0,20,0,0" FontAttributes="Bold" />
             <charts:ChartView Chart="{Binding CountriesChart}" HeightRequest="150"/>
-            <Label Text="{x:Static resources:ProfileResources.EuropeanCountries}" Margin="0,50,0,0" FontAttributes="Bold"/>
-            <charts:ChartView Chart="{Binding EuropeanCountriesChart}" HeightRequest="150"/>
-            <Label Text="{x:Static resources:ProfileResources.TravelFrequency}" Margin="0,50,0,0" FontAttributes="Bold"/>
-            <charts:ChartView Chart="{Binding SeasonsFrequencyChart}" HeightRequest="150" />
+            <Label Text="{x:Static resources:ProfileResources.SpendingFrequency}" Margin="0,50,0,0" FontAttributes="Bold"/>
+            <charts:ChartView Chart="{Binding SeasonsSpendingChart}" HeightRequest="150" />
         </VerticalStackLayout>
     </ScrollView>
 

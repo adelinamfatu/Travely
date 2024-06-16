@@ -21,5 +21,10 @@ namespace Travely.BusinessLogic.Services
         {
             return statisticData.GetTripCountries();
         }
+
+        public Dictionary<string, double> GetSeasonalSpending()
+        {
+            return statisticData.GetSeasonalSpending();
+        }
     }
 }

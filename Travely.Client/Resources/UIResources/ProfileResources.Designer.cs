@@ -70,15 +70,6 @@ namespace Travely.Client.Resources.UIResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Most Popular European Countries Among Our Travelers.
-        /// </summary>
-        internal static string EuropeanCountries {
-            get {
-                return ResourceManager.GetString("EuropeanCountries", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to What is your name?.
         /// </summary>
         internal static string Name {
@@ -97,20 +88,20 @@ namespace Travely.Client.Resources.UIResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Travel Spendings by Season.
+        /// </summary>
+        internal static string SpendingFrequency {
+            get {
+                return ResourceManager.GetString("SpendingFrequency", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to VIEW STATISTICS.
         /// </summary>
         internal static string Statistics {
             get {
                 return ResourceManager.GetString("Statistics", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Travel Frequency by Season.
-        /// </summary>
-        internal static string TravelFrequency {
-            get {
-                return ResourceManager.GetString("TravelFrequency", resourceCulture);
             }
         }
     }

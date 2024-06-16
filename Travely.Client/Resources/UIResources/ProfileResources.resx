@@ -120,19 +120,16 @@
   <data name="Countries" xml:space="preserve">
     <value>Countries visits or planning to visit</value>
   </data>
-  <data name="EuropeanCountries" xml:space="preserve">
-    <value>Most Popular European Countries Among Our Travelers</value>
-  </data>
   <data name="Name" xml:space="preserve">
     <value>What is your name?</value>
   </data>
   <data name="Save" xml:space="preserve">
     <value>SAVE</value>
   </data>
+  <data name="SpendingFrequency" xml:space="preserve">
+    <value>Travel Spendings by Season</value>
+  </data>
   <data name="Statistics" xml:space="preserve">
     <value>VIEW STATISTICS</value>
-  </data>
-  <data name="TravelFrequency" xml:space="preserve">
-    <value>Travel Frequency by Season</value>
   </data>
 </root>
