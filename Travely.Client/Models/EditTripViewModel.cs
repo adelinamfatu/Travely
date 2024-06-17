@@ -160,16 +160,24 @@ namespace Travely.Client.Models
                 return;
             }
 
-            if (DepartureFlight is null)
-            {
-                await tripService.AddFlightDetails(DepartureFlightNumber, FlightType.Departure, TripId);
-            }
-            else
-            {
-                await tripService.UpdateFlightDetails(DepartureFlightNumber);
-            }
+            bool confirm = await Application.Current.MainPage.DisplayAlert(
+                ValidationResources.ConfirmUpdateFlightTitle,
+                ValidationResources.ConfirmUpdateFlightMessage,
+                ValidationResources.Yes, ValidationResources.No);
 
-            WeakReferenceMessenger.Default.Send(new ReloadFlightsMessage());
+            if (confirm)
+            {
+                if (DepartureFlight is null)
+                {
+                    await tripService.AddFlightDetails(DepartureFlightNumber, FlightType.Departure, TripId);
+                }
+                else
+                {
+                    await tripService.UpdateFlightDetails(DepartureFlightNumber);
+                }
+
+                WeakReferenceMessenger.Default.Send(new ReloadFlightsMessage());
+            }
         }
 
         [RelayCommand]
@@ -188,16 +196,24 @@ namespace Travely.Client.Models
                 return;
             }
 
-            if (ArrivalFlight is null)
-            {
-                await tripService.AddFlightDetails(ArrivalFlightNumber, FlightType.Arrival, TripId);
-            }
-            else
-            {
-                await tripService.UpdateFlightDetails(ArrivalFlightNumber);
-            }
+            bool confirm = await Application.Current.MainPage.DisplayAlert(
+                ValidationResources.ConfirmUpdateFlightTitle,
+                ValidationResources.ConfirmUpdateFlightMessage,
+                ValidationResources.Yes, ValidationResources.No);
 
-            WeakReferenceMessenger.Default.Send(new ReloadFlightsMessage());
+            if (confirm)
+            {
+                if (ArrivalFlight is null)
+                {
+                    await tripService.AddFlightDetails(ArrivalFlightNumber, FlightType.Arrival, TripId);
+                }
+                else
+                {
+                    await tripService.UpdateFlightDetails(ArrivalFlightNumber);
+                }
+
+                WeakReferenceMessenger.Default.Send(new ReloadFlightsMessage());
+            }
         }
     }
 }

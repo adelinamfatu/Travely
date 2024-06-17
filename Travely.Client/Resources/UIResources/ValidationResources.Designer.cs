@@ -97,6 +97,24 @@ namespace Travely.Client.Resources.UIResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to update the flight details?.
+        /// </summary>
+        internal static string ConfirmUpdateFlightMessage {
+            get {
+                return ResourceManager.GetString("ConfirmUpdateFlightMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirm Update.
+        /// </summary>
+        internal static string ConfirmUpdateFlightTitle {
+            get {
+                return ResourceManager.GetString("ConfirmUpdateFlightTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Flight number cannot be empty..
         /// </summary>
         internal static string EmptyArrivalFlightError {

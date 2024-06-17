@@ -129,6 +129,12 @@
   <data name="ConfirmLocationTitle" xml:space="preserve">
     <value>Confirm location</value>
   </data>
+  <data name="ConfirmUpdateFlightMessage" xml:space="preserve">
+    <value>Are you sure you want to update the flight details?</value>
+  </data>
+  <data name="ConfirmUpdateFlightTitle" xml:space="preserve">
+    <value>Confirm Update</value>
+  </data>
   <data name="EmptyArrivalFlightError" xml:space="preserve">
     <value>Flight number cannot be empty.</value>
   </data>
