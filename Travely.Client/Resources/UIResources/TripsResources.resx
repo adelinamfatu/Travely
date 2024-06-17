@@ -139,7 +139,7 @@
     <value>Departure Flight Information</value>
   </data>
   <data name="FlightNumber" xml:space="preserve">
-    <value>Flight Number (e.g., 35690561)</value>
+    <value>Flight Number (e.g., 35b9b8bf)</value>
   </data>
   <data name="Flights" xml:space="preserve">
     <value>Flight Information</value>

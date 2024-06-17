@@ -214,7 +214,7 @@ namespace Travely.Client.Resources.UIResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Flight number must be exactly 8 digits..
+        ///   Looks up a localized string similar to Flight number must be exactly 8 caracters (digits and letters)..
         /// </summary>
         internal static string InvalidArrivalFlightError {
             get {
@@ -223,7 +223,7 @@ namespace Travely.Client.Resources.UIResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Flight number must be exactly 8 digits..
+        ///   Looks up a localized string similar to Flight number must be exactly 8 caracters (digits and letters)..
         /// </summary>
         internal static string InvalidDepartureFlightError {
             get {

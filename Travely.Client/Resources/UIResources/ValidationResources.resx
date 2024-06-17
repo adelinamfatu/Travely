@@ -169,10 +169,10 @@
     <value>An item with the same title already exists.</value>
   </data>
   <data name="InvalidArrivalFlightError" xml:space="preserve">
-    <value>Flight number must be exactly 8 digits.</value>
+    <value>Flight number must be exactly 8 caracters (digits and letters).</value>
   </data>
   <data name="InvalidDepartureFlightError" xml:space="preserve">
-    <value>Flight number must be exactly 8 digits.</value>
+    <value>Flight number must be exactly 8 caracters (digits and letters).</value>
   </data>
   <data name="InvalidDestinationError" xml:space="preserve">
     <value>Destination cannot be empty and must contain only letters.</value>

@@ -151,7 +151,7 @@ namespace Travely.Client.Resources.UIResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Flight Number (e.g., 35690561).
+        ///   Looks up a localized string similar to Flight Number (e.g., 35b9b8bf).
         /// </summary>
         internal static string FlightNumber {
             get {

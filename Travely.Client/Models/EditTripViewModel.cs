@@ -154,7 +154,7 @@ namespace Travely.Client.Models
                 return;
             }
 
-            if (!Regex.IsMatch(DepartureFlightNumber, @"^\d{8}$"))
+            if (!Regex.IsMatch(DepartureFlightNumber, @"^[a-zA-Z0-9]{8}$"))
             {
                 AlertDepartureFlight = ValidationResources.InvalidDepartureFlightError;
                 return;
@@ -182,7 +182,7 @@ namespace Travely.Client.Models
                 return;
             }
 
-            if (!Regex.IsMatch(ArrivalFlightNumber, @"^\d{8}$"))
+            if (!Regex.IsMatch(ArrivalFlightNumber, @"^[a-zA-Z0-9]{8}$"))
             {
                 AlertArrivalFlight = ValidationResources.InvalidArrivalFlightError;
                 return;
