@@ -11,7 +11,7 @@
         <VerticalStackLayout>
 
             <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="20">
-                <SearchBar Placeholder="Search..." />
+                <Label Margin="0,20,0,10" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Center" Text="Organize your trip" FontSize="Medium" />
             </Frame>
 
             <Image Source="dashboard_pic" WidthRequest="500" HeightRequest="200" Aspect="AspectFit" Margin="10" />
@@ -65,7 +65,7 @@
 
             <VerticalStackLayout>
                 <Label Margin="20,50,0,0" Text="Popular Destinations in Europe" FontSize="18" />
-                <ScrollView Margin="10,10,10,0" Orientation="Horizontal">
+                <ScrollView Margin="0,10,10,0" Orientation="Horizontal">
                     <HorizontalStackLayout Margin="5" Spacing="10">
                         <CollectionView ItemsSource="{Binding Countries}" ItemsLayout="HorizontalList">
                             <CollectionView.ItemTemplate>
@@ -83,7 +83,7 @@
                 </ScrollView>
 
                 <Label Margin="20,50,0,0" Text="Popular Mountain Destination" FontSize="18" />
-                <ScrollView Margin="10,10,10,0" Orientation="Horizontal">
+                <ScrollView Margin="0,10,10,0" Orientation="Horizontal">
                     <HorizontalStackLayout Margin="5" Spacing="10">
                         <CollectionView ItemsSource="{Binding FilteredCountries}" ItemsLayout="HorizontalList">
                             <CollectionView.ItemTemplate>
@@ -104,7 +104,7 @@
 
             <VerticalStackLayout>
                 <Label Margin="20,50,0,0" Text="Popular Beach Destinations in Europe" FontSize="18" />
-                <ScrollView Margin="10,10,10,0" Orientation="Horizontal">
+                <ScrollView Margin="0,10,10,0" Orientation="Horizontal">
                     <HorizontalStackLayout Margin="5" Spacing="10">
                         <CollectionView ItemsSource="{Binding BeachDestinations}" ItemsLayout="HorizontalList">
                             <CollectionView.ItemTemplate>
