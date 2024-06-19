@@ -9,6 +9,6 @@ This project is a .NET Multi-platform App UI (MAUI) application built using .NET
 
 ## Features:
 - Trip Planning: Seamlessly plan your trips by creating detailed itineraries, setting destinations, dates, and activities.
-- Destination Exploration: Discover new destinations, attractions, and accommodations, with rich multimedia content.In this section, we utilized the Destination API to display popular destinations, popular seaside destinations, and popular mountain destinations (https://documenter.getpostman.com/view/1134062/T1LJjU52#abee09ea-aeb9-479c-b970-81d909c2a58c) 
+- Destination Exploration: Discover new destinations, attractions, and accommodations, with rich multimedia content.In this section, we utilized the Destination API to display popular destinations, popular seaside destinations, and popular mountain destinations (https://documenter.getpostman.com/view/1134062/T1LJjU52#abee09ea-aeb9-479c-b970-81d909c2a58c). By utilizing these API endpoints, we were able to create a comprehensive and engaging section for users to explore popular destinations, seaside getaways, and mountain retreats, enhancing their travel planning experience.
 - Offline Support: Enjoy uninterrupted access to trip details, even without an internet connection, thanks to offline storage capabilities provided by SQLite database.
 - Cross-Platform Compatibility: Experience Travely on your preferred device, whether it's a smartphone, tablet, or desktop, with consistent user interface and functionality across platforms.
