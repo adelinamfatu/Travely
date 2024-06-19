@@ -53,5 +53,5 @@ Experience Travely on your preferred device, whether it's a smartphone, tablet, 
 ## 5. APIs Used:
 - Countries API for Currency Information: https://countriesnow.space/api/v0.1/countries/currency - Used to fetch countries and their currency information.
 - Countries API for Latitude and Longitude Information: https://countriesnow.space/api/v0.1/countries/positions - Used to fetch countries along with their latitude and longitude.
-- Flight Information API: https://data-live.flightradar24.com/clickhandler/?flight= - Used to display flight details including departure and destination airports.
+- Flight Information API: https://data-cloud.flightradar24.com/zones/fcgi/feed.js?faa=1&bounds=49.381%2C42.022%2C19.324%2C32.056&satellite=1&mlat=1&flarm=1&adsb=1&gnd=1&air=1&vehicles=1&estimated=1&maxage=14400&gliders=1&stats=1 - Used to display flight details including departure and destination airports.
 - Weather API: https://api.openweathermap.org/data/2.5/weather - Used to display current weather conditions for selected destinations.
