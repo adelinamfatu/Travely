@@ -36,6 +36,10 @@ Users can add their flight details, and with the help of an API, the platform di
 
 The profile section provides users with insightful analytics and visualizations. Users can view graphs and charts that show the most popular destinations, the most visited cities, and other travel trends. This information helps users make informed decisions about where to travel next by understanding current travel patterns and preferences.
 
+- Weather Information
+
+Using a weather API, the platform displays current weather conditions for the selected destinations. This feature helps users plan their trips better by providing real-time weather updates, ensuring they are prepared for any weather conditions during their travels.
+
 ## 2.Destination Exploration: 
 Discover new destinations, attractions, and accommodations, with rich multimedia content.In this section, we utilized the Destination API to display popular destinations, popular seaside destinations, and popular mountain destinations (https://documenter.getpostman.com/view/1134062/T1LJjU52#abee09ea-aeb9-479c-b970-81d909c2a58c). 
 By utilizing these API endpoints, we were able to create a comprehensive and engaging section for users to explore popular destinations, seaside getaways, and mountain retreats, enhancing their travel planning experience.
@@ -45,3 +49,9 @@ Enjoy uninterrupted access to trip details, even without an internet connection,
 
 ## 4. Cross-Platform Compatibility:
 Experience Travely on your preferred device, whether it's a smartphone, tablet, or desktop, with consistent user interface and functionality across platforms.
+
+## 5. APIs Used:
+- Countries API for Currency Information: https://countriesnow.space/api/v0.1/countries/currency - Used to fetch countries and their currency information.
+- Countries API for Latitude and Longitude Information: https://countriesnow.space/api/v0.1/countries/positions - Used to fetch countries along with their latitude and longitude.
+- Flight Information API: https://data-live.flightradar24.com/clickhandler/?flight= - Used to display flight details including departure and destination airports.
+- Weather API: https://api.openweathermap.org/data/2.5/weather - Used to display current weather conditions for selected destinations.
