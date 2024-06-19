@@ -88,8 +88,6 @@ The profile section provides users with insightful analytics and visualizations.
 ![image](https://github.com/adelinamfatu/Travely/assets/115553717/36318e23-0bd0-4f43-98a0-ee1df2df5e93)
 
 
-
-    
 ## 3. Offline Support: 
 Enjoy uninterrupted access to trip details, even without an internet connection, thanks to offline storage capabilities provided by SQLite database.
 
@@ -97,7 +95,9 @@ Enjoy uninterrupted access to trip details, even without an internet connection,
 Experience Travely on your preferred device, whether it's a smartphone, tablet, or desktop, with consistent user interface and functionality across platforms.
 
 ## 5. APIs Used:
-- Countries API for Currency Information: https://countriesnow.space/api/v0.1/countries/currency - Used to fetch countries and their currency information.
-- Countries API for Latitude and Longitude Information: https://countriesnow.space/api/v0.1/countries/positions - Used to fetch countries along with their latitude and longitude.
-- Flight Information API: https://data-cloud.flightradar24.com/zones/fcgi/feed.js?faa=1&bounds=49.381%2C42.022%2C19.324%2C32.056&satellite=1&mlat=1&flarm=1&adsb=1&gnd=1&air=1&vehicles=1&estimated=1&maxage=14400&gliders=1&stats=1 - Used to display flight details including departure and destination airports.
-- Weather API: https://api.openweathermap.org/data/2.5/weather - Used to display current weather conditions for selected destinations.
+- Countries API for Popular European Countries: Used to display popular european destination.
+- Countries API for Popular Seaside and Mountain Side: Used to display popular seaside and mountain side destinations.
+- Flight Information API: Used to display flight details including departure and destination airports.
+- Weather API: Used to display current weather conditions for selected destinations.
+- GeocodeCoordinatesAPI : Used to display the map
+- FlagAPI: Used to display the flag for each country the user plan to visit
